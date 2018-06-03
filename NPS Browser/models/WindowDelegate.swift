@@ -14,4 +14,10 @@ protocol WindowDelegate {
     
     func startBtnReloadAnimation()
     func stopBtnReloadAnimation()
+    
+    func addToDownloadQueue(data: DLItem)
+    func removeCompletedFromDownloadQueue()
+    func getDownloadQueue() -> [DLItem]
+    
+    func getDataController() -> DataViewController
 }

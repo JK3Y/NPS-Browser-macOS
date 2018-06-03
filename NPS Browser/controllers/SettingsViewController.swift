@@ -20,68 +20,104 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var chkCreateLicense: NSButton!
     @IBOutlet weak var chkKeepPKG: NSButton!
     @IBOutlet weak var chkSaveZip: NSButton!
+    @IBOutlet weak var chkCompressPSPISO: NSButton!
+    @IBOutlet weak var compressionFactorStepper: NSStepper!
+    @IBOutlet weak var compressionFactorField: NSTextField!
     
-    let defaults = UserDefaults.standard
+    var dlLocation: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let settings = getSettings()
-        updateTextFields(settings: settings)
+        let settings = SettingsManager().getSettings()
+        updateTextFields(settings: settings!)
     }
     
-    func updateTextFields(settings: [String: Any]) {
-        let urls = settings["urls"]             as! [String: String]
-        let downloads = settings["downloads"]   as! [String: String]
-        let extract = settings["extract"]       as! [String: Bool]
-//        let cache = settings["cache"]           as! [String: Int]
-
+    @IBAction func toggleCompressionFactor(_ sender: NSButton) {
+        switch sender.state {
+        case .on:
+            compressionFactorStepper.isEnabled = true
+            compressionFactorField.isEnabled = true
+            break
+        case .off :
+            compressionFactorStepper.isEnabled = false
+            compressionFactorField.isEnabled = false
+            break
+        default:
+            break
+        }
+    }
+    
+    @IBAction func stepCompressionFactor(_ sender: Any) {
+        compressionFactorField.integerValue = compressionFactorStepper.integerValue
+    }
+    
+    func updateTextFields(settings: Settings) {
+        let urls = settings.urls
+        let downloads = settings.downloads
+        let extract = settings.extract
+        
+        self.dlLocation = downloads["download_location"]!
+        
         psvgField.stringValue   = urls["PSVGames"]!
         psvuField.stringValue   = urls["PSVUpdates"]!
         psvdlcField.stringValue = urls["PSVDLCs"]!
         psxgField.stringValue   = urls["PSXGames"]!
         pspgField.stringValue   = urls["PSPGames"]!
         
-        dlPathField.stringValue = downloads["download_location"]!
-        
+        dlPathField.stringValue = self.dlLocation!.path
+
         chkExtractPKG.state     = extract["extract_after_downloading"]! ? .on : .off
         chkKeepPKG.state        = extract["keep_pkg"]! ? .on : .off
         chkSaveZip.state        = extract["save_as_zip"]! ? .on : .off
         chkCreateLicense.state  = extract["create_license"]! ? .on : .off
+        chkCompressPSPISO.state = extract["compress_psp_iso"]! ? .on : .off
+        
+        compressionFactorField.integerValue = settings.compressionFactor
+        compressionFactorStepper.integerValue = settings.compressionFactor
     }
     
-    func getSettings() -> [String: Any] {
-        return defaults.object(forKey: "settings") as? [String: Any] ?? Settings.defaultSettings().getDefaultArray()
+    @IBAction func selectDLPath(_ sender: Any) {
+        guard let window = view.window else { return }
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = false
+        
+        panel.beginSheetModal(for: window) { (result) in
+            if result == NSApplication.ModalResponse.OK {
+                self.dlLocation = panel.urls[0]
+                self.dlPathField.stringValue = self.dlLocation!.path
+            }
+        }
     }
     
-    func setSettings(settings: [String: Any]) {
-        defaults.set(settings, forKey: "settings")
+    @IBAction func resetToDefaults(_ sender: Any) {
+        updateTextFields(settings: SettingsManager().getDefaultSettings())
     }
-
+    
     @IBAction func save(_ sender: Any) {
-        let settings = [
-            "urls": [
-                "PSVGames"                  : psvgField.stringValue,
-                "PSVUpdates"                : psvuField.stringValue,
-                "PSVDLCs"                   : psvdlcField.stringValue,
-                "PSXGames"                  : psxgField.stringValue,
-                "PSPGames"                  : pspgField.stringValue
-            ],
-            "downloads": [
-                "download_location"         : dlPathField.stringValue
-            ],
-            "extract": [
-                "extract_after_downloading" : chkExtractPKG.state == .on,
-                "keep_pkg"                  : chkKeepPKG.state == .on,
-                "save_as_zip"               : chkSaveZip.state == .on,
-                "create_license"            : chkCreateLicense.state == .on
-            ]
+        let urls = [
+            "PSVGames"                  : psvgField.stringValue,
+            "PSVUpdates"                : psvuField.stringValue,
+            "PSVDLCs"                   : psvdlcField.stringValue,
+            "PSXGames"                  : psxgField.stringValue,
+            "PSPGames"                  : pspgField.stringValue
         ]
-        setSettings(settings: settings)
+        let downloads = [
+            "download_location"         : self.dlLocation!.absoluteURL
+        ]
+        let extract = [
+            "extract_after_downloading" : chkExtractPKG.state == .on,
+            "keep_pkg"                  : chkKeepPKG.state == .on,
+            "save_as_zip"               : chkSaveZip.state == .on,
+            "create_license"            : chkCreateLicense.state == .on,
+            "compress_psp_iso"          : chkCompressPSPISO.state == .on
+        ]
+        let compressionFactor = compressionFactorField.integerValue
+
+        let settings = Settings(urls: urls, downloads: downloads, extract: extract, compressionFactor: compressionFactor)
+        SettingsManager().setSettings(settings: settings)
         dismissViewController(self)
-    }
-    
-    func clearUserDefaults() {
-        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
     }
 }
