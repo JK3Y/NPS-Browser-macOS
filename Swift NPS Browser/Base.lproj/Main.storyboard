@@ -25,7 +25,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="PAs-W9-MbK" kind="modal" id="PrO-8G-nhN"/>
+                                                <segue destination="PAs-W9-MbK" kind="show" id="qXX-qj-6GT"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -317,10 +317,10 @@
             </objects>
             <point key="canvasLocation" x="-1823" y="106"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Preferences-->
         <scene sceneID="EjE-4f-qZw">
             <objects>
-                <viewController id="PAs-W9-MbK" customClass="SettingsViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preferences" id="PAs-W9-MbK" customClass="SettingsViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rct-Cj-kK5">
                         <rect key="frame" x="0.0" y="0.0" width="361" height="338"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -627,13 +627,13 @@
                 <customObject id="1gw-wd-oSX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="hXH-Em-WlI"/>
             </objects>
-            <point key="canvasLocation" x="-1393.5" y="106"/>
+            <point key="canvasLocation" x="-1331" y="106"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
             <objects>
                 <windowController id="wh3-3u-Qnj" customClass="WindowController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Swift NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
+                    <window key="window" title="Swift NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Swift NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="480" height="270"/>
@@ -1196,7 +1196,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Wdq-yx-IHN">
-                                    <rect key="frame" x="1" y="283" width="653" height="16"/>
+                                    <rect key="frame" x="1" y="283" width="531" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rsG-lA-Xke">
@@ -1406,7 +1406,7 @@
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
-        <image name="NSStopProgressFreestandingTemplate" width="11" height="11"/>
+        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
         <image name="NSTouchBarDownloadTemplate" width="18" height="30"/>
     </resources>
 </document>

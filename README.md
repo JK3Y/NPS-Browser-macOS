@@ -10,12 +10,13 @@ I was sick of having to use Bootcamp just for this one app. So I decided to make
 Note that the data from the server is stored until you decide to refresh the database.
 
 ## Building
-Open the project using the .xcworkspace file, since this project uses CocoaPods for dependencies. Then just build and run.
+Open the project in XCode using the .xcworkspace file, since this project uses CocoaPods for dependencies. Then just build and run.
 
 ## Known Bugs
 * Sometimes the app will quit on launch, but runs fine after relaunching it.
 
 ## Thanks
+Ann0ying for the icon
 * [pkg2zip][]
 * [AlamoFire][]
 * [Promises][]
