@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:NPS Browser.xcodeproj">
+      location = "group:/Users/jamador/dev/XCode/NPS Browser/Swift NPS Browser.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

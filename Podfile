@@ -8,6 +8,6 @@ target 'NPS Browser' do
   # Pods for NPS Browser
   pod 'Alamofire', '~> 4.7'
   pod 'PromisesSwift', '~> 1.2'
-  pod 'ProgressKit'
+  pod 'Queuer'
 
 end

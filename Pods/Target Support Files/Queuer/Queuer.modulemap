@@ -1,0 +1,6 @@
+framework module Queuer {
+  umbrella header "Queuer-umbrella.h"
+
+  export *
+  module * { export * }
+}

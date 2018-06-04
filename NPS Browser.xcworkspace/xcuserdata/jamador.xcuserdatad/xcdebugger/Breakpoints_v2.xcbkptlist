@@ -9,13 +9,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NPS Browser/controllers/WindowController.swift"
-            timestampString = "548375879.386809"
+            filePath = "NPS Browser/services/SettingsManager.swift"
+            timestampString = "549761192.0019929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "btnReloadClicked(_:)"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "getSettings()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NPS Browser/services/ExtractionManager.swift"
+            timestampString = "549762196.8156331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getArguments()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NPS_Browser.ExtractionManager.(getArguments in _1DFD82E6EC522B27AC8E90EAE14C03BF)() -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "NPS Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamador/dev/XCode/NPS%20Browser/NPS%20Browser/services/ExtractionManager.swift"
+                  timestampString = "549762138.322113"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "3104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NPS_Browser.ExtractionManager.(getArguments in _1DFD82E6EC522B27AC8E90EAE14C03BF)() -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "NPS Browser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamador/dev/XCode/NPS%20Browser/NPS%20Browser/services/ExtractionManager.swift"
+                  timestampString = "549762138.323939"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "5395">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NPS Browser/services/SettingsManager.swift"
+            timestampString = "549761192.002128"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NPS Browser/controllers/WindowController.swift"
-            timestampString = "548375879.387728"
+            filePath = "NPS Browser/services/SettingsManager.swift"
+            timestampString = "549761192.00219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "startBtnReloadAnimation()"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -39,14 +103,62 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NPS Browser/controllers/SettingsViewController.swift"
+            timestampString = "549757155.492775"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NPS Browser/services/SettingsManager.swift"
+            timestampString = "549761192.0022579"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "setSettings(settings:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NPS Browser/services/NetworkManager.swift"
-            timestampString = "548397916.7125551"
+            timestampString = "549762196.816411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "makeHTTPRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NPS Browser/services/NetworkManager.swift"
+            timestampString = "549762196.816515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "makeHTTPRequest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,13 +169,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NPS Browser/services/CoreDataIO.swift"
-            timestampString = "548375879.388864"
+            filePath = "NPS Browser/services/ExtractionManager.swift"
+            timestampString = "549762196.816595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "searchRecords(searchString:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "getArguments()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,29 +185,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NPS Browser/services/CoreDataIO.swift"
-            timestampString = "548375879.3890949"
+            filePath = "NPS Browser/services/ExtractionManager.swift"
+            timestampString = "549762196.817155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "searchRecords(searchString:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NPS Browser/controllers/WindowController.swift"
-            timestampString = "548375879.389149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "onFilterSearchBar(_:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getArguments()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
