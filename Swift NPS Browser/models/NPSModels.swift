@@ -1,8 +1,8 @@
 //
 //  NPSModels.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/14/18.
+//  Created by JK3Y on 5/14/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -21,9 +21,19 @@ class NPSBase {
         self.region                      = valueDict["region"]
         self.name                        = valueDict["name"]
         self.pkg_direct_link             = URL(string: valueDict["pkg_direct_link"]!)
-        self.last_modification_date      = ISO8601DateFormatter().date(from: valueDict["last_modification_date"]!)
+        self.last_modification_date      = parseDate(dateString: valueDict["last_modification_date"]!)
         self.file_size                   = Int64(valueDict["file_size"]!)
         self.sha256                      = valueDict["sha256"]
+    }
+    
+    func parseDate(dateString: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let date = formatter.date(from: dateString) else {
+            debugPrint("Failed to parse date: \(dateString)")
+            return nil
+        }
+        return date
     }
 }
 

@@ -1,8 +1,8 @@
 //
 //  DLItem.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/19/18.
+//  Created by JK3Y on 5/19/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import Cocoa
 import Alamofire
 
 class DLItem: NSObject {
+    @objc dynamic var title_id          : String?
     @objc dynamic var name              : String?
     @objc dynamic var type              : String?
     @objc dynamic var url               : URL?

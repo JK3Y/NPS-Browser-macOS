@@ -1,8 +1,8 @@
 //
 //  Settings.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 4/28/18.
+//  Created by JK3Y on 4/28/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 

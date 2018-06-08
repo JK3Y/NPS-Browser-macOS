@@ -1,8 +1,8 @@
 //
 //  DetailsController.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/6/18.
+//  Created by JK3Y on 5/6/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -84,24 +84,29 @@ class DetailsViewController: NSViewController {
 
         switch(type) {
         case "PSVGames":
+            obj.title_id = (representedObject! as! PSVGameMO).title_id ?? ""
             obj.name = (representedObject! as! PSVGameMO).name ?? ""
             obj.url = URL(string: ((representedObject! as! PSVGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
             obj.zrif = (representedObject! as! PSVGameMO).zrif ?? ""
             break
         case "PSVUpdates":
+            obj.title_id = (representedObject! as! PSVUpdateMO).title_id ?? ""
             obj.name = (representedObject! as! PSVUpdateMO).name ?? ""
             obj.url = URL(string: ((representedObject! as! PSVUpdateMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
             break
         case "PSVDLCs":
+            obj.title_id = (representedObject! as! PSVDLCMO).title_id ?? ""
             obj.name = (representedObject! as! PSVDLCMO).name ?? ""
             obj.url = URL(string: ((representedObject! as! PSVDLCMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
             obj.zrif = (representedObject! as! PSVDLCMO).zrif ?? ""
             break
         case "PSPGames":
+            obj.title_id = (representedObject! as! PSPGameMO).title_id ?? ""
             obj.name = (representedObject! as! PSPGameMO).name ?? ""
             obj.url = URL(string: ((representedObject! as! PSPGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
             break
         case "PSXGames":
+            obj.title_id = (representedObject! as! PSXGameMO).title_id ?? ""
             obj.name = (representedObject! as! PSXGameMO).name ?? ""
             obj.url = URL(string: ((representedObject! as! PSXGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
             break

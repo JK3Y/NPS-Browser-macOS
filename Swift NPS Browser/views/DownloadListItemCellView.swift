@@ -1,8 +1,8 @@
 //
 //  DownloadListItemCellView.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/19/18.
+//  Created by JK3Y on 5/19/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -31,13 +31,12 @@ class DownloadListItemCellView: NSTableCellView {
         }
         
         else if (item!.isRemovable) {
-
             windowDelegate?.removeCompletedFromDownloadQueue()
         }
     }
     
     @IBAction func doViewDownloadedFile(_ sender: NSButton) {
-        
-        debugPrint("doViewDownloadedFile")
+        let dlLoc = SettingsManager().getDownloads()["download_location"]!.appendingPathComponent("app/\(item!.title_id!)")
+        NSWorkspace.shared.open(dlLoc)
     }
 }

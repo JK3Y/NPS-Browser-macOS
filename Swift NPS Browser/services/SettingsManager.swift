@@ -1,8 +1,8 @@
 //
 //  SettingsManager.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 4/29/18.
+//  Created by JK3Y on 4/29/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -66,11 +66,7 @@ class SettingsManager {
         let defaults = Settings()
         setSettings(settings: defaults)
     }
-//    func resetUserDefaults() {
-//        let defaults = Settings()
-//        setSettings(settings: defaults)
-//    }
-    
+
     func clearUserDefaults() {
         getUserDefaults().removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
     }

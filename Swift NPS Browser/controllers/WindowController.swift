@@ -1,8 +1,8 @@
 //
 //  WindowController.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/6/18.
+//  Created by JK3Y on 5/6/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 

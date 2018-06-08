@@ -1,8 +1,8 @@
 //
 //  CoreDataIO.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 5/5/18.
+//  Created by JK3Y on 5/5/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -54,24 +54,33 @@ class CoreDataIO: NSObject {
             nps.setValue(item.sha256, forKey: "sha256")
             
             switch(self.type) {
-                case "PSVGames":
-                    nps.setValue((item as! PSVGame).content_id, forKey: "content_id")
-                    nps.setValue((item as! PSVGame).original_name, forKey: "original_name")
-                    nps.setValue((item as! PSVGame).required_fw, forKey: "required_fw")
-                    nps.setValue((item as! PSVGame).zrif, forKey: "zrif")
-                    break
-                case "PSVUpdates":
-                    nps.setValue((item as! PSVUpdate).update_version, forKey: "update_version")
-                    nps.setValue((item as! PSVUpdate).fw_version, forKey: "fw_version")
-                    nps.setValue((item as! PSVUpdate).nonpdrm_mirror, forKey: "nonpdrm_mirror")
-                    break
-                case "PSVDLCs":
-                    nps.setValue((item as! PSVDLC).content_id, forKey: "content_id")
-                    nps.setValue((item as! PSVDLC).zrif, forKey: "zrif")
-                    break
-                default:
-                    break
-                }
+            case "PSVGames":
+                nps.setValue((item as! PSVGame).content_id, forKey: "content_id")
+                nps.setValue((item as! PSVGame).original_name, forKey: "original_name")
+                nps.setValue((item as! PSVGame).required_fw, forKey: "required_fw")
+                nps.setValue((item as! PSVGame).zrif, forKey: "zrif")
+                break
+            case "PSVUpdates":
+                nps.setValue((item as! PSVUpdate).update_version, forKey: "update_version")
+                nps.setValue((item as! PSVUpdate).fw_version, forKey: "fw_version")
+                nps.setValue((item as! PSVUpdate).nonpdrm_mirror, forKey: "nonpdrm_mirror")
+                break
+            case "PSVDLCs":
+                nps.setValue((item as! PSVDLC).content_id, forKey: "content_id")
+                nps.setValue((item as! PSVDLC).zrif, forKey: "zrif")
+                break
+            case "PSPGames":
+                nps.setValue((item as! PSPGame).content_id, forKey: "content_id")
+                nps.setValue((item as! PSPGame).rap, forKey: "rap")
+                nps.setValue((item as! PSPGame).download_rap_file, forKey: "download_rap_file")
+                break
+            case "PSXGames":
+                nps.setValue((item as! PSXGame).content_id, forKey: "content_id")
+                nps.setValue((item as! PSXGame).original_name, forKey: "original_name")
+                break
+            default:
+                break
+            }
         })
         
         do {

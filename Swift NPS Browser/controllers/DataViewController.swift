@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  NPS Browser
+//  Swift NPS Browser
 //
-//  Created by Jacob Amador on 4/28/18.
+//  Created by JK3Y on 4/28/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
@@ -25,7 +25,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
     
     override func viewDidAppear() {
         self.windowDelegate = NSApplication.shared.mainWindow?.windowController as! WindowController
-
+        
         windowDelegate?.startBtnReloadAnimation()
         if (CoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
@@ -61,7 +61,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
     func setArrayControllerContent(content: [NSManagedObject]?) {
         tsvResultsController.content = nil
         tsvResultsController.content = content
-
+        
         windowDelegate?.stopBtnReloadAnimation()
     }
 }

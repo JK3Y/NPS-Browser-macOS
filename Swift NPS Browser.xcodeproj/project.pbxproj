@@ -15,6 +15,8 @@
 		5149B3C920A8F63C00D3D82C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149B3C820A8F63C00D3D82C /* NetworkManager.swift */; };
 		515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515B77B420AF794500C7B07D /* ToolbarDelegate.swift */; };
 		5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167430420AFE098003AFC4D /* DownloadManager.swift */; };
+		516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7620CAE275004D6AE5 /* CHANGELOG.md */; };
+		516A1B7920CAE28A004D6AE5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7820CAE28A004D6AE5 /* README.md */; };
 		516BE6AA209E14B300FC9580 /* CoreDataIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516BE6A9209E14B300FC9580 /* CoreDataIO.swift */; };
 		516BE6AC209E3F6300FC9580 /* ListTimestamps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516BE6AB209E3F6300FC9580 /* ListTimestamps.plist */; };
 		5177A78620C33C0F002F81F9 /* pkg2zip in Resources */ = {isa = PBXBuildFile; fileRef = 5177A78520C33C0E002F81F9 /* pkg2zip */; };
@@ -46,6 +48,8 @@
 		5149B3C820A8F63C00D3D82C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		515B77B420AF794500C7B07D /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		5167430420AFE098003AFC4D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		516A1B7620CAE275004D6AE5 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		516A1B7820CAE28A004D6AE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		516BE6A9209E14B300FC9580 /* CoreDataIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIO.swift; sourceTree = "<group>"; };
 		516BE6AB209E3F6300FC9580 /* ListTimestamps.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ListTimestamps.plist; sourceTree = "<group>"; };
 		5177A78520C33C0E002F81F9 /* pkg2zip */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pkg2zip; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		51EBE8122094E094005D44DC = {
 			isa = PBXGroup;
 			children = (
+				516A1B7820CAE28A004D6AE5 /* README.md */,
+				516A1B7620CAE275004D6AE5 /* CHANGELOG.md */,
 				51EBE81D2094E094005D44DC /* Swift NPS Browser */,
 				51EBE81C2094E094005D44DC /* Products */,
 				0B25CCBA7A3C9A6B4CC4010C /* Pods */,
@@ -244,7 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				516A1B7920CAE28A004D6AE5 /* README.md in Resources */,
 				51EBE8262094E095005D44DC /* Assets.xcassets in Resources */,
+				516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */,
 				516BE6AC209E3F6300FC9580 /* ListTimestamps.plist in Resources */,
 				5177A78620C33C0F002F81F9 /* pkg2zip in Resources */,
 				51EBE8292094E095005D44DC /* Main.storyboard in Resources */,
