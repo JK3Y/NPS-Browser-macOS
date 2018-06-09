@@ -25,6 +25,12 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compressionFactorField: NSTextField!
     
     var dlLocation: URL?
+    
+    override func viewWillAppear() {
+        // Remove fullscreen and ability to resize the window
+        self.view.window?.styleMask.remove(.fullScreen)
+        self.view.window?.styleMask.remove(.resizable)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +59,6 @@ class SettingsViewController: NSViewController {
     }
     
     func updateTextFields(settings: Settings) {
-        
         self.dlLocation = settings.download.download_location
         
         psvgField.stringValue   = settings.source.psv_games?.absoluteString ?? ""
@@ -94,7 +99,6 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-
         let source      = SourceSettings(psv_games: psvgField.stringValue,
                                          psv_dlc: psvdlcField.stringValue,
                                          psv_updates: psvuField.stringValue,
@@ -108,7 +112,6 @@ class SettingsViewController: NSViewController {
                                           create_license: chkCreateLicense.state == .on,
                                           compress_psp_iso: chkCompressPSPISO.state == .on,
                                           compression_factor: compressionFactorField.integerValue)
-        
         let settings = Settings(source: source, download: download, extract: extract)
         SettingsManager().setSettings(settings: settings)
         
