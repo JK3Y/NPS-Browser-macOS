@@ -24,4 +24,8 @@ class Helpers {
         (NSApplication.shared.delegate as! AppDelegate).showNotification(title: title, subtitle: subtitle)
     }
     
+    func getWindowController() -> WindowController {
+        return NSApplication.shared.mainWindow?.windowController as! WindowController
+    }
+    
 }

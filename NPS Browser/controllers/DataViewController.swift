@@ -65,3 +65,25 @@ class DataViewController: NSViewController, ToolbarDelegate {
         windowDelegate?.stopBtnReloadAnimation()
     }
 }
+
+extension NSTableView {
+    override open func keyDown(with event: NSEvent) {
+        print("keyCode: \(event.keyCode)")
+        
+        switch event.keyCode {
+        case 125:
+            // Down
+            Helpers().getWindowController().getDataController().tsvResultsController.setSelectionIndex(selectedRow + 1)
+            Helpers().getWindowController().getDataController().tableSelectionChanged(self)
+            break
+        case 126:
+            // UP
+            Helpers().getWindowController().getDataController().tsvResultsController.setSelectionIndex(selectedRow - 1)
+            Helpers().getWindowController().getDataController().tableSelectionChanged(self)
+            break
+        default:
+            break
+        }
+    }
+
+}

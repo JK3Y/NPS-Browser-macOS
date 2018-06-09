@@ -19,7 +19,6 @@ class DownloadListItemCellView: NSTableCellView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
         // Drawing code here.
         item = objectValue as? DLItem
     }
@@ -30,10 +29,7 @@ class DownloadListItemCellView: NSTableCellView {
             
             item!.status = "Cancelled"
             item!.isCancelable = false
-        }
-        
-        else if (item!.isRemovable) {
-            windowDelegate?.removeCompletedFromDownloadQueue()
+            item!.isRemovable = true
         }
     }
     
@@ -49,5 +45,6 @@ class DownloadListItemCellView: NSTableCellView {
         item!.request?.resume()
         item!.isResumable = false
         item!.isCancelable = true
+        item!.isRemovable = true
     }
 }

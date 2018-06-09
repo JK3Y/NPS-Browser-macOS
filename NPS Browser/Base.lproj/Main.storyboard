@@ -316,7 +316,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1823" y="106"/>
+            <point key="canvasLocation" x="-1794" y="182"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="EjE-4f-qZw">
@@ -628,7 +628,7 @@
                 <customObject id="1gw-wd-oSX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="hXH-Em-WlI"/>
             </objects>
-            <point key="canvasLocation" x="-1331" y="106"/>
+            <point key="canvasLocation" x="-1375" y="182"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
@@ -784,7 +784,7 @@
                 </windowController>
                 <customObject id="Hsb-qf-Gbj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1539" y="584"/>
+            <point key="canvasLocation" x="-1546" y="602"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="gFT-sY-3Wg">
@@ -809,7 +809,7 @@
                 </splitViewController>
                 <customObject id="3XF-ZM-85d" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1539" y="1080.5"/>
+            <point key="canvasLocation" x="-1546" y="1092"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="XAb-Oy-g8a">
@@ -1043,7 +1043,7 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <action selector="tableSelectionChanged:" target="krD-za-eaE" id="chj-GL-PPv"/>
+                                                <action selector="tableSelectionChanged:" target="jMM-GG-iAN" id="Evx-Kl-mGn"/>
                                                 <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="YeG-9c-3NW"/>
                                                 <binding destination="t5W-WI-XMN" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="YeG-9c-3NW" id="GVD-ky-76N"/>
                                                 <binding destination="t5W-WI-XMN" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="GVD-ky-76N" id="REg-FB-X70"/>
@@ -1081,7 +1081,7 @@
                 <userDefaultsController representsSharedInstance="YES" id="dZf-G9-77a"/>
                 <arrayController automaticallyPreparesContent="YES" id="t5W-WI-XMN"/>
             </objects>
-            <point key="canvasLocation" x="-754" y="776"/>
+            <point key="canvasLocation" x="-763" y="776"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="eCm-Ka-rU8">
@@ -1255,7 +1255,7 @@
                 <customObject id="jFT-Ju-8NY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="MRp-hQ-KEH"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="1187"/>
+            <point key="canvasLocation" x="-919" y="1191"/>
         </scene>
         <!--Download Progress View Controller-->
         <scene sceneID="X8h-Gp-760">
@@ -1308,8 +1308,8 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jCT-TV-Qkg" userLabel="Name">
-                                                                    <rect key="frame" x="1" y="36" width="37" height="17"/>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" id="TIu-Xr-ONW">
+                                                                    <rect key="frame" x="3" y="36" width="37" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" drawsBackground="YES" id="TIu-Xr-ONW">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1328,12 +1328,12 @@
                                                                     </connections>
                                                                 </progressIndicator>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-qS-eZW" userLabel="Status">
-                                                                    <rect key="frame" x="1" y="3" width="243" height="17"/>
+                                                                    <rect key="frame" x="3" y="3" width="239" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="239" id="2JO-yO-APO"/>
                                                                         <constraint firstAttribute="height" constant="17" id="QBa-Ke-Guo"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="0F7-8x-vMT">
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="0F7-8x-vMT">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1343,8 +1343,8 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-yR-f9E" userLabel="Progress Details">
-                                                                    <rect key="frame" x="275" y="3" width="33" height="17"/>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="gEU-8X-bNu">
+                                                                    <rect key="frame" x="277" y="3" width="33" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" drawsBackground="YES" id="gEU-8X-bNu">
                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="9am-dc-cSd">
                                                                             <integer key="multiplier" value="100"/>
                                                                         </numberFormatter>
@@ -1365,7 +1365,7 @@
                                                                                 <constraint firstAttribute="width" constant="13" id="VHK-OV-uvY"/>
                                                                                 <constraint firstAttribute="height" constant="14" id="b33-R1-wCP"/>
                                                                             </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fzX-FA-fCc">
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSStopProgressFreestandingTemplate" imagePosition="only" alignment="center" transparent="YES" imageScaling="proportionallyUpOrDown" inset="2" id="fzX-FA-fCc">
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
@@ -1380,7 +1380,7 @@
                                                                                 <constraint firstAttribute="height" constant="14" id="DnX-8k-xmv"/>
                                                                                 <constraint firstAttribute="width" constant="13" id="b0p-9O-7ec"/>
                                                                             </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WTg-LW-w3j">
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshFreestandingTemplate" imagePosition="only" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="WTg-LW-w3j">
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
@@ -1395,7 +1395,7 @@
                                                                                 <constraint firstAttribute="width" constant="13" id="9mq-kZ-fQj"/>
                                                                                 <constraint firstAttribute="height" constant="14" id="kRK-s7-SFe"/>
                                                                             </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="X9Q-AJ-VtK">
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRevealFreestandingTemplate" imagePosition="only" alignment="center" transparent="YES" imageScaling="proportionallyDown" inset="2" id="X9Q-AJ-VtK">
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
@@ -1487,7 +1487,7 @@
                 <customObject id="fFr-FR-xBn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="Nxw-58-0sM"/>
             </objects>
-            <point key="canvasLocation" x="-1014.5" y="453"/>
+            <point key="canvasLocation" x="-992" y="485"/>
         </scene>
     </scenes>
     <resources>

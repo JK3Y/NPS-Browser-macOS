@@ -29,6 +29,7 @@ class DetailsViewController: NSViewController {
         self.sendDLData()
     }
     
+    
     func toggleDownloadButton() {
         self.windowDelegate = self.view.window!.windowController as! WindowController
         let type = windowDelegate?.getType()
