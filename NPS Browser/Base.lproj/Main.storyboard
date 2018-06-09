@@ -13,11 +13,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Swift NPS Browser" id="1Xt-HY-uBw">
+                            <menuItem title="NPS Browser" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Swift NPS Browser" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="NPS Browser" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Swift NPS Browser" id="5kV-Vb-QxS">
+                                        <menuItem title="About NPS Browser" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -30,7 +30,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
-                                        <menuItem title="Hide Swift NPS Browser" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide NPS Browser" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -48,7 +48,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Swift NPS Browser" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit NPS Browser" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -312,7 +312,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Swift_NPS_Browser" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NPS_Browser" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -321,7 +321,7 @@
         <!--Preferences-->
         <scene sceneID="EjE-4f-qZw">
             <objects>
-                <viewController title="Preferences" showSeguePresentationStyle="single" id="PAs-W9-MbK" customClass="SettingsViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preferences" showSeguePresentationStyle="single" id="PAs-W9-MbK" customClass="SettingsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rct-Cj-kK5">
                         <rect key="frame" x="0.0" y="0.0" width="361" height="338"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -633,8 +633,8 @@
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
             <objects>
-                <windowController id="wh3-3u-Qnj" customClass="WindowController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Swift NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Swift NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
+                <windowController id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Swift NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="480" height="270"/>
@@ -781,7 +781,7 @@
         <!--Split View Controller-->
         <scene sceneID="gFT-sY-3Wg">
             <objects>
-                <splitViewController showSeguePresentationStyle="single" id="KdV-6f-3Pd" customClass="SplitViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController showSeguePresentationStyle="single" id="KdV-6f-3Pd" customClass="SplitViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="S1m-bR-Dnr"/>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Ckh-Ei-AVF"/>
@@ -806,7 +806,7 @@
         <!--Data View Controller-->
         <scene sceneID="XAb-Oy-g8a">
             <objects>
-                <viewController title="Data View Controller" showSeguePresentationStyle="single" id="jMM-GG-iAN" customClass="DataViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Data View Controller" showSeguePresentationStyle="single" id="jMM-GG-iAN" customClass="DataViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="0iH-xA-bEF">
                         <rect key="frame" x="0.0" y="0.0" width="533" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1078,7 +1078,7 @@
         <!--Details View Controller-->
         <scene sceneID="eCm-Ka-rU8">
             <objects>
-                <viewController title="Details View Controller" showSeguePresentationStyle="single" id="n9v-5p-6cD" customClass="DetailsViewController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Details View Controller" showSeguePresentationStyle="single" id="n9v-5p-6cD" customClass="DetailsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="H9H-LI-MqF">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1252,7 +1252,7 @@
         <!--Download Progress View Controller-->
         <scene sceneID="X8h-Gp-760">
             <objects>
-                <viewController title="Download Progress View Controller" showSeguePresentationStyle="single" id="SOC-lv-SK1" customClass="DownloadController" customModule="Swift_NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Download Progress View Controller" showSeguePresentationStyle="single" id="SOC-lv-SK1" customClass="DownloadController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Qc3-hK-TXY">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="156"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1295,7 +1295,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="DaP-mC-AOO" customClass="DownloadListItemCellView" customModule="Swift_NPS_Browser" customModuleProvider="target">
+                                                        <tableCellView id="DaP-mC-AOO" customClass="DownloadListItemCellView" customModule="NPS_Browser" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="378" height="56"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>

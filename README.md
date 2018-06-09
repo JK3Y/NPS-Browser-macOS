@@ -1,7 +1,6 @@
-# Swift NPS Browser
->A macOS version of NPS Browser
+# NPS Browser for macOS
 
-I was sick of having to use Bootcamp just for this one app. So I decided to make a clone of my own as a way to give back to the community.
+A Swift 4 implementation of NPS Browser.
 
 ## Usage
 **Requires macOS 10.13+**
@@ -18,10 +17,10 @@ Open a terminal and install the dependencies:
 pod install
 ```
 Open the .xcworkspace file to open the project.
-Build by going to Product > Build
+Build by going to Product > Build.
+Export an app bundle by going to Product > Archive > Export.
 
-## Known Bugs
-* Sometimes the app will quit on launch, but runs fine after relaunching it.
+## Changelog
 
 ## Thanks
 * Ann0ying
@@ -30,6 +29,7 @@ Build by going to Product > Build
 * [Promises][]
 * [Queuer][]
 
+[Changelog]: 
 [pkg2zip]: https://github.com/mmozeiko/pkg2zip
 [AlamoFire]:https://github.com/Alamofire/Alamofire
 [Promises]:https://github.com/google/promises

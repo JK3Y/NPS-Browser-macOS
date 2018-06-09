@@ -1,6 +1,6 @@
 //
 //  DownloadListItemCellView.swift
-//  Swift NPS Browser
+//  NPS Browser
 //
 //  Created by JK3Y on 5/19/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
@@ -46,8 +46,8 @@ class DownloadListItemCellView: NSTableCellView {
         NSWorkspace.shared.open(dlLoc)
     }
     @IBAction func doRetryRequest(_ sender: NSButton) {
-        
-        debugPrint("retry resume")
-        debugPrint(item?.resumeData)
+        item!.request?.resume()
+        item!.isResumable = false
+        item!.isCancelable = true
     }
 }

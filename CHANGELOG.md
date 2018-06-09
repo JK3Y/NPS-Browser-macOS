@@ -3,8 +3,11 @@
 ### Added
 - Notifications when download/extraction is completed.
 - Completed downloads move to bottom of download list
+- Button added to download list items to allow resuming a cancelled download.
 
 ### Changed
+- Changed project name to "NPS Browser for macOS" to avoid confusion with original NPS Browser.
+- Changed app name to "NPS Browser"
 - Fixed a bug that would crash the app when trying to clear download list witih more than 1 item
 - Fixed the save button in the preferences window, now closes the window after saving
 

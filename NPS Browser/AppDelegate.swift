@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Swift NPS Browser
+//  NPS Browser
 //
 //  Created by JK3Y on 4/28/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
@@ -18,6 +18,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
+    
+    
+
     
     // MARK: - Notifications
     

@@ -1,6 +1,6 @@
 //
 //  ExtractionManager.swift
-//  Swift NPS Browser
+//  NPS Browser
 //
 //  Created by JK3Y on 6/2/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
