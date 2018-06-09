@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -17,6 +17,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    // MARK: - Notifications
+    
+    func showNotification(title: String, subtitle: String) {
+        let notification = NSUserNotification()
+        
+        notification.title = title
+        notification.subtitle = subtitle
+        notification.soundName = NSUserNotificationDefaultSoundName
+        NSUserNotificationCenter.default.delegate = self
+        NSUserNotificationCenter.default.deliver(notification)
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
     }
 
     // MARK: - Core Data stack

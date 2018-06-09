@@ -118,6 +118,7 @@ class SettingsViewController: NSViewController {
 
         let settings = Settings(urls: urls, downloads: downloads, extract: extract, compressionFactor: compressionFactor)
         SettingsManager().setSettings(settings: settings)
+        
         dismissViewController(self)
     }
 }

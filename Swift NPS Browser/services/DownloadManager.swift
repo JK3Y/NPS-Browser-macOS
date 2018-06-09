@@ -33,7 +33,9 @@ class DownloadManager {
         data.setRequest(request)
         
         // add object to downloadItems array
-        downloadItems.append(data)
+//        downloadItems.append(data)
+        
+        downloadItems.insert(data, at: 0)
         
         let downloadItemsIndex = downloadItems.index(of: data)!
         
@@ -49,30 +51,35 @@ class DownloadManager {
             .responseData { response in
                 response.result.ifSuccess {
                     dlItem.isCancelable = false
-//                    dlItem.isViewable = true
                     dlItem.destinationURL = response.destinationURL
 
-                    ExtractionManager(item: dlItem).start()
+                    ExtractionManager(item: dlItem, downloadManager: self).start()
                 }
                 response.result.ifFailure {
-                    dlItem.status = "Failed!"
+                    dlItem.status = "Failed! \(response.error.debugDescription)"
                     dlItem.isCancelable = false
                     
-                    debugPrint(response.error)
+                    debugPrint(response.error.debugDescription)
+                    debugPrint(response.resumeData)
                 }
             }
         }
         self.queue.addOperation(dlFileOperation)
     }
     
+    // TODO: when removing cleared items, if there's 2 items in array [item1, item2] and both are to be removed, after item1 is removed, item2's index changes from 1 to 0. Either they need to be removed in reverse-order, or a 'completed' array needs to hold the completed download list
     func removeCompleted() {
-        for (index, item) in downloadItems.enumerated() {
+        for item in downloadItems {
             if (item.isRemovable) {
-                downloadItems.remove(at: index)
-                
-                print("removed: \(index)")
+                downloadItems.remove(at: downloadItems.index(of: item)!)
+                print("removed: \(item.name)")
             }
         }
+    }
+    
+    func moveToCompleted(item: DLItem) {
+        downloadItems.remove(at: downloadItems.index(of: item)!)
+        downloadItems.insert(item, at: downloadItems.endIndex)
     }
     
     func getObjectQueue() -> [DLItem] {

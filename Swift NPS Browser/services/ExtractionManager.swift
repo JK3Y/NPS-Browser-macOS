@@ -7,21 +7,28 @@
 //
 
 import Foundation
+import Cocoa
 
 class ExtractionManager {
     private var item: DLItem
     private let userSettings = SettingsManager().getSettings()
+    private var downloadManager:DownloadManager
     
-    init(item: DLItem) {
+    init(item: DLItem, downloadManager: DownloadManager) {
         self.item = item
+        self.downloadManager = downloadManager
     }
     
     func start() {
         if (!shouldDoExtract()) {
-            setStatus("Complete")
+            setStatus("Download Complete")
             self.item.isViewable = true
             self.item.isRemovable = true
             self.item.isCancelable = false
+            Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
+            
+            downloadManager.moveToCompleted(item: self.item)
+            
             return
         }
         
@@ -37,10 +44,11 @@ class ExtractionManager {
         task.standardOutput = pipe
         task.terminationHandler = { task in
             DispatchQueue.main.async {
-                self.setStatus("Complete")
+                self.setStatus("Extraction Complete")
                 self.item.isViewable = true
                 self.item.isRemovable = true
                 self.item.isCancelable = false
+                Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
             }
         }
         

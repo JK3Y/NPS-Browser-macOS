@@ -1,4 +1,7 @@
 # Changelog
+## 1.2
+### Added
+- Notifications when download/extraction is completed.
 
 ## 1.1 - 2018-06-08
 ### Added

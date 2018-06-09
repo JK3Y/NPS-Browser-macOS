@@ -20,4 +20,8 @@ class Helpers {
         alert.runModal()
     }
     
+    func makeNotification(title: String, subtitle: String) {
+        (NSApplication.shared.delegate as! AppDelegate).showNotification(title: title, subtitle: subtitle)
+    }
+    
 }
