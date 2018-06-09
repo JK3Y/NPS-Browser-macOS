@@ -27,6 +27,6 @@ class DownloadController: NSViewController {
     
     func updateDownloadView() {
         let content = windowDelegate?.getDownloadQueue()
-        dlArrayController.content = content!
+        dlArrayController.content = content
     }
 }

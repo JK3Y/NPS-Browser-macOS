@@ -51,6 +51,9 @@ class DownloadManager {
             .responseData { response in
                 response.result.ifSuccess {
                     dlItem.isCancelable = false
+                    
+                    dlItem.isViewable = true
+                    
                     dlItem.destinationURL = response.destinationURL
 
                     ExtractionManager(item: dlItem, downloadManager: self).start()
@@ -61,6 +64,7 @@ class DownloadManager {
                         dlItem.isCancelable = false
                         return
                     }
+                    dlItem.status = "Download Cancelled"
                     dlItem.resumeData = resumeData
                 }
             }

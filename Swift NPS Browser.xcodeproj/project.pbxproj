@@ -22,6 +22,7 @@
 		5177A78620C33C0F002F81F9 /* pkg2zip in Resources */ = {isa = PBXBuildFile; fileRef = 5177A78520C33C0E002F81F9 /* pkg2zip */; };
 		5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A78720C3508D002F81F9 /* ExtractionManager.swift */; };
 		517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CD22B20AFA4A200C33623 /* DownloadController.swift */; };
+		51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 51843FD020CB9DF2009AE9A4 /* .gitignore */; };
 		518BF15920B2260100A8044C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BF15820B2260100A8044C /* Settings.swift */; };
 		518C72EB20C4153B0022375E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C72EA20C4153B0022375E /* Helpers.swift */; };
 		51A767A020A665A800052F53 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A7679F20A665A800052F53 /* SplitViewController.swift */; };
@@ -55,6 +56,7 @@
 		5177A78520C33C0E002F81F9 /* pkg2zip */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pkg2zip; sourceTree = "<group>"; };
 		5177A78720C3508D002F81F9 /* ExtractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionManager.swift; sourceTree = "<group>"; };
 		517CD22B20AFA4A200C33623 /* DownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
+		51843FD020CB9DF2009AE9A4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		518BF15820B2260100A8044C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		518C72EA20C4153B0022375E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		51A7679F20A665A800052F53 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		51EBE8122094E094005D44DC = {
 			isa = PBXGroup;
 			children = (
+				51843FD020CB9DF2009AE9A4 /* .gitignore */,
 				516A1B7820CAE28A004D6AE5 /* README.md */,
 				516A1B7620CAE275004D6AE5 /* CHANGELOG.md */,
 				51EBE81D2094E094005D44DC /* Swift NPS Browser */,
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				516A1B7920CAE28A004D6AE5 /* README.md in Resources */,
+				51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */,
 				51EBE8262094E095005D44DC /* Assets.xcassets in Resources */,
 				516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */,
 				516BE6AC209E3F6300FC9580 /* ListTimestamps.plist in Resources */,

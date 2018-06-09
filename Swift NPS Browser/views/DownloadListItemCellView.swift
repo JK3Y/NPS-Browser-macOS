@@ -12,6 +12,7 @@ class DownloadListItemCellView: NSTableCellView {
     
     @IBOutlet weak var btnView: NSButton!
     @IBOutlet weak var btnCancel: NSButton!
+    @IBOutlet weak var btnRetry: NSButton!
     let windowDelegate: WindowDelegate? = NSApp.mainWindow?.windowController as! WindowController
     var item: DLItem?
     var dlLoc = SettingsManager().getDownloads()["download_location"]!
@@ -43,5 +44,10 @@ class DownloadListItemCellView: NSTableCellView {
         }
         
         NSWorkspace.shared.open(dlLoc)
+    }
+    @IBAction func doRetryRequest(_ sender: NSButton) {
+        
+        debugPrint("retry resume")
+        debugPrint(item?.resumeData)
     }
 }

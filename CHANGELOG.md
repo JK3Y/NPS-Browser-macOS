@@ -2,6 +2,11 @@
 ## 1.2
 ### Added
 - Notifications when download/extraction is completed.
+- Completed downloads move to bottom of download list
+
+### Changed
+- Fixed a bug that would crash the app when trying to clear download list witih more than 1 item
+- Fixed the save button in the preferences window, now closes the window after saving
 
 ## 1.1 - 2018-06-08
 ### Added
