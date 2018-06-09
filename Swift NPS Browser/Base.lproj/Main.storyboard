@@ -26,7 +26,7 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <segue destination="PAs-W9-MbK" kind="show" id="qXX-qj-6GT"/>
+                                                <segue destination="PAs-W9-MbK" kind="modal" id="TvL-VU-z9H"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
@@ -672,7 +672,7 @@
                                         </buttonCell>
                                     </button>
                                     <connections>
-                                        <segue destination="mjl-TS-RlZ" kind="popover" popoverAnchorView="Jr5-TI-hKt" popoverBehavior="t" preferredEdge="maxY" id="cYf-WN-OQw"/>
+                                        <segue destination="SOC-lv-SK1" kind="popover" popoverAnchorView="Jr5-TI-hKt" popoverBehavior="t" preferredEdge="maxY" id="eoW-8b-FEJ"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="7eI-JH-Pcd"/>
@@ -1004,7 +1004,7 @@
                 <customObject id="EY8-FN-dBy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="Nxw-58-0sM"/>
             </objects>
-            <point key="canvasLocation" x="-1028" y="473"/>
+            <point key="canvasLocation" x="-938" y="215"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="XAb-Oy-g8a">
@@ -1549,11 +1549,11 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
-                                                                    <rect key="frame" x="318" y="2" width="13" height="50"/>
+                                                                    <rect key="frame" x="318" y="52" width="0.0" height="0.0"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <button hidden="YES" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIt-aL-Dcx" userLabel="Retry Button">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="13" height="50"/>
+                                                                        <button hidden="YES" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIt-aL-Dcx" userLabel="Resume Button">
+                                                                            <rect key="frame" x="0.0" y="-50" width="13" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="13" id="b0p-9O-7ec"/>
                                                                             </constraints>
@@ -1561,9 +1561,12 @@
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
+                                                                            <connections>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isResumable" id="Dpe-KY-ZIm"/>
+                                                                            </connections>
                                                                         </button>
-                                                                        <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Cancel Button">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="13" height="50"/>
+                                                                        <button hidden="YES" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Cancel Button">
+                                                                            <rect key="frame" x="0.0" y="-50" width="13" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="13" id="VHK-OV-uvY"/>
                                                                             </constraints>
@@ -1573,11 +1576,11 @@
                                                                             </buttonCell>
                                                                             <connections>
                                                                                 <action selector="doCancelRequest:" target="DaP-mC-AOO" id="B2c-yL-9Yg"/>
-                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isCancelable" id="qOc-22-kmP"/>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isCancelable" id="fza-49-9gj"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button hidden="YES" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k8i-fY-VzO" userLabel="View Button">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="13" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="-50" width="13" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="13" id="9mq-kZ-fQj"/>
                                                                             </constraints>
@@ -1587,7 +1590,7 @@
                                                                             </buttonCell>
                                                                             <connections>
                                                                                 <action selector="doViewDownloadedFile:" target="DaP-mC-AOO" id="zhW-lh-8yE"/>
-                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isViewable" id="eBA-89-iCj"/>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isViewable" id="Mfg-Cp-piP"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -1639,7 +1642,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0u4-nU-RL9">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0u4-nU-RL9">
                                 <rect key="frame" x="260" y="125" width="66" height="28"/>
                                 <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zxK-37-XlQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1656,10 +1659,10 @@
                             <constraint firstItem="rCG-ed-yrt" firstAttribute="top" secondItem="Tnb-uc-zsV" secondAttribute="bottom" constant="8" symbolic="YES" id="Mfj-rJ-ocW"/>
                             <constraint firstAttribute="trailing" secondItem="rCG-ed-yrt" secondAttribute="trailing" id="Vs3-zj-Sqa"/>
                             <constraint firstAttribute="bottom" secondItem="rCG-ed-yrt" secondAttribute="bottom" id="a1y-DB-VmX"/>
-                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="80" id="cjH-l3-vPY"/>
+                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="61" id="cjH-l3-vPY"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="0u4-nU-RL9" secondAttribute="top" id="d9I-uw-YG4"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="Qc3-hK-TXY" secondAttribute="top" constant="7" id="xFf-Jc-AgI"/>
-                            <constraint firstAttribute="trailing" secondItem="0u4-nU-RL9" secondAttribute="trailing" constant="6" id="zQe-eS-SKE"/>
+                            <constraint firstAttribute="trailing" secondItem="0u4-nU-RL9" secondAttribute="trailing" constant="20" id="zQe-eS-SKE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1670,7 +1673,7 @@
                 <customObject id="fFr-FR-xBn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="Rem-C9-jGO"/>
             </objects>
-            <point key="canvasLocation" x="-571.5" y="295"/>
+            <point key="canvasLocation" x="-1034" y="453"/>
         </scene>
     </scenes>
     <resources>

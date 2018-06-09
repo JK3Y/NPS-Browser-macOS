@@ -23,6 +23,12 @@ class DLItem: NSObject {
     @objc dynamic var isCancelable      : Bool = true
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
+    @objc dynamic var isResumable       : Bool = false
+    @objc dynamic var resumeData        : Data? {
+        didSet {
+            isResumable = true
+        }
+    }
     
     override init() {
         super.init()

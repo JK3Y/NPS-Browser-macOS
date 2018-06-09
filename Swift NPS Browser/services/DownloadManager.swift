@@ -56,11 +56,12 @@ class DownloadManager {
                     ExtractionManager(item: dlItem, downloadManager: self).start()
                 }
                 response.result.ifFailure {
-                    dlItem.status = "Failed! \(response.error.debugDescription)"
-                    dlItem.isCancelable = false
-                    
-                    debugPrint(response.error.debugDescription)
-                    debugPrint(response.resumeData)
+                    guard let resumeData = response.resumeData else {
+                        dlItem.status = "Failed! \(response.error.debugDescription)"
+                        dlItem.isCancelable = false
+                        return
+                    }
+                    dlItem.resumeData = resumeData
                 }
             }
         }
@@ -72,7 +73,6 @@ class DownloadManager {
         for item in downloadItems {
             if (item.isRemovable) {
                 downloadItems.remove(at: downloadItems.index(of: item)!)
-                print("removed: \(item.name)")
             }
         }
     }

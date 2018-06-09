@@ -298,7 +298,7 @@
                   moduleName = "Swift NPS Browser"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jamador/dev/XCode/NPS%20Browser/Swift%20NPS%20Browser/services/CoreDataIO.swift"
-                  timestampString = "550204863.8567311"
+                  timestampString = "550208311.304594"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -313,7 +313,7 @@
                   moduleName = "Swift NPS Browser"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jamador/dev/XCode/NPS%20Browser/Swift%20NPS%20Browser/services/CoreDataIO.swift"
-                  timestampString = "550204863.859575"
+                  timestampString = "550208311.306841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "46"
@@ -400,22 +400,6 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "init(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Swift NPS Browser/controllers/SettingsViewController.swift"
-            timestampString = "550204863.363112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "save(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
