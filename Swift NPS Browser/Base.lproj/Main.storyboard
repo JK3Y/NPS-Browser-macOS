@@ -1310,8 +1310,11 @@
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.name" id="2qC-QI-k2i"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <progressIndicator wantsLayer="YES" ambiguous="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-vo-cOa" userLabel="Progress Bar">
+                                                                <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-vo-cOa" userLabel="Progress Bar">
                                                                     <rect key="frame" x="3" y="17" width="307" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="307" id="EI9-qh-VoU"/>
+                                                                    </constraints>
                                                                     <connections>
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.progress" id="3l6-2G-wJa"/>
                                                                     </connections>
@@ -1345,9 +1348,8 @@
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.timeRemaining" id="mcE-zL-qPf"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
+                                                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
                                                                     <rect key="frame" x="318" y="20" width="51" height="14"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Cancel Button">
                                                                             <rect key="frame" x="0.0" y="0.0" width="13" height="14"/>
@@ -1409,12 +1411,14 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Aaa-qS-eZW" secondAttribute="bottom" constant="3" id="8PH-Ot-Vnm"/>
+                                                                <constraint firstItem="ZIb-vo-cOa" firstAttribute="centerY" secondItem="yl8-7H-Xw7" secondAttribute="centerY" id="CTg-5I-rOS"/>
                                                                 <constraint firstItem="IR4-yR-f9E" firstAttribute="leading" secondItem="Aaa-qS-eZW" secondAttribute="trailing" constant="35" id="Ogl-my-JcN"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="leading" secondItem="Aaa-qS-eZW" secondAttribute="leading" id="P6Z-Rf-rz1"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="top" secondItem="DaP-mC-AOO" secondAttribute="top" constant="3" id="PbM-dM-RAn"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="DaP-mC-AOO" secondAttribute="leading" constant="3" id="Z4x-SD-Lei"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="leading" id="acr-EE-WzC"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="top" secondItem="jCT-TV-Qkg" secondAttribute="bottom" id="ceS-f6-c1j"/>
+                                                                <constraint firstItem="yl8-7H-Xw7" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="trailing" constant="8" symbolic="YES" id="lox-ao-JjR"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="firstBaseline" secondItem="IR4-yR-f9E" secondAttribute="firstBaseline" id="pwN-vO-2ob"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="baseline" secondItem="IR4-yR-f9E" secondAttribute="baseline" id="ziu-6D-fvM"/>
                                                             </constraints>
@@ -1483,7 +1487,7 @@
         <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
-        <image name="NSStopProgressFreestandingTemplate" width="11" height="11"/>
+        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
         <image name="NSTouchBarDownloadTemplate" width="18" height="30"/>
     </resources>
 </document>
