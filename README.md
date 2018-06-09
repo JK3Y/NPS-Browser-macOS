@@ -34,3 +34,4 @@ Build by going to Product > Build
 [AlamoFire]:https://github.com/Alamofire/Alamofire
 [Promises]:https://github.com/google/promises
 [Queuer]:https://github.com/FabrizioBrancati/Queuer
+[CocoaPods]: https://cocoapods.org
