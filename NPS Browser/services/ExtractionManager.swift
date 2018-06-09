@@ -22,13 +22,10 @@ class ExtractionManager {
     func start() {
         if (!shouldDoExtract()) {
             setStatus("Download Complete")
-            self.item.isViewable = true
-            self.item.isRemovable = true
-            self.item.isCancelable = false
+            self.item.makeViewable()
             Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
             
             downloadManager.moveToCompleted(item: self.item)
-            
             return
         }
         
@@ -45,9 +42,7 @@ class ExtractionManager {
         task.terminationHandler = { task in
             DispatchQueue.main.async {
                 self.setStatus("Extraction Complete")
-                self.item.isViewable = true
-                self.item.isRemovable = true
-                self.item.isCancelable = false
+                self.item.makeViewable()
                 Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
             }
         }

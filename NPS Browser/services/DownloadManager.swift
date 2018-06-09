@@ -48,10 +48,7 @@ class DownloadManager {
             }
             .responseData { response in
                 response.result.ifSuccess {
-                    dlItem.isCancelable = false
-                    
-                    dlItem.isViewable = true
-                    
+
                     dlItem.destinationURL = response.destinationURL
 
                     ExtractionManager(item: dlItem, downloadManager: self).start()
@@ -63,18 +60,17 @@ class DownloadManager {
                         return
                     }
                     dlItem.status = "Download Cancelled"
-                    dlItem.resumeData = resumeData
+                    dlItem.isResumable = true
                 }
             }
         }
         self.queue.addOperation(dlFileOperation)
     }
-    
-    // TODO: when removing cleared items, if there's 2 items in array [item1, item2] and both are to be removed, after item1 is removed, item2's index changes from 1 to 0. Either they need to be removed in reverse-order, or a 'completed' array needs to hold the completed download list
+
     func removeCompleted() {
         for item in downloadItems {
             if (item.isRemovable) {
-                downloadItems.remove(at: downloadItems.index(of: item)!)
+                moveToCompleted(item: item)
             }
         }
     }

@@ -28,8 +28,7 @@ class DownloadListItemCellView: NSTableCellView {
             item!.request?.cancel()
             
             item!.status = "Cancelled"
-            item!.isCancelable = false
-            item!.isRemovable = true
+            item!.makeCancelable()
         }
     }
     
@@ -42,9 +41,12 @@ class DownloadListItemCellView: NSTableCellView {
         NSWorkspace.shared.open(dlLoc)
     }
     @IBAction func doRetryRequest(_ sender: NSButton) {
-        item!.request?.resume()
+//        item!.request?.resume()
+        
         item!.isResumable = false
         item!.isCancelable = true
-        item!.isRemovable = true
+        item!.isRemovable = false
+        
+        debugPrint("doRetryRequest")
     }
 }

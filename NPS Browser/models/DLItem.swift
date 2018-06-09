@@ -24,11 +24,6 @@ class DLItem: NSObject {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
-    @objc dynamic var resumeData        : Data? {
-        didSet {
-            isResumable = true
-        }
-    }
     
     override init() {
         super.init()
@@ -48,5 +43,26 @@ class DLItem: NSObject {
     
     func setRequest(_ request: Alamofire.Request) {
         self.request = request
+    }
+    
+    func makeCancelable() {
+        self.isCancelable   = true
+        self.isRemovable    = false
+        self.isResumable    = false
+        self.isViewable     = false
+    }
+    
+    func makeViewable() {
+        self.isViewable     = true
+        self.isRemovable    = true
+        self.isCancelable   = false
+        self.isResumable    = false
+    }
+    
+    func makeResumable() {
+        self.isResumable    = true
+        self.isRemovable    = true
+        self.isCancelable   = false
+        self.isViewable     = false
     }
 }

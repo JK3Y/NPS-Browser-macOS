@@ -66,10 +66,10 @@ class DataViewController: NSViewController, ToolbarDelegate {
     }
 }
 
+
+
 extension NSTableView {
     override open func keyDown(with event: NSEvent) {
-        print("keyCode: \(event.keyCode)")
-        
         switch event.keyCode {
         case 125:
             // Down
@@ -85,5 +85,4 @@ extension NSTableView {
             break
         }
     }
-
 }

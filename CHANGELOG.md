@@ -4,7 +4,7 @@
 - Notifications when download/extraction is completed.
 - Completed downloads move to bottom of download list
 - Button added to download list items to allow resuming a cancelled download.
-- Arrow keys can now be used to navigate the data table
+- Arrow keys can now be used to navigate the data table in the master view
 
 ### Changed
 - Changed repository name to "NPS-Browser-macOS" to avoid confusion with original NPS Browser.
