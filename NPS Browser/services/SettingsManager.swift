@@ -33,15 +33,15 @@ class SettingsManager {
         return Settings()
     }
     
-    func getUrls() -> [String: String] {
-        return (getSettings()?.urls)!
+    func getUrls() -> SourceSettings {
+        return (getSettings()?.source)!
     }
     
-    func getDownloads() -> [String: URL] {
-        return (getSettings()?.downloads)!
+    func getDownloads() -> DownloadSettings {
+        return (getSettings()?.download)!
     }
     
-    func getExtract() -> [String: Bool] {
+    func getExtract() -> ExtractSettings {
         return (getSettings()?.extract)!
     }
     

@@ -19,9 +19,9 @@ class NetworkManager {
     func makeHTTPRequest() {
         var settings = SettingsManager().getUrls()
         self.type = windowDelegate?.getType()
-        let url = settings[type!]
+        let url = settings.getByType(type: self.type!)
         
-        if (url!.isEmpty) {
+        if (url == nil) {
             Helpers().makeAlert(messageText: "No URL set for \(self.type!)!", informativeText: "Set URL paths in the preferences window.", alertStyle: .warning)
 
             windowDelegate?.stopBtnReloadAnimation()

@@ -12,7 +12,7 @@ import Cocoa
 class ExtractionManager {
     private var item: DLItem
     private let userSettings = SettingsManager().getSettings()
-    private var downloadManager:DownloadManager
+    private var downloadManager: DownloadManager
     
     init(item: DLItem, downloadManager: DownloadManager) {
         self.item = item
@@ -38,7 +38,7 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryURL = userSettings?.downloads["download_location"]
+        task.currentDirectoryURL = userSettings?.download.download_location
         task.executableURL = URL(fileURLWithPath: pkg2zipPath)
         task.arguments = getArguments()
         task.standardOutput = pipe
@@ -64,18 +64,14 @@ class ExtractionManager {
     }
     
     private func shouldDoExtract() -> Bool {
-        if (userSettings?.extract["extract_after_downloading"])! {
-            return true
-        } else {
-            return false
-        }
+        return userSettings!.extract.extract_after_downloading
     }
     
     private func cleanup() {
-        if (!(userSettings?.extract["keep_pkg"])!) { // == false
-            let pkgPath = item.destinationURL
+        if (!(userSettings?.extract.keep_pkg)!) { // false
+            let pkg_path = item.destinationURL
             do {
-                try FileManager.default.removeItem(at: pkgPath!)
+                try FileManager.default.removeItem(at: pkg_path!)
             } catch let error as NSError {
                 debugPrint(error)
             }
@@ -87,17 +83,17 @@ class ExtractionManager {
         var arguments: [String] = []
         let extractSettings = userSettings?.extract
         
-        if (!extractSettings!["save_as_zip"]!) { // == false
+        if (!(extractSettings?.save_as_zip)!) { // == false
             arguments.append("-x")
         }
         
-        if (item.type! == "PSPGames" && extractSettings!["compress_psp_iso"]!) { // == true
-            arguments.append("-c\(userSettings?.compressionFactor ?? 1)")
+        if (item.type! == "PSPGames" && (extractSettings?.compress_psp_iso)!) { // == true
+            arguments.append("-c\(extractSettings?.compression_factor ?? 1)")
         }
         
         arguments.append((item.destinationURL?.path)!)
         
-        if (item.zrif != nil && extractSettings!["create_license"]!) { // == true
+        if (item.zrif != nil && (extractSettings?.create_license)!) { // == true
             arguments.append(item.zrif!)
         }
         

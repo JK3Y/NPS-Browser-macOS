@@ -53,28 +53,25 @@ class SettingsViewController: NSViewController {
     }
     
     func updateTextFields(settings: Settings) {
-        let urls = settings.urls
-        let downloads = settings.downloads
-        let extract = settings.extract
         
-        self.dlLocation = downloads["download_location"]!
+        self.dlLocation = settings.download.download_location
         
-        psvgField.stringValue   = urls["PSVGames"]!
-        psvuField.stringValue   = urls["PSVUpdates"]!
-        psvdlcField.stringValue = urls["PSVDLCs"]!
-        psxgField.stringValue   = urls["PSXGames"]!
-        pspgField.stringValue   = urls["PSPGames"]!
+        psvgField.stringValue   = settings.source.psv_games?.absoluteString ?? ""
+        psvuField.stringValue   = settings.source.psv_updates?.absoluteString ?? ""
+        psvdlcField.stringValue = settings.source.psv_dlc?.absoluteString ?? ""
+        psxgField.stringValue   = settings.source.psx_games?.absoluteString ?? ""
+        pspgField.stringValue   = settings.source.psp_games?.absoluteString ?? ""
         
         dlPathField.stringValue = self.dlLocation!.path
 
-        chkExtractPKG.state     = extract["extract_after_downloading"]! ? .on : .off
-        chkKeepPKG.state        = extract["keep_pkg"]! ? .on : .off
-        chkSaveZip.state        = extract["save_as_zip"]! ? .on : .off
-        chkCreateLicense.state  = extract["create_license"]! ? .on : .off
-        chkCompressPSPISO.state = extract["compress_psp_iso"]! ? .on : .off
+        chkExtractPKG.state     = settings.extract.extract_after_downloading ? .on : .off
+        chkKeepPKG.state        = settings.extract.keep_pkg ? .on : .off
+        chkSaveZip.state        = settings.extract.save_as_zip ? .on : .off
+        chkCreateLicense.state  = settings.extract.create_license ? .on : .off
+        chkCompressPSPISO.state = settings.extract.compress_psp_iso ? .on : .off
         
-        compressionFactorField.integerValue = settings.compressionFactor
-        compressionFactorStepper.integerValue = settings.compressionFactor
+        compressionFactorField.integerValue     = settings.extract.compression_factor
+        compressionFactorStepper.integerValue   = settings.extract.compression_factor
     }
     
     @IBAction func selectDLPath(_ sender: Any) {
@@ -97,26 +94,22 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-        let urls = [
-            "PSVGames"                  : psvgField.stringValue,
-            "PSVUpdates"                : psvuField.stringValue,
-            "PSVDLCs"                   : psvdlcField.stringValue,
-            "PSXGames"                  : psxgField.stringValue,
-            "PSPGames"                  : pspgField.stringValue
-        ]
-        let downloads = [
-            "download_location"         : self.dlLocation!.absoluteURL
-        ]
-        let extract = [
-            "extract_after_downloading" : chkExtractPKG.state == .on,
-            "keep_pkg"                  : chkKeepPKG.state == .on,
-            "save_as_zip"               : chkSaveZip.state == .on,
-            "create_license"            : chkCreateLicense.state == .on,
-            "compress_psp_iso"          : chkCompressPSPISO.state == .on
-        ]
-        let compressionFactor = compressionFactorField.integerValue
 
-        let settings = Settings(urls: urls, downloads: downloads, extract: extract, compressionFactor: compressionFactor)
+        let source      = SourceSettings(psv_games: psvgField.stringValue,
+                                         psv_dlc: psvdlcField.stringValue,
+                                         psv_updates: psvuField.stringValue,
+                                         psp_games: pspgField.stringValue,
+                                         psx_games: psxgField.stringValue)
+        let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
+                                           concurrent_downloads: 3)
+        let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
+                                          keep_pkg: chkKeepPKG.state == .on,
+                                          save_as_zip: chkSaveZip.state == .on,
+                                          create_license: chkCreateLicense.state == .on,
+                                          compress_psp_iso: chkCompressPSPISO.state == .on,
+                                          compression_factor: compressionFactorField.integerValue)
+        
+        let settings = Settings(source: source, download: download, extract: extract)
         SettingsManager().setSettings(settings: settings)
         
         dismissViewController(self)

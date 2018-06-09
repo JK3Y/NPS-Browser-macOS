@@ -30,7 +30,6 @@ class NPSBase {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         guard let date = formatter.date(from: dateString) else {
-            debugPrint("Failed to parse date: \(dateString)")
             return nil
         }
         return date
@@ -87,12 +86,12 @@ class PSPGame: NPSBase {
     var type                : String?
     var content_id          : String?
     var rap                 : String?
-    var download_rap_file   : String?
+    var download_rap_file   : URL?
     override init(_ valueDict: [String: String]) {
         self.type               = valueDict["type"]
         self.content_id         = valueDict["content_id"]
         self.rap                = valueDict["rap"]
-        self.download_rap_file  = valueDict["content_id"]
+        self.download_rap_file  = URL(string: valueDict["content_id"]!)
         super.init(valueDict)
     }
 }

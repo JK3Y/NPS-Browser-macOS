@@ -23,7 +23,7 @@ class DownloadManager {
             // .pkg filename
             let pathComponent = response.suggestedFilename!
             let downloadSettings = SettingsManager().getDownloads()
-            var path: URL = downloadSettings["download_location"]!
+            var path: URL = downloadSettings.download_location
             path.appendPathComponent(pathComponent)
             return (path, [.removePreviousFile, .createIntermediateDirectories])
         }
@@ -33,8 +33,6 @@ class DownloadManager {
         data.setRequest(request)
         
         // add object to downloadItems array
-//        downloadItems.append(data)
-        
         downloadItems.insert(data, at: 0)
         
         let downloadItemsIndex = downloadItems.index(of: data)!

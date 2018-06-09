@@ -15,7 +15,7 @@ class DownloadListItemCellView: NSTableCellView {
     @IBOutlet weak var btnRetry: NSButton!
     let windowDelegate: WindowDelegate? = NSApp.mainWindow?.windowController as! WindowController
     var item: DLItem?
-    var dlLoc = SettingsManager().getDownloads()["download_location"]!
+    var dlLoc = SettingsManager().getDownloads().download_location
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -39,7 +39,7 @@ class DownloadListItemCellView: NSTableCellView {
     
     @IBAction func doViewDownloadedFile(_ sender: NSButton) {
         let extractSettings = SettingsManager().getExtract()
-        if (extractSettings["extract_after_downloading"]!) {
+        if (extractSettings.extract_after_downloading) {
             dlLoc.appendPathComponent("app/\(item!.title_id!)")
         }
         

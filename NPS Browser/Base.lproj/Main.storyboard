@@ -633,7 +633,7 @@
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
             <objects>
-                <windowController id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Swift NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -728,20 +728,22 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="2E5BAEB9-691D-4ED3-88EA-C48B89CD7BD9" label="" paletteLabel="Reload Button + Spinner" tag="-1" id="x6e-BC-oZE" userLabel="Reload Button + Spinner" customClass="NSToolbarItemGroup">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="16" height="16"/>
-                                    <size key="maxSize" width="35" height="16"/>
+                                    <size key="minSize" width="15" height="16"/>
+                                    <size key="maxSize" width="35" height="30"/>
                                     <customView key="view" id="78D-Xh-e5L">
-                                        <rect key="frame" x="60" y="14" width="16" height="16"/>
+                                        <rect key="frame" x="54" y="14" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="E0v-ge-S60">
-                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="E0v-ge-S60">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="KpQ-HK-cni"/>
+                                                    <constraint firstAttribute="width" constant="28" id="mXk-ah-XXJ"/>
+                                                </constraints>
                                             </progressIndicator>
-                                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2V-SS-WqE">
-                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="5TE-xP-NBW">
+                                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2V-SS-WqE">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="5TE-xP-NBW">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
@@ -750,6 +752,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="E0v-ge-S60" firstAttribute="centerY" secondItem="78D-Xh-e5L" secondAttribute="centerY" id="6KJ-Vp-hfQ"/>
+                                            <constraint firstItem="E0v-ge-S60" firstAttribute="centerX" secondItem="v2V-SS-WqE" secondAttribute="centerX" id="J9C-6E-a1Z"/>
+                                            <constraint firstItem="E0v-ge-S60" firstAttribute="centerY" secondItem="v2V-SS-WqE" secondAttribute="centerY" id="bqj-D8-X6V"/>
+                                            <constraint firstItem="E0v-ge-S60" firstAttribute="centerX" secondItem="78D-Xh-e5L" secondAttribute="centerX" id="oG5-Zt-0wA"/>
+                                        </constraints>
                                     </customView>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -1449,7 +1457,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0u4-nU-RL9">
-                                <rect key="frame" x="280" y="125" width="86" height="28"/>
+                                <rect key="frame" x="312" y="125" width="54" height="28"/>
                                 <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zxK-37-XlQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
@@ -1465,7 +1473,7 @@
                             <constraint firstItem="rCG-ed-yrt" firstAttribute="top" secondItem="Tnb-uc-zsV" secondAttribute="bottom" constant="8" symbolic="YES" id="Mfj-rJ-ocW"/>
                             <constraint firstAttribute="trailing" secondItem="rCG-ed-yrt" secondAttribute="trailing" id="Vs3-zj-Sqa"/>
                             <constraint firstAttribute="bottom" secondItem="rCG-ed-yrt" secondAttribute="bottom" id="a1y-DB-VmX"/>
-                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="61" id="cjH-l3-vPY"/>
+                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="93" id="cjH-l3-vPY"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="0u4-nU-RL9" secondAttribute="top" id="d9I-uw-YG4"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="Qc3-hK-TXY" secondAttribute="top" constant="7" id="xFf-Jc-AgI"/>
                             <constraint firstAttribute="trailing" secondItem="0u4-nU-RL9" secondAttribute="trailing" constant="20" id="zQe-eS-SKE"/>
@@ -1487,7 +1495,7 @@
         <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRevealFreestandingTemplate" width="14" height="14"/>
-        <image name="NSStopProgressFreestandingTemplate" width="14" height="14"/>
+        <image name="NSStopProgressFreestandingTemplate" width="11" height="11"/>
         <image name="NSTouchBarDownloadTemplate" width="18" height="30"/>
     </resources>
 </document>

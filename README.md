@@ -20,7 +20,7 @@ Open the .xcworkspace file to open the project.
 Build by going to Product > Build.
 Export an app bundle by going to Product > Archive > Export.
 
-## Changelog
+## [Changelog][]
 
 ## Thanks
 * Ann0ying
@@ -29,7 +29,7 @@ Export an app bundle by going to Product > Archive > Export.
 * [Promises][]
 * [Queuer][]
 
-[Changelog]: 
+[Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/mmozeiko/pkg2zip
 [AlamoFire]:https://github.com/Alamofire/Alamofire
 [Promises]:https://github.com/google/promises
