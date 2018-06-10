@@ -16,7 +16,8 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbRegion: NSPopUpButton!
     @IBOutlet weak var tbSearchBar: NSSearchField!
     
-    lazy var downloadManager: DownloadManager = DownloadManager()
+    lazy var downloadManager: DownloadManager = Helpers().getSharedAppDelegate().downloadManager
+    lazy var bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
     var delegate: ToolbarDelegate?
 
     override func windowDidLoad() {
@@ -67,7 +68,7 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         let vc: DataViewController = splitViewController.splitViewItems[0].viewController as! DataViewController
         return vc
     }
-    
+
     func getType() -> String {
         let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
         return type!
@@ -99,5 +100,9 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     
     func getDownloadQueue() -> [DLItem] {
         return downloadManager.getObjectQueue()
+    }
+    
+    func getBookmarkList() -> [Bookmark] {
+        return bookmarkManager.getBookmarkList()
     }
 }

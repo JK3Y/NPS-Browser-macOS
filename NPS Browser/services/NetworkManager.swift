@@ -12,19 +12,20 @@ import Alamofire
 
 class NetworkManager {
     
-    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
+//    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
+    let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
     
     var type: String?
     
     func makeHTTPRequest() {
-        var settings = SettingsManager().getUrls()
-        self.type = windowDelegate?.getType()
+        let settings = SettingsManager().getUrls()
+        self.type = windowDelegate.getType()
         let url = settings.getByType(type: self.type!)
         
         if (url == nil) {
             Helpers().makeAlert(messageText: "No URL set for \(self.type!)!", informativeText: "Set URL paths in the preferences window.", alertStyle: .warning)
-
-            windowDelegate?.stopBtnReloadAnimation()
+            self.windowDelegate.getDataController().setArrayControllerContent(content: nil)
+            self.windowDelegate.stopBtnReloadAnimation()
             return
         }
         
@@ -48,7 +49,7 @@ class NetworkManager {
             }
             .then { _ in
                 let content = CoreDataIO().getRecords()
-                self.windowDelegate?.getDataController().setArrayControllerContent(content: content)
+                self.windowDelegate.getDataController().setArrayControllerContent(content: content)
         }
     }
     

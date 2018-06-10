@@ -12,16 +12,17 @@ import CoreData
 class CoreDataIO: NSObject {
     
     let delegate = NSApplication.shared.delegate as! AppDelegate
-    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
+    let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
+//    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
     
     var context: NSManagedObjectContext
     var type: String
     var region: String
     
     override init(){
-        self.context = delegate.persistentContainer.viewContext
-        self.type = (windowDelegate?.getType())!
-        self.region = (windowDelegate?.getRegion())!
+        self.context    = delegate.persistentContainer.viewContext
+        self.type       = windowDelegate.getType()
+        self.region     = windowDelegate.getRegion()
         super.init()
     }
     
@@ -29,8 +30,19 @@ class CoreDataIO: NSObject {
         return self.context
     }
     
+    func getEntity(entityName: String) -> NSEntityDescription {
+        return NSEntityDescription.entity(forEntityName: entityName, in: self.context)!
+    }
+    
     func getEntity() -> NSEntityDescription {
         return NSEntityDescription.entity(forEntityName: self.type, in: self.context)!
+    }
+    
+    func getObject(entity: NSEntityDescription) -> NSManagedObject {
+        return NSManagedObject(
+            entity: entity,
+            insertInto: self.context
+        )
     }
     
     func getObject() -> NSManagedObject {
@@ -91,9 +103,9 @@ class CoreDataIO: NSObject {
     }
     
     func getRecords() -> [NSManagedObject]? {
-        let req = NSFetchRequest<NSManagedObject>(entityName: self.type)
-        let predicate = NSPredicate(format: "region == %@", self.region)
-        req.predicate = predicate
+        let req             = NSFetchRequest<NSManagedObject>(entityName: self.type)
+        let predicate       = NSPredicate(format: "region == %@", self.region)
+        req.predicate       = predicate
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {
@@ -105,10 +117,9 @@ class CoreDataIO: NSObject {
     }
     
     func searchRecords(searchString: String) -> [NSManagedObject]? {
-        let req = NSFetchRequest<NSManagedObject>(entityName: self.type)
-        let predicate = NSPredicate(format: "region == %@ AND name contains[c] %@", self.region, searchString)
-        req.predicate = predicate
-        
+        let req             = NSFetchRequest<NSManagedObject>(entityName: self.type)
+        let predicate       = NSPredicate(format: "region == %@ AND name contains[c] %@", self.region, searchString)
+        req.predicate       = predicate
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {
@@ -125,10 +136,10 @@ class CoreDataIO: NSObject {
             plist = NSDictionary(contentsOfFile: path)
         }
         if let p = plist {
-            let lifespan: Double = p.value(forKey: "refresh_after_hours") as! Double
-            let timestamp: Date = p.value(forKeyPath: self.type) as! Date
-            let interval: TimeInterval = 60 * 60 * lifespan
-            let expires = timestamp.addingTimeInterval(interval)
+            let lifespan    : Double = p.value(forKey: "refresh_after_hours") as! Double
+            let timestamp   : Date = p.value(forKeyPath: self.type) as! Date
+            let interval    : TimeInterval = 60 * 60 * lifespan
+            let expires     = timestamp.addingTimeInterval(interval)
             
             if(expires < Date()) {
                 batchDelete(type: self.type)
@@ -151,6 +162,9 @@ class CoreDataIO: NSObject {
             "PSVGames",
             "PSVUpdates",
             "PSVDLCs",
+            "PSPGames",
+            "PSXGames",
+            "Bookmarks"
         ]
         types.forEach { type in
             batchDelete(type: type)
@@ -175,5 +189,37 @@ class CoreDataIO: NSObject {
             return true
         }
         return false
+    }
+    
+    // MARK: Bookmark Retrieval
+    func getBookmarks() -> [NSManagedObject?] {
+        let req = NSFetchRequest<NSManagedObject>(entityName: "Bookmarks")
+        req.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        do {
+            return try self.context.fetch(req)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return []
+    }
+    
+    func parseCoreDataToBookmarks(data: [NSManagedObject?]) -> [Bookmark] {
+        var bookmarks: [Bookmark] = []
+        for item in data {
+            
+            debugPrint(item!.value(forKey: "item"))
+            
+            
+            let name            = item!.value(forKey: "name") as! String
+            let title_id        = item!.value(forKey: "title_id") as! String
+            let type            = item!.value(forKey: "type") as! String
+            let url             = item!.value(forKey: "url") as! URL
+            let zrif            = item!.value(forKey: "zrif") as! String
+//            let refObjectID     = item!.value(forKey: "refObjectID") as! NSManagedObjectID
+            let bookmark    = Bookmark(name: name, title_id: title_id, type: type, zrif: zrif, url: url)
+            bookmarks.append(bookmark)
+        }
+        return bookmarks
     }
 }

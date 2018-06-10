@@ -17,15 +17,15 @@ class DownloadController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        updateDownloadView()
+        updateView()
     }
     
     @IBAction func clearCompleted(_ sender: Any) {
         windowDelegate?.removeCompletedFromDownloadQueue()
-        updateDownloadView()
+        updateView()
     }
     
-    func updateDownloadView() {
+    func updateView() {
         let content = windowDelegate?.getDownloadQueue()
         dlArrayController.content = content
     }

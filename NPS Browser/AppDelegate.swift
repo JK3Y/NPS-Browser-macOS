@@ -10,18 +10,27 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+    
+    lazy var downloadManager: DownloadManager = DownloadManager()
+    lazy var bookmarkManager: BookmarkManager = BookmarkManager()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        let storedBM = CoreDataIO().getBookmarks()
+        let bookmarks = CoreDataIO().parseCoreDataToBookmarks(data: storedBM)
+        bookmarkManager.bookmarkList = bookmarks
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        // Store Bookmarks
+        self.bookmarkManager.saveBookmarks()
     }
     
-    
-    
-
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
     
     // MARK: - Notifications
     
