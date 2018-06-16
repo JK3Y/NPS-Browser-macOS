@@ -712,24 +712,26 @@
                                                                     <rect key="frame" x="248" y="3" width="53" height="19"/>
                                                                     <subviews>
                                                                         <button toolTip="Download" translatesAutoresizingMaskIntoConstraints="NO" id="K0q-Lo-NPO" userLabel="Download Button">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="19"/>
+                                                                            <rect key="frame" x="0.0" y="2" width="25" height="15"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="25" id="KFk-qO-dq1"/>
+                                                                                <constraint firstAttribute="height" constant="15" id="jwK-FJ-f9t"/>
+                                                                                <constraint firstAttribute="width" constant="25" id="ldL-fk-jUg"/>
                                                                             </constraints>
                                                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Download" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="AFT-eo-kZG">
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
                                                                             <connections>
-                                                                                <action selector="btnDownloadClicked:" target="QIy-Om-5kl" id="xYW-yG-iTT"/>
+                                                                                <action selector="btnDownloadClicked:" target="QIy-Om-5kl" id="yaf-fJ-JiG"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button toolTip="Remove" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-e6-jyw" userLabel="Remove Button">
-                                                                            <rect key="frame" x="28" y="4" width="25" height="11"/>
+                                                                            <rect key="frame" x="28" y="2" width="25" height="15"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="25" id="8GB-oh-hGt"/>
+                                                                                <constraint firstAttribute="height" constant="15" id="b0h-4D-7Or"/>
                                                                             </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="P3d-VG-xJy">
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Remove" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="P3d-VG-xJy">
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="system"/>
                                                                             </buttonCell>
@@ -805,7 +807,7 @@
                 <customObject id="cGk-Xf-BL9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="rip-IA-Kaa"/>
             </objects>
-            <point key="canvasLocation" x="-981" y="134"/>
+            <point key="canvasLocation" x="-981.5" y="134"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
@@ -1548,78 +1550,6 @@
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.status" id="xma-d8-FPw"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
-                                                                    <rect key="frame" x="285" y="15" width="54" height="25"/>
-                                                                    <subviews>
-                                                                        <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Stop Button">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="25"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="25" id="b33-R1-wCP"/>
-                                                                            </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTouchBarRecordStopTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="fzX-FA-fCc">
-                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                                <font key="font" metaFont="system"/>
-                                                                            </buttonCell>
-                                                                            <connections>
-                                                                                <action selector="doCancelRequest:" target="DaP-mC-AOO" id="v5v-1g-a4o"/>
-                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isCancelable" previousBinding="LnG-bx-ZcC" id="Bm2-mt-Fj8">
-                                                                                    <dictionary key="options">
-                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                                    </dictionary>
-                                                                                </binding>
-                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isCancelable" id="LnG-bx-ZcC"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                        <button toolTip="Retry" translatesAutoresizingMaskIntoConstraints="NO" id="bIt-aL-Dcx" userLabel="Retry Button">
-                                                                            <rect key="frame" x="20" y="0.0" width="14" height="25"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="25" id="DnX-8k-xmv"/>
-                                                                            </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTouchBarPlayTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WTg-LW-w3j">
-                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                                <font key="font" metaFont="system"/>
-                                                                            </buttonCell>
-                                                                            <connections>
-                                                                                <action selector="doRetryRequest:" target="DaP-mC-AOO" id="L0R-ke-gd9"/>
-                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isResumable" id="dFL-ZX-pca"/>
-                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isResumable" previousBinding="dFL-ZX-pca" id="zwU-hF-2te">
-                                                                                    <dictionary key="options">
-                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                                    </dictionary>
-                                                                                </binding>
-                                                                            </connections>
-                                                                        </button>
-                                                                        <button toolTip="Open in Finder" translatesAutoresizingMaskIntoConstraints="NO" id="k8i-fY-VzO" userLabel="View Button">
-                                                                            <rect key="frame" x="40" y="0.0" width="14" height="25"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="25" id="kRK-s7-SFe"/>
-                                                                            </constraints>
-                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSFollowLinkFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="X9Q-AJ-VtK">
-                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                                <font key="font" metaFont="system"/>
-                                                                            </buttonCell>
-                                                                            <connections>
-                                                                                <action selector="doViewDownloadedFile:" target="DaP-mC-AOO" id="jqV-QT-YJw"/>
-                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isViewable" previousBinding="H76-4x-blh" id="0lq-iN-gNm">
-                                                                                    <dictionary key="options">
-                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                                    </dictionary>
-                                                                                </binding>
-                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isViewable" id="H76-4x-blh"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                    </subviews>
-                                                                    <visibilityPriorities>
-                                                                        <real value="700"/>
-                                                                        <real value="600"/>
-                                                                        <real value="500"/>
-                                                                    </visibilityPriorities>
-                                                                    <customSpacing>
-                                                                        <real value="3.4028234663852886e+38"/>
-                                                                        <real value="3.4028234663852886e+38"/>
-                                                                        <real value="3.4028234663852886e+38"/>
-                                                                    </customSpacing>
-                                                                </stackView>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-yR-f9E" userLabel="Progress Details">
                                                                     <rect key="frame" x="244" y="3" width="33" height="17"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" drawsBackground="YES" id="gEU-8X-bNu">
@@ -1634,6 +1564,84 @@
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.timeRemaining" id="mcE-zL-qPf"/>
                                                                     </connections>
                                                                 </textField>
+                                                                <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
+                                                                    <rect key="frame" x="279" y="15" width="87" height="25"/>
+                                                                    <subviews>
+                                                                        <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Stop Button">
+                                                                            <rect key="frame" x="0.0" y="5" width="25" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="25" id="ZkO-Jd-fH7"/>
+                                                                                <constraint firstAttribute="height" constant="15" id="gLl-Ar-LjS"/>
+                                                                            </constraints>
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Stop" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="fzX-FA-fCc">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="system"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="doCancelRequest:" target="DaP-mC-AOO" id="v5v-1g-a4o"/>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isCancelable" previousBinding="LnG-bx-ZcC" id="Bm2-mt-Fj8">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isCancelable" id="LnG-bx-ZcC"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button toolTip="Retry" translatesAutoresizingMaskIntoConstraints="NO" id="bIt-aL-Dcx" userLabel="Retry Button">
+                                                                            <rect key="frame" x="31" y="5" width="25" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="25" id="2cC-rT-gAz"/>
+                                                                                <constraint firstAttribute="height" constant="15" id="wTw-Bh-Zsi"/>
+                                                                            </constraints>
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Start" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="WTg-LW-w3j">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="system"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="doRetryRequest:" target="DaP-mC-AOO" id="L0R-ke-gd9"/>
+                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isResumable" id="dFL-ZX-pca"/>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isResumable" previousBinding="dFL-ZX-pca" id="zwU-hF-2te">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button toolTip="Open in Finder" translatesAutoresizingMaskIntoConstraints="NO" id="k8i-fY-VzO" userLabel="View Button">
+                                                                            <rect key="frame" x="62" y="5" width="25" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="25" id="8c2-cz-Mrk"/>
+                                                                                <constraint firstAttribute="height" constant="15" id="N3Y-0f-hWG"/>
+                                                                            </constraints>
+                                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Follow Link" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="X9Q-AJ-VtK">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="system"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="doViewDownloadedFile:" target="DaP-mC-AOO" id="jqV-QT-YJw"/>
+                                                                                <binding destination="DaP-mC-AOO" name="hidden" keyPath="objectValue.isViewable" previousBinding="H76-4x-blh" id="0lq-iN-gNm">
+                                                                                    <dictionary key="options">
+                                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                                <binding destination="DaP-mC-AOO" name="enabled" keyPath="objectValue.isViewable" id="H76-4x-blh"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="0i2-Yc-5qn"/>
+                                                                    </constraints>
+                                                                    <visibilityPriorities>
+                                                                        <real value="700"/>
+                                                                        <real value="600"/>
+                                                                        <real value="500"/>
+                                                                    </visibilityPriorities>
+                                                                    <customSpacing>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                    </customSpacing>
+                                                                </stackView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Aaa-qS-eZW" secondAttribute="bottom" constant="3" id="8PH-Ot-Vnm"/>
@@ -1644,7 +1652,7 @@
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="DaP-mC-AOO" secondAttribute="leading" constant="3" id="Z4x-SD-Lei"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="leading" id="acr-EE-WzC"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="top" secondItem="jCT-TV-Qkg" secondAttribute="bottom" id="ceS-f6-c1j"/>
-                                                                <constraint firstItem="yl8-7H-Xw7" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="trailing" constant="8" id="lox-ao-JjR"/>
+                                                                <constraint firstItem="yl8-7H-Xw7" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="trailing" constant="2" id="lox-ao-JjR"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="firstBaseline" secondItem="IR4-yR-f9E" secondAttribute="firstBaseline" id="pwN-vO-2ob"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="baseline" secondItem="IR4-yR-f9E" secondAttribute="baseline" id="ziu-6D-fvM"/>
                                                             </constraints>
@@ -1720,16 +1728,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Download" width="60" height="60"/>
+        <image name="Download" width="24" height="24"/>
         <image name="Favorite Star Empty" width="384" height="384"/>
         <image name="Favorite Star Filled" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="Follow Link" width="24" height="24"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSFolder" width="32" height="32"/>
-        <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSTouchBarDownloadTemplate" width="18" height="30"/>
-        <image name="NSTouchBarPlayTemplate" width="14" height="30"/>
-        <image name="NSTouchBarRecordStopTemplate" width="12" height="30"/>
+        <image name="Remove" width="11" height="11"/>
+        <image name="Start" width="22" height="25"/>
+        <image name="Stop" width="12" height="12"/>
     </resources>
 </document>

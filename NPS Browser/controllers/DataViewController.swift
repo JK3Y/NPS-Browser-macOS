@@ -29,7 +29,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
             NetworkManager().makeHTTPRequest()
         } else {
             let content = CoreDataIO().getRecords()
-            tsvResultsController.content = content
+            setArrayControllerContent(content: content)
         }
         windowDelegate.stopBtnReloadAnimation()
     }
@@ -51,7 +51,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
         tsvResultsController.content = nil
         tsvResultsController.content = content
         windowDelegate.stopBtnReloadAnimation()
-        tableView.reloadData()
     }
     
     func getDetailsViewController() -> DetailsViewController {

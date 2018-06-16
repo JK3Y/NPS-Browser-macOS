@@ -42,15 +42,24 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark() {
+
         if ((representedObject as! NSManagedObject).value(forKey: "bookmark") != nil) {
             chkBookmark.state = .on
         } else {
+//            let objTitleID: String = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
+//            let storedBookmark: BookmarksMO? = Helpers().getSharedAppDelegate().bookmarkManager.getBookmark(title_id: objTitleID) as? BookmarksMO
+//            
+//            if (storedBookmark != nil) {
+//                storedBookmark?.setValue(representedObject, forKey: "item")
+//                chkBookmark.state = .on
+//            }
             chkBookmark.state = .off
         }
     }
     
     func toggleBookmark(title_id: String) {
-        let objTitleID = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
+        debugPrint(representedObject as! NSManagedObject)
+        let objTitleID: String = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
         if (objTitleID == title_id) {
             chkBookmark.state = .off
         }

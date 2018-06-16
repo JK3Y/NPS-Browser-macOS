@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.1 - 2018-06-16
+## 1.2.2 - 2018-06-16
 
 ### Added
 - Notifications when download/extraction is completed.

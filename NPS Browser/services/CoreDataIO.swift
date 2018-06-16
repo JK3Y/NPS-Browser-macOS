@@ -12,7 +12,7 @@ import CoreData
 class CoreDataIO: NSObject {
     
     let delegate = NSApplication.shared.delegate as! AppDelegate
-    let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
+//    lazy var windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
 
     var context: NSManagedObjectContext
     var type: String
@@ -20,8 +20,8 @@ class CoreDataIO: NSObject {
     
     override init(){
         self.context    = delegate.persistentContainer.viewContext
-        self.type       = windowDelegate.getType()
-        self.region     = windowDelegate.getRegion()
+        self.type       = Helpers().getWindowDelegate().getType()
+        self.region     = Helpers().getWindowDelegate().getRegion()
         super.init()
     }
     
@@ -64,6 +64,11 @@ class CoreDataIO: NSObject {
             nps.setValue(item.file_size, forKey: "file_size")
             nps.setValue(item.sha256, forKey: "sha256")
             
+            let storedBookmark = getRecordByTitleID(entityName: "Bookmarks", title_id: item.title_id!)
+            if (storedBookmark != nil) {
+                nps.setValue(storedBookmark, forKey: "bookmark")
+            }
+            
             switch(self.type) {
             case "PSVGames":
                 let obj = item as! PSVGame
@@ -100,7 +105,9 @@ class CoreDataIO: NSObject {
         }
         
         do {
+            self.context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             try self.context.save()
+            
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }

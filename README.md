@@ -2,6 +2,8 @@
 
 A Swift 4 implementation of NPS Browser.
 
+[Screenshots][]
+
 ## Usage
 **Requires macOS 10.13+**
 
@@ -29,6 +31,7 @@ Export an app bundle by going to Product > Archive > Export.
 * [Promises][]
 * [Queuer][]
 
+[Screenshots]: https://imgur.com/gallery/EYLLYoW
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/mmozeiko/pkg2zip
 [AlamoFire]:https://github.com/Alamofire/Alamofire

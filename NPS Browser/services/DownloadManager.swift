@@ -43,6 +43,8 @@ class DownloadManager {
         let dlItem = self.downloadItems[downloadItemsIndex]
         
         let dlFileOperation = ConcurrentOperation {
+            dlItem.status = "Queued..."
+            
             request.downloadProgress { progress in
                 dlItem.status = "Downloading..."        
                 dlItem.makeCancelable()
