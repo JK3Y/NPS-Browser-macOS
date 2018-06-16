@@ -23,6 +23,9 @@ class BookmarksViewController: NSViewController {
         let rowData = Helpers().getRowObjectFromTableRowButton(sender) as AnyObject
         let bookmark = Helpers().makeBookmark(data: rowData)
         self.bookmarkManager.removeBookmark(bookmark)
+        
+        Helpers().getDataController().getDetailsViewController().toggleBookmark(title_id: bookmark.title_id)
+        
         updateView()
     }
     

@@ -16,11 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
-//        let storedBM = CoreDataIO().getBookmarks()
-//        print((storedBM.first!)?.value(forKey: "item"))
-////        let bookmarks = CoreDataIO().parseCoreDataToBookmarks(data: storedBM)
-//        bookmarkManager.bookmarkList = bookmarks
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

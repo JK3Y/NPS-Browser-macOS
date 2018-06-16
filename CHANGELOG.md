@@ -1,9 +1,6 @@
 # Changelog
 
 ## In Progress - 1.2
-### To Do
-- Bookmarks are not currently linked to CoreData entities. Currently unable to unhighlight/rehighlight the 'favorite' star in the table from the popover
-- Pull data from GamesDB to populate in the Details view
 
 ### Added
 - Notifications when download/extraction is completed.
@@ -11,6 +8,7 @@
 - Button added to download list items to allow resuming a cancelled download.
 - Arrow keys can now be used to navigate the data table in the master view
 - Concurrent download amount can be changed in the preferences window.
+- Bookmarks can now be saved with the star button in the details panel
 
 ### Changed
 - Changed repository name to "NPS-Browser-macOS" to avoid confusion with original NPS Browser.

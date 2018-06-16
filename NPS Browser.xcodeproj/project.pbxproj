@@ -13,7 +13,6 @@
 		5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */; };
 		513BDDA22096689500D82889 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BDDA12096689500D82889 /* SettingsManager.swift */; };
 		5149B3C920A8F63C00D3D82C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149B3C820A8F63C00D3D82C /* NetworkManager.swift */; };
-		5150225C20D3F6BB00DB054F /* BookmarkToggleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150225B20D3F6BB00DB054F /* BookmarkToggleCellView.swift */; };
 		515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515B77B420AF794500C7B07D /* ToolbarDelegate.swift */; };
 		5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167430420AFE098003AFC4D /* DownloadManager.swift */; };
 		516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7620CAE275004D6AE5 /* CHANGELOG.md */; };
@@ -52,7 +51,6 @@
 		5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		513BDDA12096689500D82889 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		5149B3C820A8F63C00D3D82C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		5150225B20D3F6BB00DB054F /* BookmarkToggleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkToggleCellView.swift; sourceTree = "<group>"; };
 		515B77B420AF794500C7B07D /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		5167430420AFE098003AFC4D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		516A1B7620CAE275004D6AE5 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			children = (
 				51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */,
 				519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */,
-				5150225B20D3F6BB00DB054F /* BookmarkToggleCellView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -352,7 +349,6 @@
 				512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */,
 				5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */,
 				51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */,
-				5150225C20D3F6BB00DB054F /* BookmarkToggleCellView.swift in Sources */,
 				51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */,
 				519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */,
 				513BDDA22096689500D82889 /* SettingsManager.swift in Sources */,

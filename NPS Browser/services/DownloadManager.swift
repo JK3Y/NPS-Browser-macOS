@@ -60,7 +60,7 @@ class DownloadManager {
                         dlItem.makeRemovable()
                         return
                     }
-                    dlItem.status = "Download Cancelled"
+                    dlItem.status = "Stopped"
                     dlItem.resumeData = resumeData
                     dlItem.makeResumable()
                 }
@@ -89,7 +89,7 @@ class DownloadManager {
                         data.makeRemovable()
                         return
                     }
-                    data.status = "Download Cancelled"
+                    data.status = "Stopped"
                     data.resumeData = resumeData
                     data.makeResumable()
                 }

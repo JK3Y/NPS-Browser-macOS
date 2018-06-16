@@ -24,9 +24,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
     }
     
     override func viewDidAppear() {
-        
-        CoreDataIO().deleteAll()
-        
         windowDelegate.startBtnReloadAnimation()
         if (CoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
@@ -40,8 +37,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
-            let vc: DetailsViewController = parent?.childViewControllers[1] as! DetailsViewController
-            vc.representedObject = representedObject
+            self.getDetailsViewController().representedObject = representedObject
         }
     }
 
@@ -56,6 +52,11 @@ class DataViewController: NSViewController, ToolbarDelegate {
         tsvResultsController.content = content
         windowDelegate.stopBtnReloadAnimation()
         tableView.reloadData()
+    }
+    
+    func getDetailsViewController() -> DetailsViewController {
+         let vc: DetailsViewController = parent?.childViewControllers[1] as! DetailsViewController
+        return vc
     }
 }
 

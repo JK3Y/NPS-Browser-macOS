@@ -10,6 +10,7 @@ import Cocoa
 
 class DetailsViewController: NSViewController {
     
+    @IBOutlet weak var chkBookmark: NSButton!
     @IBOutlet weak var btnDownload: NSButton!
 
     var windowDelegate: WindowDelegate?
@@ -22,6 +23,7 @@ class DetailsViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
             self.toggleDownloadButton()
+            self.toggleBookmark()
         }
     }
 
@@ -29,6 +31,30 @@ class DetailsViewController: NSViewController {
         self.sendDLData()
     }
     
+    @IBAction func btnBookmarkToggle(_ sender: NSButton) {
+        let bookmark: Bookmark = Helpers().makeBookmark(rowData: representedObject)
+        
+        if (sender.state == .on) {
+            Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: representedObject as! NSManagedObject)
+        } else {
+            Helpers().getSharedAppDelegate().bookmarkManager.removeBookmark(bookmark)
+        }
+    }
+    
+    func toggleBookmark() {
+        if ((representedObject as! NSManagedObject).value(forKey: "bookmark") != nil) {
+            chkBookmark.state = .on
+        } else {
+            chkBookmark.state = .off
+        }
+    }
+    
+    func toggleBookmark(title_id: String) {
+        let objTitleID = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
+        if (objTitleID == title_id) {
+            chkBookmark.state = .off
+        }
+    }
     
     func toggleDownloadButton() {
         let link = ((representedObject as! NSManagedObject).value(forKey: "pkg_direct_link") as! URL?)?.absoluteString

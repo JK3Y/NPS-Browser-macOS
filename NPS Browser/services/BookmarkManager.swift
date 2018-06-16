@@ -13,8 +13,7 @@ class BookmarkManager {
 
     let cd = CoreDataIO()
     var entity: NSEntityDescription
-    var bookmarkButtonIDArray = [String: NSButton]()
-    
+
     init() {
         self.entity = cd.getEntity(entityName: "Bookmarks")
     }
@@ -27,24 +26,13 @@ class BookmarkManager {
         return cd.getRecordByTitleID(entityName: "Bookmarks", title_id: title_id)
     }
     
-    func addBookmarkButtonIDToArray(title_id: String, button: NSButton) {
-        bookmarkButtonIDArray[title_id] = button
-    }
-    
-    func addBookmark(bookmark: Bookmark, item: NSManagedObject, sender: NSButton) {
-        // Store button object id so we can toggle state when bookmark is removed via the popover
-        addBookmarkButtonIDToArray(title_id: bookmark.title_id, button: sender)
+    func addBookmark(bookmark: Bookmark, item: NSManagedObject) {
         saveBookmark(bookmark: bookmark, item: item)
     }
     
     func removeBookmark(_ bookmark: Bookmark) {
         let obj = cd.getRecordByTitleID(entityName: "Bookmarks", title_id: bookmark.title_id)
-        
-        bookmarkButtonIDArray[bookmark.title_id]?.state = .off
-        bookmarkButtonIDArray.remove(at: bookmarkButtonIDArray.index(forKey: bookmark.title_id)!)
 
-//        Helpers().getDataController().tableView.re
-        
         do {
             cd.getContext().mergePolicy = NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType
             try cd.getContext().delete(obj!)
