@@ -12,8 +12,7 @@ class DownloadController: NSViewController {
 
     @IBOutlet weak var dlTableView: NSTableView!
     @IBOutlet var dlArrayController: NSArrayController!
-    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -21,12 +20,12 @@ class DownloadController: NSViewController {
     }
     
     @IBAction func clearCompleted(_ sender: Any) {
-        windowDelegate?.removeCompletedFromDownloadQueue()
+        Helpers().getSharedAppDelegate().downloadManager.removeCompleted()
         updateView()
     }
     
     func updateView() {
-        let content = windowDelegate?.getDownloadQueue()
+        let content = Helpers().getSharedAppDelegate().downloadManager.getObjectQueue()
         dlArrayController.content = content
     }
 }

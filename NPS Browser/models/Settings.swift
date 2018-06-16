@@ -68,7 +68,7 @@ struct DownloadSettings: Codable {
     var concurrent_downloads: Int
     init(){
         self.download_location      = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
-        self.concurrent_downloads   = 1
+        self.concurrent_downloads   = 3
     }
     init(download_location: URL, concurrent_downloads: Int) {
         self.download_location      = download_location

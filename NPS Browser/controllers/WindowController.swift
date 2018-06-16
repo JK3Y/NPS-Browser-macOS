@@ -89,20 +89,4 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         self.progressSpinner.stopAnimation(nil)
         self.tbReload.isHidden = false
     }
-
-    func addToDownloadQueue(data: DLItem) {
-        downloadManager.addToDownloadQueue(data: data)
-    }
-    
-    func removeCompletedFromDownloadQueue() {
-        downloadManager.removeCompleted()
-    }
-    
-    func getDownloadQueue() -> [DLItem] {
-        return downloadManager.getObjectQueue()
-    }
-    
-    func getBookmarkList() -> [Bookmark] {
-        return bookmarkManager.getBookmarkList()
-    }
 }

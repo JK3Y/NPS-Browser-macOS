@@ -9,20 +9,20 @@
 import Cocoa
 
 class BookmarkListItemCellView: NSTableCellView {
-    var bookmark: Bookmark?
+    var item: BookmarksMO?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.bookmark = objectValue as? Bookmark
+        self.item = objectValue as! BookmarksMO
     }
     
-//    @IBAction func btnDownloadClicked(_ sender: NSButton) {
-//        print("bookmark download clicked")
-//    }
-    
-//    @IBAction func btnRemoveClicked(_ sender: NSButton) {
-//        Helpers().getWindowController().bookmarkManager.removeBookmark(bookmark: bookmark!)
-//        
-//        self.superview
-//    }
+    @IBAction func btnDownloadClicked(_ sender: NSButton) {
+        let dlItem              = DLItem()
+        dlItem.type             = self.item?.type
+        dlItem.title_id         = self.item?.title_id
+        dlItem.name             = self.item?.name
+        dlItem.pkg_direct_link  = self.item?.pkg_direct_link
+        dlItem.zrif             = self.item?.zrif
+        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
+    }
 }

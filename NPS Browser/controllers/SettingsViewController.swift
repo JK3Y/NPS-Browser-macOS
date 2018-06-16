@@ -15,6 +15,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var psvdlcField: NSTextField!
     @IBOutlet weak var psxgField: NSTextField!
     @IBOutlet weak var pspgField: NSTextField!
+    @IBOutlet weak var ccDLField: NSTextField!
     @IBOutlet weak var dlPathField: NSTextField!
     @IBOutlet weak var chkExtractPKG: NSButton!
     @IBOutlet weak var chkCreateLicense: NSButton!
@@ -35,6 +36,8 @@ class SettingsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        SettingsManager().clearUserDefaults()
+        
         let settings = SettingsManager().getSettings()
         updateTextFields(settings: settings!)
     }
@@ -67,6 +70,7 @@ class SettingsViewController: NSViewController {
         psxgField.stringValue   = settings.source.psx_games?.absoluteString ?? ""
         pspgField.stringValue   = settings.source.psp_games?.absoluteString ?? ""
         
+        ccDLField.integerValue  = settings.download.concurrent_downloads
         dlPathField.stringValue = self.dlLocation!.path
 
         chkExtractPKG.state     = settings.extract.extract_after_downloading ? .on : .off
@@ -105,7 +109,7 @@ class SettingsViewController: NSViewController {
                                          psp_games: pspgField.stringValue,
                                          psx_games: psxgField.stringValue)
         let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
-                                           concurrent_downloads: 3)
+                                           concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
                                           keep_pkg: chkKeepPKG.state == .on,
                                           save_as_zip: chkSaveZip.state == .on,

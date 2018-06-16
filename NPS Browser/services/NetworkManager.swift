@@ -11,8 +11,7 @@ import Promises
 import Alamofire
 
 class NetworkManager {
-    
-//    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
+
     let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
     
     var type: String?

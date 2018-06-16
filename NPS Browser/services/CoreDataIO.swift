@@ -13,8 +13,7 @@ class CoreDataIO: NSObject {
     
     let delegate = NSApplication.shared.delegate as! AppDelegate
     let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
-//    let windowDelegate: WindowDelegate? = NSApplication.shared.mainWindow?.windowController as! WindowController
-    
+
     var context: NSManagedObjectContext
     var type: String
     var region: String
@@ -54,7 +53,7 @@ class CoreDataIO: NSObject {
     
     func storeValues(array: [NPSBase]) {
         
-        array.forEach({ item in
+        for item in array {
             let nps = getObject()
 
             nps.setValue(item.title_id, forKey: "title_id")
@@ -67,39 +66,57 @@ class CoreDataIO: NSObject {
             
             switch(self.type) {
             case "PSVGames":
-                nps.setValue((item as! PSVGame).content_id, forKey: "content_id")
-                nps.setValue((item as! PSVGame).original_name, forKey: "original_name")
-                nps.setValue((item as! PSVGame).required_fw, forKey: "required_fw")
-                nps.setValue((item as! PSVGame).zrif, forKey: "zrif")
+                let obj = item as! PSVGame
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.original_name, forKey: "original_name")
+                nps.setValue(obj.required_fw, forKey: "required_fw")
+                nps.setValue(obj.zrif, forKey: "zrif")
                 break
             case "PSVUpdates":
-                nps.setValue((item as! PSVUpdate).update_version, forKey: "update_version")
-                nps.setValue((item as! PSVUpdate).fw_version, forKey: "fw_version")
-                nps.setValue((item as! PSVUpdate).nonpdrm_mirror, forKey: "nonpdrm_mirror")
+                let obj = item as! PSVUpdate
+                nps.setValue(obj.update_version, forKey: "update_version")
+                nps.setValue(obj.fw_version, forKey: "fw_version")
+                nps.setValue(obj.nonpdrm_mirror, forKey: "nonpdrm_mirror")
                 break
             case "PSVDLCs":
-                nps.setValue((item as! PSVDLC).content_id, forKey: "content_id")
-                nps.setValue((item as! PSVDLC).zrif, forKey: "zrif")
+                let obj = item as! PSVDLC
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.zrif, forKey: "zrif")
                 break
             case "PSPGames":
-                nps.setValue((item as! PSPGame).content_id, forKey: "content_id")
-                nps.setValue((item as! PSPGame).rap, forKey: "rap")
-                nps.setValue((item as! PSPGame).download_rap_file, forKey: "download_rap_file")
+                let obj = item as! PSPGame
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.rap, forKey: "rap")
+                nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
                 break
             case "PSXGames":
-                nps.setValue((item as! PSXGame).content_id, forKey: "content_id")
-                nps.setValue((item as! PSXGame).original_name, forKey: "original_name")
+                let obj = item as! PSXGame
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.original_name, forKey: "original_name")
                 break
             default:
                 break
             }
-        })
+        }
         
         do {
             try self.context.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    
+    func getRecordByTitleID(entityName: String, title_id: String) -> NSManagedObject? {
+        let req             = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        let predicate       = NSPredicate(format: "title_id == %@", title_id)
+        req.predicate       = predicate
+        
+        do {
+            return try self.context.fetch(req).first
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
     }
     
     func getRecords() -> [NSManagedObject]? {
@@ -202,24 +219,5 @@ class CoreDataIO: NSObject {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         return []
-    }
-    
-    func parseCoreDataToBookmarks(data: [NSManagedObject?]) -> [Bookmark] {
-        var bookmarks: [Bookmark] = []
-        for item in data {
-            
-            debugPrint(item!.value(forKey: "item"))
-            
-            
-            let name            = item!.value(forKey: "name") as! String
-            let title_id        = item!.value(forKey: "title_id") as! String
-            let type            = item!.value(forKey: "type") as! String
-            let url             = item!.value(forKey: "url") as! URL
-            let zrif            = item!.value(forKey: "zrif") as! String
-//            let refObjectID     = item!.value(forKey: "refObjectID") as! NSManagedObjectID
-            let bookmark    = Bookmark(name: name, title_id: title_id, type: type, zrif: zrif, url: url)
-            bookmarks.append(bookmark)
-        }
-        return bookmarks
     }
 }

@@ -2,13 +2,16 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Bookmarks" representedClassName="BookmarksMO" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pkg_direct_link" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSVGames" inverseName="bookmark" inverseEntity="PSVGames" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="bookmark" inverseEntity="Item" syncable="YES"/>
     </entity>
-    <entity name="PSPGames" representedClassName="PSPGameMO" syncable="YES" codeGenerationType="class">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <relationship name="bookmark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bookmarks" inverseName="item" inverseEntity="Bookmarks" syncable="YES"/>
+    </entity>
+    <entity name="PSPGames" representedClassName="PSPGameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="download_rap_file" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -20,7 +23,7 @@
         <attribute name="sha256" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="PSVDLCs" representedClassName="PSVDLCMO" syncable="YES" codeGenerationType="class">
+    <entity name="PSVDLCs" representedClassName="PSVDLCMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -31,7 +34,7 @@
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="PSVGames" representedClassName="PSVGameMO" syncable="YES" codeGenerationType="class">
+    <entity name="PSVGames" representedClassName="PSVGameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -43,9 +46,8 @@
         <attribute name="sha256" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="bookmark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bookmarks" inverseName="item" inverseEntity="Bookmarks" syncable="YES"/>
     </entity>
-    <entity name="PSVUpdates" representedClassName="PSVUpdateMO" syncable="YES" codeGenerationType="class">
+    <entity name="PSVUpdates" representedClassName="PSVUpdateMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="fw_version" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -57,7 +59,7 @@
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="update_version" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="PSXGames" representedClassName="PSXGameMO" syncable="YES" codeGenerationType="class">
+    <entity name="PSXGames" representedClassName="PSXGameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -69,11 +71,12 @@
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bookmarks" positionX="297" positionY="-198" width="128" height="133"/>
+        <element name="Bookmarks" positionX="297" positionY="-198" width="128" height="135"/>
         <element name="PSPGames" positionX="180" positionY="111" width="128" height="195"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
-        <element name="PSVGames" positionX="126" positionY="-198" width="128" height="223"/>
+        <element name="PSVGames" positionX="126" positionY="-198" width="128" height="210"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="195"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
+        <element name="Item" positionX="153" positionY="-45" width="128" height="60"/>
     </elements>
 </model>

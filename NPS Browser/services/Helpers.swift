@@ -51,52 +51,39 @@ class Helpers {
         return cell.objectValue
     }
     
-
     func makeBookmark(rowData: Any) -> Bookmark {
-        let data = makeDLItem(data: rowData)
-        return Bookmark(name: data.name!, title_id: data.title_id!, type: data.type!, zrif: data.zrif, url: data.url)
+        let data = makeDLItem(data: rowData as! NSManagedObject)
+        return Bookmark(name: data.name!, title_id: data.title_id!, type: data.type!, zrif: data.zrif, pkg_direct_link: data.pkg_direct_link)
     }
     
-    func makeDLItem(data: Any?) -> DLItem {
+    func makeBookmark(data: AnyObject) -> Bookmark {
+        return Bookmark(name: data.name!,
+                        title_id: data.title_id!,
+                        type: data.type!,
+                        zrif: data.zrif,
+                        pkg_direct_link: data.pkg_direct_link)
+    }
+    
+    func makeDLItem(data: NSManagedObject) -> DLItem {
         let type = getWindowDelegate().getType()
-        
         let obj = DLItem()
+        
         obj.type = type
         
+        obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
+        obj.name            = data.value(forKey: "name") as! String? ?? ""
+        obj.pkg_direct_link = data.value(forKey: "pkg_direct_link") as? URL ?? URL(string: "")!
+
         switch(type) {
         case "PSVGames":
-            obj.title_id = (data! as! PSVGameMO).title_id ?? ""
-            obj.name = (data! as! PSVGameMO).name ?? ""
-            obj.url = URL(string: ((data! as! PSVGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
-            obj.zrif = (data! as! PSVGameMO).zrif ?? ""
-            
-//            obj.objectID = (data! as! PSVGameMO).objectID
-            break
-        case "PSVUpdates":
-            obj.title_id = (data! as! PSVUpdateMO).title_id ?? ""
-            obj.name = (data! as! PSVUpdateMO).name ?? ""
-            obj.url = URL(string: ((data! as! PSVUpdateMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
+            obj.zrif = (data as! PSVGameMO).zrif ?? ""
             break
         case "PSVDLCs":
-            obj.title_id = (data! as! PSVDLCMO).title_id ?? ""
-            obj.name = (data! as! PSVDLCMO).name ?? ""
-            obj.url = URL(string: ((data! as! PSVDLCMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
-            obj.zrif = (data! as! PSVDLCMO).zrif ?? ""
-            break
-        case "PSPGames":
-            obj.title_id = (data! as! PSPGameMO).title_id ?? ""
-            obj.name = (data! as! PSPGameMO).name ?? ""
-            obj.url = URL(string: ((data! as! PSPGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
-            break
-        case "PSXGames":
-            obj.title_id = (data! as! PSXGameMO).title_id ?? ""
-            obj.name = (data! as! PSXGameMO).name ?? ""
-            obj.url = URL(string: ((data! as! PSXGameMO).pkg_direct_link?.absoluteString)!) ?? URL(string: "")!
+            obj.zrif = (data as! PSVDLCMO).zrif ?? ""
             break
         default:
             break
         }
         return obj
     }
-    
 }

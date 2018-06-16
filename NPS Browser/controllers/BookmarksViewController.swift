@@ -9,9 +9,9 @@
 import Cocoa
 
 class BookmarksViewController: NSViewController {
-
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var bookmarksArrayController: NSArrayController!
+    let bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +20,14 @@ class BookmarksViewController: NSViewController {
     }
     
     @IBAction func doRemoveBookmark(_ sender: NSButton) {
-        let bookmark = Helpers().getRowObjectFromTableRowButton(sender) as! Bookmark
+        let rowData = Helpers().getRowObjectFromTableRowButton(sender) as AnyObject
+        let bookmark = Helpers().makeBookmark(data: rowData)
+        self.bookmarkManager.removeBookmark(bookmark)
         updateView()
-        Helpers().getSharedAppDelegate().bookmarkManager.removeBookmark(bookmark)
     }
     
     func updateView() {
-        let content = Helpers().getSharedAppDelegate().bookmarkManager.getBookmarkList()
-        bookmarksArrayController.content = content
+        let content = self.bookmarkManager.getBookmarkList()
+        self.bookmarksArrayController.content = content
     }
 }

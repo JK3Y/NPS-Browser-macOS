@@ -13,7 +13,6 @@ class DownloadListItemCellView: NSTableCellView {
     @IBOutlet weak var btnView: NSButton!
     @IBOutlet weak var btnCancel: NSButton!
     @IBOutlet weak var btnRetry: NSButton!
-    let windowDelegate: WindowDelegate? = NSApp.mainWindow?.windowController as! WindowController
     var item: DLItem?
     var dlLoc = SettingsManager().getDownloads().download_location
 
@@ -28,7 +27,7 @@ class DownloadListItemCellView: NSTableCellView {
             item!.request?.cancel()
             
             item!.status = "Cancelled"
-            item!.makeCancelable()
+            item!.makeResumable()
         }
     }
     
@@ -41,12 +40,7 @@ class DownloadListItemCellView: NSTableCellView {
         NSWorkspace.shared.open(dlLoc)
     }
     @IBAction func doRetryRequest(_ sender: NSButton) {
-//        item!.request?.resume()
-        
-        item!.isResumable = false
-        item!.isCancelable = true
-        item!.isRemovable = false
-        
-        debugPrint("doRetryRequest")
+        item!.status = "Retrying..."
+        Helpers().getSharedAppDelegate().downloadManager.resumeDownload(data: item!)
     }
 }
