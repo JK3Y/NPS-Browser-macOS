@@ -1,6 +1,6 @@
 # Changelog
 
-## In Progress - 1.2
+## 1.2.0 - 2018-06-16
 
 ### Added
 - Notifications when download/extraction is completed.
@@ -9,6 +9,7 @@
 - Arrow keys can now be used to navigate the data table in the master view
 - Concurrent download amount can be changed in the preferences window.
 - Bookmarks can now be saved with the star button in the details panel
+- Download list will now be saved and restored upon application termination
 
 ### Changed
 - Changed repository name to "NPS-Browser-macOS" to avoid confusion with original NPS Browser.

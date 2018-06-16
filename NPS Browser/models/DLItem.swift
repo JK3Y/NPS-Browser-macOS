@@ -9,12 +9,19 @@
 import Cocoa
 import Alamofire
 
-class DLItem: NSObject {
+struct DownloadList: Codable {
+    var items: [DLItem]
+    init(items: [DLItem]) {
+        self.items = items
+    }
+}
+
+class DLItem: NSObject, Codable {
     @objc dynamic var title_id          : String?
     @objc dynamic var name              : String?
     @objc dynamic var type              : String?
     @objc dynamic var pkg_direct_link   : URL?
-    @objc dynamic var progress = 0.0
+    @objc dynamic var progress          : Double = 0.0
     @objc dynamic var zrif              : String?
     @objc dynamic var status            : String?
     @objc dynamic var timeRemaining     : TimeInterval = 0
@@ -25,6 +32,23 @@ class DLItem: NSObject {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case title_id
+        case name
+        case type
+        case pkg_direct_link
+        case progress
+        case zrif
+        case status
+        case timeRemaining
+        case resumeData
+        case destinationURL
+        case isCancelable
+        case isViewable
+        case isRemovable
+        case isResumable
+    }
     
     override init() {
         super.init()

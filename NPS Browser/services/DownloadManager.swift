@@ -15,7 +15,9 @@ class DownloadManager {
     var downloadItems: [DLItem] = []
     let queue = Queuer(name: "DLQueue", maxConcurrentOperationCount: SettingsManager().getDownloads().concurrent_downloads, qualityOfService: .default)
     
-    init() {}
+    init() {
+        restoreDownloadList()
+    }
     
     func addToDownloadQueue(data: DLItem) {
         // create destination for file
@@ -111,5 +113,38 @@ class DownloadManager {
     
     func getObjectQueue() -> [DLItem] {
         return self.downloadItems
+    }
+    
+    
+    
+    func stopAndStoreDownloadList() {
+        for item in downloadItems {
+            item.request?.cancel()
+            item.status = "Stopped"
+            item.makeResumable()
+        }
+        let downloadList: DownloadList = DownloadList(items: downloadItems)
+        
+        do {
+            let data = try PropertyListEncoder().encode(downloadList)
+            UserDefaults.standard.set(data, forKey: "downloads")
+        } catch {
+            Helpers().makeAlert(messageText: "Save Failed",
+                                informativeText: "Download list could not be stored.",
+                                alertStyle: .warning)
+        }
+    }
+    
+    func restoreDownloadList() {
+        let storedData = UserDefaults.standard.object(forKey: "downloads") as? Data
+        if (storedData != nil) {
+            do {
+                let downloadList = try PropertyListDecoder().decode(DownloadList.self, from: storedData!)
+
+                self.downloadItems = downloadList.items
+            } catch let error as NSError {
+                debugPrint(error)
+            }
+        }
     }
 }

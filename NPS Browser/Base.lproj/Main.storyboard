@@ -1283,7 +1283,7 @@
             <objects>
                 <viewController title="Details View Controller" showSeguePresentationStyle="single" id="n9v-5p-6cD" customClass="DetailsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="H9H-LI-MqF">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="410"/>
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="412"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-eV-PlI">
@@ -1413,7 +1413,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0vg-8l-O1H" userLabel="Bookmark">
-                                <rect key="frame" x="192" y="382" width="25" height="25"/>
+                                <rect key="frame" x="190" y="382" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="FMc-A6-5oA"/>
                                     <constraint firstAttribute="width" constant="25" id="nAD-WB-gfy"/>
@@ -1437,11 +1437,11 @@
                             <constraint firstItem="Hz6-dt-TEK" firstAttribute="leading" secondItem="Oc5-OH-Nhz" secondAttribute="trailing" constant="19" id="0zo-nq-pc0"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="top" secondItem="jm2-eV-PlI" secondAttribute="bottom" constant="9" id="4yg-bo-MhE"/>
                             <constraint firstItem="Hz6-dt-TEK" firstAttribute="trailing" secondItem="Nh5-hR-v1d" secondAttribute="trailing" id="8qb-4z-bsx"/>
-                            <constraint firstAttribute="trailing" secondItem="0vg-8l-O1H" secondAttribute="trailing" constant="3" id="99D-kg-uSv"/>
+                            <constraint firstAttribute="trailing" secondItem="0vg-8l-O1H" secondAttribute="trailing" constant="5" id="99D-kg-uSv"/>
                             <constraint firstItem="Nh5-hR-v1d" firstAttribute="leading" secondItem="wSe-3x-1m9" secondAttribute="leading" id="9pl-RZ-mN2"/>
                             <constraint firstAttribute="bottom" secondItem="goH-a2-kkQ" secondAttribute="bottom" constant="20" symbolic="YES" id="BmN-M9-eVw"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="baseline" secondItem="Hz6-dt-TEK" secondAttribute="baseline" id="Ekw-bb-9me"/>
-                            <constraint firstItem="0vg-8l-O1H" firstAttribute="top" secondItem="H9H-LI-MqF" secondAttribute="top" constant="3" id="FXl-ul-TAA"/>
+                            <constraint firstItem="0vg-8l-O1H" firstAttribute="top" secondItem="H9H-LI-MqF" secondAttribute="top" constant="5" id="FXl-ul-TAA"/>
                             <constraint firstItem="F5X-qz-juG" firstAttribute="trailing" secondItem="dpa-vU-RGC" secondAttribute="trailing" id="Fjx-JC-Dgj"/>
                             <constraint firstItem="Hz6-dt-TEK" firstAttribute="leading" secondItem="Nh5-hR-v1d" secondAttribute="leading" id="Fr4-Iu-c9S"/>
                             <constraint firstItem="goH-a2-kkQ" firstAttribute="top" secondItem="qh4-nI-zCU" secondAttribute="bottom" constant="8" symbolic="YES" id="IiO-x1-N4H"/>
