@@ -6,48 +6,49 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
+import Foundation
 import Cocoa
 import CoreData
 
 class CoreDataIO: NSObject {
     
     let delegate = NSApplication.shared.delegate as! AppDelegate
-//    lazy var windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
-
     var context: NSManagedObjectContext
-    var type: String
-    var region: String
+    let type: () -> String = {
+        Helpers().getWindowDelegate().getType()
+    }
+    let region: () -> String = {
+        Helpers().getWindowDelegate().getRegion()
+    }
     
     override init(){
-        self.context    = delegate.persistentContainer.viewContext
-        self.type       = Helpers().getWindowDelegate().getType()
-        self.region     = Helpers().getWindowDelegate().getRegion()
+        context = delegate.persistentContainer.viewContext
         super.init()
     }
     
     func getContext() -> NSManagedObjectContext {
-        return self.context
+        return context
     }
     
     func getEntity(entityName: String) -> NSEntityDescription {
-        return NSEntityDescription.entity(forEntityName: entityName, in: self.context)!
+        return NSEntityDescription.entity(forEntityName: entityName, in: context)!
     }
     
     func getEntity() -> NSEntityDescription {
-        return NSEntityDescription.entity(forEntityName: self.type, in: self.context)!
+        return NSEntityDescription.entity(forEntityName: type(), in: context)!
     }
     
     func getObject(entity: NSEntityDescription) -> NSManagedObject {
         return NSManagedObject(
             entity: entity,
-            insertInto: self.context
+            insertInto: context
         )
     }
     
     func getObject() -> NSManagedObject {
         return NSManagedObject(
             entity: getEntity(),
-            insertInto: self.context
+            insertInto: context
         )
     }
     
@@ -64,12 +65,12 @@ class CoreDataIO: NSObject {
             nps.setValue(item.file_size, forKey: "file_size")
             nps.setValue(item.sha256, forKey: "sha256")
             
-            let storedBookmark = getRecordByTitleID(entityName: "Bookmarks", title_id: item.title_id!)
+            let storedBookmark: BookmarksMO? = getRecordByChecksum(entityName: "Bookmarks", sha256: item.sha256!) as? BookmarksMO
             if (storedBookmark != nil) {
                 nps.setValue(storedBookmark, forKey: "bookmark")
             }
             
-            switch(self.type) {
+            switch(self.type()) {
             case "PSVGames":
                 let obj = item as! PSVGame
                 nps.setValue(obj.content_id, forKey: "content_id")
@@ -105,21 +106,21 @@ class CoreDataIO: NSObject {
         }
         
         do {
-            self.context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-            try self.context.save()
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            try context.save()
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
-    func getRecordByTitleID(entityName: String, title_id: String) -> NSManagedObject? {
+    func getRecordByChecksum(entityName: String, sha256: String) -> NSManagedObject? {
         let req             = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        let predicate       = NSPredicate(format: "title_id == %@", title_id)
+        let predicate       = NSPredicate(format: "sha256 == %@", sha256)
         req.predicate       = predicate
         
         do {
-            return try self.context.fetch(req).first
+            return try context.fetch(req).first
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -127,13 +128,13 @@ class CoreDataIO: NSObject {
     }
     
     func getRecords() -> [NSManagedObject]? {
-        let req             = NSFetchRequest<NSManagedObject>(entityName: self.type)
-        let predicate       = NSPredicate(format: "region == %@", self.region)
+        let req             = NSFetchRequest<NSManagedObject>(entityName: type())
+        let predicate       = NSPredicate(format: "region == %@", region())
         req.predicate       = predicate
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {
-            return try self.context.fetch(req)
+            return try context.fetch(req)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -141,41 +142,24 @@ class CoreDataIO: NSObject {
     }
     
     func searchRecords(searchString: String) -> [NSManagedObject]? {
-        let req             = NSFetchRequest<NSManagedObject>(entityName: self.type)
-        let predicate       = NSPredicate(format: "region == %@ AND name contains[c] %@", self.region, searchString)
+        let req             = NSFetchRequest<NSManagedObject>(entityName: type())
+        let predicate       = NSPredicate(format: "region == %@ AND name contains[c] %@", region(), searchString)
         req.predicate       = predicate
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {
-            return try self.context.fetch(req)
+            return try context.fetch(req)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         return nil
     }
     
-    func removeExpiredCache() {
-        var plist: NSDictionary?
-        if let path = Bundle.main.path(forResource: "ListTimestamps", ofType: "plist") {
-            plist = NSDictionary(contentsOfFile: path)
-        }
-        if let p = plist {
-            let lifespan    : Double = p.value(forKey: "refresh_after_hours") as! Double
-            let timestamp   : Date = p.value(forKeyPath: self.type) as! Date
-            let interval    : TimeInterval = 60 * 60 * lifespan
-            let expires     = timestamp.addingTimeInterval(interval)
-            
-            if(expires < Date()) {
-                batchDelete(type: self.type)
-            }
-        }
-    }
-    
     func batchDelete(type: String) {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: type)
         let req = NSBatchDeleteRequest(fetchRequest: fetch)
         do {
-            try self.context.execute(req)
+            try context.execute(req)
         } catch let error as NSError {
             print("Could not delete entity. \(error), \(error.userInfo)")
         }
@@ -195,18 +179,6 @@ class CoreDataIO: NSObject {
         }
     }
 
-    func updateCacheTimestamp() {
-        var plist: NSDictionary?
-        let path = Bundle.main.path(forResource: "ListTimestamps", ofType: "plist")
-        if let dir = path {
-            plist = NSDictionary(contentsOfFile: path!)
-        }
-        if let p = plist {
-            p.setValue(Date(), forKey: self.type)
-            p.write(toFile: path!, atomically: true)
-        }
-    }
-
     func recordsAreEmpty() -> Bool {
         let records = getRecords()
         if (records!.isEmpty) {
@@ -221,7 +193,7 @@ class CoreDataIO: NSObject {
         req.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
-            return try self.context.fetch(req)
+            return try context.fetch(req)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

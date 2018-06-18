@@ -25,13 +25,12 @@ class DataViewController: NSViewController, ToolbarDelegate {
     
     override func viewDidAppear() {
         windowDelegate.startBtnReloadAnimation()
-        if (CoreDataIO().recordsAreEmpty()) {
+        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
         } else {
-            let content = CoreDataIO().getRecords()
+            let content = Helpers().getCoreDataIO().getRecords()
             setArrayControllerContent(content: content)
         }
-        windowDelegate.stopBtnReloadAnimation()
     }
     
     override var representedObject: Any? {
@@ -50,6 +49,8 @@ class DataViewController: NSViewController, ToolbarDelegate {
     func setArrayControllerContent(content: [NSManagedObject]?) {
         tsvResultsController.content = nil
         tsvResultsController.content = content
+        tsvResultsController.setSelectionIndex(0)
+        tableSelectionChanged(tableView)
         windowDelegate.stopBtnReloadAnimation()
     }
     
@@ -58,6 +59,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
         return vc
     }
 }
+
 
 extension NSTableView {
     override open func keyDown(with event: NSEvent) {

@@ -32,8 +32,8 @@ class DetailsViewController: NSViewController {
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-        let bookmark: Bookmark = Helpers().makeBookmark(rowData: representedObject)
-        
+        let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as AnyObject)
+
         if (sender.state == .on) {
             Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: representedObject as! NSManagedObject)
         } else {
@@ -42,25 +42,16 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark() {
-
         if ((representedObject as! NSManagedObject).value(forKey: "bookmark") != nil) {
             chkBookmark.state = .on
         } else {
-//            let objTitleID: String = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
-//            let storedBookmark: BookmarksMO? = Helpers().getSharedAppDelegate().bookmarkManager.getBookmark(title_id: objTitleID) as? BookmarksMO
-//            
-//            if (storedBookmark != nil) {
-//                storedBookmark?.setValue(representedObject, forKey: "item")
-//                chkBookmark.state = .on
-//            }
             chkBookmark.state = .off
         }
     }
     
-    func toggleBookmark(title_id: String) {
-        debugPrint(representedObject as! NSManagedObject)
-        let objTitleID: String = (representedObject as! NSManagedObject).value(forKey: "title_id") as! String
-        if (objTitleID == title_id) {
+    func toggleBookmark(compareChecksum: String) {
+        let objChecksum: String = (representedObject as! NSManagedObject).value(forKey: "sha256") as! String
+        if (objChecksum == compareChecksum) {
             chkBookmark.state = .off
         }
     }

@@ -1,7 +1,12 @@
 # Changelog
 
-## 1.2.2 - 2018-06-16
+## v1.2.3
+### Changed
+- The first row of the master view table is auto-selected
+- Fixed bug that would make the app crash on startup
+- Fixed memory leaks
 
+## v1.2.2
 ### Added
 - Notifications when download/extraction is completed.
 - Completed downloads move to bottom of download list
@@ -18,7 +23,7 @@
 - UI tweaks
 - Application terminates when the red close button is pressed instead of just closing the window
 
-## 1.1 - 2018-06-08
+## v1.1
 ### Added
 - This CHANGELOG file to document project changes.
 - Added icons created by @Ann0ying
@@ -32,6 +37,6 @@
 - CoreDataIO wasn't storing PSP and PSX fetch data
 - Removed personal info from comments
 
-## 1.0 - 2018-06-03
+## v1.0
 ### Added
 - README containing usage and build instructions.

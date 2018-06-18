@@ -813,7 +813,7 @@
         <scene sceneID="Cyt-hO-4MQ">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Swift NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
+                    <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="145" y="301" width="580" height="270"/>
@@ -985,7 +985,7 @@
         <!--Split View Controller-->
         <scene sceneID="gFT-sY-3Wg">
             <objects>
-                <splitViewController showSeguePresentationStyle="single" id="KdV-6f-3Pd" customClass="SplitViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController showSeguePresentationStyle="single" id="KdV-6f-3Pd" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="S1m-bR-Dnr"/>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Ckh-Ei-AVF"/>

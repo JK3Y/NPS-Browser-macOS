@@ -21,19 +21,24 @@ class Helpers {
     }
     
     func makeNotification(title: String, subtitle: String) {
-        (NSApplication.shared.delegate as! AppDelegate).showNotification(title: title, subtitle: subtitle)
+        getSharedAppDelegate().showNotification(title: title, subtitle: subtitle)
     }
     
     func getSharedAppDelegate() -> AppDelegate {
-        return NSApplication.shared.delegate as! AppDelegate
+        return NSApp.delegate as! AppDelegate
     }
     
     func getWindowDelegate() -> WindowDelegate {
-        return NSApplication.shared.mainWindow?.windowController as! WindowController
+        return NSApp.windows.first?.windowController as! WindowController
+        
     }
     
     func getDataController() -> DataViewController {
         return getWindowDelegate().getDataController()
+    }
+    
+    func getCoreDataIO() -> CoreDataIO {
+        return getSharedAppDelegate().coreDataIO
     }
     
     
@@ -50,22 +55,18 @@ class Helpers {
         }
         return cell.objectValue
     }
-    
-    func makeBookmark(rowData: Any) -> Bookmark {
-        let data = makeDLItem(data: rowData as! NSManagedObject)
-        return Bookmark(name: data.name!, title_id: data.title_id!, type: data.type!, zrif: data.zrif, pkg_direct_link: data.pkg_direct_link)
-    }
-    
+
     func makeBookmark(data: AnyObject) -> Bookmark {
         return Bookmark(name: data.name!,
                         title_id: data.title_id!,
-                        type: data.type!,
+                        type: data.type ?? getWindowDelegate().getType(),
                         zrif: data.zrif,
-                        pkg_direct_link: data.pkg_direct_link)
+                        pkg_direct_link: data.pkg_direct_link,
+                        sha256: data.sha256)
     }
     
     func makeDLItem(data: NSManagedObject) -> DLItem {
-        let type = getWindowDelegate().getType()
+        let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
         let obj = DLItem()
         
         obj.type = type

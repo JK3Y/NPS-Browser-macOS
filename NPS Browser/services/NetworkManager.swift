@@ -23,18 +23,19 @@ class NetworkManager {
         
         if (url == nil) {
             Helpers().makeAlert(messageText: "No URL set for \(self.type!)!", informativeText: "Set URL paths in the preferences window.", alertStyle: .warning)
-            self.windowDelegate.getDataController().setArrayControllerContent(content: nil)
+            windowDelegate.getDataController().setArrayControllerContent(content: nil)
             self.windowDelegate.stopBtnReloadAnimation()
             return
         }
-        
+
         Promise<[NPSBase]> { fulfill, reject in
             Alamofire.request(url!)
                 .responseString { response in
                     let utf8Text = String(data: response.data!, encoding: .utf8)
 
                     if (response.result.isSuccess) {
-                        fulfill(self.parseTSV(response: utf8Text!))
+                        let parsedTSV = self.parseTSV(response: utf8Text!)
+                        fulfill(parsedTSV)
                     }
                     else {
                         reject(response.error!)
@@ -42,12 +43,11 @@ class NetworkManager {
                 }
             }
             .then { result in
-                CoreDataIO().batchDelete(type: self.type!)
-                CoreDataIO().storeValues(array: result)
-                CoreDataIO().updateCacheTimestamp()
+                Helpers().getCoreDataIO().batchDelete(type: self.type!)
+                Helpers().getCoreDataIO().storeValues(array: result)
             }
             .then { _ in
-                let content = CoreDataIO().getRecords()
+                let content = Helpers().getCoreDataIO().getRecords()
                 self.windowDelegate.getDataController().setArrayControllerContent(content: content)
         }
     }
@@ -59,7 +59,8 @@ class NetworkManager {
         
         for row in rows {
             let values = row.components(separatedBy: "\t")
-            parsedData.append(makeKeyValueArray(values: values))
+            let arr = makeKeyValueArray(values: values)
+            parsedData.append(arr)
         }
         return parsedData
     }

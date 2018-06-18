@@ -15,9 +15,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbType: NSPopUpButton!
     @IBOutlet weak var tbRegion: NSPopUpButton!
     @IBOutlet weak var tbSearchBar: NSSearchField!
-    
-    lazy var downloadManager: DownloadManager = Helpers().getSharedAppDelegate().downloadManager
-    lazy var bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
     var delegate: ToolbarDelegate?
 
     override func windowDidLoad() {
@@ -29,13 +26,12 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         startBtnReloadAnimation()
         self.delegate = getDataController()
 
-        if (CoreDataIO().recordsAreEmpty()) {
+        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
         } else {
-            let content = CoreDataIO().getRecords()
+            let content = Helpers().getCoreDataIO().getRecords()
             delegate?.setArrayControllerContent(content: content)
         }
-        stopBtnReloadAnimation()
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
