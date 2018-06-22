@@ -1,10 +1,12 @@
 # Changelog
 
-## v1.2.3
-### Changed
+## v1.2.4
+### Added
 - The first row of the master view table is auto-selected
+### Changed
 - Fixed bug that would make the app crash on startup
 - Fixed memory leaks
+- Fixed bug where bookmark changes weren't being propogated properly
 
 ## v1.2.2
 ### Added

@@ -2,6 +2,8 @@
 
 A Swift 4 implementation of NPS Browser.
 
+[Download][]
+
 [Screenshots][]
 
 ## Usage
@@ -19,18 +21,21 @@ Open a terminal and install the dependencies:
 pod install
 ```
 Open the .xcworkspace file to open the project.
+
 Build by going to Product > Build.
+
 Export an app bundle by going to Product > Archive > Export.
 
-## [Changelog][]
+#### [Changelog][]
 
 ## Thanks
-* Ann0ying
+* Ann0ying for app icon
 * [pkg2zip][]
 * [AlamoFire][]
 * [Promises][]
 * [Queuer][]
 
+[Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
 [Screenshots]: https://imgur.com/gallery/EYLLYoW
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/mmozeiko/pkg2zip

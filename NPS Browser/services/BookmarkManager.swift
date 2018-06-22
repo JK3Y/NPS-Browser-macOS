@@ -34,7 +34,6 @@ class BookmarkManager {
         let obj = cd.getRecordByChecksum(entityName: "Bookmarks", sha256: bookmark.sha256)
         
         do {
-//            cd.getContext().mergePolicy = NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType
             cd.getContext().delete(obj!)
             try cd.getContext().save()
         } catch let error as NSError {

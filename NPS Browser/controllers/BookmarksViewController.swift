@@ -22,7 +22,7 @@ class BookmarksViewController: NSViewController {
     @IBAction func doRemoveBookmark(_ sender: NSButton) {
         let rowData = Helpers().getRowObjectFromTableRowButton(sender) as AnyObject
         let bookmark = Helpers().makeBookmark(data: rowData)
-        self.bookmarkManager.removeBookmark(bookmark)
+        bookmarkManager.removeBookmark(bookmark)
         
         Helpers().getDataController().getDetailsViewController().toggleBookmark(compareChecksum: bookmark.sha256)
         
@@ -31,6 +31,6 @@ class BookmarksViewController: NSViewController {
     
     func updateView() {
         let content = self.bookmarkManager.getBookmarkList()
-        self.bookmarksArrayController.content = content
+        bookmarksArrayController.content = content
     }
 }

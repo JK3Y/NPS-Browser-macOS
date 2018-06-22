@@ -60,7 +60,7 @@ class Helpers {
         return Bookmark(name: data.name!,
                         title_id: data.title_id!,
                         type: data.type ?? getWindowDelegate().getType(),
-                        zrif: data.zrif,
+                        zrif: data.zrif ?? nil,
                         pkg_direct_link: data.pkg_direct_link,
                         sha256: data.sha256)
     }

@@ -42,7 +42,9 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark() {
-        if ((representedObject as! NSManagedObject).value(forKey: "bookmark") != nil) {
+        let bookmark = Helpers().getCoreDataIO().getRecordByChecksum(entityName: "Bookmarks", sha256: (representedObject as! NSManagedObject).value(forKey: "sha256") as! String)
+
+        if ( bookmark != nil) {
             chkBookmark.state = .on
         } else {
             chkBookmark.state = .off
