@@ -6,7 +6,7 @@
 ### Changed
 - Fixed bug that would make the app crash on startup
 - Fixed memory leaks
-- Fixed bug where bookmark changes weren't being propogated properly
+- Fixed bug where bookmark changes weren't being propagated properly
 
 ## v1.2.2
 ### Added
