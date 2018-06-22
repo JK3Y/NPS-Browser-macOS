@@ -1,4 +1,7 @@
 # Changelog
+## v1.2.5
+### Changed
+- Fixed items not being downloaded
 
 ## v1.2.4
 ### Added

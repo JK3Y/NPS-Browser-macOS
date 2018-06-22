@@ -68,9 +68,8 @@ class Helpers {
     func makeDLItem(data: NSManagedObject) -> DLItem {
         let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
         let obj = DLItem()
-        
+
         obj.type = type
-        
         obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
         obj.name            = data.value(forKey: "name") as! String? ?? ""
         obj.pkg_direct_link = data.value(forKey: "pkg_direct_link") as? URL ?? URL(string: "")!

@@ -10,6 +10,7 @@
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="bookmark" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="ItemMO" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bookmark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bookmarks" inverseName="item" inverseEntity="Bookmarks" syncable="YES"/>
     </entity>
     <entity name="PSPGames" representedClassName="PSPGameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
@@ -73,7 +74,7 @@
     </entity>
     <elements>
         <element name="Bookmarks" positionX="151" positionY="-234" width="128" height="150"/>
-        <element name="Item" positionX="198" positionY="9" width="128" height="58"/>
+        <element name="Item" positionX="198" positionY="9" width="128" height="73"/>
         <element name="PSPGames" positionX="180" positionY="111" width="128" height="193"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
         <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="208"/>
