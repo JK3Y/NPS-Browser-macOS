@@ -25,6 +25,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compressionFactorStepper: NSStepper!
     @IBOutlet weak var compressionFactorField: NSTextField!
     
+    let settings = SettingsManager().getSettings()
     var dlLocation: URL?
     
     override func viewWillAppear() {
@@ -34,12 +35,8 @@ class SettingsViewController: NSViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        SettingsManager().clearUserDefaults()
-        
-        let settings = SettingsManager().getSettings()
         updateTextFields(settings: settings!)
+        super.viewDidLoad()
     }
     
     @IBAction func toggleCompressionFactor(_ sender: NSButton) {
@@ -63,13 +60,13 @@ class SettingsViewController: NSViewController {
     
     func updateTextFields(settings: Settings) {
         self.dlLocation = settings.download.download_location
-        
+
         psvgField.stringValue   = settings.source.psv_games?.absoluteString ?? ""
         psvuField.stringValue   = settings.source.psv_updates?.absoluteString ?? ""
         psvdlcField.stringValue = settings.source.psv_dlc?.absoluteString ?? ""
         psxgField.stringValue   = settings.source.psx_games?.absoluteString ?? ""
         pspgField.stringValue   = settings.source.psp_games?.absoluteString ?? ""
-        
+
         ccDLField.integerValue  = settings.download.concurrent_downloads
         dlPathField.stringValue = self.dlLocation!.path
 
@@ -78,7 +75,7 @@ class SettingsViewController: NSViewController {
         chkSaveZip.state        = settings.extract.save_as_zip ? .on : .off
         chkCreateLicense.state  = settings.extract.create_license ? .on : .off
         chkCompressPSPISO.state = settings.extract.compress_psp_iso ? .on : .off
-        
+
         compressionFactorField.integerValue     = settings.extract.compression_factor
         compressionFactorStepper.integerValue   = settings.extract.compression_factor
     }

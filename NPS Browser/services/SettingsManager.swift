@@ -19,6 +19,7 @@ class SettingsManager {
         
         if (stored == nil) {
             resetUserDefaults(self)
+            return Settings()
         } else {
             do {
                 let settings = try PropertyListDecoder().decode(Settings.self, from: stored!)

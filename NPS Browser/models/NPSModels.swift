@@ -16,14 +16,154 @@ class NPSBase {
     var last_modification_date      : Date?
     var file_size                   : Int64?
     var sha256                      : String?
-    init(_ valueDict: [String: String]) {
-        self.title_id                    = valueDict["title_id"]
-        self.region                      = valueDict["region"]
-        self.name                        = valueDict["name"]
-        self.pkg_direct_link             = URL(string: valueDict["pkg_direct_link"]!)
-        self.last_modification_date      = parseDate(dateString: valueDict["last_modification_date"]!)
-        self.file_size                   = Int64(valueDict["file_size"]!)
-        self.sha256                      = valueDict["sha256"]
+    required init(_ data: TSVData) {
+        title_id                    = data.title_id
+        region                      = data.region
+        name                        = data.name
+        pkg_direct_link             = data.pkg_direct_link
+        last_modification_date      = data.last_modification_date
+        file_size                   = data.file_size
+        sha256                      = data.sha256
+    }
+}
+
+class PSVGame: NPSBase {
+    var zrif            : String?
+    var content_id      : String?
+    var original_name   : String?
+    var required_fw     : Float?
+    required init(_ data: TSVData) {
+        zrif           = data.zrif
+        content_id     = data.content_id
+        original_name  = data.original_name
+        required_fw    = data.required_fw
+        super.init(data)
+    }
+}
+
+class PSVUpdate: NPSBase {
+    var update_version  : Float?
+    var fw_version      : Float?
+    var nonpdrm_mirror  : URL?
+    required init(_ data: TSVData) {
+        update_version = data.update_version
+        fw_version     = data.fw_version
+        nonpdrm_mirror = data.nonpdrm_mirror
+        super.init(data)
+    }
+}
+
+class PSVDLC: NPSBase {
+    var zrif        : String?
+    var content_id  : String?
+    required init(_ data: TSVData) {
+        zrif       = data.zrif
+        content_id = data.content_id
+        super.init(data)
+    }
+}
+
+class PSXGame: NPSBase {
+    var content_id      : String?
+    var original_name   : String?
+    required init(_ data: TSVData) {
+        content_id     = data.content_id
+        original_name  = data.original_name
+        super.init(data)
+    }
+}
+
+class PSPGame: NPSBase {
+    var type                : String?
+    var content_id          : String?
+    var rap                 : String?
+    var download_rap_file   : URL?
+    required init(_ data: TSVData) {
+        self.type               = data.type
+        self.content_id         = data.content_id
+        self.rap                = data.rap
+        self.download_rap_file  = data.download_rap_file
+        super.init(data)
+    }
+}
+
+struct TSVData {
+    var title_id                : String?
+    var region                  : String?
+    var name                    : String?
+    var pkg_direct_link         : URL?
+    var last_modification_date  : Date?
+    var file_size               : Int64?
+    var sha256                  : String?
+    var zrif                    : String?
+    var content_id              : String?
+    var original_name           : String?
+    var required_fw             : Float?
+    var update_version          : Float?
+    var fw_version              : Float?
+    var nonpdrm_mirror          : URL?
+    var rap                     : String?
+    var download_rap_file       : URL?
+    var type                    : String?
+    
+    init(type: String, values: [String]) {
+        self.type = type
+        title_id = values[0]
+        region = values[1]
+
+        switch(type) {
+        case "PSVGames":
+            name                    = values[2]
+            pkg_direct_link         = URL(string: values[3])
+            zrif                    = values[4]
+            content_id              = values[5]
+            last_modification_date  = parseDate(dateString: values[6])
+            original_name           = values[7]
+            file_size               = Int64(values[8])
+            sha256                  = values[9]
+            required_fw             = Float(values[10])
+            break
+        case "PSVUpdates":
+            name                    = values[2]
+            update_version          = Float(values[3])
+            fw_version              = Float(values[4])
+            pkg_direct_link         = URL(string: values[5])
+            nonpdrm_mirror          = URL(string: values[6])
+            last_modification_date  = parseDate(dateString: values[7])
+            file_size               = Int64(values[8])
+            sha256                  = values[9]
+            break
+        case "PSVDLCs":
+            name                    = values[2]
+            pkg_direct_link         = URL(string: values[3])
+            zrif                    = values[4]
+            content_id              = values[5]
+            last_modification_date  = parseDate(dateString: values[6])
+            file_size               = Int64(values[7])
+            sha256                  = values[8]
+            break
+        case "PSXGames":
+            name                    = values[2]
+            pkg_direct_link         = URL(string: values[3])
+            content_id              = values[4]
+            last_modification_date  = parseDate(dateString: values[5])
+            original_name           = values[6]
+            file_size               = Int64(values[7])
+            sha256                  = values[8]
+            break
+        case "PSPGames":
+            name                    = values[3]
+            pkg_direct_link         = URL(string: values[4])
+            content_id              = values[5]
+            last_modification_date  = parseDate(dateString: values[6])
+            rap                     = values[7]
+            download_rap_file       = URL(string: values[8])
+            file_size               = Int64(values[9])
+            sha256                  = values[10]
+            break
+        default:
+            break
+        }
     }
     
     func parseDate(dateString: String) -> Date? {
@@ -34,64 +174,31 @@ class NPSBase {
         }
         return date
     }
-}
-
-class PSVGame: NPSBase {
-    var zrif            : String?
-    var content_id      : String?
-    var original_name   : String?
-    var required_fw     : Float?
-    override init(_ valueDict: [String : String]) {
-        self.zrif           = valueDict["zrif"]
-        self.content_id     = valueDict["content_id"]
-        self.original_name  = valueDict["original_name"]
-        self.required_fw    = Float(valueDict["required_fw"]!)
-        super.init(valueDict)
+    
+    func makeObject() -> NPSBase {
+        var obj: NPSBase?
+        
+        switch(type) {
+        case "PSVGames":
+            obj = PSVGame(self)
+            break
+        case "PSVUpdates":
+            obj = PSVUpdate(self)
+            break
+        case "PSVDLCs":
+            obj = PSVDLC(self)
+            break
+        case "PSXGames":
+            obj = PSXGame(self)
+            break
+        case "PSPGames":
+            obj = PSPGame(self)
+            break
+        default:
+            break
+        }
+        return obj!
     }
 }
 
-class PSVUpdate: NPSBase {
-    var update_version  : Float?
-    var fw_version      : Float?
-    var nonpdrm_mirror  : URL?
-    override init(_ valueDict: [String : String]) {
-        self.update_version = Float(valueDict["update_version"]!)
-        self.fw_version     = Float(valueDict["fw_version"]!)
-        self.nonpdrm_mirror = URL(string: valueDict["nonpdrm_mirror"]!)
-        super.init(valueDict)
-    }
-}
 
-class PSVDLC: NPSBase {
-    var zrif        : String?
-    var content_id  : String?
-    override init(_ valueDict: [String: String]) {
-        self.zrif       = valueDict["zrif"]
-        self.content_id = valueDict["content_id"]
-        super.init(valueDict)
-    }
-}
-
-class PSXGame: NPSBase {
-    var content_id      : String?
-    var original_name   : String?
-    override init(_ valueDict: [String : String]) {
-        self.content_id     = valueDict["content_id"]
-        self.original_name  = valueDict["original_name"]
-        super.init(valueDict)
-    }
-}
-
-class PSPGame: NPSBase {
-    var type                : String?
-    var content_id          : String?
-    var rap                 : String?
-    var download_rap_file   : URL?
-    override init(_ valueDict: [String: String]) {
-        self.type               = valueDict["type"]
-        self.content_id         = valueDict["content_id"]
-        self.rap                = valueDict["rap"]
-        self.download_rap_file  = URL(string: valueDict["content_id"]!)
-        super.init(valueDict)
-    }
-}

@@ -9,19 +9,23 @@
 import Cocoa
 
 class BookmarksViewController: NSViewController {
+    
     @IBOutlet weak var tableView: NSTableView!
+    
     @IBOutlet var bookmarksArrayController: NSArrayController!
+    
     let bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
         updateView()
+        super.viewDidLoad()
     }
     
     @IBAction func doRemoveBookmark(_ sender: NSButton) {
         let rowData = Helpers().getRowObjectFromTableRowButton(sender) as AnyObject
+        
         let bookmark = Helpers().makeBookmark(data: rowData)
+        
         bookmarkManager.removeBookmark(bookmark)
         
         Helpers().getDataController().getDetailsViewController().toggleBookmark(compareChecksum: bookmark.sha256)

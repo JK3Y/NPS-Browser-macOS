@@ -24,13 +24,21 @@ class DataViewController: NSViewController, ToolbarDelegate {
     }
     
     override func viewDidAppear() {
-        windowDelegate.startBtnReloadAnimation()
+        setArrayControllerContent(content: nil)
+        
         if (Helpers().getCoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
         } else {
             let content = Helpers().getCoreDataIO().getRecords()
             setArrayControllerContent(content: content)
         }
+//        windowDelegate.startBtnReloadAnimation()
+//        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
+//            NetworkManager().makeHTTPRequest()
+//        } else {
+//            let content = Helpers().getCoreDataIO().getRecords()
+//            setArrayControllerContent(content: content)
+//        }
     }
     
     override var representedObject: Any? {
@@ -51,35 +59,11 @@ class DataViewController: NSViewController, ToolbarDelegate {
         tsvResultsController.content = content
         tsvResultsController.setSelectionIndex(0)
         tableSelectionChanged(tableView)
-        windowDelegate.stopBtnReloadAnimation()
+//        windowDelegate.stopBtnReloadAnimation()
     }
     
     func getDetailsViewController() -> DetailsViewController {
          let vc: DetailsViewController = parent?.childViewControllers[1] as! DetailsViewController
         return vc
-    }
-}
-
-
-extension NSTableView {
-    override open func keyDown(with event: NSEvent) {
-        switch event.keyCode {
-        case 125:
-            // Arrow Down
-            if (Helpers().getDataController().tsvResultsController.canSelectNext) {
-                Helpers().getDataController().tsvResultsController.setSelectionIndex(selectedRow + 1)
-                Helpers().getDataController().tableSelectionChanged(self)
-            }
-            break
-        case 126:
-            // Arrow Up
-            if (Helpers().getDataController().tsvResultsController.canSelectPrevious) {
-                Helpers().getDataController().tsvResultsController.setSelectionIndex(selectedRow - 1)
-                Helpers().getDataController().tableSelectionChanged(self)
-            }
-            break
-        default:
-            break
-        }
     }
 }

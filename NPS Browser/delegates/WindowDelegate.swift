@@ -6,8 +6,6 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
-import Cocoa
-
 protocol WindowDelegate {
     func getType() -> String
     func getRegion() -> String
@@ -16,4 +14,5 @@ protocol WindowDelegate {
     func stopBtnReloadAnimation()
     
     func getDataController() -> DataViewController
+    func getLoadingViewController() -> LoadingViewController
 }

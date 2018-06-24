@@ -1,4 +1,11 @@
 # Changelog
+## v1.2.6
+### Added
+- A modal window now displays a progress bar showing the progress of fetching the data
+
+### Changed
+- Preferences UI has been tweaked
+
 ## v1.2.5
 ### Changed
 - Fixed items not being downloaded

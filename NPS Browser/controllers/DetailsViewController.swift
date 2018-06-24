@@ -22,13 +22,13 @@ class DetailsViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-            self.toggleDownloadButton()
-            self.toggleBookmark()
+            enableDownloadAndBookmarkButtons()
+            toggleBookmark()
         }
     }
 
     @IBAction func btnDownloadClicked(_ sender: Any) {
-        self.sendDLData()
+        sendDLData()
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
@@ -58,12 +58,14 @@ class DetailsViewController: NSViewController {
         }
     }
     
-    func toggleDownloadButton() {
+    func enableDownloadAndBookmarkButtons() {
         let link = ((representedObject as! NSManagedObject).value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
         if (link == "MISSING") {
-            self.btnDownload.isEnabled = false
+            btnDownload.isEnabled = false
+            chkBookmark.isEnabled = false
         } else {
-            self.btnDownload.isEnabled = true
+            btnDownload.isEnabled = true
+            chkBookmark.isEnabled = true
         }
     }
     

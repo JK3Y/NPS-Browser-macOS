@@ -30,7 +30,6 @@ class Helpers {
     
     func getWindowDelegate() -> WindowDelegate {
         return NSApp.windows.first?.windowController as! WindowController
-        
     }
     
     func getDataController() -> DataViewController {
@@ -40,7 +39,6 @@ class Helpers {
     func getCoreDataIO() -> CoreDataIO {
         return getSharedAppDelegate().coreDataIO
     }
-    
     
     
     

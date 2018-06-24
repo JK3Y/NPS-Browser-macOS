@@ -16,15 +16,20 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbRegion: NSPopUpButton!
     @IBOutlet weak var tbSearchBar: NSSearchField!
     var delegate: ToolbarDelegate?
+    var loadingViewController: LoadingViewController?
 
     override func windowDidLoad() {
-        super.windowDidLoad()
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        super.windowDidLoad()
+        let vc: LoadingViewController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "loadingVC")) as! LoadingViewController
+        loadingViewController = vc
     }
     
     @IBAction func onTypeChanged(_ sender: Any) {
-        startBtnReloadAnimation()
+//        startBtnReloadAnimation()
         self.delegate = getDataController()
+
+        delegate?.setArrayControllerContent(content: nil)
 
         if (Helpers().getCoreDataIO().recordsAreEmpty()) {
             NetworkManager().makeHTTPRequest()
@@ -42,7 +47,7 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {
-        startBtnReloadAnimation()
+//        startBtnReloadAnimation()
         NetworkManager().makeHTTPRequest()
     }
     
@@ -64,7 +69,14 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         let vc: DataViewController = splitViewController.splitViewItems[0].viewController as! DataViewController
         return vc
     }
+    
+    func getLoadingViewController() -> LoadingViewController {
+        return loadingViewController!
+    }
 
+    
+    
+    
     func getType() -> String {
         let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
         return type!
