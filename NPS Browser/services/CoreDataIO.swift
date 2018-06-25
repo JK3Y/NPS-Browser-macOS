@@ -12,7 +12,7 @@ import CoreData
 
 class CoreDataIO: NSObject {
     
-    let delegate = NSApplication.shared.delegate as! AppDelegate
+    let delegate = Helpers().getSharedAppDelegate()
     var context: NSManagedObjectContext
     let type: () -> String = {
         Helpers().getWindowDelegate().getType()
@@ -56,7 +56,7 @@ class CoreDataIO: NSObject {
         
         for item in array {
             let nps = getObject()
-
+            
             nps.setValue(item.title_id, forKey: "title_id")
             nps.setValue(item.region, forKey: "region")
             nps.setValue(item.name, forKey: "name")
@@ -64,6 +64,7 @@ class CoreDataIO: NSObject {
             nps.setValue(item.last_modification_date, forKey: "last_modification_date")
             nps.setValue(item.file_size, forKey: "file_size")
             nps.setValue(item.sha256, forKey: "sha256")
+            nps.setValue(self.type(), forKey: "type")
             
             let storedBookmark: BookmarksMO? = getRecordByChecksum(entityName: "Bookmarks", sha256: item.sha256!) as? BookmarksMO
             if (storedBookmark != nil) {
@@ -103,15 +104,10 @@ class CoreDataIO: NSObject {
             default:
                 break
             }
+            
         }
         
-        do {
-            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
-            try context.save()
-            
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+        delegate.saveAction(self)
     }
     
     func getRecordByChecksum(entityName: String, sha256: String) -> NSManagedObject? {
@@ -155,29 +151,32 @@ class CoreDataIO: NSObject {
         return nil
     }
     
-    func batchDelete(type: String) {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: type)
+    func batchDelete(typeName: String) {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: typeName)
+        let predicate = NSPredicate(format: "type == %@", typeName)
+        fetch.predicate = predicate
         let req = NSBatchDeleteRequest(fetchRequest: fetch)
         do {
-            try context.execute(req)
+            try context.execute(req) as? NSBatchDeleteResult
         } catch let error as NSError {
             print("Could not delete entity. \(error), \(error.userInfo)")
         }
+        
     }
     
-    func deleteAll() {
-        let types = [
-            "PSVGames",
-            "PSVUpdates",
-            "PSVDLCs",
-            "PSPGames",
-            "PSXGames",
-            "Bookmarks"
-        ]
-        types.forEach { type in
-            batchDelete(type: type)
-        }
-    }
+//    func deleteAll() {
+//        let types = [
+//            "PSVGames",
+//            "PSVUpdates",
+//            "PSVDLCs",
+//            "PSPGames",
+//            "PSXGames",
+//            "Bookmarks"
+//        ]
+//        types.forEach { type in
+//            batchDelete(typeName: type)
+//        }
+//    }
 
     func recordsAreEmpty() -> Bool {
         let records = getRecords()

@@ -75,10 +75,10 @@
     <elements>
         <element name="Bookmarks" positionX="151" positionY="-234" width="128" height="150"/>
         <element name="Item" positionX="198" positionY="9" width="128" height="73"/>
-        <element name="PSPGames" positionX="180" positionY="111" width="128" height="195"/>
+        <element name="PSPGames" positionX="180" positionY="111" width="128" height="193"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
-        <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="210"/>
-        <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="195"/>
+        <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="208"/>
+        <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
     </elements>
 </model>

@@ -54,6 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "NPS_Browser")
+
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 // Replace this implementation with code to handle the error appropriately.
@@ -78,6 +79,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBAction func saveAction(_ sender: AnyObject?) {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         let context = persistentContainer.viewContext
+        
+        context.mergePolicy = NSOverwriteMergePolicy
 
         if !context.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")

@@ -79,10 +79,10 @@ class PSPGame: NPSBase {
     var rap                 : String?
     var download_rap_file   : URL?
     required init(_ data: TSVData) {
-        self.type               = data.type
-        self.content_id         = data.content_id
-        self.rap                = data.rap
-        self.download_rap_file  = data.download_rap_file
+        type               = data.type
+        content_id         = data.content_id
+        rap                = data.rap
+        download_rap_file  = data.download_rap_file
         super.init(data)
     }
 }
@@ -175,9 +175,10 @@ struct TSVData {
         return date
     }
     
-    func makeObject() -> NPSBase {
+//    func makeNPSObject<T: NPSBase>(objType: T.Type) -> T? {
+    func makeNPSObject() -> NPSBase {
         var obj: NPSBase?
-        
+
         switch(type) {
         case "PSVGames":
             obj = PSVGame(self)

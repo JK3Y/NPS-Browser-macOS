@@ -13,7 +13,7 @@ class BookmarkListItemCellView: NSTableCellView {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.item = objectValue as! BookmarksMO
+        self.item = objectValue as? BookmarksMO
     }
     
     @IBAction func btnDownloadClicked(_ sender: NSButton) {

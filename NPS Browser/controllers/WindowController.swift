@@ -40,14 +40,14 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
-        startBtnReloadAnimation()
+//        startBtnReloadAnimation()
         self.delegate = getDataController()
         let content = CoreDataIO().getRecords()
         delegate?.setArrayControllerContent(content: content)
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {
-//        startBtnReloadAnimation()
+        startBtnReloadAnimation()
         NetworkManager().makeHTTPRequest()
     }
     

@@ -40,6 +40,14 @@ class Helpers {
         return getSharedAppDelegate().coreDataIO
     }
     
+    func getLoadingViewController() -> LoadingViewController {
+        return getWindowDelegate().getLoadingViewController()
+    }
+    
+    func showLoadingViewController() {
+        getDataController().presentViewControllerAsSheet(getWindowDelegate().getLoadingViewController())
+    }
+    
     
     
     func getRowObjectFromTableRowButton(_ sender: NSButton) -> Any? {

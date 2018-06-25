@@ -57,8 +57,4 @@ class BookmarkManager {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
-    func deleteAll() {
-        self.cd.deleteAll()
-    }
 }
