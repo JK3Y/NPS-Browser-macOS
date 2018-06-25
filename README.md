@@ -17,8 +17,6 @@ A Swift 4 implementation of NPS Browser.
 * Downloads can be started from the bookmark list
 * Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
 
-Note that the data from the server is stored until you decide to refresh the database.
-
 ## Building
 Make sure you have [CocoaPods][] installed.
 Open a terminal and install the dependencies:
