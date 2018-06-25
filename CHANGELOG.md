@@ -5,6 +5,7 @@
 
 ### Changed
 - Preferences UI has been tweaked
+- Core Data storage has been improved
 
 ## v1.2.5
 ### Changed

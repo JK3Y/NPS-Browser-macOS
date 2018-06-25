@@ -12,6 +12,11 @@ A Swift 4 implementation of NPS Browser.
 * Set URLs and extraction preferences in the Preferences window
 * Click the refresh button in the corner of the window to pull fresh data from the server. 
 
+## Features
+* Bookmarks can be saved by clicking the star icon in the corner of the details panel.
+* Downloads can be started from the bookmark list
+* Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
+
 Note that the data from the server is stored until you decide to refresh the database.
 
 ## Building

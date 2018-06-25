@@ -24,7 +24,6 @@ class NetworkManager {
         if (url == nil) {
             Helpers().makeAlert(messageText: "No URL set for \(self.type!)!", informativeText: "Set URL paths in the preferences window.", alertStyle: .warning)
             Helpers().getDataController().setArrayControllerContent(content: nil)
-//            windowDelegate.getDataController().setArrayControllerContent(content: nil)
             windowDelegate.stopBtnReloadAnimation()
             return
         }
