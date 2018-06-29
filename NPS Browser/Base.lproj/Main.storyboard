@@ -471,6 +471,9 @@
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="t5H-DK-7pA">
                                 <rect key="frame" x="128" y="168" width="157" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="0kG-3O-G90"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" placeholderString="/path/goes/here" usesSingleLineMode="YES" id="6Ev-xN-Ueq">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
