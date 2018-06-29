@@ -6,7 +6,7 @@
 
 ### Changed
 - Fixed bug where the preferences window would crop if a long path was selected for the download location.
-- Now using the forked pkg2zip by Luro02 so to unpack PS Vita themes
+- Now using the forked pkg2zip by Luro02 to unpack PS Vita themes
 
 ## v1.2.6
 ### Added
