@@ -68,7 +68,7 @@ class DetailsViewController: NSViewController {
             chkBookmark.isEnabled = true
         }
     }
-    
+
     func sendDLData() {
         let dlitem = Helpers().makeDLItem(data: representedObject as! NSManagedObject)
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlitem)

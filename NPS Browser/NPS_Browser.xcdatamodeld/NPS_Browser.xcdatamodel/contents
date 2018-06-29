@@ -49,7 +49,7 @@
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="PSVTheme" representedClassName="PSVThemeMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
+    <entity name="PSVThemes" representedClassName="PSVThemeMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -89,8 +89,8 @@
         <element name="PSPGames" positionX="180" positionY="111" width="128" height="193"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
         <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="208"/>
+        <element name="PSVThemes" positionX="99" positionY="-81" width="128" height="180"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
-        <element name="PSVTheme" positionX="99" positionY="-81" width="128" height="180"/>
     </elements>
 </model>

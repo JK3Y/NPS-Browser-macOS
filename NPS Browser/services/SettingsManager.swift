@@ -46,6 +46,10 @@ class SettingsManager {
         return (getSettings()?.extract)!
     }
     
+    func getDisplay() -> DisplaySettings {
+        return (getSettings()?.display)!
+    }
+    
     func getUserDefaults() -> UserDefaults {
         return UserDefaults.standard
     }

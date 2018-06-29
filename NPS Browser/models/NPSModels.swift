@@ -63,15 +63,15 @@ class PSVDLC: NPSBase {
     }
 }
 
-//class PSVTheme: NPSBase {
-//    var zrif        : String?
-//    var content_id  : String?
-//    required init(_ data: TSVData) {
-//        zrif       = data.zrif
-//        content_id = data.content_id
-//        super.init(data)
-//    }
-//}
+class PSVTheme: NPSBase {
+    var zrif        : String?
+    var content_id  : String?
+    required init(_ data: TSVData) {
+        zrif       = data.zrif
+        content_id = data.content_id
+        super.init(data)
+    }
+}
 
 class PSXGame: NPSBase {
     var content_id      : String?
@@ -152,6 +152,15 @@ struct TSVData {
             file_size               = Int64(values[7])
             sha256                  = values[8]
             break
+        case "PSVThemes":
+            name                    = values[2]
+            pkg_direct_link         = URL(string: values[3])
+            zrif                    = values[4]
+            content_id              = values[5]
+            last_modification_date  = parseDate(dateString: values[6])
+            file_size               = Int64(values[7])
+            sha256                  = values[8]
+            break
         case "PSXGames":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -185,7 +194,6 @@ struct TSVData {
         return date
     }
     
-//    func makeNPSObject<T: NPSBase>(objType: T.Type) -> T? {
     func makeNPSObject() -> NPSBase {
         var obj: NPSBase?
 
@@ -198,6 +206,9 @@ struct TSVData {
             break
         case "PSVDLCs":
             obj = PSVDLC(self)
+            break
+        case "PSVThemes":
+            obj = PSVTheme(self)
             break
         case "PSXGames":
             obj = PSXGame(self)

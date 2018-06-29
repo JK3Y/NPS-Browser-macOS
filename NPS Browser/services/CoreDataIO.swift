@@ -125,8 +125,13 @@ class CoreDataIO: NSObject {
     
     func getRecords() -> [NSManagedObject]? {
         let req             = NSFetchRequest<NSManagedObject>(entityName: type())
-        let predicate       = NSPredicate(format: "region == %@", region())
-        req.predicate       = predicate
+
+        if (SettingsManager().getDisplay().hide_invalid_url_items) {
+            req.predicate = NSPredicate(format: "region == %@ AND pkg_direct_link != 'MISSING'", region())
+        } else {
+            req.predicate = NSPredicate(format: "region == %@", region())
+        }
+
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {
@@ -139,8 +144,13 @@ class CoreDataIO: NSObject {
     
     func searchRecords(searchString: String) -> [NSManagedObject]? {
         let req             = NSFetchRequest<NSManagedObject>(entityName: type())
-        let predicate       = NSPredicate(format: "region == %@ AND name contains[c] %@", region(), searchString)
-        req.predicate       = predicate
+        
+        if (SettingsManager().getDisplay().hide_invalid_url_items) {
+            req.predicate = NSPredicate(format: "region == %@ AND name contains[c] %@ AND pkg_direct_link != 'MISSING'", region(), searchString)
+        } else {
+            req.predicate = NSPredicate(format: "region == %@ AND name contains[c] %@", region(), searchString)
+        }
+        
         req.sortDescriptors = [NSSortDescriptor(key: "title_id", ascending: true)]
         
         do {

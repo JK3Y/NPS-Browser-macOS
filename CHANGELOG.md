@@ -1,7 +1,12 @@
 # Changelog
 ## v1.2.7
+### Added
+- PS Vita theme support added
+- Ability to hide any items with missing download links
+
 ### Changed
-- Fixed bug where preferences window would crop if a long path was selected for the download location.
+- Fixed bug where the preferences window would crop if a long path was selected for the download location.
+- Now using the forked pkg2zip by Luro02 so to unpack PS Vita themes
 
 ## v1.2.6
 ### Added
