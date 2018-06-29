@@ -26,7 +26,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
     @IBAction func onTypeChanged(_ sender: Any) {
-//        startBtnReloadAnimation()
         self.delegate = getDataController()
 
         delegate?.setArrayControllerContent(content: nil)
@@ -40,7 +39,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
-//        startBtnReloadAnimation()
         self.delegate = getDataController()
         let content = CoreDataIO().getRecords()
         delegate?.setArrayControllerContent(content: content)

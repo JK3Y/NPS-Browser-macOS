@@ -1,4 +1,8 @@
 # Changelog
+## v1.2.7
+### Changed
+- Fixed bug where preferences window would crop if a long path was selected for the download location.
+
 ## v1.2.6
 ### Added
 - A modal window now displays a progress bar showing the progress of fetching the data

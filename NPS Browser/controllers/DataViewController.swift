@@ -32,13 +32,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
             let content = Helpers().getCoreDataIO().getRecords()
             setArrayControllerContent(content: content)
         }
-//        windowDelegate.startBtnReloadAnimation()
-//        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
-//            NetworkManager().makeHTTPRequest()
-//        } else {
-//            let content = Helpers().getCoreDataIO().getRecords()
-//            setArrayControllerContent(content: content)
-//        }
     }
     
     override var representedObject: Any? {
@@ -59,7 +52,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
         tsvResultsController.content = content
         tsvResultsController.setSelectionIndex(0)
         tableSelectionChanged(tableView)
-//        windowDelegate.stopBtnReloadAnimation()
     }
     
     func getDetailsViewController() -> DetailsViewController {

@@ -63,6 +63,16 @@ class PSVDLC: NPSBase {
     }
 }
 
+//class PSVTheme: NPSBase {
+//    var zrif        : String?
+//    var content_id  : String?
+//    required init(_ data: TSVData) {
+//        zrif       = data.zrif
+//        content_id = data.content_id
+//        super.init(data)
+//    }
+//}
+
 class PSXGame: NPSBase {
     var content_id      : String?
     var original_name   : String?

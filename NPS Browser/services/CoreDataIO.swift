@@ -163,20 +163,6 @@ class CoreDataIO: NSObject {
         }
         
     }
-    
-//    func deleteAll() {
-//        let types = [
-//            "PSVGames",
-//            "PSVUpdates",
-//            "PSVDLCs",
-//            "PSPGames",
-//            "PSXGames",
-//            "Bookmarks"
-//        ]
-//        types.forEach { type in
-//            batchDelete(typeName: type)
-//        }
-//    }
 
     func recordsAreEmpty() -> Bool {
         let records = getRecords()
