@@ -67,7 +67,7 @@ class Helpers {
                         title_id: data.title_id!,
                         type: data.type ?? getWindowDelegate().getType(),
                         zrif: data.zrif ?? nil,
-                        download_link: data.download_link,
+                        download_link: data.download_link ?? data.value(forKey:"pkg_direct_link") as? URL,
                         uuid: data.uuid)
     }
     

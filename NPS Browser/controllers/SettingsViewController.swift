@@ -17,6 +17,9 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var psxgField: NSTextField!
     @IBOutlet weak var pspgField: NSTextField!
     @IBOutlet weak var ps3gField: NSTextField!
+    @IBOutlet weak var ps3dlcField: NSTextField!
+    @IBOutlet weak var ps3tField: NSTextField!
+    @IBOutlet weak var ps3aField: NSTextField!
     
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
@@ -91,7 +94,10 @@ class SettingsViewController: NSViewController {
         psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
         pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
         ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
-
+        ps3dlcField.stringValue                   = settings.source.ps3_dlc?.absoluteString ?? ""
+        ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
+        ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
+        
         chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
 
         ccDLField.integerValue                  = settings.download.concurrent_downloads
@@ -137,7 +143,10 @@ class SettingsViewController: NSViewController {
                                          psv_themes: psvtField.stringValue,
                                          psp_games: pspgField.stringValue,
                                          psx_games: psxgField.stringValue,
-                                         ps3_games: ps3gField.stringValue)
+                                         ps3_games: ps3gField.stringValue,
+                                         ps3_dlc: ps3dlcField.stringValue,
+                                         ps3_themes: ps3tField.stringValue,
+                                         ps3_avatars: ps3aField.stringValue)
         let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
                                            concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,

@@ -18,6 +18,9 @@ class NetworkManager {
     
     func makeHTTPRequest() {
         let settings = SettingsManager().getUrls()
+        
+        debugPrint(settings)
+        
         self.type = windowDelegate.getType()
         let url = settings.getByType(type: self.type!)
         

@@ -25,9 +25,6 @@ class DetailsViewController: NSViewController {
         didSet {
             enableDownloadAndBookmarkButtons()
             toggleBookmark()
-            
-            let uid = getROManagedObject().value(forKey: "uuid") as! UUID
-            debugPrint(uid, uid.uuidString)
         }
     }
 
@@ -36,9 +33,6 @@ class DetailsViewController: NSViewController {
     }
     
     @IBAction func btnRAPDownloadClicked(_ sender: Any) {
-        
-//        debugPrint(getROManagedObject())
-        
         sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL)
     }
     
@@ -82,7 +76,7 @@ class DetailsViewController: NSViewController {
             chkBookmark.isEnabled = true
         }
         
-        if (type == "PS3Games") {
+        if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
             btnRAPDownload.isHidden = false
             let rap = (getROManagedObject().value(forKey: "rap") as! String)
 
@@ -98,11 +92,6 @@ class DetailsViewController: NSViewController {
         }
     }
 
-//    func sendDLData() {
-//        let dlitem = Helpers().makeDLItem(data: representedObject as! NSManagedObject)
-//        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlitem)
-//    }
-    
     func sendDLData(url: URL) {
         let obj = getROManagedObject()
         let dlItem = Helpers().makeDLItem(data: obj, download_link: url)

@@ -14,7 +14,43 @@
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="bookmark" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bookmarks" inverseName="item" inverseEntity="Bookmarks" syncable="YES"/>
     </entity>
+    <entity name="PS3Avatars" representedClassName="PS3AvatarMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="download_rap_file" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pkg_direct_link" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="rap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sha256" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PS3DLCs" representedClassName="PS3DLCMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="download_rap_file" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pkg_direct_link" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="rap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sha256" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="PS3Games" representedClassName="PS3GameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="download_rap_file" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pkg_direct_link" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="rap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sha256" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="PS3Themes" representedClassName="PS3ThemeMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="download_rap_file" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -106,5 +142,8 @@
         <element name="PSVThemes" positionX="99" positionY="-81" width="128" height="180"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
+        <element name="PS3DLCs" positionX="99" positionY="-81" width="128" height="195"/>
+        <element name="PS3Avatars" positionX="108" positionY="-72" width="128" height="195"/>
+        <element name="PS3Themes" positionX="117" positionY="-63" width="128" height="195"/>
     </elements>
 </model>

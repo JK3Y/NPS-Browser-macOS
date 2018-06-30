@@ -3,6 +3,9 @@
 ## v1.3.0
 ### Added
 - PS3 Game support!
+- PS3 DLC support!
+- PS3 Theme support!
+- PS3 Avatar support!
 
 ### Changed
 - New preferences window (again). The list of URLs is getting so long the window was getting way too tall, so I widened it.

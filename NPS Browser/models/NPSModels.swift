@@ -111,6 +111,10 @@ class PS3Game: NPSBase {
     }
 }
 
+class PS3DLC: PS3Game {}
+class PS3Theme: PS3Game {}
+class PS3Avatar: PS3Game {}
+
 struct TSVData {
     var title_id                : String?
     var region                  : String?
@@ -182,8 +186,8 @@ struct TSVData {
             download_rap_file       = URL(string: values[8])
             file_size               = Int64(values[9])
             sha256                  = values[10]
-        case "PS3Games":
-            var baseURL = "https://nopaystation.com/rap2file/?"
+        case "PS3Games", "PS3DLCs", "PS3Themes", "PS3Avatars":
+            let baseURL = "https://nopaystation.com/rap2file/?"
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
             rap                     = values[4]
@@ -197,18 +201,9 @@ struct TSVData {
         }
     }
     
-    func parseDate(dateString: String) -> Date? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = formatter.date(from: dateString) else {
-            return nil
-        }
-        return date
-    }
-    
     func makeNPSObject() -> NPSBase {
         var obj: NPSBase?
-
+        
         switch(type) {
         case "PSVGames":
             obj = PSVGame(self)
@@ -224,11 +219,28 @@ struct TSVData {
             obj = PSPGame(self)
         case "PS3Games":
             obj = PS3Game(self)
+        case "PS3DLCs":
+            obj = PS3DLC(self)
+        case "PS3Themes":
+            obj = PS3Theme(self)
+        case "PS3Avatars":
+            obj = PS3Avatar(self)
         default:
             break
         }
         return obj!
     }
+    
+    func parseDate(dateString: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let date = formatter.date(from: dateString) else {
+            return nil
+        }
+        return date
+    }
+    
+    
 }
 
 

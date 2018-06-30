@@ -17,19 +17,27 @@ class ExtractionManager {
     
     init(item: DLItem, downloadManager: DownloadManager) {
         self.item = item
-        if (item.type == "PS3Games") {
+        if (item.type == "PS3Games" || item.type == "PS3DLCs" || item.type == "PS3Themes" || item.type == "PS3Avatars") {
             self.isPS3 = true
         }
         self.downloadManager = downloadManager
     }
     
     func start() {
+        
+        if (item.zrif == "MISSING") {
+            completeDownload(status: "Missing zRIF, license not created")
+            return
+        }
+        
         if (!shouldDoExtract()) {
-            setStatus("Download Complete")
-            self.item.makeViewable()
-            Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
-            
-            downloadManager.moveToCompleted(item: self.item)
+            completeDownload(status: "Download Complete")
+//            setStatus("Download Complete")
+//            self.item.makeViewable()
+//            Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
+//
+//            downloadManager.moveToCompleted(item: self.item)
+//            return
             return
         }
 
@@ -44,11 +52,24 @@ class ExtractionManager {
 
         task.arguments = getArguments()
         task.standardOutput = pipe
+        
         task.terminationHandler = { task in
             DispatchQueue.main.async {
-                self.setStatus("Extraction Complete")
-                self.item.makeViewable()
-                Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
+                
+                let taskStatus = task.terminationStatus
+                
+                if (taskStatus == 0) {
+                    debugPrint("Success!")
+                    
+                    self.setStatus("Extraction Complete")
+                    self.item.makeViewable()
+                    Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
+                } else {
+                    debugPrint("Task Failed")
+                }
+                
+                
+                
             }
         }
         
@@ -61,6 +82,15 @@ class ExtractionManager {
         task.waitUntilExit()
         
         cleanup()
+    }
+    
+    private func completeDownload(status: String) {
+        setStatus(status)
+        self.item.makeViewable()
+        Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
+        
+        downloadManager.moveToCompleted(item: self.item)
+        return
     }
     
     private func shouldDoExtract() -> Bool {

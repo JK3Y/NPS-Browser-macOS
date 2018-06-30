@@ -122,7 +122,7 @@ class DownloadManager {
     func stopAndStoreDownloadList() {
         for item in downloadItems {
             
-            if (item.status == "Download Complete") {
+            if (item.status == "Download Complete" || item.status == "Extraction Complete" || item.status == "Missing zRIF, license not created") {
                 item.makeViewable()
             } else {
                 item.request?.cancel()

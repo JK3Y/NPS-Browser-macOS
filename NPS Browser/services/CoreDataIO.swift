@@ -106,6 +106,21 @@ class CoreDataIO: NSObject {
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.rap, forKey: "rap")
                 nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
+            case "PS3DLCs":
+                let obj = item as! PS3DLC
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.rap, forKey: "rap")
+                nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
+            case "PS3Themes":
+                let obj = item as! PS3Theme
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.rap, forKey: "rap")
+                nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
+            case "PS3Avatars":
+                let obj = item as! PS3Avatar
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.rap, forKey: "rap")
+                nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
             default:
                 break
             }
