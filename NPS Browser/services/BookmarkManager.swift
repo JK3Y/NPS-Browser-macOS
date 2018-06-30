@@ -22,8 +22,8 @@ class BookmarkManager {
         return cd.getBookmarks()
     }
     
-    func getBookmark(sha256: String) -> NSManagedObject? {
-        return cd.getRecordByChecksum(entityName: "Bookmarks", sha256: sha256)
+    func getBookmark(uuid: UUID) -> NSManagedObject? {
+        return cd.getRecordByUUID(entityName: "Bookmarks", uuid: uuid)
     }
     
     func addBookmark(bookmark: Bookmark, item: NSManagedObject) {
@@ -31,7 +31,7 @@ class BookmarkManager {
     }
     
     func removeBookmark(_ bookmark: Bookmark) {
-        let obj = cd.getRecordByChecksum(entityName: "Bookmarks", sha256: bookmark.sha256)
+        let obj = cd.getRecordByUUID(entityName: "Bookmarks", uuid: bookmark.uuid)
         
         do {
             cd.getContext().delete(obj!)
@@ -48,7 +48,7 @@ class BookmarkManager {
         obj.setValue(bookmark.type, forKey: "type")
         obj.setValue(bookmark.zrif, forKey: "zrif")
         obj.setValue(bookmark.pkg_direct_link, forKey: "pkg_direct_link")
-        obj.setValue(bookmark.sha256, forKey: "sha256")
+        obj.setValue(bookmark.uuid, forKey: "uuid")
         obj.setValue(item, forKey: "item")
         
         do {

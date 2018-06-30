@@ -68,7 +68,7 @@ class Helpers {
                         type: data.type ?? getWindowDelegate().getType(),
                         zrif: data.zrif ?? nil,
                         pkg_direct_link: data.pkg_direct_link,
-                        sha256: data.sha256)
+                        uuid: data.uuid)
     }
     
     func makeDLItem(data: NSManagedObject) -> DLItem {

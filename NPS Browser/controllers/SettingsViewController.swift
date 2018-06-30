@@ -51,13 +51,11 @@ class SettingsViewController: NSViewController {
             chkKeepPKG.isEnabled = false
             chkSaveZip.isEnabled = false
             chkCompressPSPISO.isEnabled = false
-            break
         case .on:
             chkCreateLicense.isEnabled = true
             chkKeepPKG.isEnabled = true
             chkSaveZip.isEnabled = true
             chkCompressPSPISO.isEnabled = true
-            break
         default:
             break
         }
@@ -69,11 +67,9 @@ class SettingsViewController: NSViewController {
         case .on:
             compressionFactorStepper.isEnabled = true
             compressionFactorField.isEnabled = true
-            break
         case .off :
             compressionFactorStepper.isEnabled = false
             compressionFactorField.isEnabled = false
-            break
         default:
             break
         }

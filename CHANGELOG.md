@@ -1,4 +1,9 @@
 # Changelog
+## TODO:
+- give each item a UUID since ps3 titles on NPS don't have sha256
+- use the uuid instead of sha256 to tie bookmarks with the item
+- add ps3 games support
+
 ## v1.2.7
 ### Added
 - PS Vita theme support added

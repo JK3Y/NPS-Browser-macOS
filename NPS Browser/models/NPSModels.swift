@@ -16,6 +16,8 @@ class NPSBase {
     var last_modification_date      : Date?
     var file_size                   : Int64?
     var sha256                      : String?
+    var type                        : String
+    var uuid                        : UUID
     required init(_ data: TSVData) {
         title_id                    = data.title_id
         region                      = data.region
@@ -24,6 +26,8 @@ class NPSBase {
         last_modification_date      = data.last_modification_date
         file_size                   = data.file_size
         sha256                      = data.sha256
+        type                        = data.type
+        uuid                        = data.uuid
     }
 }
 
@@ -84,12 +88,10 @@ class PSXGame: NPSBase {
 }
 
 class PSPGame: NPSBase {
-    var type                : String?
     var content_id          : String?
     var rap                 : String?
     var download_rap_file   : URL?
     required init(_ data: TSVData) {
-        type               = data.type
         content_id         = data.content_id
         rap                = data.rap
         download_rap_file  = data.download_rap_file
@@ -114,10 +116,12 @@ struct TSVData {
     var nonpdrm_mirror          : URL?
     var rap                     : String?
     var download_rap_file       : URL?
-    var type                    : String?
+    var type                    : String
+    var uuid                    : UUID
     
     init(type: String, values: [String]) {
         self.type = type
+        self.uuid = UUID()
         title_id = values[0]
         region = values[1]
 
@@ -132,7 +136,6 @@ struct TSVData {
             file_size               = Int64(values[8])
             sha256                  = values[9]
             required_fw             = Float(values[10])
-            break
         case "PSVUpdates":
             name                    = values[2]
             update_version          = Float(values[3])
@@ -142,7 +145,6 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[7])
             file_size               = Int64(values[8])
             sha256                  = values[9]
-            break
         case "PSVDLCs":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -151,7 +153,6 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[6])
             file_size               = Int64(values[7])
             sha256                  = values[8]
-            break
         case "PSVThemes":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -160,7 +161,6 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[6])
             file_size               = Int64(values[7])
             sha256                  = values[8]
-            break
         case "PSXGames":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -169,7 +169,6 @@ struct TSVData {
             original_name           = values[6]
             file_size               = Int64(values[7])
             sha256                  = values[8]
-            break
         case "PSPGames":
             name                    = values[3]
             pkg_direct_link         = URL(string: values[4])
@@ -179,7 +178,6 @@ struct TSVData {
             download_rap_file       = URL(string: values[8])
             file_size               = Int64(values[9])
             sha256                  = values[10]
-            break
         default:
             break
         }
@@ -200,22 +198,16 @@ struct TSVData {
         switch(type) {
         case "PSVGames":
             obj = PSVGame(self)
-            break
         case "PSVUpdates":
             obj = PSVUpdate(self)
-            break
         case "PSVDLCs":
             obj = PSVDLC(self)
-            break
         case "PSVThemes":
             obj = PSVTheme(self)
-            break
         case "PSXGames":
             obj = PSXGame(self)
-            break
         case "PSPGames":
             obj = PSPGame(self)
-            break
         default:
             break
         }

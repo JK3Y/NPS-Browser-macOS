@@ -12,7 +12,8 @@ class DetailsViewController: NSViewController {
     
     @IBOutlet weak var chkBookmark: NSButton!
     @IBOutlet weak var btnDownload: NSButton!
-
+    @IBOutlet weak var btnRAPDownload: NSButton!
+    
     var windowDelegate: WindowDelegate?
     
     override func viewDidLoad() {
@@ -24,6 +25,9 @@ class DetailsViewController: NSViewController {
         didSet {
             enableDownloadAndBookmarkButtons()
             toggleBookmark()
+            
+            let uid = (representedObject as! NSManagedObject).value(forKey: "uuid") as! UUID
+            debugPrint(uid, uid.uuidString)
         }
     }
 
@@ -42,7 +46,7 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark() {
-        let bookmark = Helpers().getCoreDataIO().getRecordByChecksum(entityName: "Bookmarks", sha256: (representedObject as! NSManagedObject).value(forKey: "sha256") as! String)
+        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: (representedObject as! NSManagedObject).value(forKey: "uuid") as! UUID)
 
         if ( bookmark != nil) {
             chkBookmark.state = .on
@@ -51,15 +55,17 @@ class DetailsViewController: NSViewController {
         }
     }
     
-    func toggleBookmark(compareChecksum: String) {
-        let objChecksum: String = (representedObject as! NSManagedObject).value(forKey: "sha256") as! String
-        if (objChecksum == compareChecksum) {
+    func toggleBookmark(compareUUID: UUID) {
+        let obj: NSUUID = (representedObject as! NSManagedObject).value(forKey: "uuid") as! NSUUID
+        if (obj.isEqual(to: (compareUUID as NSUUID))) {
             chkBookmark.state = .off
         }
     }
     
     func enableDownloadAndBookmarkButtons() {
         let link = ((representedObject as! NSManagedObject).value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
+//        let type = ((representedObject as! NSManagedObject).value(forKey: "type") as! String)
+
         if (link == "MISSING") {
             btnDownload.isEnabled = false
             chkBookmark.isEnabled = false
@@ -67,6 +73,10 @@ class DetailsViewController: NSViewController {
             btnDownload.isEnabled = true
             chkBookmark.isEnabled = true
         }
+        
+//        if (type == "PS3Games") {
+//            let rap = ((representedObject as! NSManagedObject).value(forKey: "download_rap_file") as! URL?)?.absoluteString
+//        }
     }
 
     func sendDLData() {

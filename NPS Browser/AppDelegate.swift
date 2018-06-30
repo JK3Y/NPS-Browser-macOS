@@ -92,6 +92,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 // Customize this code block to include application-specific recovery steps.
                 let nserror = error as NSError
                 NSApplication.shared.presentError(nserror)
+                
+                debugPrint(nserror)
             }
         }
     }

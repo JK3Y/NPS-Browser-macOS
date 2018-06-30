@@ -28,7 +28,7 @@ class BookmarksViewController: NSViewController {
         
         bookmarkManager.removeBookmark(bookmark)
         
-        Helpers().getDataController().getDetailsViewController().toggleBookmark(compareChecksum: bookmark.sha256)
+        Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: bookmark.uuid)
         
         updateView()
     }

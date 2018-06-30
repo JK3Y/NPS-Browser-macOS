@@ -64,43 +64,43 @@ class CoreDataIO: NSObject {
             nps.setValue(item.last_modification_date, forKey: "last_modification_date")
             nps.setValue(item.file_size, forKey: "file_size")
             nps.setValue(item.sha256, forKey: "sha256")
-            nps.setValue(self.type(), forKey: "type")
+            nps.setValue(item.type, forKey: "type")
+            nps.setValue(item.uuid, forKey: "uuid")
             
-            let storedBookmark: BookmarksMO? = getRecordByChecksum(entityName: "Bookmarks", sha256: item.sha256!) as? BookmarksMO
+            let storedBookmark: BookmarksMO? = getRecordByUUID(entityName: "Bookmarks", uuid: item.uuid) as? BookmarksMO
             if (storedBookmark != nil) {
                 nps.setValue(storedBookmark, forKey: "bookmark")
             }
             
-            switch(self.type()) {
+            switch(item.type) {
             case "PSVGames":
                 let obj = item as! PSVGame
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.original_name, forKey: "original_name")
                 nps.setValue(obj.required_fw, forKey: "required_fw")
                 nps.setValue(obj.zrif, forKey: "zrif")
-                break
             case "PSVUpdates":
                 let obj = item as! PSVUpdate
                 nps.setValue(obj.update_version, forKey: "update_version")
                 nps.setValue(obj.fw_version, forKey: "fw_version")
                 nps.setValue(obj.nonpdrm_mirror, forKey: "nonpdrm_mirror")
-                break
             case "PSVDLCs":
                 let obj = item as! PSVDLC
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.zrif, forKey: "zrif")
-                break
+            case "PSVThemes":
+                let obj = item as! PSVTheme
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.zrif, forKey: "zrif")
             case "PSPGames":
                 let obj = item as! PSPGame
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.rap, forKey: "rap")
                 nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
-                break
             case "PSXGames":
                 let obj = item as! PSXGame
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.original_name, forKey: "original_name")
-                break
             default:
                 break
             }
@@ -110,9 +110,9 @@ class CoreDataIO: NSObject {
         delegate.saveAction(self)
     }
     
-    func getRecordByChecksum(entityName: String, sha256: String) -> NSManagedObject? {
+    func getRecordByUUID(entityName: String, uuid: UUID) -> NSManagedObject? {
         let req             = NSFetchRequest<NSManagedObject>(entityName: entityName)
-        let predicate       = NSPredicate(format: "sha256 == %@", sha256)
+        let predicate       = NSPredicate(format: "uuid == %@", uuid.uuidString)
         req.predicate       = predicate
         
         do {
