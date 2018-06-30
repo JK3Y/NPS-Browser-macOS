@@ -13,14 +13,14 @@ class Bookmark: NSObject {
     @objc dynamic var title_id                  : String
     @objc dynamic var type                      : String
     @objc dynamic var zrif                      : String?
-    @objc dynamic var pkg_direct_link           : URL?
+    @objc dynamic var download_link             : URL?
     @objc dynamic var uuid                      : UUID
-    init(name: String, title_id: String, type: String, zrif: String?, pkg_direct_link: URL?, uuid: UUID) {
+    init(name: String, title_id: String, type: String, zrif: String?, download_link: URL?, uuid: UUID) {
         self.name                       = name
         self.title_id                   = title_id
         self.type                       = type
         self.zrif                       = zrif
-        self.pkg_direct_link            = pkg_direct_link
+        self.download_link              = download_link
         self.uuid                       = uuid
         super.init()
     }

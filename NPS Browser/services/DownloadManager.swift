@@ -31,7 +31,7 @@ class DownloadManager {
         }
         
         // store request in same object so we can cancel/pause/resume it later
-        let request = Alamofire.download(data.pkg_direct_link!, to: destination)
+        let request = Alamofire.download(data.download_link!, to: destination)
         data.request = request
         
         // add object to downloadItems array
@@ -55,7 +55,7 @@ class DownloadManager {
                 response.result.ifSuccess {
 
                     dlItem.destinationURL = response.destinationURL
-
+                    
                     ExtractionManager(item: dlItem, downloadManager: self).start()
                 }
                 response.result.ifFailure {
@@ -121,11 +121,11 @@ class DownloadManager {
     
     func stopAndStoreDownloadList() {
         for item in downloadItems {
-            item.request?.cancel()
-            if (item.status == "Complete") {
+            
+            if (item.status == "Download Complete") {
                 item.makeViewable()
             } else {
-                item.status = "Stopped"
+                item.request?.cancel()
                 item.makeResumable()
             }
         }

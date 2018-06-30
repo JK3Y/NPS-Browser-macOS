@@ -21,7 +21,7 @@ class BookmarkListItemCellView: NSTableCellView {
         dlItem.type             = self.item?.type
         dlItem.title_id         = self.item?.title_id
         dlItem.name             = self.item?.name
-        dlItem.pkg_direct_link  = self.item?.pkg_direct_link
+        dlItem.download_link    = self.item?.download_link
         dlItem.zrif             = self.item?.zrif
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }

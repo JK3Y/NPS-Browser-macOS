@@ -20,7 +20,7 @@ class DLItem: NSObject, Codable {
     @objc dynamic var title_id          : String?
     @objc dynamic var name              : String?
     @objc dynamic var type              : String?
-    @objc dynamic var pkg_direct_link   : URL?
+    @objc dynamic var download_link     : URL?
     @objc dynamic var progress          : Double = 0.0
     @objc dynamic var zrif              : String?
     @objc dynamic var status            : String?
@@ -37,7 +37,7 @@ class DLItem: NSObject, Codable {
         case title_id
         case name
         case type
-        case pkg_direct_link
+        case download_link
         case progress
         case zrif
         case status

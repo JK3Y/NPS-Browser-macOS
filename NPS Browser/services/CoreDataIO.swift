@@ -101,6 +101,11 @@ class CoreDataIO: NSObject {
                 let obj = item as! PSXGame
                 nps.setValue(obj.content_id, forKey: "content_id")
                 nps.setValue(obj.original_name, forKey: "original_name")
+            case "PS3Games":
+                let obj = item as! PS3Game
+                nps.setValue(obj.content_id, forKey: "content_id")
+                nps.setValue(obj.rap, forKey: "rap")
+                nps.setValue(obj.download_rap_file, forKey: "download_rap_file")
             default:
                 break
             }

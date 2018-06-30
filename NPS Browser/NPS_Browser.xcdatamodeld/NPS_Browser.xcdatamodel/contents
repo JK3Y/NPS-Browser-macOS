@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Bookmarks" representedClassName="BookmarksMO" syncable="YES" codeGenerationType="class">
+        <attribute name="download_link" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pkg_direct_link" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="bookmark" inverseEntity="Item" syncable="YES"/>
     </entity>
@@ -99,12 +99,12 @@
     <elements>
         <element name="Bookmarks" positionX="151" positionY="-234" width="128" height="150"/>
         <element name="Item" positionX="198" positionY="9" width="128" height="90"/>
+        <element name="PS3Games" positionX="99" positionY="-81" width="128" height="195"/>
         <element name="PSPGames" positionX="180" positionY="111" width="128" height="193"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
         <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="208"/>
         <element name="PSVThemes" positionX="99" positionY="-81" width="128" height="180"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
-        <element name="PS3Games" positionX="99" positionY="-81" width="128" height="195"/>
     </elements>
 </model>

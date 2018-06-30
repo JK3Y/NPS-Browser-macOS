@@ -47,7 +47,7 @@ class BookmarkManager {
         obj.setValue(bookmark.title_id, forKey: "title_id")
         obj.setValue(bookmark.type, forKey: "type")
         obj.setValue(bookmark.zrif, forKey: "zrif")
-        obj.setValue(bookmark.pkg_direct_link, forKey: "pkg_direct_link")
+        obj.setValue(bookmark.download_link, forKey: "download_link")
         obj.setValue(bookmark.uuid, forKey: "uuid")
         obj.setValue(item, forKey: "item")
         

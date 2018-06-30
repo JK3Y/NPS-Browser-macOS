@@ -26,27 +26,35 @@ class DetailsViewController: NSViewController {
             enableDownloadAndBookmarkButtons()
             toggleBookmark()
             
-            let uid = (representedObject as! NSManagedObject).value(forKey: "uuid") as! UUID
+            let uid = getROManagedObject().value(forKey: "uuid") as! UUID
             debugPrint(uid, uid.uuidString)
         }
     }
 
     @IBAction func btnDownloadClicked(_ sender: Any) {
-        sendDLData()
+        sendDLData(url: getROManagedObject().value(forKey: "pkg_direct_link") as! URL)
     }
+    
+    @IBAction func btnRAPDownloadClicked(_ sender: Any) {
+        
+//        debugPrint(getROManagedObject())
+        
+        sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL)
+    }
+    
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
         let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as AnyObject)
 
         if (sender.state == .on) {
-            Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: representedObject as! NSManagedObject)
+            Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: getROManagedObject())
         } else {
             Helpers().getSharedAppDelegate().bookmarkManager.removeBookmark(bookmark)
         }
     }
     
     func toggleBookmark() {
-        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: (representedObject as! NSManagedObject).value(forKey: "uuid") as! UUID)
+        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: getROManagedObject().value(forKey: "uuid") as! UUID)
 
         if ( bookmark != nil) {
             chkBookmark.state = .on
@@ -56,15 +64,15 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark(compareUUID: UUID) {
-        let obj: NSUUID = (representedObject as! NSManagedObject).value(forKey: "uuid") as! NSUUID
+        let obj: NSUUID = getROManagedObject().value(forKey: "uuid") as! NSUUID
         if (obj.isEqual(to: (compareUUID as NSUUID))) {
             chkBookmark.state = .off
         }
     }
     
     func enableDownloadAndBookmarkButtons() {
-        let link = ((representedObject as! NSManagedObject).value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
-//        let type = ((representedObject as! NSManagedObject).value(forKey: "type") as! String)
+        let link = (getROManagedObject().value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
+        let type = (getROManagedObject().value(forKey: "type") as! String)
 
         if (link == "MISSING") {
             btnDownload.isEnabled = false
@@ -74,13 +82,35 @@ class DetailsViewController: NSViewController {
             chkBookmark.isEnabled = true
         }
         
-//        if (type == "PS3Games") {
-//            let rap = ((representedObject as! NSManagedObject).value(forKey: "download_rap_file") as! URL?)?.absoluteString
-//        }
+        if (type == "PS3Games") {
+            btnRAPDownload.isHidden = false
+            let rap = (getROManagedObject().value(forKey: "rap") as! String)
+
+            if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
+                btnRAPDownload.title = rap
+                btnRAPDownload.isEnabled = false
+            } else {
+                btnRAPDownload.title = "RAP"
+                btnRAPDownload.isEnabled = true
+            }
+        } else {
+            btnRAPDownload.isHidden = true
+        }
     }
 
-    func sendDLData() {
-        let dlitem = Helpers().makeDLItem(data: representedObject as! NSManagedObject)
-        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlitem)
+//    func sendDLData() {
+//        let dlitem = Helpers().makeDLItem(data: representedObject as! NSManagedObject)
+//        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlitem)
+//    }
+    
+    func sendDLData(url: URL) {
+        let obj = getROManagedObject()
+        let dlItem = Helpers().makeDLItem(data: obj, download_link: url)
+        
+        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
+    }
+    
+    func getROManagedObject() -> NSManagedObject {
+        return representedObject as! NSManagedObject
     }
 }

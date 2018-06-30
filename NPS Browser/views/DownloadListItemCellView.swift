@@ -25,7 +25,6 @@ class DownloadListItemCellView: NSTableCellView {
     @IBAction func doCancelRequest(_ sender: NSButton) {
         if (item!.isCancelable) {
             item!.request?.cancel()
-            
             item!.status = "Cancelled"
             item!.makeResumable()
         }
@@ -33,6 +32,11 @@ class DownloadListItemCellView: NSTableCellView {
     
     @IBAction func doViewDownloadedFile(_ sender: NSButton) {
         let extractSettings = SettingsManager().getExtract()
+        
+        if (item!.type == "PS3Games") {
+            NSWorkspace.shared.open(dlLoc)
+        }
+        
         if (extractSettings.extract_after_downloading) {
             dlLoc.appendPathComponent("app/\(item!.title_id!)")
         }

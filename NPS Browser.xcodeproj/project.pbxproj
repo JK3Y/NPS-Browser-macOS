@@ -15,7 +15,6 @@
 		5149B3C920A8F63C00D3D82C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149B3C820A8F63C00D3D82C /* NetworkManager.swift */; };
 		515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515B77B420AF794500C7B07D /* ToolbarDelegate.swift */; };
 		5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167430420AFE098003AFC4D /* DownloadManager.swift */; };
-		51694B3F20E741480056593E /* pkgrip in Resources */ = {isa = PBXBuildFile; fileRef = 51694B3E20E741480056593E /* pkgrip */; };
 		516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7620CAE275004D6AE5 /* CHANGELOG.md */; };
 		516A1B7920CAE28A004D6AE5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7820CAE28A004D6AE5 /* README.md */; };
 		516BE6AA209E14B300FC9580 /* CoreDataIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516BE6A9209E14B300FC9580 /* CoreDataIO.swift */; };
@@ -55,7 +54,6 @@
 		5149B3C820A8F63C00D3D82C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		515B77B420AF794500C7B07D /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		5167430420AFE098003AFC4D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
-		51694B3E20E741480056593E /* pkgrip */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pkgrip; sourceTree = "<group>"; };
 		516A1B7620CAE275004D6AE5 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		516A1B7820CAE28A004D6AE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		516BE6A9209E14B300FC9580 /* CoreDataIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIO.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				5177A78520C33C0E002F81F9 /* pkg2zip */,
-				51694B3E20E741480056593E /* pkgrip */,
 				51A767A120A6992500052F53 /* controllers */,
 				51A767A220A699AC00052F53 /* models */,
 				51B12A1520B0C59400E83844 /* views */,
@@ -292,7 +289,6 @@
 			files = (
 				516A1B7920CAE28A004D6AE5 /* README.md in Resources */,
 				51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */,
-				51694B3F20E741480056593E /* pkgrip in Resources */,
 				51EBE8262094E095005D44DC /* Assets.xcassets in Resources */,
 				516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */,
 				5177A78620C33C0F002F81F9 /* pkg2zip in Resources */,

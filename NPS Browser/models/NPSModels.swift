@@ -165,14 +165,6 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[6])
             file_size               = Int64(values[7])
             sha256                  = values[8]
-//        case "PSVThemes":
-//            name                    = values[2]
-//            pkg_direct_link         = URL(string: values[3])
-//            zrif                    = values[4]
-//            content_id              = values[5]
-//            last_modification_date  = parseDate(dateString: values[6])
-//            file_size               = Int64(values[7])
-//            sha256                  = values[8]
         case "PSXGames":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -191,12 +183,13 @@ struct TSVData {
             file_size               = Int64(values[9])
             sha256                  = values[10]
         case "PS3Games":
+            var baseURL = "https://nopaystation.com/rap2file/?"
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
             rap                     = values[4]
             content_id              = values[5]
             last_modification_date  = parseDate(dateString: values[6])
-            download_rap_file       = URL(string: values[7])
+            download_rap_file       = URL(string: "\(baseURL)&contentid=\(values[5])&rap=\(values[4])")
             file_size               = Int64(values[8])
             sha256                  = values[9]
         default:

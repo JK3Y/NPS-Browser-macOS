@@ -116,14 +116,14 @@ struct ExtractSettings: Codable {
         self.compression_factor         = 1
         self.unpack_ps3_packages        = false
     }
-    init(extract_after_downloading: Bool, keep_pkg: Bool, save_as_zip: Bool, create_license: Bool, compress_psp_iso: Bool, compression_factor: Int, unpack_ps3_packages: Bool){
+    init(extract_after_downloading: Bool, keep_pkg: Bool, save_as_zip: Bool, create_license: Bool, compress_psp_iso: Bool, compression_factor: Int){
         self.extract_after_downloading  = extract_after_downloading
         self.keep_pkg                   = keep_pkg
         self.save_as_zip                = save_as_zip
         self.create_license             = create_license
         self.compress_psp_iso           = compress_psp_iso
         self.compression_factor         = compression_factor
-        self.unpack_ps3_packages        = unpack_ps3_packages
+        self.unpack_ps3_packages        = false
     }
 }
 
