@@ -316,7 +316,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2508" y="186"/>
+            <point key="canvasLocation" x="-2790" y="371"/>
         </scene>
         <!--Loading...-->
         <scene sceneID="giK-vL-upz">
@@ -355,11 +355,11 @@
             <objects>
                 <viewController title="Preferences" showSeguePresentationStyle="single" id="PAs-W9-MbK" customClass="SettingsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rct-Cj-kK5">
-                        <rect key="frame" x="0.0" y="0.0" width="719" height="281"/>
+                        <rect key="frame" x="0.0" y="0.0" width="719" height="304"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="747" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-gN-sF2">
-                                <rect key="frame" x="18" y="239" width="84" height="22"/>
+                                <rect key="frame" x="18" y="262" width="84" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSV Games" id="T7b-wH-KbA">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -367,7 +367,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gqO-k2-RUS" userLabel="PSVG Field">
-                                <rect key="frame" x="130" y="239" width="217" height="22"/>
+                                <rect key="frame" x="130" y="262" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="XrK-ee-S9i">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -375,7 +375,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-j4-doa">
-                                <rect key="frame" x="18" y="209" width="84" height="22"/>
+                                <rect key="frame" x="18" y="232" width="84" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSV Updates" id="KSP-BH-An5">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -383,7 +383,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sw4-hP-cWH">
-                                <rect key="frame" x="130" y="209" width="217" height="22"/>
+                                <rect key="frame" x="130" y="232" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="zef-nD-Uxd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -391,7 +391,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="rxl-Pz-IQB">
-                                <rect key="frame" x="18" y="179" width="84" height="22"/>
+                                <rect key="frame" x="18" y="202" width="84" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSV DLCs" id="1Zo-fw-pal">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -399,7 +399,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xzm-64-aAU">
-                                <rect key="frame" x="130" y="179" width="217" height="22"/>
+                                <rect key="frame" x="130" y="202" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="gX6-al-hko">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -407,7 +407,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-28-Aw2">
-                                <rect key="frame" x="18" y="149" width="82" height="22"/>
+                                <rect key="frame" x="18" y="172" width="82" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSV Themes" id="Vbl-oq-Ra7">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -415,7 +415,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L5Y-xx-Rav" userLabel="PSVT Field">
-                                <rect key="frame" x="130" y="149" width="217" height="22"/>
+                                <rect key="frame" x="130" y="172" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="CuJ-dg-ad0">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -423,7 +423,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-n5-3uS">
-                                <rect key="frame" x="18" y="119" width="84" height="22"/>
+                                <rect key="frame" x="18" y="142" width="84" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSX Games" id="P3S-UK-WgN">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -431,7 +431,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-fs-iqY">
-                                <rect key="frame" x="130" y="119" width="217" height="22"/>
+                                <rect key="frame" x="130" y="142" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="hqN-Re-po9">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -439,7 +439,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="f0L-Sv-W0L">
-                                <rect key="frame" x="18" y="91" width="84" height="22"/>
+                                <rect key="frame" x="18" y="114" width="84" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PSP Games" id="kOd-zO-Vtp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -447,22 +447,44 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sTp-P5-Ti3">
-                                <rect key="frame" x="130" y="91" width="217" height="22"/>
+                                <rect key="frame" x="130" y="114" width="217" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="WjT-NG-HDl">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-jd-Rkt">
+                                <rect key="frame" x="18" y="83" width="80" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PS3 Games" id="cMZ-eq-zyQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="22J-mf-7bC" userLabel="Ps3G Field">
+                                <rect key="frame" x="130" y="84" width="217" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="mUF-bT-x0z">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ToG-Op-gBE">
+                                <rect key="frame" x="357" y="82" width="5" height="202"/>
+                            </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZBQ-m7-WOd">
-                                <rect key="frame" x="367" y="245" width="194" height="18"/>
+                                <rect key="frame" x="367" y="268" width="194" height="18"/>
                                 <buttonCell key="cell" type="check" title="Hide items with invalid URLs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fXf-Fa-DbC">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="55y-6R-XGS">
+                                <rect key="frame" x="369" y="252" width="328" height="5"/>
+                            </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kWf-h3-2XG">
-                                <rect key="frame" x="367" y="206" width="143" height="17"/>
+                                <rect key="frame" x="367" y="229" width="143" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Concurrent Downloads" id="LBH-X3-E57">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -470,7 +492,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y83-Kw-0MG" userLabel="Concurrent Downloads Field">
-                                <rect key="frame" x="642" y="204" width="57" height="22"/>
+                                <rect key="frame" x="642" y="227" width="57" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="3" bezelStyle="round" id="XLY-1o-7lR">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="6hN-rc-zuz">
                                         <real key="minimum" value="0.0"/>
@@ -482,7 +504,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QPY-Hv-7We">
-                                <rect key="frame" x="367" y="180" width="64" height="15"/>
+                                <rect key="frame" x="367" y="203" width="64" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="63E-MO-DDb"/>
                                 </constraints>
@@ -493,7 +515,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" preferredMaxLayoutWidth="205" translatesAutoresizingMaskIntoConstraints="NO" id="t5H-DK-7pA">
-                                <rect key="frame" x="477" y="180" width="157" height="15"/>
+                                <rect key="frame" x="477" y="203" width="157" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="153" id="C7g-el-ZLH"/>
                                 </constraints>
@@ -504,7 +526,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-6f-kyu" userLabel="Choose Folder">
-                                <rect key="frame" x="636" y="170" width="68" height="32"/>
+                                <rect key="frame" x="636" y="193" width="68" height="32"/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSFolder" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jr4-Ja-bqf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -514,10 +536,10 @@
                                 </connections>
                             </button>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zIJ-Gy-IwK">
-                                <rect key="frame" x="368" y="169" width="329" height="5"/>
+                                <rect key="frame" x="368" y="192" width="329" height="5"/>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-8d-VKt">
-                                <rect key="frame" x="366" y="141" width="333" height="18"/>
+                                <rect key="frame" x="366" y="164" width="333" height="18"/>
                                 <buttonCell key="cell" type="check" title="Extract PKG after downloading" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3KP-lJ-qT2">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -527,28 +549,28 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-5I-eAC">
-                                <rect key="frame" x="366" y="121" width="333" height="18"/>
+                                <rect key="frame" x="366" y="144" width="333" height="18"/>
                                 <buttonCell key="cell" type="check" title="Create NoNpDRM license with extraction" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gbU-P8-NTY">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pU2-ZV-kL0">
-                                <rect key="frame" x="366" y="101" width="333" height="18"/>
+                                <rect key="frame" x="366" y="124" width="333" height="18"/>
                                 <buttonCell key="cell" type="check" title="Keep PKG after extraction" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fSl-cl-ELM">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CVx-vk-4Gq">
-                                <rect key="frame" x="366" y="81" width="334" height="18"/>
+                                <rect key="frame" x="366" y="104" width="334" height="18"/>
                                 <buttonCell key="cell" type="check" title="Save decrypted PKG as ZIP file" bezelStyle="regularSquare" imagePosition="left" inset="2" id="biz-EW-1WZ">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-pS-mLY">
-                                <rect key="frame" x="366" y="61" width="193" height="18"/>
+                                <rect key="frame" x="366" y="84" width="193" height="18"/>
                                 <buttonCell key="cell" type="check" title="Compress PSP ISO to .CSO" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jhv-lQ-feB">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -558,7 +580,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8lY-1R-p1Q">
-                                <rect key="frame" x="585" y="61" width="53" height="17"/>
+                                <rect key="frame" x="585" y="84" width="53" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="UBQ-6D-WSA"/>
                                 </constraints>
@@ -569,7 +591,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AA4-n2-XkW">
-                                <rect key="frame" x="644" y="59" width="31" height="22"/>
+                                <rect key="frame" x="644" y="82" width="31" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="31" id="jNH-XZ-h2x"/>
                                 </constraints>
@@ -584,14 +606,22 @@
                                 </textFieldCell>
                             </textField>
                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fzv-zT-mGU">
-                                <rect key="frame" x="681" y="57" width="19" height="27"/>
+                                <rect key="frame" x="681" y="80" width="19" height="27"/>
                                 <stepperCell key="cell" continuous="YES" enabled="NO" alignment="left" minValue="1" maxValue="9" doubleValue="1" valueWraps="YES" id="B3H-EE-Ya7"/>
                                 <connections>
                                     <action selector="stepCompressionFactor:" target="PAs-W9-MbK" id="fIr-wC-ukN"/>
                                 </connections>
                             </stepper>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wXi-6V-Ug7">
+                                <rect key="frame" x="366" y="64" width="158" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Unpack PS3 packages" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ZvR-99-xAM">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bcf-v9-Zfw">
-                                <rect key="frame" x="324" y="13" width="70" height="32"/>
+                                <rect key="frame" x="324" y="18" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ra5-nK-3mN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -601,7 +631,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ZM-Xc-XRd">
-                                <rect key="frame" x="443" y="23" width="73" height="15"/>
+                                <rect key="frame" x="449" y="28" width="73" height="15"/>
                                 <buttonCell key="cell" type="inline" title="Use Defaults" bezelStyle="inline" imageScaling="proportionallyDown" inset="2" id="pIU-6M-QNq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="10" name=".SFNSText"/>
@@ -610,28 +640,6 @@
                                     <action selector="resetToDefaults:" target="PAs-W9-MbK" id="eba-Ag-6dU"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="22J-mf-7bC" userLabel="Ps3G Field">
-                                <rect key="frame" x="130" y="61" width="217" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="mUF-bT-x0z">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="55y-6R-XGS">
-                                <rect key="frame" x="369" y="229" width="328" height="5"/>
-                            </box>
-                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ToG-Op-gBE">
-                                <rect key="frame" x="357" y="59" width="5" height="202"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wwV-jd-Rkt">
-                                <rect key="frame" x="18" y="60" width="80" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PS3 Games" id="cMZ-eq-zyQ">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="W3M-n5-3uS" firstAttribute="trailing" secondItem="f0L-Sv-W0L" secondAttribute="trailing" id="069-DT-xpq"/>
@@ -641,7 +649,7 @@
                             <constraint firstItem="t5H-DK-7pA" firstAttribute="centerY" secondItem="OV8-6f-kyu" secondAttribute="centerY" id="4Xc-bA-HY9"/>
                             <constraint firstItem="ltD-j4-doa" firstAttribute="leading" secondItem="rxl-Pz-IQB" secondAttribute="leading" id="4p5-fn-XNL"/>
                             <constraint firstItem="z0V-28-Aw2" firstAttribute="leading" secondItem="W3M-n5-3uS" secondAttribute="leading" id="5WF-en-WDK"/>
-                            <constraint firstItem="2ZM-Xc-XRd" firstAttribute="leading" secondItem="bcf-v9-Zfw" secondAttribute="trailing" constant="55" id="5yQ-Gd-6oZ"/>
+                            <constraint firstItem="2ZM-Xc-XRd" firstAttribute="leading" secondItem="bcf-v9-Zfw" secondAttribute="trailing" constant="61" id="5yQ-Gd-6oZ"/>
                             <constraint firstItem="y83-Kw-0MG" firstAttribute="leading" secondItem="OV8-6f-kyu" secondAttribute="leading" id="67t-gW-pQQ"/>
                             <constraint firstItem="gqO-k2-RUS" firstAttribute="top" secondItem="ToG-Op-gBE" secondAttribute="top" id="6P3-KR-S3c"/>
                             <constraint firstItem="y83-Kw-0MG" firstAttribute="centerX" secondItem="OV8-6f-kyu" secondAttribute="centerX" id="8cN-Pd-Ifa"/>
@@ -706,7 +714,7 @@
                             <constraint firstItem="gqO-k2-RUS" firstAttribute="trailing" secondItem="Sw4-hP-cWH" secondAttribute="trailing" id="iOf-9m-Vhg"/>
                             <constraint firstItem="t5H-DK-7pA" firstAttribute="baseline" secondItem="OV8-6f-kyu" secondAttribute="baseline" id="iZ3-Wh-1ty"/>
                             <constraint firstItem="G8a-fs-iqY" firstAttribute="top" secondItem="L5Y-xx-Rav" secondAttribute="bottom" constant="8" symbolic="YES" id="iwO-c3-kKG"/>
-                            <constraint firstItem="bcf-v9-Zfw" firstAttribute="top" secondItem="22J-mf-7bC" secondAttribute="bottom" constant="20" symbolic="YES" id="jUo-LT-52q"/>
+                            <constraint firstItem="bcf-v9-Zfw" firstAttribute="top" secondItem="22J-mf-7bC" secondAttribute="bottom" constant="38" id="jUo-LT-52q"/>
                             <constraint firstItem="CVx-vk-4Gq" firstAttribute="top" secondItem="pU2-ZV-kL0" secondAttribute="bottom" constant="6" symbolic="YES" id="kB7-XD-vgQ"/>
                             <constraint firstItem="wwV-jd-Rkt" firstAttribute="bottom" secondItem="22J-mf-7bC" secondAttribute="bottom" constant="1" id="kuK-SS-sqS"/>
                             <constraint firstItem="ltD-j4-doa" firstAttribute="trailing" secondItem="rxl-Pz-IQB" secondAttribute="trailing" id="lPy-Hm-aU5"/>
@@ -741,6 +749,7 @@
                         <outlet property="chkHideInvalidURLItems" destination="ZBQ-m7-WOd" id="t9n-09-uy7"/>
                         <outlet property="chkKeepPKG" destination="pU2-ZV-kL0" id="KEX-d8-5K4"/>
                         <outlet property="chkSaveZip" destination="CVx-vk-4Gq" id="VRB-HA-LOA"/>
+                        <outlet property="chkUnpackPS3Packages" destination="wXi-6V-Ug7" id="GGB-l5-V5x"/>
                         <outlet property="compressionFactorField" destination="AA4-n2-XkW" id="fBZ-v6-68J"/>
                         <outlet property="compressionFactorStepper" destination="fzv-zT-mGU" id="wDj-jP-HBL"/>
                         <outlet property="dlPathField" destination="t5H-DK-7pA" id="FqQ-Yj-7W2"/>
@@ -756,7 +765,7 @@
                 <customObject id="1gw-wd-oSX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="GzT-yJ-OdF"/>
             </objects>
-            <point key="canvasLocation" x="-2789.5" y="680.5"/>
+            <point key="canvasLocation" x="-2789.5" y="692"/>
         </scene>
         <!--Bookmarks View Controller-->
         <scene sceneID="vVL-GX-xmh">
@@ -909,7 +918,7 @@
                 <customObject id="cGk-Xf-BL9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="rip-IA-Kaa"/>
             </objects>
-            <point key="canvasLocation" x="-1300.5" y="263"/>
+            <point key="canvasLocation" x="-1268" y="269"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Cyt-hO-4MQ">
@@ -917,8 +926,7 @@
                 <windowController showSeguePresentationStyle="single" id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="145" y="301" width="580" height="270"/>
+                        <rect key="contentRect" x="29" y="292" width="696" height="363"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="1AC8C513-A611-448D-9E70-38C329F5F907" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="phv-2f-UYc">
                             <allowedToolbarItems>
@@ -1084,7 +1092,7 @@
                 </windowController>
                 <customObject id="Hsb-qf-Gbj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1869" y="471"/>
+            <point key="canvasLocation" x="-1891" y="530"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="gFT-sY-3Wg">
@@ -1095,7 +1103,7 @@
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Ckh-Ei-AVF"/>
                     </splitViewItems>
                     <splitView key="splitView" arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" id="ZeY-eR-YKC">
-                        <rect key="frame" x="-340" y="0.0" width="800" height="415"/>
+                        <rect key="frame" x="-381" y="0.0" width="841" height="443"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <outlet property="delegate" destination="KdV-6f-3Pd" id="HfH-ra-kvm"/>
@@ -1109,7 +1117,7 @@
                 </splitViewController>
                 <customObject id="3XF-ZM-85d" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1869" y="947"/>
+            <point key="canvasLocation" x="-1890" y="1087"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="XAb-Oy-g8a">
@@ -1117,7 +1125,7 @@
                 <viewController title="Data View Controller" showSeguePresentationStyle="single" id="jMM-GG-iAN" customClass="DataViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="0iH-xA-bEF">
                         <rect key="frame" x="0.0" y="0.0" width="533" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="ztm-Fm-Ybg">
                                 <rect key="frame" x="0.0" y="0.0" width="533" height="300"/>
@@ -1388,8 +1396,8 @@
             <objects>
                 <viewController title="Details View Controller" showSeguePresentationStyle="single" id="n9v-5p-6cD" customClass="DetailsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="H9H-LI-MqF">
-                        <rect key="frame" x="0.0" y="0.0" width="229" height="415"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="229" height="443"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-eV-PlI">
                                 <rect key="frame" x="18" y="156" width="50" height="17"/>
@@ -1495,7 +1503,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="F5X-qz-juG" userLabel="Name">
-                                <rect key="frame" x="18" y="325" width="193" height="58"/>
+                                <rect key="frame" x="18" y="353" width="193" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="mgF-QL-hs1"/>
                                 </constraints>
@@ -1509,7 +1517,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0vg-8l-O1H" userLabel="Bookmark">
-                                <rect key="frame" x="196" y="382" width="25" height="25"/>
+                                <rect key="frame" x="196" y="410" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="FMc-A6-5oA"/>
                                     <constraint firstAttribute="width" constant="25" id="nAD-WB-gfy"/>
@@ -1583,7 +1591,7 @@
                             <constraint firstItem="dpa-vU-RGC" firstAttribute="trailing" secondItem="Hz6-dt-TEK" secondAttribute="trailing" id="WyW-tq-dOV"/>
                             <constraint firstItem="dpa-vU-RGC" firstAttribute="leading" secondItem="Hz6-dt-TEK" secondAttribute="leading" id="XsE-kp-twt"/>
                             <constraint firstAttribute="bottom" secondItem="inm-Fx-xFQ" secondAttribute="bottom" constant="20" symbolic="YES" id="cOc-cC-baz"/>
-                            <constraint firstItem="jm2-eV-PlI" firstAttribute="top" relation="lessThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="180" id="ckM-tW-722"/>
+                            <constraint firstItem="jm2-eV-PlI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="180" id="ckM-tW-722"/>
                             <constraint firstItem="Nh5-hR-v1d" firstAttribute="trailing" secondItem="wSe-3x-1m9" secondAttribute="trailing" id="fgK-SI-OId"/>
                             <constraint firstItem="jm2-eV-PlI" firstAttribute="baseline" secondItem="dpa-vU-RGC" secondAttribute="baseline" id="hzV-6F-mzK"/>
                             <constraint firstItem="inm-Fx-xFQ" firstAttribute="leading" secondItem="H9H-LI-MqF" secondAttribute="leading" constant="20" id="i7f-7a-KLP"/>
@@ -1591,7 +1599,7 @@
                             <constraint firstItem="F5X-qz-juG" firstAttribute="leading" secondItem="H9H-LI-MqF" secondAttribute="leading" constant="20" symbolic="YES" id="kGQ-Fi-s8S"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="leading" secondItem="iNR-DY-Jxd" secondAttribute="leading" id="n48-wB-07c"/>
                             <constraint firstItem="iNR-DY-Jxd" firstAttribute="baseline" secondItem="Nh5-hR-v1d" secondAttribute="baseline" id="qOz-cH-DzT"/>
-                            <constraint firstItem="dpa-vU-RGC" firstAttribute="top" relation="lessThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="180" id="qVp-j7-maR"/>
+                            <constraint firstItem="dpa-vU-RGC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="180" id="qVp-j7-maR"/>
                             <constraint firstItem="F5X-qz-juG" firstAttribute="leading" secondItem="jm2-eV-PlI" secondAttribute="leading" id="r7c-um-98b"/>
                             <constraint firstItem="F5X-qz-juG" firstAttribute="top" secondItem="0vg-8l-O1H" secondAttribute="bottom" constant="-1" id="uIE-D7-wA6"/>
                             <constraint firstItem="iNR-DY-Jxd" firstAttribute="leading" secondItem="qh4-nI-zCU" secondAttribute="leading" id="weL-mH-gWh"/>
@@ -1606,7 +1614,7 @@
                 </viewController>
                 <customObject id="jFT-Ju-8NY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1240" y="1301"/>
+            <point key="canvasLocation" x="-1240" y="1323"/>
         </scene>
         <!--Download Progress View Controller-->
         <scene sceneID="X8h-Gp-760">
@@ -1856,7 +1864,7 @@
                 <customObject id="fFr-FR-xBn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="Nxw-58-0sM"/>
             </objects>
-            <point key="canvasLocation" x="-1300" y="546"/>
+            <point key="canvasLocation" x="-1269" y="540"/>
         </scene>
     </scenes>
     <resources>

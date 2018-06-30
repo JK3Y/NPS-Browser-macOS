@@ -12,6 +12,14 @@ A Swift 4 implementation of NPS Browser.
 * Set URLs and extraction preferences in the Preferences window
 * Click the refresh button in the corner of the window to pull fresh data from the server. 
 
+## Removal
+After moving to trash, run:
+```
+rm -r ~/Library/Application\ Support/NPS\ Browser/
+rm -r ~/Library/Caches/JK3Y.NPS-Browser
+defaults delete JK3Y.NPS-Browser
+```
+
 ## Features
 * Bookmarks can be saved by clicking the star icon in the corner of the details panel.
 * Downloads can be started from the bookmark list

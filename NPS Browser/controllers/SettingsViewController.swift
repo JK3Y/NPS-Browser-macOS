@@ -30,6 +30,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var chkCompressPSPISO: NSButton!
     @IBOutlet weak var compressionFactorStepper: NSStepper!
     @IBOutlet weak var compressionFactorField: NSTextField!
+    @IBOutlet weak var chkUnpackPS3Packages: NSButton!
     
     let settings = SettingsManager().getSettings()
     var dlLocation: URL?
@@ -104,6 +105,7 @@ class SettingsViewController: NSViewController {
 
         compressionFactorField.integerValue     = settings.extract.compression_factor
         compressionFactorStepper.integerValue   = settings.extract.compression_factor
+        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
         
         toggleEnableExtractionSettings(self)
         toggleCompressionFactor(self)
@@ -143,7 +145,8 @@ class SettingsViewController: NSViewController {
                                           save_as_zip: chkSaveZip.state == .on,
                                           create_license: chkCreateLicense.state == .on,
                                           compress_psp_iso: chkCompressPSPISO.state == .on,
-                                          compression_factor: compressionFactorField.integerValue)
+                                          compression_factor: compressionFactorField.integerValue,
+                                          unpack_ps3_packages: chkUnpackPS3Packages.state == .on)
         let display     = DisplaySettings(hide_invalid_url_items: chkHideInvalidURLItems.state == .on)
         let settings = Settings(source: source, download: download, extract: extract, display: display)
         SettingsManager().setSettings(settings: settings)

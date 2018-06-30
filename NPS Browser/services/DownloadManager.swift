@@ -122,8 +122,12 @@ class DownloadManager {
     func stopAndStoreDownloadList() {
         for item in downloadItems {
             item.request?.cancel()
-            item.status = "Stopped"
-            item.makeResumable()
+            if (item.status == "Complete") {
+                item.makeViewable()
+            } else {
+                item.status = "Stopped"
+                item.makeResumable()
+            }
         }
         let downloadList: DownloadList = DownloadList(items: downloadItems)
         

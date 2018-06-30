@@ -1,8 +1,15 @@
 # Changelog
-## TODO:
-- give each item a UUID since ps3 titles on NPS don't have sha256
-- use the uuid instead of sha256 to tie bookmarks with the item
-- add ps3 games support
+
+## v1.3.0
+### Added
+- PS3 Game support!
+<!--- PS3 packages can be unpackaged after downloading. This can be enabled in the preferences.-->
+
+### Changed
+- New preferences window (again). The list of URLs is getting so long the window was getting way too tall, so I widened it.
+- Fixed bug where completed downloads would show as "stopped" next time the app was loaded
+- Now using UUID for each item rather than relying on SHA256 value since PS3 is missing SHA
+- Window can now be made full-height of screen
 
 ## v1.2.7
 ### Added
