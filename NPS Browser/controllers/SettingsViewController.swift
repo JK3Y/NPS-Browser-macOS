@@ -16,6 +16,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var psvtField: NSTextField!
     @IBOutlet weak var psxgField: NSTextField!
     @IBOutlet weak var pspgField: NSTextField!
+    @IBOutlet weak var ps3gField: NSTextField!
     
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
@@ -88,6 +89,7 @@ class SettingsViewController: NSViewController {
         psvtField.stringValue                   = settings.source.psv_themes?.absoluteString ?? ""
         psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
         pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
+        ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
 
         chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
 
@@ -132,7 +134,8 @@ class SettingsViewController: NSViewController {
                                          psv_updates: psvuField.stringValue,
                                          psv_themes: psvtField.stringValue,
                                          psp_games: pspgField.stringValue,
-                                         psx_games: psxgField.stringValue)
+                                         psx_games: psxgField.stringValue,
+                                         ps3_games: ps3gField.stringValue)
         let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
                                            concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,

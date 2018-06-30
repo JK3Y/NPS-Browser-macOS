@@ -34,6 +34,9 @@ struct SourceSettings: Codable {
     var psv_themes  : URL?
     var psp_games   : URL?
     var psx_games   : URL?
+    var ps3_games   : URL?
+    var ps3_dlc     : URL?
+    var ps3_themes  : URL?
     init(){
         self.psv_games      = URL(string: "")
         self.psv_dlc        = URL(string: "")
@@ -41,14 +44,20 @@ struct SourceSettings: Codable {
         self.psv_themes     = URL(string: "")
         self.psp_games      = URL(string: "")
         self.psx_games      = URL(string: "")
+        self.ps3_games      = URL(string: "")
+        self.ps3_dlc        = URL(string: "")
+        self.ps3_themes     = URL(string: "")
     }
-    init(psv_games: String, psv_dlc: String, psv_updates: String, psv_themes: String, psp_games: String, psx_games: String) {
+    init(psv_games: String, psv_dlc: String, psv_updates: String, psv_themes: String, psp_games: String, psx_games: String, ps3_games: String) {
         self.psv_games      = URL(string: psv_games) ?? URL(string: "")
         self.psv_dlc        = URL(string: psv_dlc) ?? URL(string: "")
         self.psv_updates    = URL(string: psv_updates) ?? URL(string: "")
         self.psv_themes     = URL(string: psv_themes) ?? URL(string: "")
         self.psp_games      = URL(string: psp_games) ?? URL(string: "")
         self.psx_games      = URL(string: psx_games) ?? URL(string: "")
+        self.ps3_games      = URL(string: ps3_games) ?? URL(string: "")
+        self.ps3_dlc        = URL(string: "")
+        self.ps3_themes     = URL(string: "")
     }
     func getByType(type: String) -> URL? {
         switch type {
@@ -64,6 +73,12 @@ struct SourceSettings: Codable {
             return self.psp_games
         case "PSXGames":
             return self.psx_games
+        case "PS3Games":
+            return self.ps3_games
+        case "PS3DLC":
+            return self.ps3_dlc
+        case "PS3Themes":
+            return self.ps3_themes
         default:
             break
         }

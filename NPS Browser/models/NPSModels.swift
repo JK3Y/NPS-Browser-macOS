@@ -99,6 +99,18 @@ class PSPGame: NPSBase {
     }
 }
 
+class PS3Game: NPSBase {
+    var content_id          : String?
+    var rap                 : String?
+    var download_rap_file   : URL?
+    required init(_ data: TSVData) {
+        content_id         = data.content_id
+        rap                = data.rap
+        download_rap_file  = data.download_rap_file
+        super.init(data)
+    }
+}
+
 struct TSVData {
     var title_id                : String?
     var region                  : String?
@@ -145,7 +157,7 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[7])
             file_size               = Int64(values[8])
             sha256                  = values[9]
-        case "PSVDLCs":
+        case "PSVDLCs", "PSVThemes":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
             zrif                    = values[4]
@@ -153,14 +165,14 @@ struct TSVData {
             last_modification_date  = parseDate(dateString: values[6])
             file_size               = Int64(values[7])
             sha256                  = values[8]
-        case "PSVThemes":
-            name                    = values[2]
-            pkg_direct_link         = URL(string: values[3])
-            zrif                    = values[4]
-            content_id              = values[5]
-            last_modification_date  = parseDate(dateString: values[6])
-            file_size               = Int64(values[7])
-            sha256                  = values[8]
+//        case "PSVThemes":
+//            name                    = values[2]
+//            pkg_direct_link         = URL(string: values[3])
+//            zrif                    = values[4]
+//            content_id              = values[5]
+//            last_modification_date  = parseDate(dateString: values[6])
+//            file_size               = Int64(values[7])
+//            sha256                  = values[8]
         case "PSXGames":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -178,6 +190,15 @@ struct TSVData {
             download_rap_file       = URL(string: values[8])
             file_size               = Int64(values[9])
             sha256                  = values[10]
+        case "PS3Games":
+            name                    = values[2]
+            pkg_direct_link         = URL(string: values[3])
+            rap                     = values[4]
+            content_id              = values[5]
+            last_modification_date  = parseDate(dateString: values[6])
+            download_rap_file       = URL(string: values[7])
+            file_size               = Int64(values[8])
+            sha256                  = values[9]
         default:
             break
         }
@@ -208,6 +229,8 @@ struct TSVData {
             obj = PSXGame(self)
         case "PSPGames":
             obj = PSPGame(self)
+        case "PS3Games":
+            obj = PS3Game(self)
         default:
             break
         }
