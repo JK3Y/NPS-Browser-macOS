@@ -49,7 +49,7 @@ Export an app bundle by going to Product > Archive > Export.
 * [Queuer][]
 
 [Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
-[Screenshots]: https://imgur.com/gallery/EYLLYoW
+[Screenshots]: https://imgur.com/gallery/9VLxpOm
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip
 [AlamoFire]:https://github.com/Alamofire/Alamofire
