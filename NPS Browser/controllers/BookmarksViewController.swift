@@ -22,14 +22,13 @@ class BookmarksViewController: NSViewController {
     }
     
     @IBAction func doRemoveBookmark(_ sender: NSButton) {
-        let rowData = Helpers().getRowObjectFromTableRowButton(sender) as AnyObject
+        let rowData = Helpers().getRowObjectFromTableRowButton(sender) as! NSManagedObject
         
         let bookmark = Helpers().makeBookmark(data: rowData)
-        
         bookmarkManager.removeBookmark(bookmark)
         
         Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: bookmark.uuid)
-        
+
         updateView()
     }
     

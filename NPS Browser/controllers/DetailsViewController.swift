@@ -38,7 +38,11 @@ class DetailsViewController: NSViewController {
     
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-        let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as AnyObject)
+//        debugPrint(representedObject)
+        
+        let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as! NSManagedObject)
+        
+//        debugPrint(bookmark)
 
         if (sender.state == .on) {
             Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: getROManagedObject())

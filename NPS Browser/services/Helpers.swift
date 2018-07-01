@@ -59,16 +59,40 @@ class Helpers {
             print("Sender is not in a table view cell!")
             return nil
         }
+        
         return cell.objectValue
     }
 
-    func makeBookmark(data: AnyObject) -> Bookmark {
-        return Bookmark(name: data.name!,
-                        title_id: data.title_id!,
-                        type: data.type ?? getWindowDelegate().getType(),
-                        zrif: data.zrif ?? nil,
-                        download_link: data.download_link ?? data.value(forKey:"pkg_direct_link") as? URL,
-                        uuid: data.uuid)
+    func makeBookmark(data: NSManagedObject) -> Bookmark {
+        if (data.entity.name == "Bookmarks") {
+            return Bookmark(name: data.value(forKey: "name") as! String,
+                            title_id: data.value(forKey: "title_id") as! String,
+                            type: data.value(forKey: "type") as! String ?? getWindowDelegate().getType(),
+                            zrif: data.value(forKey: "zrif") as! String ?? nil,
+                            download_link: data.value(forKey: "download_link") as? URL,
+                            uuid: data.value(forKey: "uuid") as! UUID)
+        } else {
+            return Bookmark(name: data.value(forKey: "name") as! String,
+                            title_id: data.value(forKey: "title_id") as! String,
+                            type: data.value(forKey: "type") as! String ?? getWindowDelegate().getType(),
+                            zrif: data.value(forKey: "zrif") as! String ?? nil,
+                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
+                            uuid: data.value(forKey: "uuid") as! UUID)
+        }
+        
+//        return Bookmark(name: data.value(forKey: "name") as! String,
+//                        title_id: data.value(forKey: "title_id") as! String,
+//                        type: data.value(forKey: "type") as! String ?? getWindowDelegate().getType(),
+//                        zrif: data.value(forKey: "zrif") as! String ?? nil,
+//                        download_link: data.,
+//                        uuid: data.value(forKey: "uuid") as! UUID)
+//        let dl_link = data.download_link ?? data.val
+//        return Bookmark(name: data.name!,
+//                        title_id: data.title_id!,
+//                        type: data.type ?? getWindowDelegate().getType(),
+//                        zrif: data.zrif ?? nil,
+//                        download_link: data.download_link ?? data.value(forKey: "pkg_download_link") as! URL,
+//                        uuid: data.uuid)
     }
     
     func makeDLItem(data: NSManagedObject, download_link: URL) -> DLItem {
