@@ -2,7 +2,8 @@
 
 ## v1.3.1
 ### Changed
-- Fixed bug where downloads that have been resumed will fail.
+- Fixed bug where downloads that have been resumed will fail
+- Bookmarks and Downloads lists now become hightlighted when selected
 
 ## v1.3.0
 ### Added
