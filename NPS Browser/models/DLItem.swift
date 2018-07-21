@@ -27,11 +27,13 @@ class DLItem: NSObject, Codable {
     @objc dynamic var timeRemaining     : TimeInterval = 0
     var request                         : Alamofire.Request?
     var resumeData                      : Data?
+    var destination                     : DownloadRequest.DownloadFileDestination?
     @objc dynamic var destinationURL    : URL?
     @objc dynamic var isCancelable      : Bool = false
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
+//    @objc dynamic var 
     
     enum CodingKeys: String, CodingKey {
         case title_id

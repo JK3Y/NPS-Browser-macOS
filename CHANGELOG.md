@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.1
+### Changed
+- Fixed bug where downloads that have been resumed will fail.
+
 ## v1.3.0
 ### Added
 - PS3 Game support!

@@ -33,6 +33,7 @@ class DownloadManager {
         // store request in same object so we can cancel/pause/resume it later
         let request = Alamofire.download(data.download_link!, to: destination)
         data.request = request
+        data.destination = destination
         
         // add object to downloadItems array
         downloadItems.insert(data, at: 0)
@@ -74,7 +75,8 @@ class DownloadManager {
     }
     
     func resumeDownload(data: DLItem) {
-        let request = Alamofire.download(resumingWith: data.resumeData!)
+        
+        let request = Alamofire.download(resumingWith: data.resumeData!, to: data.destination)
         data.request = request
         
         request.downloadProgress { progress in
@@ -85,6 +87,7 @@ class DownloadManager {
         }
             .responseData { response in
                 response.result.ifSuccess {
+                    data.destinationURL = response.destinationURL
                     ExtractionManager(item: data, downloadManager: self).start()
                 }
                 response.result.ifFailure {

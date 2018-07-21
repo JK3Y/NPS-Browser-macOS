@@ -1,9 +1,9 @@
 PODS:
-  - Alamofire (4.7.2)
-  - PromisesObjC (1.2)
-  - PromisesSwift (1.2):
-    - PromisesObjC (= 1.2)
-  - Queuer (1.3.1)
+  - Alamofire (4.7.3)
+  - PromisesObjC (1.2.3)
+  - PromisesSwift (1.2.3):
+    - PromisesObjC (= 1.2.3)
+  - Queuer (1.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -18,10 +18,10 @@ SPEC REPOS:
     - Queuer
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  PromisesObjC: 7358d6a58e012d77f9af3831e3d1390b78319c71
-  PromisesSwift: 1ff253725dee00d711561b2c482b0cce789029c6
-  Queuer: 17581f2b4ca9b2496e4c3172059230f991d0b998
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  PromisesObjC: a3a4263d8a9260214267e0b3788d0f83466ad449
+  PromisesSwift: f7f45c21986419e85f7c5b645ed8c6a2c10c04b4
+  Queuer: 1d4953c0ce3d674a2da01951e61dc0595e90e7cb
 
 PODFILE CHECKSUM: b719559e0d7a1b8bf825178261156b4e9525c20a
 
