@@ -1437,7 +1437,7 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                                 <tableColumn identifier="" width="105" minWidth="10" maxWidth="3.4028234663852886e+38" id="Itp-Ee-c6e">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Required FW">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Update Version">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1457,11 +1457,15 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="105" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="zN5-nH-o3x">
+                                                                        <numberFormatter key="formatter" formatterBehavior="10_0" localizesFormat="NO" id="x3e-H9-elV">
+                                                                            <decimal key="minimum" value="NaN"/>
+                                                                            <decimal key="maximum" value="NaN"/>
+                                                                        </numberFormatter>
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="jOs-Gk-W1G" name="value" keyPath="objectValue.required_fw" id="fmq-6l-8e9">
+                                                                            <binding destination="jOs-Gk-W1G" name="value" keyPath="objectValue.update_version" id="45u-NJ-jIY">
                                                                                 <dictionary key="options">
                                                                                     <string key="NSNoSelectionPlaceholder">---</string>
                                                                                     <string key="NSNotApplicablePlaceholder">---</string>

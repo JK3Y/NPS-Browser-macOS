@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.2
+### Added
+- Column for PSV Updates that shows the app version number
+
 ## v1.3.1
 ### Added
 - Compat Pack support!

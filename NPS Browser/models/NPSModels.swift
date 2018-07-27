@@ -155,9 +155,6 @@ struct TSVData {
 
         switch(type) {
         case "PSVGames":
-            
-            debugPrint(values)
-            
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
             zrif                    = values[4]
