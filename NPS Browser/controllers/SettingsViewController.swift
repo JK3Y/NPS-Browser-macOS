@@ -20,6 +20,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var ps3dlcField: NSTextField!
     @IBOutlet weak var ps3tField: NSTextField!
     @IBOutlet weak var ps3aField: NSTextField!
+    @IBOutlet weak var compatPackField: NSTextField!
     
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
@@ -97,6 +98,7 @@ class SettingsViewController: NSViewController {
         ps3dlcField.stringValue                   = settings.source.ps3_dlc?.absoluteString ?? ""
         ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
         ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
+        compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""
         
         chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
 
@@ -146,7 +148,8 @@ class SettingsViewController: NSViewController {
                                          ps3_games: ps3gField.stringValue,
                                          ps3_dlc: ps3dlcField.stringValue,
                                          ps3_themes: ps3tField.stringValue,
-                                         ps3_avatars: ps3aField.stringValue)
+                                         ps3_avatars: ps3aField.stringValue,
+                                         compat_pack: compatPackField.stringValue)
         let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
                                            concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,

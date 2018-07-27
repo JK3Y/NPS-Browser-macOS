@@ -19,8 +19,6 @@ class NetworkManager {
     func makeHTTPRequest() {
         let settings = SettingsManager().getUrls()
         
-        debugPrint(settings)
-        
         self.type = windowDelegate.getType()
         let url = settings.getByType(type: self.type!)
         
@@ -31,11 +29,13 @@ class NetworkManager {
             return
         }
         
+        
+        
         Promise<[NPSBase]> { fulfill, reject in
             Helpers().showLoadingViewController()
             Helpers().getLoadingViewController().setLabel(text: "Requesting data... (step 1/6)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
-
+            
             Alamofire.request(url!)
                 .downloadProgress { progress in
                     self.windowDelegate.getLoadingViewController().setLabel(text: "Receiving data... (step 2/6)")
@@ -72,9 +72,13 @@ class NetworkManager {
                 self.windowDelegate.getDataController().setArrayControllerContent(content: content)
         }
             .then { _ in
+                
+//                self.getCompatPackEntriesTXT()
                 Helpers().getLoadingViewController().closeWindow()
                 self.windowDelegate.stopBtnReloadAnimation()
         }
+        
+        
         
     }
     
@@ -89,5 +93,42 @@ class NetworkManager {
             parsedData.append(tsvdata.makeNPSObject())
         }
         return parsedData
+    }
+    
+    func parseCompatPackEntries(response: String) -> [CompatPack] {
+        var parsedData = [CompatPack]()
+        let rows = response.split(separator: "\n")
+        for row in rows {
+            let baseURL = "https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/"
+            let components = row.components(separatedBy: "=")
+            let path = components.first ?? ""
+            let title_id: String = path.components(separatedBy: "/")[0]
+            let url: URL? = URL(string: "\(baseURL)\(path)")
+            let pack = CompatPack(id: title_id, download_url: url!)
+            
+//            debugPrint(pack.title_id, pack.download_url)
+            
+            parsedData.append(pack)
+        }
+        debugPrint(parsedData)
+        return parsedData
+    }
+    
+    func getCompatPackEntriesTXT()  {
+        var url: URL?
+        switch(self.type) {
+        case "PSVGames":
+            url = SettingsManager().getUrls().compatPacks!
+        case "PSVUpdates":
+            break
+        default:
+            url = SettingsManager().getUrls().compatPacks!
+        }
+        Alamofire.request(url!)
+            .responseString { response in
+                let utf8Text = String(data: response.data!, encoding: .utf8)
+                let parsed = self.parseCompatPackEntries(response: utf8Text!)
+                Helpers().getCoreDataIO().storeCompatPacks(array: parsed)
+        }
     }
 }

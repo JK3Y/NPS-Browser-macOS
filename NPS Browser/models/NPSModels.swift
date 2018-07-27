@@ -36,11 +36,13 @@ class PSVGame: NPSBase {
     var content_id      : String?
     var original_name   : String?
     var required_fw     : Float?
+    var app_version     : Float?
     required init(_ data: TSVData) {
         zrif           = data.zrif
         content_id     = data.content_id
         original_name  = data.original_name
         required_fw    = data.required_fw
+        app_version    = data.app_version
         super.init(data)
     }
 }
@@ -111,6 +113,15 @@ class PS3Game: NPSBase {
     }
 }
 
+class CompatPack {
+    var title_id: String
+    var download_url: URL
+    required init(id: String, download_url: URL) {
+        self.title_id     = id
+        self.download_url = download_url
+    }
+}
+
 class PS3DLC: PS3Game {}
 class PS3Theme: PS3Game {}
 class PS3Avatar: PS3Game {}
@@ -134,6 +145,7 @@ struct TSVData {
     var download_rap_file       : URL?
     var type                    : String
     var uuid                    : UUID
+    var app_version             : Float?
     
     init(type: String, values: [String]) {
         self.type = type
@@ -143,6 +155,9 @@ struct TSVData {
 
         switch(type) {
         case "PSVGames":
+            
+            debugPrint(values)
+            
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
             zrif                    = values[4]
@@ -152,6 +167,8 @@ struct TSVData {
             file_size               = Int64(values[8])
             sha256                  = values[9]
             required_fw             = Float(values[10])
+            app_version             = Float(values[11])
+            
         case "PSVUpdates":
             name                    = values[2]
             update_version          = Float(values[3])

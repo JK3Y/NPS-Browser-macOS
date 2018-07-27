@@ -1,6 +1,9 @@
 # Changelog
 
 ## v1.3.1
+### Added
+- Compat Pack support!
+
 ### Changed
 - Fixed bug where downloads that have been resumed will fail
 - Bookmarks and Downloads lists now become hightlighted when selected

@@ -12,7 +12,7 @@ class DetailsViewController: NSViewController {
     
     @IBOutlet weak var chkBookmark: NSButton!
     @IBOutlet weak var btnDownload: NSButton!
-    @IBOutlet weak var btnRAPDownload: NSButton!
+    @IBOutlet weak var btnDLExtraFiles: NSButton!
     
     var windowDelegate: WindowDelegate?
     
@@ -32,17 +32,24 @@ class DetailsViewController: NSViewController {
         sendDLData(url: getROManagedObject().value(forKey: "pkg_direct_link") as! URL)
     }
     
-    @IBAction func btnRAPDownloadClicked(_ sender: Any) {
+    @IBAction func btnDLExtraFilesClicked(_ sender: Any) {
+
+        if (getROManagedObject().value(forKey: "type") as! String == "PSVGames") {
+            let title_id = getROManagedObject().value(forKey: "title_id") as! String
+            let pack = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id)
+            let url = pack?.value(forKey: "download_url") as! URL
+            
+            if (pack != nil) {
+                sendDLData(url: url)
+            }
+        }
+        
         sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL)
     }
     
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-//        debugPrint(representedObject)
-        
         let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as! NSManagedObject)
-        
-//        debugPrint(bookmark)
 
         if (sender.state == .on) {
             Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: getROManagedObject())
@@ -81,18 +88,30 @@ class DetailsViewController: NSViewController {
         }
         
         if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
-            btnRAPDownload.isHidden = false
+            btnDLExtraFiles.isHidden = false
             let rap = (getROManagedObject().value(forKey: "rap") as! String)
 
             if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
-                btnRAPDownload.title = rap
-                btnRAPDownload.isEnabled = false
+                btnDLExtraFiles.title = rap
+                btnDLExtraFiles.isEnabled = false
             } else {
-                btnRAPDownload.title = "RAP"
-                btnRAPDownload.isEnabled = true
+                btnDLExtraFiles.title = "RAP"
+                btnDLExtraFiles.isEnabled = true
+            }
+        }
+        else if (type == "PSVGames") {
+            
+            let title_id = getROManagedObject().value(forKey: "title_id") as! String
+
+            if (Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) != nil) {
+                btnDLExtraFiles.isEnabled = true
+                btnDLExtraFiles.title = "Compat Pack"
+            } else {
+                btnDLExtraFiles.isEnabled = false
             }
         } else {
-            btnRAPDownload.isHidden = true
+            btnDLExtraFiles.isHidden = true
+            
         }
     }
 

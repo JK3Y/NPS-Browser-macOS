@@ -38,6 +38,7 @@ struct SourceSettings: Codable {
     var ps3_dlc     : URL?
     var ps3_themes  : URL?
     var ps3_avatars : URL?
+    var compatPacks : URL?
     init(){
         self.psv_games      = URL(string: "")
         self.psv_dlc        = URL(string: "")
@@ -49,8 +50,9 @@ struct SourceSettings: Codable {
         self.ps3_dlc        = URL(string: "")
         self.ps3_themes     = URL(string: "")
         self.ps3_avatars    = URL(string: "")
+        self.compatPacks    = URL(string: "")
     }
-    init(psv_games: String, psv_dlc: String, psv_updates: String, psv_themes: String, psp_games: String, psx_games: String, ps3_games: String, ps3_dlc: String, ps3_themes: String, ps3_avatars: String) {
+    init(psv_games: String, psv_dlc: String, psv_updates: String, psv_themes: String, psp_games: String, psx_games: String, ps3_games: String, ps3_dlc: String, ps3_themes: String, ps3_avatars: String, compat_pack: String) {
         self.psv_games      = URL(string: psv_games) ?? URL(string: "")
         self.psv_dlc        = URL(string: psv_dlc) ?? URL(string: "")
         self.psv_updates    = URL(string: psv_updates) ?? URL(string: "")
@@ -61,6 +63,7 @@ struct SourceSettings: Codable {
         self.ps3_dlc        = URL(string: ps3_dlc) ?? URL(string: "")
         self.ps3_themes     = URL(string: ps3_themes) ?? URL(string: "")
         self.ps3_avatars    = URL(string: ps3_avatars) ?? URL(string: "")
+        self.compatPacks    = URL(string: compat_pack) ?? URL(string: "")
     }
     func getByType(type: String) -> URL? {
         switch type {

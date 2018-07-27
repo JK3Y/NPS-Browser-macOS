@@ -79,6 +79,7 @@ class CoreDataIO: NSObject {
                 nps.setValue(obj.original_name, forKey: "original_name")
                 nps.setValue(obj.required_fw, forKey: "required_fw")
                 nps.setValue(obj.zrif, forKey: "zrif")
+                nps.setValue(obj.app_version, forKey: "app_version")
             case "PSVUpdates":
                 let obj = item as! PSVUpdate
                 nps.setValue(obj.update_version, forKey: "update_version")
@@ -130,6 +131,18 @@ class CoreDataIO: NSObject {
         delegate.saveAction(self)
     }
     
+    func storeCompatPacks(array: [CompatPack]) {
+        let ent = getEntity(entityName: "CompatPacks")
+        
+        
+        for item in array {
+            let obj = getObject(entity: ent)
+            obj.setValue(item.title_id, forKey: "title_id")
+            obj.setValue(item.download_url, forKey: "download_url")
+        }
+        delegate.saveAction(self)
+    }
+    
     func getRecordByUUID(entityName: String, uuid: UUID) -> NSManagedObject? {
         let req             = NSFetchRequest<NSManagedObject>(entityName: entityName)
         let predicate       = NSPredicate(format: "uuid == %@", uuid.uuidString)
@@ -175,6 +188,17 @@ class CoreDataIO: NSObject {
         
         do {
             return try context.fetch(req)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    func searchCompatPacks(searchString: String) -> NSManagedObject? {
+        let req = NSFetchRequest<NSManagedObject>(entityName: "CompatPacks")
+        req.predicate = NSPredicate(format: "title_id == %@", searchString)
+        do {
+            return try context.fetch(req).first
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
