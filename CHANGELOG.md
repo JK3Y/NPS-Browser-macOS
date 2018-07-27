@@ -9,6 +9,7 @@
 
 ### Changed
 - Updated app icon (made by @Ann0ying)
+- App now uses a custom .dmg file to give it a nice background and a convenient Applications folder to drop the application into
 
 ## v1.3.1
 ### Added
