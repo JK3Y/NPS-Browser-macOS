@@ -7,6 +7,9 @@
 - Compat packs for Vita Updates
 - Local entries.txt and patch_entries.txt can be used for compat packs instead of URL
 
+### Changed
+- Updated app icon (made by @Ann0ying)
+
 ## v1.3.1
 ### Added
 - Compat Pack support!
