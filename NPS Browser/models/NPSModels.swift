@@ -36,13 +36,11 @@ class PSVGame: NPSBase {
     var content_id      : String?
     var original_name   : String?
     var required_fw     : Float?
-    var app_version     : Float?
     required init(_ data: TSVData) {
         zrif           = data.zrif
         content_id     = data.content_id
         original_name  = data.original_name
         required_fw    = data.required_fw
-        app_version    = data.app_version
         super.init(data)
     }
 }
@@ -145,7 +143,6 @@ struct TSVData {
     var download_rap_file       : URL?
     var type                    : String
     var uuid                    : UUID
-    var app_version             : Float?
     
     init(type: String, values: [String]) {
         self.type = type
@@ -164,8 +161,6 @@ struct TSVData {
             file_size               = Int64(values[8])
             sha256                  = values[9]
             required_fw             = Float(values[10])
-            app_version             = Float(values[11])
-            
         case "PSVUpdates":
             name                    = values[2]
             update_version          = Float(values[3])

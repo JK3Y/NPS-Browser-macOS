@@ -3,6 +3,9 @@
 ## v1.3.2
 ### Added
 - Column for PSV Updates that shows the app version number
+- Local .TSV files can now be used instead of using a URL
+- Compat packs for Vita Updates
+- Local entries.txt and patch_entries.txt can be used for compat packs instead of URL
 
 ## v1.3.1
 ### Added

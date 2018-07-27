@@ -99,8 +99,8 @@ class DetailsViewController: NSViewController {
                 btnDLExtraFiles.isEnabled = true
             }
         }
-        else if (type == "PSVGames") {
-            
+        else if (type == "PSVGames" || type == "PSVUpdates") {
+            btnDLExtraFiles.isHidden = false
             let title_id = getROManagedObject().value(forKey: "title_id") as! String
 
             if (Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) != nil) {

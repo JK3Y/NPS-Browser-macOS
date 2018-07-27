@@ -13,6 +13,10 @@
         <attribute name="download_url" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CompatPatch" representedClassName="CompatPatch" syncable="YES" codeGenerationType="class">
+        <attribute name="download_url" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Item" representedClassName="ItemMO" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
@@ -90,7 +94,6 @@
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PSVGames" representedClassName="PSVGameMO" parentEntity="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="app_version" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="content_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_size" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_modification_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -147,9 +150,10 @@
         <element name="PS3Themes" positionX="117" positionY="-63" width="128" height="195"/>
         <element name="PSPGames" positionX="180" positionY="111" width="128" height="193"/>
         <element name="PSVDLCs" positionX="-54" positionY="54" width="128" height="180"/>
-        <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="225"/>
+        <element name="PSVGames" positionX="-110" positionY="-174" width="128" height="210"/>
         <element name="PSVThemes" positionX="99" positionY="-81" width="128" height="180"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
+        <element name="CompatPatch" positionX="99" positionY="-81" width="128" height="75"/>
     </elements>
 </model>

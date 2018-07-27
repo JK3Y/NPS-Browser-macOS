@@ -21,6 +21,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var ps3tField: NSTextField!
     @IBOutlet weak var ps3aField: NSTextField!
     @IBOutlet weak var compatPackField: NSTextField!
+    @IBOutlet weak var compatPatchField: NSTextField!
     
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
@@ -99,6 +100,7 @@ class SettingsViewController: NSViewController {
         ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
         ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
         compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""
+        compatPatchField.stringValue            = settings.source.compatPatch?.absoluteString ?? ""
         
         chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
 
@@ -134,6 +136,39 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    @IBAction func chooseTSVFile(_ sender: NSButton) {
+        let id = sender.identifier!.rawValue
+        
+        func openDialog(txtField: NSTextField) {
+            guard let window = view.window else { return }
+            let panel = NSOpenPanel()
+            panel.canChooseFiles = true
+            panel.canChooseDirectories = false
+            panel.allowsMultipleSelection = false
+            panel.beginSheetModal(for: window) { (result) in
+                if result == NSApplication.ModalResponse.OK {
+                    txtField.stringValue = panel.url!.absoluteString
+                }
+            }
+        }
+        
+        switch(id) {
+        case "psvg": openDialog(txtField: self.psvgField)
+        case "psvu": openDialog(txtField: self.psvuField)
+        case "psvd": openDialog(txtField: self.psvdlcField)
+        case "psvt": openDialog(txtField: self.psvtField)
+        case "psxg": openDialog(txtField: self.psxgField)
+        case "pspg": openDialog(txtField: self.pspgField)
+        case "ps3g": openDialog(txtField: self.ps3gField)
+        case "ps3d": openDialog(txtField: self.ps3dlcField)
+        case "ps3t": openDialog(txtField: self.ps3tField)
+        case "ps3a": openDialog(txtField: self.ps3aField)
+        case "compatpack": openDialog(txtField: self.compatPackField)
+        case "compatpatch": openDialog(txtField: self.compatPatchField)
+        default: break
+        }
+    }
+    
     @IBAction func resetToDefaults(_ sender: Any) {
         updateTextFields(settings: SettingsManager().getDefaultSettings())
     }
@@ -149,7 +184,8 @@ class SettingsViewController: NSViewController {
                                          ps3_dlc: ps3dlcField.stringValue,
                                          ps3_themes: ps3tField.stringValue,
                                          ps3_avatars: ps3aField.stringValue,
-                                         compat_pack: compatPackField.stringValue)
+                                         compat_pack: compatPackField.stringValue,
+                                         compat_patch: compatPatchField.stringValue)
         let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
                                            concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,

@@ -79,7 +79,6 @@ class CoreDataIO: NSObject {
                 nps.setValue(obj.original_name, forKey: "original_name")
                 nps.setValue(obj.required_fw, forKey: "required_fw")
                 nps.setValue(obj.zrif, forKey: "zrif")
-                nps.setValue(obj.app_version, forKey: "app_version")
             case "PSVUpdates":
                 let obj = item as! PSVUpdate
                 nps.setValue(obj.update_version, forKey: "update_version")
@@ -131,9 +130,13 @@ class CoreDataIO: NSObject {
         delegate.saveAction(self)
     }
     
-    func storeCompatPacks(array: [CompatPack]) {
-        let ent = getEntity(entityName: "CompatPacks")
-        
+    func storeCompatPacks(array: [CompatPack], isPatch: Bool) {
+        var ent: NSEntityDescription
+        if (isPatch) {
+            ent = getEntity(entityName: "CompatPatch")
+        } else {
+            ent = getEntity(entityName: "CompatPacks")
+        }
         
         for item in array {
             let obj = getObject(entity: ent)
@@ -141,6 +144,16 @@ class CoreDataIO: NSObject {
             obj.setValue(item.download_url, forKey: "download_url")
         }
         delegate.saveAction(self)
+    }
+    
+    func deleteCompatPacks(typeName: String) {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: typeName)
+        let req = NSBatchDeleteRequest(fetchRequest: fetch)
+        do {
+            try context.execute(req) as? NSBatchDeleteResult
+        } catch let error as NSError {
+            print("Could not delete entity. \(error), \(error.userInfo)")
+        }
     }
     
     func getRecordByUUID(entityName: String, uuid: UUID) -> NSManagedObject? {
@@ -194,8 +207,13 @@ class CoreDataIO: NSObject {
         return nil
     }
     
-    func searchCompatPacks(searchString: String) -> NSManagedObject? {
-        let req = NSFetchRequest<NSManagedObject>(entityName: "CompatPacks")
+    func searchCompatPacks(searchString: String, searchPatches: Bool = false) -> NSManagedObject? {
+        var req: NSFetchRequest<NSManagedObject>
+        if (searchPatches) {
+            req = NSFetchRequest<NSManagedObject>(entityName: "CompatPatch")
+        } else {
+            req = NSFetchRequest<NSManagedObject>(entityName: "CompatPacks")
+        }
         req.predicate = NSPredicate(format: "title_id == %@", searchString)
         do {
             return try context.fetch(req).first
@@ -215,7 +233,6 @@ class CoreDataIO: NSObject {
         } catch let error as NSError {
             print("Could not delete entity. \(error), \(error.userInfo)")
         }
-        
     }
 
     func recordsAreEmpty() -> Bool {

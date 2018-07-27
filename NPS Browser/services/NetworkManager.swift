@@ -28,13 +28,13 @@ class NetworkManager {
             windowDelegate.stopBtnReloadAnimation()
             return
         }
-        
-        
-        
+
         Promise<[NPSBase]> { fulfill, reject in
             Helpers().showLoadingViewController()
             Helpers().getLoadingViewController().setLabel(text: "Requesting data... (step 1/6)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
+            
+            self.getCompatPackEntriesTXT()
             
             Alamofire.request(url!)
                 .downloadProgress { progress in
@@ -72,14 +72,9 @@ class NetworkManager {
                 self.windowDelegate.getDataController().setArrayControllerContent(content: content)
         }
             .then { _ in
-                
-//                self.getCompatPackEntriesTXT()
                 Helpers().getLoadingViewController().closeWindow()
                 self.windowDelegate.stopBtnReloadAnimation()
         }
-        
-        
-        
     }
     
     func parseTSV(response: String) -> [NPSBase] {
@@ -95,19 +90,25 @@ class NetworkManager {
         return parsedData
     }
     
-    func parseCompatPackEntries(response: String) -> [CompatPack] {
+    func parseCompatPackEntries(response: String, isPatch: Bool = false) -> [CompatPack] {
         var parsedData = [CompatPack]()
         let rows = response.split(separator: "\n")
+        
         for row in rows {
+            
             let baseURL = "https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/"
             let components = row.components(separatedBy: "=")
             let path = components.first ?? ""
-            let title_id: String = path.components(separatedBy: "/")[0]
+            var title_id: String
+            if (isPatch) {
+                title_id = path.components(separatedBy: "/")[1]
+            } else {
+                title_id = path.components(separatedBy: "/")[0]
+            }
+            
             let url: URL? = URL(string: "\(baseURL)\(path)")
             let pack = CompatPack(id: title_id, download_url: url!)
-            
-//            debugPrint(pack.title_id, pack.download_url)
-            
+
             parsedData.append(pack)
         }
         debugPrint(parsedData)
@@ -116,19 +117,34 @@ class NetworkManager {
     
     func getCompatPackEntriesTXT()  {
         var url: URL?
+        var isPatch: Bool = false
+        var typeName: String = "CompatPacks"
         switch(self.type) {
         case "PSVGames":
-            url = SettingsManager().getUrls().compatPacks!
+            url = SettingsManager().getUrls().compatPacks ?? URL(string: "")
+            isPatch = false
+            typeName = "CompatPacks"
         case "PSVUpdates":
+            url = SettingsManager().getUrls().compatPatch ?? URL(string: "")
+            isPatch = true
+            typeName = "CompatPatch"
             break
         default:
             url = SettingsManager().getUrls().compatPacks!
         }
+        
+        if (url == nil) {
+            return
+        }
+        
         Alamofire.request(url!)
             .responseString { response in
                 let utf8Text = String(data: response.data!, encoding: .utf8)
-                let parsed = self.parseCompatPackEntries(response: utf8Text!)
-                Helpers().getCoreDataIO().storeCompatPacks(array: parsed)
+                
+                Helpers().getCoreDataIO().deleteCompatPacks(typeName: typeName)
+                
+                let parsed = self.parseCompatPackEntries(response: utf8Text!, isPatch: isPatch)
+                Helpers().getCoreDataIO().storeCompatPacks(array: parsed, isPatch: isPatch)
         }
     }
 }
