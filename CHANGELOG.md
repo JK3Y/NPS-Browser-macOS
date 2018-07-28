@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.3
+### Fixed
+- Compat packs are no longer fetched at the same time as tsv files.
+
 ## v1.3.2
 ### Added
 - Column for PSV Updates that shows the app version number

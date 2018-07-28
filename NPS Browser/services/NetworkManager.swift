@@ -28,13 +28,13 @@ class NetworkManager {
             windowDelegate.stopBtnReloadAnimation()
             return
         }
+        
+//        getCompatPackEntriesTXT()
 
         Promise<[NPSBase]> { fulfill, reject in
             Helpers().showLoadingViewController()
             Helpers().getLoadingViewController().setLabel(text: "Requesting data... (step 1/6)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
-            
-            self.getCompatPackEntriesTXT()
             
             Alamofire.request(url!)
                 .downloadProgress { progress in
@@ -74,6 +74,11 @@ class NetworkManager {
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
                 self.windowDelegate.stopBtnReloadAnimation()
+        }
+            .then { _ in
+                if (self.type == "PSVGames" || self.type == "PSVUpdates") {
+                    self.getCompatPackEntriesTXT()
+                }
         }
     }
     
@@ -137,14 +142,42 @@ class NetworkManager {
             return
         }
         
-        Alamofire.request(url!)
-            .responseString { response in
-                let utf8Text = String(data: response.data!, encoding: .utf8)
-                
-                Helpers().getCoreDataIO().deleteCompatPacks(typeName: typeName)
-                
-                let parsed = self.parseCompatPackEntries(response: utf8Text!, isPatch: isPatch)
-                Helpers().getCoreDataIO().storeCompatPacks(array: parsed, isPatch: isPatch)
+        Promise<[CompatPack]> { fulfill, reject in
+            Helpers().showLoadingViewController()
+            Helpers().getLoadingViewController().setLabel(text: "Requesting Comp Packs... (step 1/5)")
+            Helpers().getLoadingViewController().setProgress(amount: 20)
+            
+            Alamofire.request(url!)
+                .downloadProgress { progress in
+                    self.windowDelegate.getLoadingViewController().setLabel(text: "Receiving data... (step 2/5)")
+                    self.windowDelegate.getLoadingViewController().setProgress(amount: progress.fractionCompleted / 20)
+                }
+                .responseString { response in
+                    let utf8Text = String(data: response.data!, encoding: .utf8)
+                    
+                    if (response.result.isSuccess) {
+                        self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/6)")
+                        self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
+                        let parsed = self.parseCompatPackEntries(response: utf8Text!, isPatch: isPatch)
+                        fulfill(parsed)
+                    }
+                    else {
+                        reject(response.error!)
+                    }
+            }
+        }
+        .then { result in
+            self.windowDelegate.getLoadingViewController().setLabel(text: "Removing old values... (step 4/5)")
+            self.windowDelegate.getLoadingViewController().setProgress(amount: 50)
+            Helpers().getCoreDataIO().deleteCompatPacks(typeName: typeName)
+            
+            self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
+            self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
+            Helpers().getCoreDataIO().storeCompatPacks(array: result, isPatch: isPatch)
+            }
+        .then { _ in
+            Helpers().getLoadingViewController().closeWindow()
+            self.windowDelegate.stopBtnReloadAnimation()
         }
     }
 }

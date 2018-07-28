@@ -11,9 +11,9 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     
-    lazy var downloadManager: DownloadManager = DownloadManager()
-    lazy var bookmarkManager: BookmarkManager = BookmarkManager()
-    lazy var coreDataIO: CoreDataIO = CoreDataIO()
+//    lazy var downloadManager: DownloadManager = DownloadManager()
+//    lazy var bookmarkManager: BookmarkManager = BookmarkManager()
+//    lazy var coreDataIO: CoreDataIO = CoreDataIO()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        downloadManager.stopAndStoreDownloadList()
+//        downloadManager.stopAndStoreDownloadList()
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
