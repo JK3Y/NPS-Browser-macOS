@@ -11,7 +11,6 @@ import Foundation
 
 class SettingsViewController: NSViewController {
     @IBOutlet weak var psvgField: NSTextField!
-    @IBOutlet weak var psvuField: NSTextField!
     @IBOutlet weak var psvdlcField: NSTextField!
     @IBOutlet weak var psvtField: NSTextField!
     @IBOutlet weak var psxgField: NSTextField!
@@ -90,7 +89,6 @@ class SettingsViewController: NSViewController {
         self.dlLocation = settings.download.download_location
 
         psvgField.stringValue                   = settings.source.psv_games?.absoluteString ?? ""
-        psvuField.stringValue                   = settings.source.psv_updates?.absoluteString ?? ""
         psvdlcField.stringValue                 = settings.source.psv_dlc?.absoluteString ?? ""
         psvtField.stringValue                   = settings.source.psv_themes?.absoluteString ?? ""
         psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
@@ -154,7 +152,6 @@ class SettingsViewController: NSViewController {
         
         switch(id) {
         case "psvg": openDialog(txtField: self.psvgField)
-        case "psvu": openDialog(txtField: self.psvuField)
         case "psvd": openDialog(txtField: self.psvdlcField)
         case "psvt": openDialog(txtField: self.psvtField)
         case "psxg": openDialog(txtField: self.psxgField)
@@ -176,7 +173,6 @@ class SettingsViewController: NSViewController {
     @IBAction func save(_ sender: Any) {
         let source      = SourceSettings(psv_games: psvgField.stringValue,
                                          psv_dlc: psvdlcField.stringValue,
-                                         psv_updates: psvuField.stringValue,
                                          psv_themes: psvtField.stringValue,
                                          psp_games: pspgField.stringValue,
                                          psx_games: psxgField.stringValue,

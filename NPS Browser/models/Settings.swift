@@ -30,7 +30,6 @@ struct Settings: Codable {
 struct SourceSettings: Codable {
     var psv_games   : URL?
     var psv_dlc     : URL?
-    var psv_updates : URL?
     var psv_themes  : URL?
     var psp_games   : URL?
     var psx_games   : URL?
@@ -43,7 +42,6 @@ struct SourceSettings: Codable {
     init(){
         self.psv_games      = URL(string: "")
         self.psv_dlc        = URL(string: "")
-        self.psv_updates    = URL(string: "")
         self.psv_themes     = URL(string: "")
         self.psp_games      = URL(string: "")
         self.psx_games      = URL(string: "")
@@ -54,10 +52,9 @@ struct SourceSettings: Codable {
         self.compatPacks    = URL(string: "")
         self.compatPatch    = URL(string: "")
     }
-    init(psv_games: String, psv_dlc: String, psv_updates: String, psv_themes: String, psp_games: String, psx_games: String, ps3_games: String, ps3_dlc: String, ps3_themes: String, ps3_avatars: String, compat_pack: String, compat_patch: String) {
+    init(psv_games: String, psv_dlc: String, psv_themes: String, psp_games: String, psx_games: String, ps3_games: String, ps3_dlc: String, ps3_themes: String, ps3_avatars: String, compat_pack: String, compat_patch: String) {
         self.psv_games      = URL(string: psv_games) ?? URL(string: "")
         self.psv_dlc        = URL(string: psv_dlc) ?? URL(string: "")
-        self.psv_updates    = URL(string: psv_updates) ?? URL(string: "")
         self.psv_themes     = URL(string: psv_themes) ?? URL(string: "")
         self.psp_games      = URL(string: psp_games) ?? URL(string: "")
         self.psx_games      = URL(string: psx_games) ?? URL(string: "")
@@ -74,8 +71,6 @@ struct SourceSettings: Codable {
             return self.psv_games
         case "PSVDLCs":
             return self.psv_dlc
-        case "PSVUpdates":
-            return self.psv_updates
         case "PSVThemes":
             return self.psv_themes
         case "PSPGames":

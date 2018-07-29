@@ -38,7 +38,7 @@ class DLItem: NSObject, Codable {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
-    @objc dynamic var download_type                   : String
+    @objc dynamic var download_type     : String
 
     enum CodingKeys: String, CodingKey {
         case title_id

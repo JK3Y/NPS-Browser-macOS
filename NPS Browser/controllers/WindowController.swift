@@ -17,6 +17,10 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbSearchBar: NSSearchField!
     var delegate: ToolbarDelegate?
     var loadingViewController: LoadingViewController?
+    
+    override func windowWillLoad() {
+        debugPrint("WINDOW WILL LOAD")
+    }
 
     override func windowDidLoad() {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.

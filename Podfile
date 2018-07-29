@@ -9,5 +9,7 @@ target 'NPS Browser' do
   pod 'PromisesSwift', '~> 1.2'
   pod 'Queuer'
   pod 'SWXMLHash', '~> 4.7'
+  pod 'SwiftyBeaver'
+  pod 'Files', :git => 'https://github.com/JohnSundell/Files.git'
 
 end
