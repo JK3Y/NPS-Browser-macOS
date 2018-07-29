@@ -90,14 +90,14 @@ class Helpers {
         }
     }
     
-    func makeDLItem(data: NSManagedObject, download_link: URL) -> DLItem {
+    func makeDLItem(data: NSManagedObject, download_link: URL, download_type: DownloadType) -> DLItem {
         let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
-        let obj = DLItem()
+        let obj = DLItem(download_type: download_type)
 
         obj.type = type
         obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
         obj.name            = data.value(forKey: "name") as! String? ?? ""
-        obj.download_link = download_link
+        obj.download_link   = download_link
 
         switch(type) {
         case "PSVGames":

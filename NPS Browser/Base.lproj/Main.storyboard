@@ -1935,24 +1935,24 @@
             <objects>
                 <viewController title="Download Progress View Controller" showSeguePresentationStyle="single" id="SOC-lv-SK1" customClass="DownloadController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Qc3-hK-TXY">
-                        <rect key="frame" x="0.0" y="0.0" width="308" height="284"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="284"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="58" horizontalPageScroll="10" verticalLineScroll="58" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-ed-yrt">
-                                <rect key="frame" x="0.0" y="0.0" width="308" height="251"/>
+                                <rect key="frame" x="0.0" y="0.0" width="402" height="251"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="w54-i4-Brb">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="251"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="402" height="251"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="56" viewBased="YES" id="cTt-ns-v8O" userLabel="DL Table View">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="251"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="402" height="251"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="305" minWidth="40" maxWidth="1000" id="1wn-lR-1dd">
+                                                <tableColumn identifier="" width="399" minWidth="40" maxWidth="1000" id="1wn-lR-1dd">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1966,12 +1966,12 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="DaP-mC-AOO" customClass="DownloadListItemCellView" customModule="NPS_Browser" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="305" height="56"/>
+                                                            <rect key="frame" x="1" y="1" width="399" height="56"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jCT-TV-Qkg" userLabel="Name">
-                                                                    <rect key="frame" x="3" y="36" width="37" height="17"/>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Label" drawsBackground="YES" id="TIu-Xr-ONW">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCT-TV-Qkg" userLabel="Name">
+                                                                    <rect key="frame" x="3" y="36" width="393" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Title" drawsBackground="YES" id="TIu-Xr-ONW">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -1981,21 +1981,21 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ZIb-vo-cOa" userLabel="Progress Bar">
-                                                                    <rect key="frame" x="3" y="17" width="274" height="20"/>
+                                                                    <rect key="frame" x="3" y="17" width="356" height="20"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="274" id="EI9-qh-VoU"/>
+                                                                        <constraint firstAttribute="width" constant="356" id="EI9-qh-VoU"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.progress" id="3l6-2G-wJa"/>
                                                                     </connections>
                                                                 </progressIndicator>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-qS-eZW" userLabel="Status">
-                                                                    <rect key="frame" x="3" y="3" width="233" height="17"/>
+                                                                    <rect key="frame" x="3" y="3" width="126" height="17"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="233" id="2JO-yO-APO"/>
+                                                                        <constraint firstAttribute="width" constant="126" id="2JO-yO-APO"/>
                                                                         <constraint firstAttribute="height" constant="17" id="QBa-Ke-Guo"/>
                                                                     </constraints>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="0F7-8x-vMT">
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Status" drawsBackground="YES" id="0F7-8x-vMT">
                                                                         <font key="font" metaFont="smallSystem"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -2005,8 +2005,8 @@
                                                                     </connections>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-yR-f9E" userLabel="Progress Details">
-                                                                    <rect key="frame" x="244" y="3" width="33" height="17"/>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" drawsBackground="YES" id="gEU-8X-bNu">
+                                                                    <rect key="frame" x="179" y="3" width="32" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" placeholderString="%%%" drawsBackground="YES" id="gEU-8X-bNu">
                                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="percent" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="9am-dc-cSd">
                                                                             <integer key="multiplier" value="100"/>
                                                                         </numberFormatter>
@@ -2018,8 +2018,19 @@
                                                                         <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.timeRemaining" id="mcE-zL-qPf"/>
                                                                     </connections>
                                                                 </textField>
+                                                                <textField toolTip="Type of file" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lsh-3i-7Ci" userLabel="Download Type">
+                                                                    <rect key="frame" x="315" y="3" width="44" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" placeholderString="Type" drawsBackground="YES" id="6VF-MI-KNX">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                                    </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.download_type" id="G19-Ad-rBy"/>
+                                                                    </connections>
+                                                                </textField>
                                                                 <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">
-                                                                    <rect key="frame" x="279" y="15" width="87" height="25"/>
+                                                                    <rect key="frame" x="367" y="15" width="87" height="25"/>
                                                                     <subviews>
                                                                         <button toolTip="Cancel" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-x5-ugB" userLabel="Stop Button">
                                                                             <rect key="frame" x="0.0" y="5" width="25" height="15"/>
@@ -2100,14 +2111,19 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="Aaa-qS-eZW" secondAttribute="bottom" constant="3" id="8PH-Ot-Vnm"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="centerY" secondItem="yl8-7H-Xw7" secondAttribute="centerY" id="CTg-5I-rOS"/>
-                                                                <constraint firstItem="IR4-yR-f9E" firstAttribute="leading" secondItem="Aaa-qS-eZW" secondAttribute="trailing" constant="8" id="Ogl-my-JcN"/>
+                                                                <constraint firstItem="lsh-3i-7Ci" firstAttribute="trailing" secondItem="ZIb-vo-cOa" secondAttribute="trailing" id="K1Z-pq-IkO"/>
+                                                                <constraint firstItem="IR4-yR-f9E" firstAttribute="leading" secondItem="Aaa-qS-eZW" secondAttribute="trailing" constant="50" id="Ogl-my-JcN"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="leading" secondItem="Aaa-qS-eZW" secondAttribute="leading" id="P6Z-Rf-rz1"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="top" secondItem="DaP-mC-AOO" secondAttribute="top" constant="3" id="PbM-dM-RAn"/>
+                                                                <constraint firstItem="IR4-yR-f9E" firstAttribute="firstBaseline" secondItem="lsh-3i-7Ci" secondAttribute="firstBaseline" id="YEP-cF-vsC"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="DaP-mC-AOO" secondAttribute="leading" constant="3" id="Z4x-SD-Lei"/>
                                                                 <constraint firstItem="jCT-TV-Qkg" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="leading" id="acr-EE-WzC"/>
+                                                                <constraint firstItem="IR4-yR-f9E" firstAttribute="baseline" secondItem="lsh-3i-7Ci" secondAttribute="baseline" id="cW2-F3-4GJ"/>
                                                                 <constraint firstItem="ZIb-vo-cOa" firstAttribute="top" secondItem="jCT-TV-Qkg" secondAttribute="bottom" id="ceS-f6-c1j"/>
-                                                                <constraint firstItem="yl8-7H-Xw7" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="trailing" constant="2" id="lox-ao-JjR"/>
+                                                                <constraint firstItem="lsh-3i-7Ci" firstAttribute="leading" secondItem="IR4-yR-f9E" secondAttribute="trailing" constant="104" id="lQW-9E-QVo"/>
+                                                                <constraint firstItem="yl8-7H-Xw7" firstAttribute="leading" secondItem="ZIb-vo-cOa" secondAttribute="trailing" constant="8" id="lox-ao-JjR"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="firstBaseline" secondItem="IR4-yR-f9E" secondAttribute="firstBaseline" id="pwN-vO-2ob"/>
+                                                                <constraint firstItem="IR4-yR-f9E" firstAttribute="centerX" secondItem="ZIb-vo-cOa" secondAttribute="centerX" constant="14" id="v2y-XR-HgK"/>
                                                                 <constraint firstItem="Aaa-qS-eZW" firstAttribute="baseline" secondItem="IR4-yR-f9E" secondAttribute="baseline" id="ziu-6D-fvM"/>
                                                             </constraints>
                                                             <connections>
@@ -2136,18 +2152,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0u4-nU-RL9">
-                                <rect key="frame" x="254" y="253" width="54" height="28"/>
-                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zxK-37-XlQ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="smallSystem"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clearCompleted:" target="SOC-lv-SK1" id="R8v-wo-tJc"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tnb-uc-zsV">
-                                <rect key="frame" x="119" y="259" width="71" height="18"/>
+                                <rect key="frame" x="166" y="259" width="71" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="OxV-MF-z02"/>
                                 </constraints>
@@ -2157,6 +2163,16 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0u4-nU-RL9">
+                                <rect key="frame" x="338" y="253" width="54" height="28"/>
+                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zxK-37-XlQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearCompleted:" target="SOC-lv-SK1" id="R8v-wo-tJc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="centerX" secondItem="rCG-ed-yrt" secondAttribute="centerX" id="Dec-Kb-vS2"/>
@@ -2164,10 +2180,10 @@
                             <constraint firstItem="rCG-ed-yrt" firstAttribute="top" secondItem="Tnb-uc-zsV" secondAttribute="bottom" constant="8" symbolic="YES" id="Mfj-rJ-ocW"/>
                             <constraint firstAttribute="trailing" secondItem="rCG-ed-yrt" secondAttribute="trailing" id="Vs3-zj-Sqa"/>
                             <constraint firstAttribute="bottom" secondItem="rCG-ed-yrt" secondAttribute="bottom" id="a1y-DB-VmX"/>
-                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="71" id="cjH-l3-vPY"/>
+                            <constraint firstItem="0u4-nU-RL9" firstAttribute="leading" secondItem="Tnb-uc-zsV" secondAttribute="trailing" constant="108" id="cjH-l3-vPY"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="0u4-nU-RL9" secondAttribute="top" id="d9I-uw-YG4"/>
                             <constraint firstItem="Tnb-uc-zsV" firstAttribute="top" secondItem="Qc3-hK-TXY" secondAttribute="top" constant="7" id="xFf-Jc-AgI"/>
-                            <constraint firstAttribute="trailing" secondItem="0u4-nU-RL9" secondAttribute="trailing" constant="5" id="zQe-eS-SKE"/>
+                            <constraint firstAttribute="trailing" secondItem="0u4-nU-RL9" secondAttribute="trailing" constant="15" id="zQe-eS-SKE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2178,7 +2194,7 @@
                 <customObject id="fFr-FR-xBn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="Nxw-58-0sM"/>
             </objects>
-            <point key="canvasLocation" x="-1269" y="540"/>
+            <point key="canvasLocation" x="-1222" y="540"/>
         </scene>
     </scenes>
     <resources>

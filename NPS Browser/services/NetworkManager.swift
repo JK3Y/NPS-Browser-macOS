@@ -240,6 +240,9 @@ class NetworkManager {
                                     
                                     fulfill(hpurl!)
                                 }
+                                
+                                // TODO: if hybrid_package isn't available, grab the latest cumulative_package
+                                
                             }
                         } else {
                             reject(response.error!)

@@ -3,7 +3,7 @@
 ## WIP
 ### Changed
 - The button to download the .pkg files is now multi-purpose. Checkboxes will determine which files specific to that game will be downloaded (base game, updates, compat packs)
-- PSV Updates will now no longer be using the NPS TSV file, instead it will be looking up the latest "hybrid package" from Sony's servers and downloading that. Incremental updates will be handled on the Vita itself.
+- PSV Updates will now no longer be using the NPS TSV file, instead it will be looking up the latest "hybrid package" from Sony's servers and downloading that. If a hybrid package is not available the latest cumulative package will be used. Incremental updates will be handled on the Vita itself.
 
 ## v1.3.3
 ### Fixed

@@ -35,17 +35,26 @@ class DetailsViewController: NSViewController {
         
         
         if (chkDLGame.state == .on) {
-            sendDLData(url: getROManagedObject().value(forKey: "pkg_direct_link") as! URL)
+            sendDLData(url: getROManagedObject().value(forKey: "pkg_direct_link") as! URL, download_type: .Game)
         }
         if (chkDLUpdate.state == .on) {
             let url = NetworkManager().getUpdateXMLURLFromHMAC(title_id: getROManagedObject().value(forKey: "title_id") as! String)
             let pxml = NetworkManager().parseUpdateXML(url: url)
             pxml().then { res in
-                self.sendDLData(url: res)
+                self.sendDLData(url: res, download_type: .Patch)
             }
         }
-        
-        // TODO: Compat Pack Download
+        if (chkDLCompatPack.state == .on) {
+            let title_id = getROManagedObject().value(forKey: "title_id") as! String
+
+            if let cpatcho:CompatPatchMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id, searchPatches: true) as? CompatPatchMO {
+                sendDLData(url: cpatcho.download_url!, download_type: .CPatch)
+            }
+            
+            if let cpacko: CompatPacksMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) as? CompatPacksMO {
+                sendDLData(url: cpacko.download_url!, download_type: .CPack)
+            }
+        }
     }
     
     
@@ -132,12 +141,14 @@ class DetailsViewController: NSViewController {
         }
     }
 
-    func sendDLData(url: URL) {
+    func sendDLData(url: URL, download_type: DownloadType) {
         
         // TODO: Add categories to DL Data so it can be unpacked into the right places
         
         let obj = getROManagedObject()
-        let dlItem = Helpers().makeDLItem(data: obj, download_link: url)
+        let dlItem = Helpers().makeDLItem(data: obj, download_link: url, download_type: download_type)
+        
+        debugPrint(dlItem)
         
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }

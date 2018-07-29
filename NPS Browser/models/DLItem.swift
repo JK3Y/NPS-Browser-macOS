@@ -16,6 +16,11 @@ struct DownloadList: Codable {
     }
 }
 
+enum DownloadType: String {
+    case Game, Patch, CPatch, CPack
+}
+
+
 class DLItem: NSObject, Codable {
     @objc dynamic var title_id          : String?
     @objc dynamic var name              : String?
@@ -33,6 +38,7 @@ class DLItem: NSObject, Codable {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
+    @objc dynamic var download_type                   : String
 
     enum CodingKeys: String, CodingKey {
         case title_id
@@ -49,9 +55,11 @@ class DLItem: NSObject, Codable {
         case isViewable
         case isRemovable
         case isResumable
+        case download_type
     }
     
-    override init() {
+    init(download_type: DownloadType) {
+        self.download_type = download_type.rawValue
         super.init()
     }
     

@@ -17,7 +17,10 @@ class BookmarkListItemCellView: NSTableCellView {
     }
     
     @IBAction func btnDownloadClicked(_ sender: NSButton) {
-        let dlItem              = DLItem()
+        
+        // TODO: Add all 3 download types to DL list
+        
+        let dlItem              = DLItem(download_type: .Game)
         dlItem.type             = self.item?.type
         dlItem.title_id         = self.item?.title_id
         dlItem.name             = self.item?.name
