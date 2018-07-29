@@ -9,6 +9,7 @@
 import Cocoa
 import Promises
 import Alamofire
+import SWXMLHash
 
 class NetworkManager {
 
@@ -28,8 +29,6 @@ class NetworkManager {
             windowDelegate.stopBtnReloadAnimation()
             return
         }
-        
-//        getCompatPackEntriesTXT()
 
         Promise<[NPSBase]> { fulfill, reject in
             Helpers().showLoadingViewController()
@@ -179,5 +178,75 @@ class NetworkManager {
             Helpers().getLoadingViewController().closeWindow()
             self.windowDelegate.stopBtnReloadAnimation()
         }
+    }
+    
+    
+    func getUpdateXMLURLFromHMAC(title_id: String) -> String {
+        var output: [String] = []
+        var error: [String] = []
+        
+        let vitaupdatelinksPath = Bundle.main.resourcePath! + "/vitaupdatelinks"
+        let task = Process()
+        let outpipe = Pipe()
+        task.standardOutput = outpipe
+        let errpipe = Pipe()
+        task.standardError = errpipe
+        
+        task.executableURL = URL(fileURLWithPath: vitaupdatelinksPath)
+        task.arguments = [title_id]
+        
+        task.launch()
+        
+        let outdata = outpipe.fileHandleForReading.readDataToEndOfFile()
+        if var string = String(data: outdata, encoding: .utf8) {
+            string = string.trimmingCharacters(in: .newlines)
+            output = string.components(separatedBy: "\n")
+        }
+        
+        let errdata = errpipe.fileHandleForReading.readDataToEndOfFile()
+        if var string = String(data: errdata, encoding: .utf8) {
+            string = string.trimmingCharacters(in: .newlines)
+            error = string.components(separatedBy: "\n")
+        }
+        
+        task.waitUntilExit()
+        let status = task.terminationStatus
+        
+        if (status == 0) {
+            debugPrint("Update URL Fetch SUCCESS!")
+            return output.first!
+        } else {
+            return error.first!
+        }
+        
+//        return (output, error, status)
+    }
+    
+    func parseUpdateXML(url: String) -> (() -> (Promise<URL>)) {
+        
+        return {
+                Promise<URL> { fulfill, reject in
+                Alamofire.request(url)
+                    .responseString { response in
+                        if let data = response.value {
+                            let xml = try! SWXMLHash.parse(data)
+                            
+                            let subindexer = xml["titlepatch"]["tag"]["package"]
+                            
+                            for child in subindexer.children {
+                                if child.element!.name == "hybrid_package" {
+                                    let hp = child.element!.allAttributes
+                                    let hpurl = URL(string: (hp["url"]?.text)!)
+                                    
+                                    fulfill(hpurl!)
+                                }
+                            }
+                        } else {
+                            reject(response.error!)
+                        }
+                }
+            }
+        }
+
     }
 }

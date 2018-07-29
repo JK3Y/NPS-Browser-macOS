@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
 		512F42A520A95955007D2412 /* NPSModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F42A420A95955007D2412 /* NPSModels.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
@@ -34,17 +35,16 @@
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
 		51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* SettingsViewController.swift */; };
+		51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */ = {isa = PBXBuildFile; fileRef = 51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */; };
 		51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE81E2094E094005D44DC /* AppDelegate.swift */; };
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
 		51EBE8242094E094005D44DC /* NPS_Browser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8222094E094005D44DC /* NPS_Browser.xcdatamodeld */; };
 		51EBE8262094E095005D44DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8252094E095005D44DC /* Assets.xcassets */; };
 		51EBE8292094E095005D44DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8272094E095005D44DC /* Main.storyboard */; };
-		8B155F0D88A15CDA969EEF96 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EEB6E7EA888ADF160A96FE /* Pods_NPS_Browser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05AAD77BE21EBA3983AA5A83 /* Pods-NPS Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.debug.xcconfig"; sourceTree = "<group>"; };
-		34EEB6E7EA888ADF160A96FE /* Pods_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.debug.xcconfig"; sourceTree = "<group>"; };
 		5121752E20A73EBC00772C86 /* NPS Browser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NPS Browser.entitlements"; sourceTree = "<group>"; };
 		512175A720A7D28B00772C86 /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
 		512F42A420A95955007D2412 /* NPSModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSModels.swift; sourceTree = "<group>"; };
@@ -70,9 +70,11 @@
 		519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		519F0D7620CCC07900332987 /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		519F0D7820CCC56900332987 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
 		51B1A314209511A6009C799C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = vitaupdatelinks; sourceTree = "<group>"; };
 		51EBE81B2094E094005D44DC /* NPS Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPS Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EBE81E2094E094005D44DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EBE8202094E094005D44DC /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -80,8 +82,7 @@
 		51EBE8252094E095005D44DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51EBE8282094E095005D44DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51EBE82A2094E095005D44DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B29CAD0CF8CEA3177B7D37F5 /* Pods_Swift_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7BA59E028589428D1F7ED83 /* Pods-NPS Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.release.xcconfig"; sourceTree = "<group>"; };
+		F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,27 +90,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B155F0D88A15CDA969EEF96 /* Pods_NPS_Browser.framework in Frameworks */,
+				325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B25CCBA7A3C9A6B4CC4010C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				05AAD77BE21EBA3983AA5A83 /* Pods-NPS Browser.debug.xcconfig */,
-				E7BA59E028589428D1F7ED83 /* Pods-NPS Browser.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		2D9ADAD9C9E626C1407D0969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34EEB6E7EA888ADF160A96FE /* Pods_NPS_Browser.framework */,
-				B29CAD0CF8CEA3177B7D37F5 /* Pods_Swift_NPS_Browser.framework */,
+				51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,8 +179,8 @@
 				516A1B7620CAE275004D6AE5 /* CHANGELOG.md */,
 				51EBE81D2094E094005D44DC /* NPS Browser */,
 				51EBE81C2094E094005D44DC /* Products */,
-				0B25CCBA7A3C9A6B4CC4010C /* Pods */,
 				2D9ADAD9C9E626C1407D0969 /* Frameworks */,
+				C2D1BAB79E01FBB5E34E9353 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +195,7 @@
 		51EBE81D2094E094005D44DC /* NPS Browser */ = {
 			isa = PBXGroup;
 			children = (
+				51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */,
 				5177A78520C33C0E002F81F9 /* pkg2zip */,
 				51A767A120A6992500052F53 /* controllers */,
 				51A767A220A699AC00052F53 /* models */,
@@ -221,6 +213,15 @@
 			path = "NPS Browser";
 			sourceTree = "<group>";
 		};
+		C2D1BAB79E01FBB5E34E9353 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */,
+				F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,11 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51EBE82E2094E095005D44DC /* Build configuration list for PBXNativeTarget "NPS Browser" */;
 			buildPhases = (
-				AD28A0593FE97CC2B0B2E66D /* [CP] Check Pods Manifest.lock */,
+				62485319F0B13059B6D62557 /* [CP] Check Pods Manifest.lock */,
 				51EBE8172094E094005D44DC /* Sources */,
 				51EBE8182094E094005D44DC /* Frameworks */,
 				51EBE8192094E094005D44DC /* Resources */,
-				94600DFBA6EE83C419656020 /* [CP] Embed Pods Frameworks */,
+				B6404AB26DE6873FEDF0EC1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +257,7 @@
 				TargetAttributes = {
 					51EBE81A2094E094005D44DC = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0940;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -287,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */,
 				516A1B7920CAE28A004D6AE5 /* README.md in Resources */,
 				51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */,
 				51EBE8262094E095005D44DC /* Assets.xcassets in Resources */,
@@ -299,31 +302,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		94600DFBA6EE83C419656020 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
-				"${BUILT_PRODUCTS_DIR}/Queuer/Queuer.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Queuer.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AD28A0593FE97CC2B0B2E66D /* [CP] Check Pods Manifest.lock */ = {
+		62485319F0B13059B6D62557 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,6 +318,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6404AB26DE6873FEDF0EC1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
+				"${BUILT_PRODUCTS_DIR}/Queuer/Queuer.framework",
+				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Queuer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -506,22 +511,22 @@
 		};
 		51EBE82F2094E095005D44DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05AAD77BE21EBA3983AA5A83 /* Pods-NPS Browser.debug.xcconfig */;
+			baseConfigurationReference = 0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "";
 			};
@@ -529,22 +534,21 @@
 		};
 		51EBE8302094E095005D44DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7BA59E028589428D1F7ED83 /* Pods-NPS Browser.release.xcconfig */;
+			baseConfigurationReference = F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "";
 			};
