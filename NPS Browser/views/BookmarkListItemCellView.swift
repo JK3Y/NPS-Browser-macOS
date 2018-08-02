@@ -20,7 +20,7 @@ class BookmarkListItemCellView: NSTableCellView {
         
         // TODO: Add all 3 download types to DL list
         
-        let dlItem              = DLItem(download_type: .Game)
+        let dlItem              = DLItem()
         dlItem.type             = self.item?.type
         dlItem.title_id         = self.item?.title_id
         dlItem.name             = self.item?.name

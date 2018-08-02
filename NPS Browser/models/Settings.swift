@@ -100,7 +100,7 @@ struct DownloadSettings: Codable {
         self.concurrent_downloads   = 3
     }
     init(download_location: URL, concurrent_downloads: Int) {
-        self.download_location      = download_location
+        self.download_location      = download_location.appendingPathComponent("NPS Downloads")
         self.concurrent_downloads   = concurrent_downloads
     }
 }

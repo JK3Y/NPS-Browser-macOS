@@ -92,12 +92,13 @@ class Helpers {
     
     func makeDLItem(data: NSManagedObject, download_link: URL, download_type: DownloadType) -> DLItem {
         let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
-        let obj = DLItem(download_type: download_type)
+        let obj = DLItem()
 
         obj.type = type
         obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
-        obj.name            = data.value(forKey: "name") as! String? ?? ""
+        obj.name            = "\(download_type) - \(data.value(forKey: "name") as! String?)" ?? ""
         obj.download_link   = download_link
+        obj.download_type = download_type.rawValue
 
         switch(type) {
         case "PSVGames":
@@ -110,5 +111,16 @@ class Helpers {
             break
         }
         return obj
+    }
+    
+    func makeDLItemGroup(data: NSManagedObject, downloadLinks: [DownloadType:URL]) -> [DLItem] {
+        var og = [DLItem]()
+        
+        for link in downloadLinks {
+            var obj = makeDLItem(data: data, download_link: link.value, download_type: link.key)
+            obj.totalFiles = downloadLinks.count
+            og.append(obj)
+        }
+        return og
     }
 }

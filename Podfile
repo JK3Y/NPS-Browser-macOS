@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '10.0'
 
@@ -11,5 +13,6 @@ target 'NPS Browser' do
   pod 'SWXMLHash', '~> 4.7'
   pod 'SwiftyBeaver'
   pod 'Files', :git => 'https://github.com/JohnSundell/Files.git'
+  pod 'Zip', '~> 1.1'
 
 end

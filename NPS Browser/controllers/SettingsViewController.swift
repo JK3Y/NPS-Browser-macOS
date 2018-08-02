@@ -94,7 +94,7 @@ class SettingsViewController: NSViewController {
         psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
         pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
         ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
-        ps3dlcField.stringValue                   = settings.source.ps3_dlc?.absoluteString ?? ""
+        ps3dlcField.stringValue                 = settings.source.ps3_dlc?.absoluteString ?? ""
         ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
         ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
         compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""

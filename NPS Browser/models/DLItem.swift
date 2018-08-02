@@ -17,7 +17,7 @@ struct DownloadList: Codable {
 }
 
 enum DownloadType: String {
-    case Game, Patch, CPatch, CPack
+    case Game, Patch, CPatch, CPack, RAP
 }
 
 
@@ -38,7 +38,15 @@ class DLItem: NSObject, Codable {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
-    @objc dynamic var download_type     : String
+    @objc dynamic var download_type     : String?
+    @objc dynamic var cpackPath         : URL?
+    @objc dynamic var cpatchPath        : URL?
+    @objc dynamic var totalFiles        : Int = 0
+    @objc dynamic var doneFiles         : Int = 0
+    @objc dynamic var doNext            : DLItem? = nil
+    @objc dynamic var parentItem        : DLItem? = nil
+    
+    
 
     enum CodingKeys: String, CodingKey {
         case title_id
@@ -56,11 +64,25 @@ class DLItem: NSObject, Codable {
         case isRemovable
         case isResumable
         case download_type
+        case cpackPath
+        case cpatchPath
+        case totalFiles
+        case doneFiles
+        case doNext
+        case parentItem
     }
     
-    init(download_type: DownloadType) {
-        self.download_type = download_type.rawValue
+    override init() {
+//        self.download_type = download_type.rawValue
         super.init()
+    }
+    
+    func isCompleted() -> Bool {
+        return doneFiles == totalFiles
+    }
+    
+    func isMore() -> Bool {
+        return doNext != nil
     }
     
     func makeCancelable() {

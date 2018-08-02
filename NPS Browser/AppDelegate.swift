@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func setupDownloadsDirectory() {
-        let dlFolder = SettingsManager().getDownloads().download_location
+        let dlFolder = SettingsManager().getDownloads().download_location.deletingLastPathComponent()
         let dlDirName = "NPS Downloads"
         
         try! Folder(path: dlFolder.path).createSubfolderIfNeeded(withName: dlDirName)

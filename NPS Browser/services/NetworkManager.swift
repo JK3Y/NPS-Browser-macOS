@@ -224,26 +224,47 @@ class NetworkManager {
     
     func parseUpdateXML(url: String) -> (() -> (Promise<URL>)) {
         
+        log.debug(url)
+        
         return {
                 Promise<URL> { fulfill, reject in
                 Alamofire.request(url)
                     .responseString { response in
+                        
+                        
                         if let data = response.value {
-                            let xml = try! SWXMLHash.parse(data)
-                            
-                            let subindexer = xml["titlepatch"]["tag"]["package"]
-                            
-                            for child in subindexer.children {
-                                if child.element!.name == "hybrid_package" {
-                                    let hp = child.element!.allAttributes
-                                    let hpurl = URL(string: (hp["url"]?.text)!)
-                                    
-                                    fulfill(hpurl!)
-                                }
-                                
-                                // TODO: if hybrid_package isn't available, grab the latest cumulative_package
-                                
+                            guard let xml = try? SWXMLHash.parse(data) else {
+                                return
                             }
+                            
+                            let subindexer = xml["titlepatch"]["tag"]
+
+                            guard let lastpkg = subindexer.children.last else {
+                                return
+                            }
+                            
+//                            let sub = lastpkg.filterChildren { elem, _ in
+//                                let filterByNames = ["hybrid_package"]
+//                                return filterByNames.contains(elem.name)
+//                            }
+                            
+//                            log.debug(lastpkg.byKey("hybrid_package"))
+                            
+                            var x: String?
+
+                            do {
+                                x = try? lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.text as! String
+                                
+                                if (x == nil) {
+                                    x = try lastpkg.element?.attribute(by: "url")?.text
+                                }
+                            } catch {
+                                log.error(error)
+                            }
+                            
+                            let updateurl = URL(string: x!)
+                            fulfill(updateurl!)
+                            
                         } else {
                             reject(response.error!)
                         }

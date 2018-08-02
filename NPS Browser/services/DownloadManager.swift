@@ -9,6 +9,7 @@
 import Cocoa
 import Queuer
 import Alamofire
+import Promises
 
 class DownloadManager {
     
@@ -19,8 +20,7 @@ class DownloadManager {
         restoreDownloadList()
     }
     
-    func addToDownloadQueue(data: DLItem) {
-        // create destination for file
+    func getDestination() -> DownloadRequest.DownloadFileDestination {
         let destination: DownloadRequest.DownloadFileDestination = { _, response in
             // .pkg filename
             let pathComponent = response.suggestedFilename!
@@ -29,12 +29,16 @@ class DownloadManager {
             path.appendPathComponent(pathComponent)
             return (path, [.removePreviousFile, .createIntermediateDirectories])
         }
-        
+        return destination
+    }
+    
+    func addToDownloadQueue(data: DLItem) {
         // store request in same object so we can cancel/pause/resume it later
+        let destination = getDestination()
         let request = Alamofire.download(data.download_link!, to: destination)
         data.request = request
         data.destination = destination
-        
+            
         // add object to downloadItems array
         downloadItems.insert(data, at: 0)
         
@@ -43,34 +47,7 @@ class DownloadManager {
         // get object back out of downloadItems array so the async operation can use it and update the properties as it runs
         let dlItem = self.downloadItems[downloadItemsIndex]
         
-        let dlFileOperation = ConcurrentOperation {
-            dlItem.status = "Queued..."
-            
-            request.downloadProgress { progress in
-                dlItem.status = "Downloading..."        
-                dlItem.makeCancelable()
-                dlItem.progress = (progress.fractionCompleted * 100).rounded()
-                dlItem.timeRemaining = progress.fractionCompleted
-            }
-            .responseData { response in
-                response.result.ifSuccess {
-
-                    dlItem.destinationURL = response.destinationURL
-                    
-                    ExtractionManager(item: dlItem, downloadManager: self).start()
-                }
-                response.result.ifFailure {
-                    guard let resumeData = response.resumeData else {
-                        dlItem.status = "Failed! \(response.error.debugDescription)"
-                        dlItem.makeRemovable()
-                        return
-                    }
-                    dlItem.status = "Stopped"
-                    dlItem.resumeData = resumeData
-                    dlItem.makeResumable()
-                }
-            }
-        }
+        let dlFileOperation = makeConucurrentOperation(dlItem: dlItem, request: request)
         self.queue.addOperation(dlFileOperation)
     }
     
@@ -78,29 +55,8 @@ class DownloadManager {
         
         let request = Alamofire.download(resumingWith: data.resumeData!, to: data.destination)
         data.request = request
-        
-        request.downloadProgress { progress in
-            data.status = "Downloading..."
-            data.makeCancelable()
-            data.progress = (progress.fractionCompleted * 100).rounded()
-            data.timeRemaining = progress.fractionCompleted
-        }
-            .responseData { response in
-                response.result.ifSuccess {
-                    data.destinationURL = response.destinationURL
-                    ExtractionManager(item: data, downloadManager: self).start()
-                }
-                response.result.ifFailure {
-                    guard let resumeData = response.resumeData else {
-                        data.status = "Failed! \(response.error.debugDescription)"
-                        data.makeRemovable()
-                        return
-                    }
-                    data.status = "Stopped"
-                    data.resumeData = resumeData
-                    data.makeResumable()
-                }
-        }
+        let op = makeConucurrentOperation(dlItem: data, request: request)
+        queue.addOperation(op)
     }
 
     func removeCompleted() {
@@ -119,8 +75,6 @@ class DownloadManager {
     func getObjectQueue() -> [DLItem] {
         return self.downloadItems
     }
-    
-    
     
     func stopAndStoreDownloadList() {
         for item in downloadItems {
@@ -153,6 +107,42 @@ class DownloadManager {
                 self.downloadItems = downloadList.items
             } catch let error as NSError {
                 debugPrint(error)
+            }
+        }
+    }
+
+    func makeConucurrentOperation(dlItem: DLItem, request: DownloadRequest) -> ConcurrentOperation {
+        return ConcurrentOperation {
+            dlItem.status = "Queued..."
+            
+            request.downloadProgress { progress in
+                dlItem.status = "Downloading..."
+                dlItem.makeCancelable()
+                dlItem.progress = (progress.fractionCompleted * 100).rounded()
+                dlItem.timeRemaining = progress.fractionCompleted
+                }
+                .responseData { response in
+                    response.result.ifSuccess {
+                        dlItem.destinationURL = response.destinationURL
+                        if (dlItem.isMore()) {
+                            dlItem.doNext?.cpackPath = dlItem.destinationURL
+                            dlItem.status = "Waiting..."
+
+                            self.addToDownloadQueue(data: dlItem.doNext!)
+                        } else {
+                            ExtractionManager(item: dlItem, downloadManager: self).start()
+                        }
+                    }
+                    response.result.ifFailure {
+                        guard let resumeData = response.resumeData else {
+                            dlItem.status = "Failed! \(response.error.debugDescription)"
+                            dlItem.makeRemovable()
+                            return
+                        }
+                        dlItem.status = "Stopped"
+                        dlItem.resumeData = resumeData
+                        dlItem.makeResumable()
+                    }
             }
         }
     }
