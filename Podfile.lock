@@ -1,14 +1,22 @@
 PODS:
   - Alamofire (4.7.3)
+  - Files (2.0.1)
   - PromisesObjC (1.2.3)
   - PromisesSwift (1.2.3):
     - PromisesObjC (= 1.2.3)
   - Queuer (1.3.2)
+  - SwiftyBeaver (1.6.0)
+  - SWXMLHash (4.7.0)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Files (from `https://github.com/JohnSundell/Files.git`)
   - PromisesSwift (~> 1.2)
   - Queuer
+  - SwiftyBeaver
+  - SWXMLHash (~> 4.7)
+  - Zip (~> 1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,13 +24,29 @@ SPEC REPOS:
     - PromisesObjC
     - PromisesSwift
     - Queuer
+    - SwiftyBeaver
+    - SWXMLHash
+    - Zip
+
+EXTERNAL SOURCES:
+  Files:
+    :git: https://github.com/JohnSundell/Files.git
+
+CHECKOUT OPTIONS:
+  Files:
+    :commit: 06f95bd1bf4f8d5f50bc6bb30b808c253acd4c88
+    :git: https://github.com/JohnSundell/Files.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Files: dd0aa68aa068e87c60ec844b13e0a95179e2fb62
   PromisesObjC: a3a4263d8a9260214267e0b3788d0f83466ad449
   PromisesSwift: f7f45c21986419e85f7c5b645ed8c6a2c10c04b4
   Queuer: 1d4953c0ce3d674a2da01951e61dc0595e90e7cb
+  SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
+  SWXMLHash: f4522438189f72b41e39676d19469a8969d60dd1
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: b719559e0d7a1b8bf825178261156b4e9525c20a
+PODFILE CHECKSUM: 27bb7e06d41319bc98bab3b57b17602a70068bfc
 
 COCOAPODS: 1.5.2

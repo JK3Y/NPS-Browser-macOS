@@ -1,5 +1,14 @@
 # Changelog
 
+## WIP
+### Added
+- On startup the app checks for the folder "NPS Downloads" at the given download location specified in Preferences. By default this folder is the Downloads folder. If "~/Downloads/NPS Downloads" does not exist it will be created.
+- Better logging!
+
+### Changed
+- The button to download the .pkg files is now multi-purpose. Checkboxes will determine which files specific to that game will be downloaded (base game, updates, compat packs)
+- PSV Updates will now no longer be using the NPS TSV file, instead it will be looking up the latest "hybrid package" from Sony's servers and downloading that. If a hybrid package is not available the latest cumulative package will be used. Incremental updates will be handled on the Vita itself.
+
 ## v1.3.3
 ### Fixed
 - Compat packs are no longer fetched at the same time as tsv files.

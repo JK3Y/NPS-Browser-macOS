@@ -14,26 +14,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
     @IBOutlet weak var tableView: NSTableView!
     lazy var windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear() {
-        super.viewWillAppear()
-    }
-    
-    override func viewDidAppear() {
-        setArrayControllerContent(content: nil)
-        
-        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
-            NetworkManager().makeHTTPRequest()
-        } else {
-            let content = Helpers().getCoreDataIO().getRecords()
-            setArrayControllerContent(content: content)
-        }
-    }
-    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

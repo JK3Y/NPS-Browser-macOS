@@ -7,26 +7,61 @@
 //
 
 import Cocoa
+import Files
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     
-//    lazy var downloadManager: DownloadManager = DownloadManager()
-//    lazy var bookmarkManager: BookmarkManager = BookmarkManager()
-//    lazy var coreDataIO: CoreDataIO = CoreDataIO()
+    lazy var downloadManager: DownloadManager = DownloadManager()
+    lazy var bookmarkManager: BookmarkManager = BookmarkManager()
+    lazy var coreDataIO: CoreDataIO = CoreDataIO()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        setupSwiftyBeaverLogging()
+        setupDownloadsDirectory()
+        populateMasterViewTable()
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-//        downloadManager.stopAndStoreDownloadList()
+        downloadManager.stopAndStoreDownloadList()
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
+    
+    func setupSwiftyBeaverLogging() {
+        let console = ConsoleDestination()
+        let file = FileDestination()
+        let cloud = SBPlatformDestination(appID: "Rl12gv", appSecret: "bPi6vxoi2hV7mxnAtlriT3kBXbmofepc", encryptionKey: "qkiqm2IcjwgzuCcmu6itctXna2nxLztf")
+
+        log.addDestination(console)
+        log.addDestination(file)
+        log.addDestination(cloud)
+    }
+    
+    func setupDownloadsDirectory() {
+        let dlFolder = SettingsManager().getDownloads().download_location.deletingLastPathComponent()
+        let dlDirName = "NPS Downloads"
+        
+        try! Folder(path: dlFolder.path).createSubfolderIfNeeded(withName: dlDirName)
+        log.info("Downloads folder created at \(dlFolder.appendingPathComponent(dlDirName, isDirectory: true).path)")
+    }
+    
+    func populateMasterViewTable() {
+        if (coreDataIO.recordsAreEmpty()) {
+            NetworkManager().makeHTTPRequest()
+        } else {
+            let content = coreDataIO.getRecords()
+            Helpers().getDataController().setArrayControllerContent(content: content)
+        }
+    }
+    
     
     // MARK: - Notifications
     

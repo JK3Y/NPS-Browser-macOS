@@ -8,6 +8,8 @@
 
 import Foundation
 import Cocoa
+import Zip
+import Files
 
 class ExtractionManager {
     private var item: DLItem
@@ -17,39 +19,77 @@ class ExtractionManager {
     
     init(item: DLItem, downloadManager: DownloadManager) {
         self.item = item
+        Zip.addCustomFileExtension("ppk")
+
         if (item.type == "PS3Games" || item.type == "PS3DLCs" || item.type == "PS3Themes" || item.type == "PS3Avatars") {
             self.isPS3 = true
         }
+    
         self.downloadManager = downloadManager
     }
     
     func start() {
+        if (!shouldDoExtract()) {
+            completeDownload(status: "Download Complete")
+            return
+        }
         
+        if (item.download_type == "CPatch" || item.download_type == "CPack") {
+            unzipPPK()
+        } else {
+            usePkg2Zip()
+        }
+    }
+    
+    func unzipPPK() {
+        var filepath = SettingsManager().getDownloads().download_location
+        try! Folder(path: filepath.path).createSubfolderIfNeeded(withName: "rePatch")
+        
+        filepath = filepath.appendingPathComponent("rePatch/\(item.title_id!)")
+        if (item.download_type == "CPack") {
+            do {
+                log.debug("filepath: \(filepath)")
+                try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
+            }
+            catch {
+                log.warning("pack not unzipped")
+            }
+        }
+        
+        if (item.download_type == "CPatch") {
+            do {
+                log.debug("filepath: \(filepath)")
+                
+                if (item.cpackPath != nil) {
+                    try Zip.unzipFile(item.cpackPath!, destination: filepath, overwrite: true, password: nil)
+                    item.parentItem?.status = "Extraction Complete"
+                    item.parentItem?.makeViewable()
+                    Helpers().makeNotification(title: (item.parentItem?.name!)!, subtitle: (item.parentItem?.status!)!)
+                }
+                try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
+                completeDownload(status: "Extraction Complete")
+            }
+            catch {
+                log.warning("patch not unzipped")
+            }
+        }
+    }
+    
+    func usePkg2Zip() {
         if (item.zrif == "MISSING") {
             completeDownload(status: "Missing zRIF, license not created")
             return
         }
         
-        if (!shouldDoExtract()) {
-            completeDownload(status: "Download Complete")
-//            setStatus("Download Complete")
-//            self.item.makeViewable()
-//            Helpers().makeNotification(title: self.item.name!, subtitle: self.item.status!)
-//
-//            downloadManager.moveToCompleted(item: self.item)
-//            return
-            return
-        }
-
         setStatus("Extracting...")
-
+        
         let pkg2zipPath = Bundle.main.resourcePath! + "/pkg2zip"
         let task = Process()
         let pipe = Pipe()
-
+        
         task.currentDirectoryURL = userSettings?.download.download_location
         task.executableURL = URL(fileURLWithPath: pkg2zipPath)
-
+        
         task.arguments = getArguments()
         task.standardOutput = pipe
         
@@ -67,9 +107,6 @@ class ExtractionManager {
                 } else {
                     debugPrint("Task Failed")
                 }
-                
-                
-                
             }
         }
         

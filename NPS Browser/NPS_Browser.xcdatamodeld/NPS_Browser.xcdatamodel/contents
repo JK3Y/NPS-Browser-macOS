@@ -9,11 +9,11 @@
         <attribute name="zrif" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="bookmark" inverseEntity="Item" syncable="YES"/>
     </entity>
-    <entity name="CompatPacks" representedClassName="CompatPacks" syncable="YES" codeGenerationType="class">
+    <entity name="CompatPacks" representedClassName="CompatPacksMO" syncable="YES" codeGenerationType="class">
         <attribute name="download_url" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="CompatPatch" representedClassName="CompatPatch" syncable="YES" codeGenerationType="class">
+    <entity name="CompatPatch" representedClassName="CompatPatchMO" syncable="YES" codeGenerationType="class">
         <attribute name="download_url" optional="YES" attributeType="URI" syncable="YES"/>
         <attribute name="title_id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -143,6 +143,7 @@
     <elements>
         <element name="Bookmarks" positionX="151" positionY="-234" width="128" height="150"/>
         <element name="CompatPacks" positionX="99" positionY="-81" width="128" height="75"/>
+        <element name="CompatPatch" positionX="99" positionY="-81" width="128" height="75"/>
         <element name="Item" positionX="198" positionY="9" width="128" height="90"/>
         <element name="PS3Avatars" positionX="108" positionY="-72" width="128" height="195"/>
         <element name="PS3DLCs" positionX="99" positionY="-81" width="128" height="195"/>
@@ -154,6 +155,5 @@
         <element name="PSVThemes" positionX="99" positionY="-81" width="128" height="180"/>
         <element name="PSVUpdates" positionX="513" positionY="-180" width="128" height="193"/>
         <element name="PSXGames" positionX="396" positionY="45" width="128" height="180"/>
-        <element name="CompatPatch" positionX="99" positionY="-81" width="128" height="75"/>
     </elements>
 </model>
