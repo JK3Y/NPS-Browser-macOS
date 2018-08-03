@@ -27,6 +27,7 @@ class DetailsViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
             enableBookmarkButton()
+            toggleBookmark()
             enableDownloadOptions()
         }
     }
@@ -42,7 +43,7 @@ class DetailsViewController: NSViewController {
         }
         if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
             let url = NetworkManager().getUpdateXMLURLFromHMAC(title_id: getROManagedObject().value(forKey: "title_id") as! String)
-            let pxml = NetworkManager().parseUpdateXML(url: url)
+            let pxml = NetworkManager().fetchUpdateXML(url: url)
             pxml().then { res in
                 self.sendDLData(url: res, download_type: .Patch)
             }
@@ -87,13 +88,6 @@ class DetailsViewController: NSViewController {
             btnDownload.isEnabled = true
             chkBookmark.isEnabled = true
         }
-        
-        func toggleBookmark(compareUUID: UUID) {
-            let obj: NSUUID = getROManagedObject().value(forKey: "uuid") as! NSUUID
-            if (obj.isEqual(to: (compareUUID as NSUUID))) {
-                chkBookmark.state = .off
-            }
-        }
     }
     
     func enableDownloadOptions() {
@@ -132,6 +126,16 @@ class DetailsViewController: NSViewController {
         }
     }
     
+    func toggleBookmark() {
+        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: getROManagedObject().value(forKey: "uuid") as! UUID)
+        
+        if ( bookmark != nil) {
+            chkBookmark.state = .on
+        } else {
+            chkBookmark.state = .off
+        }
+    }
+    
     func toggleBookmark(compareUUID: UUID) {
         let obj: NSUUID = getROManagedObject().value(forKey: "uuid") as! NSUUID
         if (obj.isEqual(to: (compareUUID as NSUUID))) {
@@ -147,11 +151,5 @@ class DetailsViewController: NSViewController {
     
     func getROManagedObject() -> NSManagedObject {
         return representedObject as! NSManagedObject
-    }
-    
-    
-    
-    
-    
-    
+    }    
 }

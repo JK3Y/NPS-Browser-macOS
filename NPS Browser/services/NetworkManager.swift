@@ -47,7 +47,7 @@ class NetworkManager {
                     if (response.result.isSuccess) {
                         self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/6)")
                         self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                        let parsedTSV = self.parseTSV(response: utf8Text!)
+                        let parsedTSV = Parser().parseTSV(data: utf8Text!, type: self.type!)
                         fulfill(parsedTSV)
                     }
                     else {
@@ -79,44 +79,6 @@ class NetworkManager {
                     self.getCompatPackEntriesTXT()
                 }
         }
-    }
-    
-    func parseTSV(response: String) -> [NPSBase] {
-        var parsedData = [NPSBase]()
-        var rows = response.split(separator: "\r\n")
-        rows.remove(at: 0)
-        
-        for row in rows {
-            let values = row.components(separatedBy: "\t")
-            let tsvdata = TSVData(type: type!, values: values)
-            parsedData.append(tsvdata.makeNPSObject())
-        }
-        return parsedData
-    }
-    
-    func parseCompatPackEntries(response: String, isPatch: Bool = false) -> [CompatPack] {
-        var parsedData = [CompatPack]()
-        let rows = response.split(separator: "\n")
-        
-        for row in rows {
-            
-            let baseURL = "https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/"
-            let components = row.components(separatedBy: "=")
-            let path = components.first ?? ""
-            var title_id: String
-            if (isPatch) {
-                title_id = path.components(separatedBy: "/")[1]
-            } else {
-                title_id = path.components(separatedBy: "/")[0]
-            }
-            
-            let url: URL? = URL(string: "\(baseURL)\(path)")
-            let pack = CompatPack(id: title_id, download_url: url!)
-
-            parsedData.append(pack)
-        }
-        debugPrint(parsedData)
-        return parsedData
     }
     
     func getCompatPackEntriesTXT()  {
@@ -157,7 +119,7 @@ class NetworkManager {
                     if (response.result.isSuccess) {
                         self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/6)")
                         self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                        let parsed = self.parseCompatPackEntries(response: utf8Text!, isPatch: isPatch)
+                        let parsed = Parser().parseCompatPackEntries(data: utf8Text!, isPatch: isPatch)
                         fulfill(parsed)
                     }
                     else {
@@ -222,7 +184,7 @@ class NetworkManager {
 //        return (output, error, status)
     }
     
-    func parseUpdateXML(url: String) -> (() -> (Promise<URL>)) {
+    func fetchUpdateXML(url: String) -> (() -> (Promise<URL>)) {
         
         log.debug(url)
         
@@ -233,37 +195,11 @@ class NetworkManager {
                         
                         
                         if let data = response.value {
-                            guard let xml = try? SWXMLHash.parse(data) else {
-                                return
+                            let updateurl = Parser().parseUpdateXML(data: data)
+                            if (updateurl != nil) {
+                                fulfill(updateurl!)
                             }
-                            
-                            let subindexer = xml["titlepatch"]["tag"]
-
-                            guard let lastpkg = subindexer.children.last else {
-                                return
-                            }
-                            
-//                            let sub = lastpkg.filterChildren { elem, _ in
-//                                let filterByNames = ["hybrid_package"]
-//                                return filterByNames.contains(elem.name)
-//                            }
-                            
-//                            log.debug(lastpkg.byKey("hybrid_package"))
-                            
-                            var x: String?
-
-                            do {
-                                x = try? lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.text as! String
-                                
-                                if (x == nil) {
-                                    x = try lastpkg.element?.attribute(by: "url")?.text
-                                }
-                            } catch {
-                                log.error(error)
-                            }
-                            
-                            let updateurl = URL(string: x!)
-                            fulfill(updateurl!)
+                            return
                             
                         } else {
                             reject(response.error!)

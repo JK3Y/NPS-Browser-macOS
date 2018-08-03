@@ -4,6 +4,9 @@
 ### Added
 - Downloads/extractions are separated into folders based on console type
 
+### Fixed
+- Bug where bookmarks weren't being updated properly causing the app to crash.
+
 ## 1.3.6
 ### Added
 - On startup the app checks for the folder "NPS Downloads" at the given download location specified in Preferences. By default this folder is the Downloads folder. If "~/Downloads/NPS Downloads" does not exist it will be created.
