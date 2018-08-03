@@ -40,14 +40,14 @@ class DetailsViewController: NSViewController {
         if (chkDLGame.state == .on) {
             self.sendDLData(url: obj.value(forKey: "pkg_direct_link") as! URL, download_type: .Game)
         }
-        if (chkDLUpdate.state == .on) {
+        if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
             let url = NetworkManager().getUpdateXMLURLFromHMAC(title_id: getROManagedObject().value(forKey: "title_id") as! String)
             let pxml = NetworkManager().parseUpdateXML(url: url)
             pxml().then { res in
                 self.sendDLData(url: res, download_type: .Patch)
             }
         }
-        if (chkDLCompatPack.state == .on) {
+        if (chkDLCompatPack.state == .on && chkDLCompatPack.isEnabled && chkDLCompatPack.isHidden == false) {
             if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
                 sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL, download_type: .RAP)
             } else if (type == "PSVGames") {

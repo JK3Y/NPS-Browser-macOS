@@ -96,7 +96,7 @@ class Helpers {
 
         obj.type = type
         obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
-        obj.name            = "\(download_type) - \(data.value(forKey: "name") as! String?)" ?? ""
+        obj.name            = "\(download_type.rawValue) - \(data.value(forKey: "name") as! String)" ?? ""
         obj.download_link   = download_link
         obj.download_type = download_type.rawValue
 
