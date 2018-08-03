@@ -10,6 +10,7 @@ import Cocoa
 import Queuer
 import Alamofire
 import Promises
+import Files
 
 class DownloadManager {
     
@@ -20,21 +21,31 @@ class DownloadManager {
         restoreDownloadList()
     }
     
-    func getDestination() -> DownloadRequest.DownloadFileDestination {
-        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+    func getDestination(data: DLItem) -> DownloadRequest.DownloadFileDestination {
+        let destination: DownloadRequest.DownloadFileDestination = { request, response in
             // .pkg filename
             let pathComponent = response.suggestedFilename!
             let downloadSettings = SettingsManager().getDownloads()
-            var path: URL = downloadSettings.download_location
+            let cf = data.getConsole()
+            var path: URL = downloadSettings.download_location.appendingPathComponent(cf)
             path.appendPathComponent(pathComponent)
             return (path, [.removePreviousFile, .createIntermediateDirectories])
         }
         return destination
     }
     
+    func makeConsoleFolder(dlItem: DLItem) {
+        let filepath = SettingsManager().getDownloads().download_location
+        let console = dlItem.getConsole()
+        try! Folder(path: filepath.path).createSubfolderIfNeeded(withName: console)
+    }
+    
     func addToDownloadQueue(data: DLItem) {
         // store request in same object so we can cancel/pause/resume it later
-        let destination = getDestination()
+        let destination = getDestination(data: data)
+        
+        makeConsoleFolder(dlItem: data)
+        
         let request = Alamofire.download(data.download_link!, to: destination)
         data.request = request
         data.destination = destination
@@ -52,7 +63,6 @@ class DownloadManager {
     }
     
     func resumeDownload(data: DLItem) {
-        
         let request = Alamofire.download(resumingWith: data.resumeData!, to: data.destination)
         data.request = request
         let op = makeConucurrentOperation(dlItem: data, request: request)

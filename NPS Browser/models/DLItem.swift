@@ -112,4 +112,8 @@ class DLItem: NSObject, Codable {
         self.isCancelable   = false
         self.isViewable     = false
     }
+    
+    func getConsole() -> String {
+        return String((type?.prefix(3))!)
+    }
 }

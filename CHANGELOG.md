@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.7
+### Added
+- Downloads/extractions are separated into folders based on console type
+
 ## 1.3.6
 ### Added
 - On startup the app checks for the folder "NPS Downloads" at the given download location specified in Preferences. By default this folder is the Downloads folder. If "~/Downloads/NPS Downloads" does not exist it will be created.

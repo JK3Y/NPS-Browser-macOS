@@ -41,11 +41,19 @@ class ExtractionManager {
         }
     }
     
+    func makeRepatchFolder(filepath: URL) -> URL {
+        let fp = filepath.appendingPathComponent(item.getConsole())
+        try! Folder(path: fp.path).createSubfolderIfNeeded(withName: "rePatch")
+        
+        return fp.appendingPathComponent("rePatch")
+    }
+    
     func unzipPPK() {
         var filepath = SettingsManager().getDownloads().download_location
-        try! Folder(path: filepath.path).createSubfolderIfNeeded(withName: "rePatch")
+        let rpf = makeRepatchFolder(filepath: filepath)
         
-        filepath = filepath.appendingPathComponent("rePatch/\(item.title_id!)")
+        
+        filepath = rpf.appendingPathComponent("\(item.title_id!)")
         if (item.download_type == "CPack") {
             do {
                 log.debug("filepath: \(filepath)")
@@ -90,7 +98,7 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryURL = userSettings?.download.download_location
+        task.currentDirectoryURL = userSettings?.download.download_location.appendingPathComponent(item.getConsole())
         task.executableURL = URL(fileURLWithPath: pkg2zipPath)
         
         task.arguments = getArguments()
