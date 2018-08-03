@@ -50,6 +50,9 @@ class ExtractionManager {
             do {
                 log.debug("filepath: \(filepath)")
                 try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
+                item.parentItem?.status = "Extraction Complete"
+                item.parentItem?.makeViewable()
+                Helpers().makeNotification(title: (item.parentItem?.name!)!, subtitle: (item.parentItem?.status!)!)
             }
             catch {
                 log.warning("pack not unzipped")

@@ -1,9 +1,10 @@
 # Changelog
 
-## WIP
+## 1.3.6
 ### Added
 - On startup the app checks for the folder "NPS Downloads" at the given download location specified in Preferences. By default this folder is the Downloads folder. If "~/Downloads/NPS Downloads" does not exist it will be created.
 - Better logging!
+- Compat packs will be extracted in the proper order
 
 ### Changed
 - The button to download the .pkg files is now multi-purpose. Checkboxes will determine which files specific to that game will be downloaded (base game, updates, compat packs)

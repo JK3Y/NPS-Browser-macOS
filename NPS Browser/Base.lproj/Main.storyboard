@@ -367,7 +367,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gqO-k2-RUS" userLabel="PSVG Field">
-                                <rect key="frame" x="121" y="356" width="190" height="22"/>
+                                <rect key="frame" x="130" y="356" width="181" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="XrK-ee-S9i">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -885,7 +885,7 @@
                             <constraint firstItem="9Xb-5I-eAC" firstAttribute="trailing" secondItem="pU2-ZV-kL0" secondAttribute="trailing" id="VDi-Pc-dyC"/>
                             <constraint firstItem="t5H-DK-7pA" firstAttribute="leading" secondItem="QPY-Hv-7We" secondAttribute="trailing" constant="50" id="VNu-wP-5PH"/>
                             <constraint firstItem="WtC-fp-xMB" firstAttribute="leading" secondItem="YlS-Mi-0h8" secondAttribute="leading" id="WYN-A0-ayL"/>
-                            <constraint firstItem="gqO-k2-RUS" firstAttribute="leading" secondItem="fdS-gN-sF2" secondAttribute="trailing" constant="30" id="XMf-8D-aqo"/>
+                            <constraint firstItem="gqO-k2-RUS" firstAttribute="leading" secondItem="fdS-gN-sF2" secondAttribute="trailing" constant="39" id="XMf-8D-aqo"/>
                             <constraint firstItem="pU2-ZV-kL0" firstAttribute="trailing" secondItem="fzv-zT-mGU" secondAttribute="trailing" id="XSh-BK-XYY"/>
                             <constraint firstItem="zIJ-Gy-IwK" firstAttribute="leading" secondItem="ToG-Op-gBE" secondAttribute="trailing" constant="8" symbolic="YES" id="Xhp-EE-8nr"/>
                             <constraint firstItem="QPY-Hv-7We" firstAttribute="baseline" secondItem="t5H-DK-7pA" secondAttribute="baseline" id="Y5M-eP-ElF"/>
@@ -994,7 +994,7 @@
                 <customObject id="1gw-wd-oSX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="GzT-yJ-OdF"/>
             </objects>
-            <point key="canvasLocation" x="-2791" y="707"/>
+            <point key="canvasLocation" x="-2791.5" y="707"/>
         </scene>
         <!--Bookmarks View Controller-->
         <scene sceneID="vVL-GX-xmh">
