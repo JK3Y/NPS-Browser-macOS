@@ -15,4 +15,5 @@ protocol WindowDelegate {
     
     func getDataController() -> DataViewController
     func getLoadingViewController() -> LoadingViewController
+//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T
 }

@@ -112,15 +112,4 @@ class Helpers {
         }
         return obj
     }
-    
-    func makeDLItemGroup(data: NSManagedObject, downloadLinks: [DownloadType:URL]) -> [DLItem] {
-        var og = [DLItem]()
-        
-        for link in downloadLinks {
-            var obj = makeDLItem(data: data, download_link: link.value, download_type: link.key)
-            obj.totalFiles = downloadLinks.count
-            og.append(obj)
-        }
-        return og
-    }
 }

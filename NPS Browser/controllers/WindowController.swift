@@ -17,10 +17,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbSearchBar: NSSearchField!
     var delegate: ToolbarDelegate?
     var loadingViewController: LoadingViewController?
-    
-    override func windowWillLoad() {
-        debugPrint("WINDOW WILL LOAD")
-    }
 
     override func windowDidLoad() {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
@@ -99,4 +95,9 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         self.progressSpinner.stopAnimation(nil)
         self.tbReload.isHidden = false
     }
+    
+    
+//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T {
+//        return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: identifier)) as! T
+//    }
 }

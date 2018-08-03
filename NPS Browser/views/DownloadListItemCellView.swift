@@ -14,7 +14,7 @@ class DownloadListItemCellView: NSTableCellView {
     @IBOutlet weak var btnCancel: NSButton!
     @IBOutlet weak var btnRetry: NSButton!
     var item: DLItem?
-    var dlLoc = SettingsManager().getDownloads().download_location
+    var dlLoc = SettingsManager().getDownloads().library_folder
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

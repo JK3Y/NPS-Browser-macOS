@@ -25,9 +25,10 @@ class SettingsManager {
                 let settings = try PropertyListDecoder().decode(Settings.self, from: stored!)
                 return settings
             } catch let error as NSError {
-                debugPrint(error)
+                resetUserDefaults(self)
                 
                 Helpers().makeAlert(messageText: "Error loading settings.", informativeText: "Loading defaults now...", alertStyle: .warning)
+                log.error("Error loading user DefaultSettings.")
             }
         }
         
@@ -60,6 +61,7 @@ class SettingsManager {
             getUserDefaults().set(data, forKey: "settings")
         } catch {
             Helpers().makeAlert(messageText: "Save failed", informativeText: "Settings could not be saved.", alertStyle: .warning)
+            log.error("Settings could not be saved.")
         }
     }
     

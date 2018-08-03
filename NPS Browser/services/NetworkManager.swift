@@ -75,40 +75,37 @@ class NetworkManager {
                 self.windowDelegate.stopBtnReloadAnimation()
         }
             .then { _ in
-                if (self.type == "PSVGames" || self.type == "PSVUpdates") {
-                    self.getCompatPackEntriesTXT()
+                if (self.type == "PSVGames") {
+                    self.makeCompatPackRequests() // get compat packs
                 }
         }
     }
     
-    func getCompatPackEntriesTXT()  {
-        var url: URL?
-        var isPatch: Bool = false
+    func makeCompatPackRequests() {
+        guard var cpackurl: URL? = SettingsManager().getUrls().compatPacks ?? URL(string: "") else {
+            log.debug("no compatpack url")
+        }
+        guard var cpatchurl: URL? = SettingsManager().getUrls().compatPatch ?? URL(string: "") else {
+            log.debug("no compatpatch url")
+        }
+
+        makeCompatPackRequestPromise(url: cpackurl!, isPatch: false)
+            .then { _ in
+                self.makeCompatPackRequestPromise(url: cpatchurl!, isPatch: true)
+        }
+    }
+    
+    func makeCompatPackRequestPromise(url: URL, isPatch: Bool) -> Promise<[CompatPack]> {
         var typeName: String = "CompatPacks"
-        switch(self.type) {
-        case "PSVGames":
-            url = SettingsManager().getUrls().compatPacks ?? URL(string: "")
-            isPatch = false
-            typeName = "CompatPacks"
-        case "PSVUpdates":
-            url = SettingsManager().getUrls().compatPatch ?? URL(string: "")
-            isPatch = true
+        if isPatch {
             typeName = "CompatPatch"
-            break
-        default:
-            url = SettingsManager().getUrls().compatPacks!
         }
-        
-        if (url == nil) {
-            return
-        }
-        
-        Promise<[CompatPack]> { fulfill, reject in
+        return Promise<[CompatPack]> { fulfill, reject in
             Helpers().showLoadingViewController()
             Helpers().getLoadingViewController().setLabel(text: "Requesting Comp Packs... (step 1/5)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
             
-            Alamofire.request(url!)
+            Alamofire.request(url)
                 .downloadProgress { progress in
                     self.windowDelegate.getLoadingViewController().setLabel(text: "Receiving data... (step 2/5)")
                     self.windowDelegate.getLoadingViewController().setProgress(amount: progress.fractionCompleted / 20)
@@ -126,22 +123,21 @@ class NetworkManager {
                         reject(response.error!)
                     }
             }
-        }
-        .then { result in
-            self.windowDelegate.getLoadingViewController().setLabel(text: "Removing old values... (step 4/5)")
-            self.windowDelegate.getLoadingViewController().setProgress(amount: 50)
-            Helpers().getCoreDataIO().deleteCompatPacks(typeName: typeName)
-            
-            self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
-            self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-            Helpers().getCoreDataIO().storeCompatPacks(array: result, isPatch: isPatch)
             }
-        .then { _ in
-            Helpers().getLoadingViewController().closeWindow()
-            self.windowDelegate.stopBtnReloadAnimation()
+            .then { result in
+                self.windowDelegate.getLoadingViewController().setLabel(text: "Removing old values... (step 4/5)")
+                self.windowDelegate.getLoadingViewController().setProgress(amount: 50)
+                Helpers().getCoreDataIO().deleteCompatPacks(typeName: typeName)
+                
+                self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
+                self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
+                Helpers().getCoreDataIO().storeCompatPacks(array: result, isPatch: isPatch)
+            }
+            .then { _ in
+                Helpers().getLoadingViewController().closeWindow()
+                self.windowDelegate.stopBtnReloadAnimation()
         }
     }
-    
     
     func getUpdateXMLURLFromHMAC(title_id: String) -> String {
         var output: [String] = []

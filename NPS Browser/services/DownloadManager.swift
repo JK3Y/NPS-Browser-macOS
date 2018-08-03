@@ -27,7 +27,7 @@ class DownloadManager {
             let pathComponent = response.suggestedFilename!
             let downloadSettings = SettingsManager().getDownloads()
             let cf = data.getConsole()
-            var path: URL = downloadSettings.download_location.appendingPathComponent(cf)
+            var path: URL = downloadSettings.library_folder.appendingPathComponent(cf)
             path.appendPathComponent(pathComponent)
             return (path, [.removePreviousFile, .createIntermediateDirectories])
         }
@@ -35,9 +35,15 @@ class DownloadManager {
     }
     
     func makeConsoleFolder(dlItem: DLItem) {
-        let filepath = SettingsManager().getDownloads().download_location
+        let filepath = SettingsManager().getDownloads().library_folder
         let console = dlItem.getConsole()
-        try! Folder(path: filepath.path).createSubfolderIfNeeded(withName: console)
+
+        if (try? Folder(path: filepath.path).createSubfolderIfNeeded(withName: console)) != nil {
+            return
+        } else {
+            Helpers().getSharedAppDelegate().setupDownloadsDirectory()
+            makeConsoleFolder(dlItem: dlItem)
+        }
     }
     
     func addToDownloadQueue(data: DLItem) {

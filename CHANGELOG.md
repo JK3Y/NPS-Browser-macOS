@@ -4,8 +4,14 @@
 ### Added
 - Downloads/extractions are separated into folders based on console type
 
+### Changed
+- Location label in the Preferences window has been changed to "Library Location"
+
 ### Fixed
 - Bug where bookmarks weren't being updated properly causing the app to crash.
+- Bug where app would crash if NPS library folder was deleted after app started up and before a file was being downloaded
+- Bug that was displaying the library location in Preferences with "/NPS Downloads" attached instead of the path to the library's parent folder. This was causing the NPS Downloads folder to be created inside the previous NPS Downloads folder.
+- Bug where compat patches weren't being downloaded
 
 ## 1.3.6
 ### Added

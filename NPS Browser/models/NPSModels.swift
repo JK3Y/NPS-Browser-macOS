@@ -45,18 +45,6 @@ class PSVGame: NPSBase {
     }
 }
 
-class PSVUpdate: NPSBase {
-    var update_version  : Float?
-    var fw_version      : Float?
-    var nonpdrm_mirror  : URL?
-    required init(_ data: TSVData) {
-        update_version = data.update_version
-        fw_version     = data.fw_version
-        nonpdrm_mirror = data.nonpdrm_mirror
-        super.init(data)
-    }
-}
-
 class PSVDLC: NPSBase {
     var zrif        : String?
     var content_id  : String?
@@ -161,15 +149,6 @@ struct TSVData {
             file_size               = Int64(values[8])
             sha256                  = values[9]
             required_fw             = Float(values[10])
-        case "PSVUpdates":
-            name                    = values[2]
-            update_version          = Float(values[3])
-            fw_version              = Float(values[4])
-            pkg_direct_link         = URL(string: values[5])
-            nonpdrm_mirror          = URL(string: values[6])
-            last_modification_date  = parseDate(dateString: values[7])
-            file_size               = Int64(values[8])
-            sha256                  = values[9]
         case "PSVDLCs", "PSVThemes":
             name                    = values[2]
             pkg_direct_link         = URL(string: values[3])
@@ -216,8 +195,6 @@ struct TSVData {
         switch(type) {
         case "PSVGames":
             obj = PSVGame(self)
-        case "PSVUpdates":
-            obj = PSVUpdate(self)
         case "PSVDLCs":
             obj = PSVDLC(self)
         case "PSVThemes":

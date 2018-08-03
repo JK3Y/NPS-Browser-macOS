@@ -93,15 +93,19 @@ struct SourceSettings: Codable {
 }
 
 struct DownloadSettings: Codable {
-    var download_location   : URL
+    var library_location   : URL
     var concurrent_downloads: Int
+    var library_folder: URL
+    
     init(){
-        self.download_location      = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
+        self.library_location      = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
         self.concurrent_downloads   = 3
+        self.library_folder = library_location.appendingPathComponent("NPS Downloads")
     }
-    init(download_location: URL, concurrent_downloads: Int) {
-        self.download_location      = download_location.appendingPathComponent("NPS Downloads")
+    init(library_location: URL, concurrent_downloads: Int) {
+        self.library_location      = library_location
         self.concurrent_downloads   = concurrent_downloads
+        self.library_folder = library_location.appendingPathComponent("NPS Downloads")
     }
 }
 

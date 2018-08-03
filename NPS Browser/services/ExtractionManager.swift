@@ -49,18 +49,14 @@ class ExtractionManager {
     }
     
     func unzipPPK() {
-        var filepath = SettingsManager().getDownloads().download_location
+        var filepath = SettingsManager().getDownloads().library_folder
         let rpf = makeRepatchFolder(filepath: filepath)
-        
-        
         filepath = rpf.appendingPathComponent("\(item.title_id!)")
+        
         if (item.download_type == "CPack") {
             do {
-                log.debug("filepath: \(filepath)")
                 try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
-                item.parentItem?.status = "Extraction Complete"
-                item.parentItem?.makeViewable()
-                Helpers().makeNotification(title: (item.parentItem?.name!)!, subtitle: (item.parentItem?.status!)!)
+                completeDownload(status: "Extraction Complete")
             }
             catch {
                 log.warning("pack not unzipped")
@@ -69,8 +65,6 @@ class ExtractionManager {
         
         if (item.download_type == "CPatch") {
             do {
-                log.debug("filepath: \(filepath)")
-                
                 if (item.cpackPath != nil) {
                     try Zip.unzipFile(item.cpackPath!, destination: filepath, overwrite: true, password: nil)
                     item.parentItem?.status = "Extraction Complete"
@@ -98,7 +92,7 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryURL = userSettings?.download.download_location.appendingPathComponent(item.getConsole())
+        task.currentDirectoryURL = userSettings?.download.library_folder.appendingPathComponent(item.getConsole())
         task.executableURL = URL(fileURLWithPath: pkg2zipPath)
         
         task.arguments = getArguments()

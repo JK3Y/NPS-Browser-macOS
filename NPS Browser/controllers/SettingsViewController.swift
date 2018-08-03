@@ -86,7 +86,7 @@ class SettingsViewController: NSViewController {
     }
     
     func updateTextFields(settings: Settings) {
-        self.dlLocation = settings.download.download_location
+        self.dlLocation = settings.download.library_location
 
         psvgField.stringValue                   = settings.source.psv_games?.absoluteString ?? ""
         psvdlcField.stringValue                 = settings.source.psv_dlc?.absoluteString ?? ""
@@ -182,7 +182,7 @@ class SettingsViewController: NSViewController {
                                          ps3_avatars: ps3aField.stringValue,
                                          compat_pack: compatPackField.stringValue,
                                          compat_patch: compatPatchField.stringValue)
-        let download    = DownloadSettings(download_location: self.dlLocation!.absoluteURL,
+        let download    = DownloadSettings(library_location: self.dlLocation!.absoluteURL,
                                            concurrent_downloads: ccDLField.integerValue)
         let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
                                           keep_pkg: chkKeepPKG.state == .on,

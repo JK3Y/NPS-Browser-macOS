@@ -79,11 +79,6 @@ class CoreDataIO: NSObject {
                 nps.setValue(obj.original_name, forKey: "original_name")
                 nps.setValue(obj.required_fw, forKey: "required_fw")
                 nps.setValue(obj.zrif, forKey: "zrif")
-            case "PSVUpdates":
-                let obj = item as! PSVUpdate
-                nps.setValue(obj.update_version, forKey: "update_version")
-                nps.setValue(obj.fw_version, forKey: "fw_version")
-                nps.setValue(obj.nonpdrm_mirror, forKey: "nonpdrm_mirror")
             case "PSVDLCs":
                 let obj = item as! PSVDLC
                 nps.setValue(obj.content_id, forKey: "content_id")
