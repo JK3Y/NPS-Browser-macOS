@@ -35,7 +35,8 @@ class DataViewController: NSViewController, ToolbarDelegate {
     }
     
     func getDetailsViewController() -> DetailsViewController {
-         let vc: DetailsViewController = parent?.childViewControllers[1] as! DetailsViewController
+        let sc: NSSplitViewController = parent?.childViewControllers[1] as! NSSplitViewController
+        let vc: DetailsViewController = sc.childViewControllers[0] as! DetailsViewController
         return vc
     }
 }

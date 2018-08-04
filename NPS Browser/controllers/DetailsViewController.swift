@@ -29,6 +29,8 @@ class DetailsViewController: NSViewController {
             enableBookmarkButton()
             toggleBookmark()
             enableDownloadOptions()
+            
+            
         }
     }
 
@@ -151,5 +153,11 @@ class DetailsViewController: NSViewController {
     
     func getROManagedObject() -> NSManagedObject {
         return representedObject as! NSManagedObject
-    }    
+    }
+    
+//    func getBoxartViewController() -> DetailsViewController {
+//        let sc: NSSplitViewController = parent?.childViewControllers[1] as! NSSplitViewController
+//        let vc: DetailsViewController = sc.childViewControllers[0] as! DetailsViewController
+//        return vc
+//    }
 }

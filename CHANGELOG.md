@@ -4,6 +4,8 @@
 ### Added
 - Downloads/extractions are separated into folders based on console type
 
+TODO: Start/finish Boxart View Controller
+
 ### Changed
 - Location label in the Preferences window has been changed to "Library Location"
 
