@@ -39,4 +39,10 @@ class DataViewController: NSViewController, ToolbarDelegate {
         let vc: DetailsViewController = sc.childViewControllers[0] as! DetailsViewController
         return vc
     }
+    
+//    func getBoxartViewController() {
+//        let sc: NSSplitViewController = parent?.childViewControllers[1] as! NSSplitViewController
+//        let vc: DetailsViewController = sc.childViewControllers[1] as! DetailsViewController
+//        return vc
+//    }
 }

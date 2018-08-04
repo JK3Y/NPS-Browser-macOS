@@ -8,6 +8,7 @@ TODO: Start/finish Boxart View Controller
 
 ### Changed
 - Location label in the Preferences window has been changed to "Library Location"
+- Removed Update Version column
 
 ### Fixed
 - Bug where bookmarks weren't being updated properly causing the app to crash.

@@ -23,6 +23,9 @@
 		5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A78720C3508D002F81F9 /* ExtractionManager.swift */; };
 		517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CD22B20AFA4A200C33623 /* DownloadController.swift */; };
 		517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD71E2114B7FF00E56CB6 /* Parser.swift */; };
+		517FD72121153BB700E56CB6 /* BoxartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72021153BB700E56CB6 /* BoxartViewController.swift */; };
+		517FD72321153C5100E56CB6 /* Renascene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72221153C5100E56CB6 /* Renascene.swift */; };
+		517FD72521153D3100E56CB6 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72421153D3100E56CB6 /* ItemCategory.swift */; };
 		5181948E20DDB52C009282AB /* NSTableView+keydown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181948D20DDB52C009282AB /* NSTableView+keydown.swift */; };
 		5182C57F21140757003A5527 /* ConsoleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182C57E21140757003A5527 /* ConsoleType.swift */; };
 		51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 51843FD020CB9DF2009AE9A4 /* .gitignore */; };
@@ -63,6 +66,9 @@
 		5177A78720C3508D002F81F9 /* ExtractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionManager.swift; sourceTree = "<group>"; };
 		517CD22B20AFA4A200C33623 /* DownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
 		517FD71E2114B7FF00E56CB6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		517FD72021153BB700E56CB6 /* BoxartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxartViewController.swift; sourceTree = "<group>"; };
+		517FD72221153C5100E56CB6 /* Renascene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renascene.swift; sourceTree = "<group>"; };
+		517FD72421153D3100E56CB6 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		5181948D20DDB52C009282AB /* NSTableView+keydown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+keydown.swift"; sourceTree = "<group>"; };
 		5182C57E21140757003A5527 /* ConsoleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleType.swift; sourceTree = "<group>"; };
 		51843FD020CB9DF2009AE9A4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				5149B3C820A8F63C00D3D82C /* NetworkManager.swift */,
 				513BDDA12096689500D82889 /* SettingsManager.swift */,
 				517FD71E2114B7FF00E56CB6 /* Parser.swift */,
+				517FD72221153C5100E56CB6 /* Renascene.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -152,6 +159,7 @@
 				51B1A314209511A6009C799C /* SettingsViewController.swift */,
 				5139DF86209F6DE9004F65F9 /* WindowController.swift */,
 				51932D9620DEEA8400F44520 /* LoadingViewController.swift */,
+				517FD72021153BB700E56CB6 /* BoxartViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 				512F42A420A95955007D2412 /* NPSModels.swift */,
 				518BF15820B2260100A8044C /* Settings.swift */,
 				5182C57E21140757003A5527 /* ConsoleType.swift */,
+				517FD72421153D3100E56CB6 /* ItemCategory.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -377,6 +386,7 @@
 				51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */,
 				518BF15920B2260100A8044C /* Settings.swift in Sources */,
 				51B12A1420B0603500E83844 /* DLItem.swift in Sources */,
+				517FD72121153BB700E56CB6 /* BoxartViewController.swift in Sources */,
 				5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */,
 				51EBE8212094E094005D44DC /* DataViewController.swift in Sources */,
 				51932D9920DF06C700F44520 /* LoadingViewDelegate.swift in Sources */,
@@ -384,8 +394,10 @@
 				517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */,
 				5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */,
 				519F0D7720CCC07900332987 /* BookmarkManager.swift in Sources */,
+				517FD72521153D3100E56CB6 /* ItemCategory.swift in Sources */,
 				512F42A520A95955007D2412 /* NPSModels.swift in Sources */,
 				512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */,
+				517FD72321153C5100E56CB6 /* Renascene.swift in Sources */,
 				5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */,
 				517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */,
 				51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */,
@@ -536,7 +548,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -559,7 +574,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
