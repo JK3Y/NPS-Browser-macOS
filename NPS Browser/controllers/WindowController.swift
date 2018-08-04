@@ -80,6 +80,17 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         return type!
     }
     
+//    func getConsole() -> Console {
+//        let c = getType().prefix(3)
+//        return Console(prefix: String(c))
+//    }
+    
+//    func getType() -> FileType {
+//        let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
+//        let ft = FileType(ddlSelectedType: type!)
+//        return ft
+//    }
+    
     func getRegion() -> String {
         let region = tbRegion.selectedItem?.title
         return region!

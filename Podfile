@@ -15,5 +15,6 @@ target 'NPS Browser' do
   pod 'SwiftyBeaver'
   pod 'Files', :git => 'https://github.com/JohnSundell/Files.git'
   pod 'Zip', '~> 1.1'
+  pod 'SQLite.swift', '~> 0.11.5'
 
 end
