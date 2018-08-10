@@ -17,23 +17,23 @@ class BookmarksViewController: NSViewController {
     let bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
     
     override func viewDidLoad() {
-        updateView()
+//        updateView()
         super.viewDidLoad()
     }
     
-    @IBAction func doRemoveBookmark(_ sender: NSButton) {
-        let rowData = Helpers().getRowObjectFromTableRowButton(sender) as! NSManagedObject
-        
-        let bookmark = Helpers().makeBookmark(data: rowData)
-        bookmarkManager.removeBookmark(bookmark)
-        
-        Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: bookmark.uuid)
-
-        updateView()
-    }
-    
-    func updateView() {
-        let content = self.bookmarkManager.getBookmarkList()
-        bookmarksArrayController.content = content
-    }
+//    @IBAction func doRemoveBookmark(_ sender: NSButton) {
+//        let rowData = Helpers().getRowObjectFromTableRowButton(sender) as! NSManagedObject
+//        
+//        let bookmark = Helpers().makeBookmark(data: rowData)
+//        bookmarkManager.removeBookmark(bookmark)
+//        
+//        Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: bookmark.uuid)
+//
+//        updateView()
+//    }
+//    
+//    func updateView() {
+//        let content = self.bookmarkManager.getBookmarkList()
+//        bookmarksArrayController.content = content
+//    }
 }

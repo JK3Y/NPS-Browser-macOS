@@ -65,29 +65,29 @@ struct SourceSettings: Codable {
         self.compatPacks    = URL(string: compat_pack) ?? URL(string: "")
         self.compatPatch    = URL(string: compat_patch) ?? URL(string: "")
     }
-    func getByType(type: String) -> URL? {
-        switch type {
-        case "PSVGames":
-            return self.psv_games
-        case "PSVDLCs":
-            return self.psv_dlc
-        case "PSVThemes":
-            return self.psv_themes
-        case "PSPGames":
-            return self.psp_games
-        case "PSXGames":
-            return self.psx_games
-        case "PS3Games":
-            return self.ps3_games
-        case "PS3DLCs":
-            return self.ps3_dlc
-        case "PS3Themes":
-            return self.ps3_themes
-        case "PS3Avatars":
-            return self.ps3_avatars
-        default:
-            break
+    func getByType(itemType: ItemType) -> URL? {
+        switch (itemType.console) {
+        case .PSV:
+            switch (itemType.fileType) {
+            case .Game: return psv_games
+            case .DLC: return psv_dlc
+            case .Theme: return psv_themes
+            case .CPack: return compatPacks
+            case .CPatch: return compatPatch
+            default: break
+            }
+        case .PS3:
+            switch (itemType.fileType) {
+            case .Game: return ps3_games
+            case .DLC: return ps3_dlc
+            case .Theme: return ps3_themes
+            case .Avatar: return ps3_avatars
+            default: break
+            }
+        case .PSP: return psp_games
+        case .PSX: return psx_games
         }
+        
         return nil
     }
 }

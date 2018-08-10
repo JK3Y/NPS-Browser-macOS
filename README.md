@@ -42,17 +42,26 @@ Export an app bundle by going to Product > Archive > Export.
 ## Thanks
 * Ann0ying for app icon
 * Luro02 for the [pkg2zip][] fork
+* devnoname120 for [vitanpupdatelinks][]
 
 ### Dependencies
 * [AlamoFire][]
 * [Promises][]
 * [Queuer][]
+* [SWXMLHash][]
+* [Files][]
+* [Zip][]
+]
 
 [Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
 [Screenshots]: https://imgur.com/gallery/9VLxpOm
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip
+[vitanpupdatelinks]: https://github.com/devnoname120/vitanpupdatelinks
 [AlamoFire]:https://github.com/Alamofire/Alamofire
 [Promises]:https://github.com/google/promises
 [Queuer]:https://github.com/FabrizioBrancati/Queuer
+[SWXMLHash]: https://github.com/drmohundro/SWXMLHash
+[Files]: https://github.com/JohnSundell/Files
+[Zip]: https://github.com/marmelroy/Zip
 [CocoaPods]: https://cocoapods.org

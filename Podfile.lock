@@ -7,9 +7,11 @@ PODS:
   - PromisesSwift (1.2.3):
     - PromisesObjC (= 1.2.3)
   - Queuer (1.3.2)
-  - SQLite.swift (0.11.5):
-    - SQLite.swift/standard (= 0.11.5)
-  - SQLite.swift/standard (0.11.5)
+  - Realm (3.7.5):
+    - Realm/Headers (= 3.7.5)
+  - Realm/Headers (3.7.5)
+  - RealmSwift (3.7.5):
+    - Realm (= 3.7.5)
   - SwiftyBeaver (1.6.0)
   - SWXMLHash (4.7.0)
   - Zip (1.1.0)
@@ -20,7 +22,7 @@ DEPENDENCIES:
   - Files (from `https://github.com/JohnSundell/Files.git`)
   - PromisesSwift (~> 1.2)
   - Queuer
-  - SQLite.swift (~> 0.11.5)
+  - RealmSwift
   - SwiftyBeaver
   - SWXMLHash (~> 4.7)
   - Zip (~> 1.1)
@@ -32,7 +34,8 @@ SPEC REPOS:
     - PromisesObjC
     - PromisesSwift
     - Queuer
-    - SQLite.swift
+    - Realm
+    - RealmSwift
     - SwiftyBeaver
     - SWXMLHash
     - Zip
@@ -53,11 +56,12 @@ SPEC CHECKSUMS:
   PromisesObjC: a3a4263d8a9260214267e0b3788d0f83466ad449
   PromisesSwift: f7f45c21986419e85f7c5b645ed8c6a2c10c04b4
   Queuer: 1d4953c0ce3d674a2da01951e61dc0595e90e7cb
-  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
+  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
+  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
   SWXMLHash: f4522438189f72b41e39676d19469a8969d60dd1
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 925610068b5de911ab5609c0569ce4f10648385b
+PODFILE CHECKSUM: bd509125706690cbc64b8d1fdb6577c7834d7f08
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

@@ -9,6 +9,7 @@
 import Cocoa
 import Files
 import SwiftyBeaver
+import RealmSwift
 
 let log = SwiftyBeaver.self
 
@@ -23,6 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Insert code here to initialize your application
         setupSwiftyBeaverLogging()
         setupDownloadsDirectory()
+        
+//        initializeRealm()
+        
         populateMasterViewTable()
     }
     
@@ -54,13 +58,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func populateMasterViewTable() {
-        if (coreDataIO.recordsAreEmpty()) {
-            NetworkManager().makeHTTPRequest()
-        } else {
-            let content = coreDataIO.getRecords()
-            Helpers().getDataController().setArrayControllerContent(content: content)
-        }
+//        if (coreDataIO.recordsAreEmpty()) {
+//            NetworkManager().makeHTTPRequest()
+//        } else {
+//            let content = coreDataIO.getRecords()
+//            Helpers().getDataController().setArrayControllerContent(content: content)
+//        }
     }
+    
+//    private func initializeRealm() {
+//        let realm = try! Realm()
+//        guard realm.isEmpty else { return }
+//
+//        try! realm.write {
+//            realm.add(NPSItem("Test Item 1"))
+//            realm.add(NPSItem("Test Item 2"))
+//        }
+//    }
     
     
     // MARK: - Notifications

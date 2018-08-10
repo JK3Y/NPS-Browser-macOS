@@ -30,18 +30,18 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
 
         delegate?.setArrayControllerContent(content: nil)
 
-        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
-            NetworkManager().makeHTTPRequest()
-        } else {
-            let content = Helpers().getCoreDataIO().getRecords()
-            delegate?.setArrayControllerContent(content: content)
-        }
+//        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
+//            NetworkManager().makeHTTPRequest()
+//        } else {
+//            let content = Helpers().getCoreDataIO().getRecords()
+//            delegate?.setArrayControllerContent(content: content)
+//        }
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
-        self.delegate = getDataController()
-        let content = CoreDataIO().getRecords()
-        delegate?.setArrayControllerContent(content: content)
+//        self.delegate = getDataController()
+//        let content = CoreDataIO().getRecords()
+//        delegate?.setArrayControllerContent(content: content)
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {
@@ -50,16 +50,16 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
     @IBAction func onFilterSearchBar(_ sender: NSSearchField) {
-        self.delegate = getDataController()
-        let searchString = tbSearchBar.stringValue
-        
-        if (searchString.isEmpty) {
-            let content = CoreDataIO().getRecords()
-            delegate?.setArrayControllerContent(content: content)
-        } else {
-            let content = CoreDataIO().searchRecords(searchString: searchString)
-            delegate?.setArrayControllerContent(content: content)
-        }
+//        self.delegate = getDataController()
+//        let searchString = tbSearchBar.stringValue
+//
+//        if (searchString.isEmpty) {
+//            let content = CoreDataIO().getRecords()
+//            delegate?.setArrayControllerContent(content: content)
+//        } else {
+//            let content = CoreDataIO().searchRecords(searchString: searchString)
+//            delegate?.setArrayControllerContent(content: content)
+//        }
     }
     
     func getDataController() -> DataViewController {
@@ -78,6 +78,10 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     func getType() -> String {
         let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
         return type!
+    }
+    
+    func getItemType() -> ItemType {
+        return ItemType.parseString((tbType.selectedItem?.title)!)
     }
     
 //    func getConsole() -> Console {

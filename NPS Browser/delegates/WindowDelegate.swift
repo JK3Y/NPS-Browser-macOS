@@ -10,7 +10,7 @@ protocol WindowDelegate {
     func getType() -> String
     func getRegion() -> String
     
-//    func getConsole() -> Console
+    func getItemType() -> ItemType
     
     func startBtnReloadAnimation()
     func stopBtnReloadAnimation()

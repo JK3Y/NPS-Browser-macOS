@@ -6,8 +6,9 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
-import Cocoa
+import RealmSwift
 
 protocol ToolbarDelegate {
-    func setArrayControllerContent(content: [NSManagedObject]?)
+//    func setArrayControllerContent(content: [NSManagedObject]?)
+    func setArrayControllerContent(content: Results<Object>?)
 }
