@@ -29,8 +29,6 @@ class DetailsViewController: NSViewController {
             enableBookmarkButton()
             toggleBookmark()
             enableDownloadOptions()
-            
-            
         }
     }
 

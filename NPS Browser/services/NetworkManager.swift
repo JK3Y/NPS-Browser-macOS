@@ -63,60 +63,43 @@ class NetworkManager {
                 
                 var storage = try! RealmStorageContext()
                 let ft = self.windowDelegate.getItemType().fileType.rawValue
-                
-                switch(self.windowDelegate.getItemType().console) {
-                case .PSV:
-                    try storage.deleteAll(PSV.self, predicate: NSPredicate(format: "fileType == %@", ft))
-                case .PS3:
-                    try storage.deleteAll(PS3.self, predicate: NSPredicate(format: "fileType == %@", ft))
-                default: break
+                let ct = self.windowDelegate.getItemType().console.rawValue
+
+                do {
+                    try storage.deleteAll(Item.self, predicate: NSPredicate(format: "fileType == %@ AND consoleType == %@", ft, ct))
                 }
                 
 
                 self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/6)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                switch(self.windowDelegate.getItemType().console) {
-                case .PSV:
+                
+                do {
                     let objs = result.map { item in
-                        return PSV(tsvData: item)
+                        return Item(tsvData: item)
                     }
                     try storage.safeWrite {
                         storage.realm?.add(objs)
                     }
-                case .PS3:
-                    let objs = result.map { item in
-                        return PS3(tsvData: item)
-                    }
-                    try storage.safeWrite {
-                        storage.realm?.add(objs)
-                    }
-                default: break
                 }
-                
-                
             }
             .then { _ in
                 self.windowDelegate.getLoadingViewController().setLabel(text: "Retrieving values... (step 6/6)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
 
                 let ft = self.windowDelegate.getItemType().fileType.rawValue
+                let ct = self.windowDelegate.getItemType().console.rawValue
                 let context = try! RealmStorageContext()
                 
-                switch(self.windowDelegate.getItemType().console) {
-                case .PSV:
-                    var test = context.realm?.objects(PSV.self as Object.Type).filter("fileType == %@", ft)
-//                    context.fetch(PSV.self, predicate: NSPredicate(format: "fileType == %@", ft), sorted: Sorted(key: "titleId", ascending: true)) { (objects) in
-//                        test = objects
-//                    }
-                    
-                    Helpers().getDataController().setArrayControllerContent(content: test)
-//                case .PS3:
-//                    for item in result {
-//                        let obj = PS3(tsvData: item)
-//                        try storage.save(object: obj)
-//                    }
-                default: break
+                var test = context.realm?.objects(Item.self as Object.Type).filter("fileType == %@ AND consoleType == %@", ft, ct)
+                
+                var items = [Item]()
+                
+                for item in test! {
+                    let tmp = Item.asObject(fromObject: item as! Item)
+                    items.append(tmp)
                 }
+                
+                Helpers().getDataController().setArrayControllerContent(content: items)
             }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()

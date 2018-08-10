@@ -64,6 +64,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 //            let content = coreDataIO.getRecords()
 //            Helpers().getDataController().setArrayControllerContent(content: content)
 //        }
+        
+//        let items = 
     }
     
 //    private func initializeRealm() {

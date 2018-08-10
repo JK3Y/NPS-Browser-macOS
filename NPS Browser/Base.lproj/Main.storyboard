@@ -1673,7 +1673,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <action selector="tableSelectionChanged:" target="jMM-GG-iAN" id="Evx-Kl-mGn"/>
-                                                <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="8bu-m7-3Zt"/>
+                                                <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="Hgl-Tn-Min"/>
                                             </connections>
                                         </tableView>
                                     </subviews>

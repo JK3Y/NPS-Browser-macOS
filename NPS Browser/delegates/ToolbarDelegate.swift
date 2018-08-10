@@ -10,5 +10,5 @@ import RealmSwift
 
 protocol ToolbarDelegate {
 //    func setArrayControllerContent(content: [NSManagedObject]?)
-    func setArrayControllerContent(content: Results<Object>?)
+    func setArrayControllerContent(content: [Item]?)
 }
