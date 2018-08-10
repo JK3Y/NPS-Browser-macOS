@@ -231,7 +231,19 @@ extension RealmStorageContext {
 
 
 
-
+//@objcMembers
+//class CompatPack: Object {
+//    enum Property: String {
+//        case titleId, downloadUrl
+//    }
+//    
+//    dynamic var titleId: String?
+//    dynamic var downloadUrl: String?
+//    
+//    override static func primaryKey() -> String? {
+//        return CompatPack.Property.titleId.rawValue
+//    }
+//}
 
 @objcMembers
 class Item: Object {

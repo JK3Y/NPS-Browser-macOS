@@ -80,14 +80,14 @@ class DetailsViewController: NSViewController {
     }
 
     func enableBookmarkButton() {
-//        let link = (getROManagedObject().value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
-//        if (link == "MISSING") {
-//            btnDownload.isEnabled = false
-//            chkBookmark.isEnabled = false
-//        } else {
-//            btnDownload.isEnabled = true
-//            chkBookmark.isEnabled = true
-//        }
+        let link = getROManagedObject().pkgDirectLink
+        if (link == "MISSING") {
+            btnDownload.isEnabled = false
+            chkBookmark.isEnabled = false
+        } else {
+            btnDownload.isEnabled = true
+            chkBookmark.isEnabled = true
+        }
     }
     
     func enableDownloadOptions() {
@@ -149,11 +149,9 @@ class DetailsViewController: NSViewController {
 //        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
     
-//    func getROManagedObject() -> NPSItem {
-//
-//        debugPrint(representedObject)
-//        return representedObject as! NPSItem
-//    }
+    func getROManagedObject() -> Item {
+        return representedObject as! Item
+    }
     
 //    func getBoxartViewController() -> DetailsViewController {
 //        let sc: NSSplitViewController = parent?.childViewControllers[1] as! NSSplitViewController

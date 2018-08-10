@@ -46,7 +46,7 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
 
     @IBAction func btnReloadClicked(_ sender: Any) {
         startBtnReloadAnimation()
-        NetworkManager().makeHTTPRequest()
+        NetworkManager().makeRequest()
     }
     
     @IBAction func onFilterSearchBar(_ sender: NSSearchField) {
@@ -110,9 +110,4 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         self.progressSpinner.stopAnimation(nil)
         self.tbReload.isHidden = false
     }
-    
-    
-//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T {
-//        return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: identifier)) as! T
-//    }
 }
