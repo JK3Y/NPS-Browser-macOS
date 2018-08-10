@@ -77,9 +77,10 @@ class NetworkManager {
                     let objs = result.map { item in
                         return Item(tsvData: item)
                     }
-                    try storage.safeWrite {
-                        storage.realm?.add(objs)
-                    }
+                    DBManager().storeBulk(objArray: objs)
+//                    try storage.safeWrite {
+//                        storage.realm?.add(objs)
+//                    }
                 }
             }
             .then { _ in
@@ -149,11 +150,12 @@ class NetworkManager {
             .then { result in
                 self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                do {
-                    try storage.safeWrite {
-                        storage.realm?.add(result)
-                    }
-                }
+                DBManager().storeBulk(objArray: result)
+//                do {
+//                    try storage.safeWrite {
+//                        storage.realm?.add(result)
+//                    }
+//                }
             }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()

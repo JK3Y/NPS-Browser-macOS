@@ -28,9 +28,9 @@ class DataViewController: NSViewController, ToolbarDelegate {
         notificationToken = realm.objects(Item.self).observe { change in
             switch change {
             case .initial(let objects):
-                self.setArrayControllerContent(content: Array(objects))
+                self.setArrayControllerContent(content: Array(objects.filter("pkgDirectLink != 'MISSING'")))
             case .update(let objects, _, _, _):
-                self.setArrayControllerContent(content: Array(objects))
+                self.setArrayControllerContent(content: Array(objects.filter("pkgDirectLink != 'MISSING'")))
             case .error(let error):
                 log.error(error)
             }

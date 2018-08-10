@@ -70,13 +70,13 @@ class DetailsViewController: NSViewController {
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-//        let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as! NSManagedObject)
-
-//        if (sender.state == .on) {
-//            Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: getROManagedObject())
-//        } else {
-//            Helpers().getSharedAppDelegate().bookmarkManager.removeBookmark(bookmark)
-//        }
+        let bookmark = Bookmark(item: getROManagedObject())
+        
+        if (sender.state == .on) {
+            DBManager().store(object: bookmark)
+        } else {
+            DBManager().delete(object: bookmark)
+        }
     }
 
     func enableBookmarkButton() {
@@ -91,49 +91,55 @@ class DetailsViewController: NSViewController {
     }
     
     func enableDownloadOptions() {
-//        let type = (getROManagedObject().value(forKey: "type") as! String)
-//
-//        if (type == "PSVGames") {
-//            let title_id = getROManagedObject().value(forKey: "title_id") as! String
-//            chkDLCompatPack.title = "Compat Pack"
-//            chkDLGame.isEnabled = true
-//            chkDLUpdate.isEnabled = true
-//            chkDLUpdate.isHidden = false
-//
-//            if (Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) != nil) {
-//                chkDLCompatPack.isEnabled = true
-//                chkDLCompatPack.isHidden = false
-//            } else {
-//                chkDLCompatPack.isEnabled = false
-//            }
-//        }
-//
-//        else if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
-//            let rap = (getROManagedObject().value(forKey: "rap") as! String)
-//            chkDLCompatPack.isHidden = false
-//            if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
-//                chkDLCompatPack.title = rap
-//                chkDLCompatPack.isEnabled = false
-//            } else {
-//                chkDLCompatPack.title = "RAP"
-//                chkDLCompatPack.isEnabled = true
-//            }
-//        }
-//
-//        else {
-//            chkDLUpdate.isHidden = true
-//            chkDLCompatPack.isHidden = true
-//        }
+        let ctype: ConsoleType = ConsoleType(rawValue: getROManagedObject().consoleType!)!
+        let ftype: FileType = FileType(rawValue: getROManagedObject().fileType!)!
+        
+        switch(ctype) {
+        case .PSV:
+            switch(ftype) {
+            case .Game:
+                let titleId = getROManagedObject().titleId
+                chkDLCompatPack.title = "Compat Pack"
+                chkDLGame.isEnabled = true
+                chkDLUpdate.isEnabled = true
+                chkDLUpdate.isHidden = false
+                
+                try! RealmStorageContext().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@", titleId!)) { result in
+                    if (result.isEmpty) {
+                        chkDLCompatPack.isEnabled = false
+                    } else {
+                        chkDLCompatPack.isEnabled = true
+                        chkDLCompatPack.isHidden = false
+                    }
+                }
+                
+            default: break
+            }
+        case .PS3:
+            let rap = getROManagedObject().rap!
+            chkDLCompatPack.isHidden = false
+            if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
+                chkDLCompatPack.title = rap
+                chkDLCompatPack.isEnabled = false
+            } else {
+                chkDLCompatPack.title = "RAP"
+                chkDLCompatPack.isEnabled = true
+            }
+        default:
+            chkDLUpdate.isHidden = true
+            chkDLCompatPack.isHidden = true
+        }
     }
     
     func toggleBookmark() {
-//        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: getROManagedObject().value(forKey: "uuid") as! UUID)
-//        
-//        if ( bookmark != nil) {
-//            chkBookmark.state = .on
-//        } else {
-//            chkBookmark.state = .off
-//        }
+        let predicate = NSPredicate(format: "uuid == %@", getROManagedObject().uuid)
+        let bookmark = DBManager().fetch(Bookmark.self, predicate: predicate)
+
+        if bookmark.isEmpty {
+            chkBookmark.state = .off
+        } else {
+            chkBookmark.state = .on
+        }
     }
     
     func toggleBookmark(compareUUID: UUID) {

@@ -63,32 +63,32 @@ class Helpers {
         return cell.objectValue
     }
 
-    func makeBookmark(data: NSManagedObject) -> Bookmark {
-        if (data.entity.name == "Bookmarks") {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: data.value(forKey: "zrif") as? String ?? nil,
-                            download_link: data.value(forKey: "download_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        } else if (data.entity.name == "PSVGames" ||
-            data.entity.name == "PSVDLCs" ||
-            data.entity.name == "PSVThemes") {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: data.value(forKey: "zrif") as? String,
-                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        } else {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: nil,
-                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        }
-    }
+//    func makeBookmark(data: NSManagedObject) -> Bookmark {
+//        if (data.entity.name == "Bookmarks") {
+//            return Bookmark(name: data.value(forKey: "name") as! String,
+//                            title_id: data.value(forKey: "title_id") as! String,
+//                            type: data.value(forKey: "type") as! String,
+//                            zrif: data.value(forKey: "zrif") as? String ?? nil,
+//                            download_link: data.value(forKey: "download_link") as? URL,
+//                            uuid: data.value(forKey: "uuid") as! UUID)
+//        } else if (data.entity.name == "PSVGames" ||
+//            data.entity.name == "PSVDLCs" ||
+//            data.entity.name == "PSVThemes") {
+//            return Bookmark(name: data.value(forKey: "name") as! String,
+//                            title_id: data.value(forKey: "title_id") as! String,
+//                            type: data.value(forKey: "type") as! String,
+//                            zrif: data.value(forKey: "zrif") as? String,
+//                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
+//                            uuid: data.value(forKey: "uuid") as! UUID)
+//        } else {
+//            return Bookmark(name: data.value(forKey: "name") as! String,
+//                            title_id: data.value(forKey: "title_id") as! String,
+//                            type: data.value(forKey: "type") as! String,
+//                            zrif: nil,
+//                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
+//                            uuid: data.value(forKey: "uuid") as! UUID)
+//        }
+//    }
     
     func makeDLItem(data: NSManagedObject, download_link: URL, download_type: DownloadType) -> DLItem {
         let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
