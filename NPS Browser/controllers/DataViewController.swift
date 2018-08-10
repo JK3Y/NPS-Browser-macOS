@@ -15,21 +15,26 @@ class DataViewController: NSViewController, ToolbarDelegate {
     @IBOutlet weak var tableView: NSTableView!
     lazy var windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
 
+    private var notificationToken: NotificationToken?
+    
+    private var realm: Realm = {
+        return try! Realm()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        
-//        notificationToken = realm.objects(Item.self).observe { change in
-//            switch change {
-//            case .initial(let objects):
-//                self.tsvResultsController.content = Array(objects)
-//            case .update(let objects, _, _, _):
-//                self.tsvResultsController.content = Array(objects)
-//            case .error(let error):
-//                log.error(error)
-//            }
-//        }
+        notificationToken = realm.objects(Item.self).observe { change in
+            switch change {
+            case .initial(let objects):
+                self.setArrayControllerContent(content: Array(objects))
+            case .update(let objects, _, _, _):
+                self.setArrayControllerContent(content: Array(objects))
+            case .error(let error):
+                log.error(error)
+            }
+        }
     }
     
     override var representedObject: Any? {

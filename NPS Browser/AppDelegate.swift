@@ -24,10 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Insert code here to initialize your application
         setupSwiftyBeaverLogging()
         setupDownloadsDirectory()
-        
-//        initializeRealm()
-        
-        populateMasterViewTable()
+
+//        populateMasterViewTable()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -57,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         log.info("Downloads folder created at \(dlFolder.appendingPathComponent(dlDirName, isDirectory: true).path)")
     }
     
-    func populateMasterViewTable() {
+//    func populateMasterViewTable() {
 //        if (coreDataIO.recordsAreEmpty()) {
 //            NetworkManager().makeHTTPRequest()
 //        } else {
@@ -66,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 //        }
         
 //        let items = 
-    }
+//    }
     
 //    private func initializeRealm() {
 //        let realm = try! Realm()

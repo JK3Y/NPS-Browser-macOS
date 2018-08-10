@@ -1674,6 +1674,7 @@
                                             <connections>
                                                 <action selector="tableSelectionChanged:" target="jMM-GG-iAN" id="Evx-Kl-mGn"/>
                                                 <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="Hgl-Tn-Min"/>
+                                                <binding destination="t5W-WI-XMN" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Hgl-Tn-Min" id="nN3-8O-Max"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
