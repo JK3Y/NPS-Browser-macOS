@@ -39,8 +39,7 @@ class Parser {
             } else {
                 title_id = path.components(separatedBy: "/")[0]
             }
-
-//            let url: URL? = URL(string: "\(baseURL)\(path)")
+            
             let pack = CompatPack()
             pack.titleId = title_id
             pack.downloadUrl = "\(baseURL)\(path)"
@@ -65,13 +64,9 @@ class Parser {
         var x: String?
 
         do {
-            x = try lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.text
-
-            if (x == nil) {
-                x = try lastpkg.element?.attribute(by: "url")?.text
-            }
+            x = try lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.name
         } catch {
-            log.error(error)
+            x = try lastpkg.element?.attribute(by: "url")?.text
         }
 
         return URL(string: x!)

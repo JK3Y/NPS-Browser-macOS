@@ -28,40 +28,51 @@ class DetailsViewController: NSViewController {
     }
 
     @IBAction func btnDownloadClicked(_ sender: Any) {
-//        let obj = getROManagedObject()
-//        let type = obj.value(forKey: "type") as! String
-//
-//        var baseDLItem: DLItem? = nil
-//
-//        if (chkDLGame.state == .on) {
-//            self.sendDLData(url: obj.value(forKey: "pkg_direct_link") as! URL, download_type: .Game)
-//        }
-//        if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
-//            let url = NetworkManager().getUpdateXMLURLFromHMAC(title_id: getROManagedObject().value(forKey: "title_id") as! String)
-//            let pxml = NetworkManager().fetchUpdateXML(url: url)
-//            pxml().then { res in
-//                self.sendDLData(url: res, download_type: .Patch)
-//            }
-//        }
-//        if (chkDLCompatPack.state == .on && chkDLCompatPack.isEnabled && chkDLCompatPack.isHidden == false) {
-//            if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
-//                sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL, download_type: .RAP)
-//            } else if (type == "PSVGames") {
-//                let title_id = getROManagedObject().value(forKey: "title_id") as! String
-//
-//                if let cpacko: CompatPacksMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) as? CompatPacksMO {
-//                    baseDLItem = Helpers().makeDLItem(data: obj, download_link: cpacko.download_url!, download_type: .CPack)
-//                }
-//
-//                if let cpatcho:CompatPatchMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id, searchPatches: true) as? CompatPatchMO {
-//                    let item = Helpers().makeDLItem(data: obj, download_link: cpatcho.download_url!, download_type: .CPatch)
-//                    baseDLItem?.doNext = item
-//                    item.parentItem = baseDLItem
-//                }
-//
-//                Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: baseDLItem!)
-//            }
-//        }
+        let obj = getROManagedObject()
+
+        var baseDLItem: DLItem? = nil
+
+        if (chkDLGame.state == .on) {
+            let url = try? obj.pkgDirectLink!.asURL()
+            self.sendDLData(url: url!, download_type: .Game)
+        }
+        if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
+            let url = NetworkManager().getUpdateXMLURLFromHMAC(titleId: getROManagedObject().titleId!)
+            let pxml = NetworkManager().fetchUpdateXML(url: url)
+            pxml().then { res in
+                self.sendDLData(url: res, download_type: .Patch)
+            }
+        }
+        if (chkDLCompatPack.state == .on && chkDLCompatPack.isEnabled && chkDLCompatPack.isHidden == false) {
+            let ct: ConsoleType = ConsoleType(rawValue: obj.consoleType!)!
+            let ft: FileType = FileType(rawValue: obj.fileType!)!
+            switch(ct) {
+            case .PS3:
+                let url = URL(string: obj.downloadRapFile!)
+                sendDLData(url: url!, download_type: .RAP)
+            case .PSV:
+                switch(ft) {
+                case .Game:
+                    let titleId = obj.titleId
+                    
+                    if let cpacko: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPack'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpacko!.downloadUrl!))
+                        baseDLItem = Helpers().makeDLItem(data: obj, download_link: url!, download_type: .CPack)
+                    }
+                    
+                    if let cpatcho: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPatch'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpatcho!.downloadUrl!))
+                        let item = Helpers().makeDLItem(data: obj, download_link: url!, download_type: .CPatch)
+                        baseDLItem?.doNext = item
+                        item.parentItem = baseDLItem
+                    }
+                    
+                    Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: baseDLItem!)
+                default: break
+                }
+            default: break
+            }
+        }
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
@@ -144,9 +155,9 @@ class DetailsViewController: NSViewController {
     }
 
     func sendDLData(url: URL, download_type: DownloadType) {
-//        let obj = getROManagedObject()
-//        let dlItem = Helpers().makeDLItem(data: obj, download_link: url, download_type: download_type)
-//        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
+        let obj = getROManagedObject()
+        let dlItem = Helpers().makeDLItem(data: obj, download_link: url, download_type: download_type)
+        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
     
     func getROManagedObject() -> Item {

@@ -78,9 +78,6 @@ class NetworkManager {
                         return Item(tsvData: item)
                     }
                     DBManager().storeBulk(objArray: objs)
-//                    try storage.safeWrite {
-//                        storage.realm?.add(objs)
-//                    }
                 }
             }
             .then { _ in
@@ -92,19 +89,24 @@ class NetworkManager {
                     self.makeCompatPackRequests()
                 }
         }
+            .then { _ in
+                self.windowDelegate.getDataController().filterType(itemType: self.windowDelegate.getItemType(), region: self.windowDelegate.getRegion())
+        }
     }
     
     func makeCompatPackRequests() {
-        guard let cpackurl: URL? = SettingsManager().getUrls().compatPacks ?? URL(string: "") else {
+        guard let cpackurl: URL = SettingsManager().getUrls().compatPacks ?? URL(string: "") else {
             log.debug("no compatpack url")
+            return
         }
-        guard let cpatchurl: URL? = SettingsManager().getUrls().compatPatch ?? URL(string: "") else {
+        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch ?? URL(string: "") else {
             log.debug("no compatpatch url")
+            return
         }
 
-        makeCompatPackRequestPromise(url: cpackurl!, isPatch: false)
+        makeCompatPackRequestPromise(url: cpackurl, isPatch: false)
             .then { _ in
-                self.makeCompatPackRequestPromise(url: cpatchurl!, isPatch: true)
+                self.makeCompatPackRequestPromise(url: cpatchurl, isPatch: true)
         }
     }
 
@@ -158,11 +160,11 @@ class NetworkManager {
         }
     }
 
-    func getUpdateXMLURLFromHMAC(title_id: String) -> String {
+    func getUpdateXMLURLFromHMAC(titleId: String) -> String {
         var output: [String] = []
         var error: [String] = []
 
-        let vitaupdatelinksPath = Bundle.main.resourcePath! + "/vitaupdatelinks"
+        let vitaupdatelinksPath = Bundle.main.path(forResource: "vitaupdatelinks", ofType: nil)
         let task = Process()
         let outpipe = Pipe()
         task.standardOutput = outpipe
@@ -170,7 +172,7 @@ class NetworkManager {
         task.standardError = errpipe
 
         task.launchPath = vitaupdatelinksPath
-        task.arguments = [title_id]
+        task.arguments = [titleId]
 
         task.launch()
 

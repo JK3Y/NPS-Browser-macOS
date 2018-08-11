@@ -60,26 +60,20 @@ class Helpers {
     }
 
     
-//    func makeDLItem(data: NSManagedObject, download_link: URL, download_type: DownloadType) -> DLItem {
-//        let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
-//        let obj = DLItem()
-//
-//        obj.type = type
-//        obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
-//        obj.name            = "\(download_type.rawValue) - \(data.value(forKey: "name") as! String)" ?? ""
-//        obj.download_link   = download_link
-//        obj.download_type = download_type.rawValue
-//
-//        switch(type) {
-//        case "PSVGames":
-//            obj.zrif = (data as! PSVGameMO).zrif ?? ""
-//            break
-//        case "PSVDLCs":
-//            obj.zrif = (data as! PSVDLCMO).zrif ?? ""
-//            break
-//        default:
-//            break
-//        }
-//        return obj
-//    }
+    func makeDLItem(data: Item, download_link: URL, download_type: DownloadType) -> DLItem {
+        let obj = DLItem()
+
+        let ctype: ConsoleType = ConsoleType.init(rawValue: data.consoleType!)!
+        let ftype: FileType = FileType.init(rawValue: data.fileType!)!
+
+        obj.title_id        = data.titleId
+        obj.name            = "\(download_type.rawValue) - \(data.name!)"
+        obj.download_link   = download_link
+        obj.download_type = download_type.rawValue
+        obj.zrif = data.zrif
+        obj.consoleType = data.consoleType
+        obj.fileType = data.fileType
+
+        return obj
+    }
 }

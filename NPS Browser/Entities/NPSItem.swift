@@ -261,7 +261,7 @@ class Item: Object {
     dynamic var pkgDirectLink           : String?
     dynamic var rap                         : String?
     dynamic var downloadRapFile             : String?
-    dynamic var zrif                       : String = ""
+    dynamic var zrif                       : String?
     let requiredFw = RealmOptional<Float>()
     dynamic var lastModificationDate    : Date?
     let fileSize = RealmOptional<Int64>()
@@ -285,7 +285,7 @@ class Item: Object {
         self.consoleType = tsvData.consoleType.rawValue
         self.fileType = tsvData.fileType.rawValue
         
-        self.zrif = tsvData.zrif!
+        self.zrif = tsvData.zrif
         self.requiredFw.value = tsvData.requiredFw
         self.rap = tsvData.rap
         self.downloadRapFile = tsvData.downloadRapFile

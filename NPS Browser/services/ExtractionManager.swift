@@ -21,7 +21,7 @@ class ExtractionManager {
         self.item = item
         Zip.addCustomFileExtension("ppk")
 
-        if (item.type == "PS3Games" || item.type == "PS3DLCs" || item.type == "PS3Themes" || item.type == "PS3Avatars") {
+        if (item.consoleType == "PS3") {
             self.isPS3 = true
         }
     
@@ -42,7 +42,7 @@ class ExtractionManager {
     }
     
     func makeRepatchFolder(filepath: URL) -> URL {
-        let fp = filepath.appendingPathComponent(item.getConsole())
+        let fp = filepath.appendingPathComponent(item.consoleType!)
         try! Folder(path: fp.path).createSubfolderIfNeeded(withName: "rePatch")
         
         return fp.appendingPathComponent("rePatch")
@@ -88,11 +88,11 @@ class ExtractionManager {
         
         setStatus("Extracting...")
         
-        let pkg2zipPath = Bundle.main.resourcePath! + "/pkg2zip"
+        let pkg2zipPath = Bundle.main.path(forResource: "pkg2zip", ofType: nil)
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryPath = (userSettings?.download.library_folder.appendingPathComponent(item.getConsole()).absoluteString)!
+        task.currentDirectoryPath = (userSettings?.download.library_folder.appendingPathComponent(item.consoleType!).path)!
         
         task.launchPath = pkg2zipPath
         
@@ -163,7 +163,7 @@ class ExtractionManager {
             arguments.append("-x")
         }
         
-        if (item.type! == "PSPGames" && (extractSettings?.compress_psp_iso)!) { // == true
+        if (item.consoleType! == "PSP" && item.fileType! == "Game" && (extractSettings?.compress_psp_iso)!) { // == true
             arguments.append("-c\(extractSettings?.compression_factor ?? 1)")
         }
         

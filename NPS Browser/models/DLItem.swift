@@ -24,7 +24,6 @@ enum DownloadType: String {
 class DLItem: NSObject, Codable {
     @objc dynamic var title_id          : String?
     @objc dynamic var name              : String?
-    @objc dynamic var type              : String?
     @objc dynamic var download_link     : URL?
     @objc dynamic var progress          : Double = 0.0
     @objc dynamic var zrif              : String?
@@ -43,11 +42,12 @@ class DLItem: NSObject, Codable {
     @objc dynamic var cpatchPath        : URL?
     @objc dynamic var doNext            : DLItem? = nil
     @objc dynamic var parentItem        : DLItem? = nil
+    @objc dynamic var consoleType       : String?
+    @objc dynamic var fileType          : String?
     
     enum CodingKeys: String, CodingKey {
         case title_id
         case name
-        case type
         case download_link
         case progress
         case zrif
@@ -64,6 +64,8 @@ class DLItem: NSObject, Codable {
         case cpatchPath
         case doNext
         case parentItem
+        case consoleType
+        case fileType
     }
     
     override init() {
@@ -101,8 +103,5 @@ class DLItem: NSObject, Codable {
         self.isCancelable   = false
         self.isViewable     = false
     }
-    
-    func getConsole() -> String {
-        return String((type?.prefix(3))!)
-    }
+
 }

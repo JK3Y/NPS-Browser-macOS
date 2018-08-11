@@ -7,7 +7,6 @@
 //
 
 protocol WindowDelegate {
-//    func getType() -> String
     func getRegion() -> String
     
     func getItemType() -> ItemType
