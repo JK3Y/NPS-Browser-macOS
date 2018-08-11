@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbReload: NSButton!
@@ -36,12 +37,14 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
 //            let content = Helpers().getCoreDataIO().getRecords()
 //            delegate?.setArrayControllerContent(content: content)
 //        }
+        
+        
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
-//        self.delegate = getDataController()
-//        let content = CoreDataIO().getRecords()
-//        delegate?.setArrayControllerContent(content: content)
+        self.delegate = getDataController()
+        
+        delegate?.filterByRegion(region: getRegion())
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {

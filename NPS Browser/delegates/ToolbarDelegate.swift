@@ -6,9 +6,10 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
-import RealmSwift
-
 protocol ToolbarDelegate {
-//    func setArrayControllerContent(content: [NSManagedObject]?)
     func setArrayControllerContent(content: [Item]?)
+    
+    func filterByRegion(region: String)
+    
+    func filterType(itemType: ItemType)
 }

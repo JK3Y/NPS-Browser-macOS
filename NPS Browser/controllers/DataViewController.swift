@@ -15,31 +15,28 @@ class DataViewController: NSViewController, ToolbarDelegate {
     @IBOutlet weak var tableView: NSTableView!
     lazy var windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
 
-    private var notificationToken: NotificationToken?
+    var notificationToken: NotificationToken?
     
     private var realm: Realm = {
         return try! Realm()
     }()
     
-    override func viewDidLoad() {
+    var items: Results<Item>?
+    
+    override func viewWillAppear() {
+        
+        // TODO: Check if realm is empty, if it is run network manager
+        
         super.viewDidLoad()
         // Do view setup here.
+        let it = self.windowDelegate.getItemType()
+        let ct = it.console.rawValue
+        let ft = it.fileType.rawValue
+        let reg = self.windowDelegate.getRegion()
+
+        items = try! Realm().objects(Item.self)
         
-        notificationToken = realm.objects(Item.self).observe { change in
-            let it = self.windowDelegate.getItemType()
-            let ct = it.console.rawValue
-            let ft = it.fileType.rawValue
-            let reg = self.windowDelegate.getRegion()
-            
-            switch change {
-            case .initial(let objects):
-                self.setArrayControllerContent(content: Array(objects.filter("consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
-            case .update(let objects, _, _, _):
-                self.setArrayControllerContent(content: Array(objects.filter("consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
-            case .error(let error):
-                log.error(error)
-            }
-        }
+        setArrayControllerContent(content: Array(items!.filter(NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg))))
     }
     
     override var representedObject: Any? {
@@ -54,6 +51,14 @@ class DataViewController: NSViewController, ToolbarDelegate {
             self.representedObject = tsvResultsController.selectedObjects.first
         }
     }
+    
+    
+    func filterByRegion(region: String) {
+        let p = NSPredicate(format: "region == %@", region)
+        setArrayControllerContent(content: Array( items!.filter(p) ))
+    }
+    
+    func filterType(itemType: ItemType) {}
     
     func setArrayControllerContent(content: [Item]?) {
         tsvResultsController.content = nil
