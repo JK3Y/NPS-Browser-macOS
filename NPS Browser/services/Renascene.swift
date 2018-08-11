@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Renascene {
+    func getURL(title_id: String) {
+        
+    }
+}

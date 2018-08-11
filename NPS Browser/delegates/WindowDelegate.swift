@@ -7,13 +7,13 @@
 //
 
 protocol WindowDelegate {
-    func getType() -> String
     func getRegion() -> String
+    
+    func getItemType() -> ItemType
     
     func startBtnReloadAnimation()
     func stopBtnReloadAnimation()
     
     func getDataController() -> DataViewController
     func getLoadingViewController() -> LoadingViewController
-//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T
 }

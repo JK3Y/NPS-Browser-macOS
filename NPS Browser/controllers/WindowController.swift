@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBOutlet weak var tbReload: NSButton!
@@ -28,38 +29,31 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBAction func onTypeChanged(_ sender: Any) {
         self.delegate = getDataController()
 
-        delegate?.setArrayControllerContent(content: nil)
-
-        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
-            NetworkManager().makeHTTPRequest()
-        } else {
-            let content = Helpers().getCoreDataIO().getRecords()
-            delegate?.setArrayControllerContent(content: content)
-        }
+        delegate?.filterType(itemType: getItemType(), region: getRegion())
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
         self.delegate = getDataController()
-        let content = CoreDataIO().getRecords()
-        delegate?.setArrayControllerContent(content: content)
+        
+        delegate?.filterByRegion(region: getRegion())
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {
         startBtnReloadAnimation()
-        NetworkManager().makeHTTPRequest()
+        NetworkManager().makeRequest()
     }
     
     @IBAction func onFilterSearchBar(_ sender: NSSearchField) {
-        self.delegate = getDataController()
-        let searchString = tbSearchBar.stringValue
-        
-        if (searchString.isEmpty) {
-            let content = CoreDataIO().getRecords()
-            delegate?.setArrayControllerContent(content: content)
-        } else {
-            let content = CoreDataIO().searchRecords(searchString: searchString)
-            delegate?.setArrayControllerContent(content: content)
-        }
+//        self.delegate = getDataController()
+//        let searchString = tbSearchBar.stringValue
+//
+//        if (searchString.isEmpty) {
+//            let content = CoreDataIO().getRecords()
+//            delegate?.setArrayControllerContent(content: content)
+//        } else {
+//            let content = CoreDataIO().searchRecords(searchString: searchString)
+//            delegate?.setArrayControllerContent(content: content)
+//        }
     }
     
     func getDataController() -> DataViewController {
@@ -72,12 +66,8 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         return loadingViewController!
     }
 
-    
-    
-    
-    func getType() -> String {
-        let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
-        return type!
+    func getItemType() -> ItemType {
+        return ItemType.parseString((tbType.selectedItem?.title)!)
     }
     
     func getRegion() -> String {
@@ -95,9 +85,4 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         self.progressSpinner.stopAnimation(nil)
         self.tbReload.isHidden = false
     }
-    
-    
-//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T {
-//        return self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: identifier)) as! T
-//    }
 }

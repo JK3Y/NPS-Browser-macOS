@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wh3-3u-Qnj">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1462,7 +1463,7 @@
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="title_id" editable="NO" width="88" minWidth="40" maxWidth="1000" id="TMh-Cn-0WR">
+                                                <tableColumn identifier="" editable="NO" width="88" minWidth="40" maxWidth="1000" id="TMh-Cn-0WR">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title ID">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1473,7 +1474,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title_id"/>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="titleId"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="3D4-qU-hZf">
                                                             <rect key="frame" x="1" y="1" width="88" height="17"/>
@@ -1486,7 +1487,7 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="3D4-qU-hZf" name="value" keyPath="objectValue.title_id" id="sR7-ht-NQJ"/>
+                                                                            <binding destination="3D4-qU-hZf" name="value" keyPath="objectValue.titleId" id="DIb-mg-gfl"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -1542,7 +1543,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="name" editable="NO" width="356" minWidth="10" maxWidth="3.4028234663852886e+38" id="eMB-Ps-xSE">
+                                                <tableColumn identifier="" editable="NO" width="356" minWidth="10" maxWidth="3.4028234663852886e+38" id="eMB-Ps-xSE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1583,7 +1584,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="file_size" width="63" minWidth="10" maxWidth="3.4028234663852886e+38" id="yCr-dO-lvB">
+                                                <tableColumn identifier="" width="63" minWidth="10" maxWidth="3.4028234663852886e+38" id="yCr-dO-lvB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File Size">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1594,7 +1595,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="file_size"/>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="fileSize"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="dQM-Hx-TEu">
@@ -1609,7 +1610,7 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="dQM-Hx-TEu" name="value" keyPath="objectValue.file_size" id="e9m-8k-jiH"/>
+                                                                            <binding destination="dQM-Hx-TEu" name="value" keyPath="objectValue.fileSize" id="YA7-zs-yuL"/>
                                                                         </connections>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -1625,7 +1626,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="last_modification_date" width="96" minWidth="10" maxWidth="3.4028234663852886e+38" id="Lpm-t1-F3h" userLabel="Last Modified">
+                                                <tableColumn identifier="" width="96" minWidth="10" maxWidth="3.4028234663852886e+38" id="Lpm-t1-F3h" userLabel="Last Modified">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Last Modified">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1636,7 +1637,7 @@
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
-                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="last_modification_date"/>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="lastModificationDate"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="HeA-wg-WFL">
@@ -1652,7 +1653,7 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <connections>
-                                                                            <binding destination="HeA-wg-WFL" name="value" keyPath="objectValue.last_modification_date" id="BPU-nf-BPV">
+                                                                            <binding destination="HeA-wg-WFL" name="value" keyPath="objectValue.lastModificationDate" id="fTh-C0-enL">
                                                                                 <dictionary key="options">
                                                                                     <string key="NSMultipleValuesPlaceholder">---</string>
                                                                                     <string key="NSNoSelectionPlaceholder">---</string>
@@ -1673,9 +1674,9 @@
                                             </tableColumns>
                                             <connections>
                                                 <action selector="tableSelectionChanged:" target="jMM-GG-iAN" id="Evx-Kl-mGn"/>
-                                                <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="YeG-9c-3NW"/>
-                                                <binding destination="t5W-WI-XMN" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="YeG-9c-3NW" id="GVD-ky-76N"/>
-                                                <binding destination="t5W-WI-XMN" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="GVD-ky-76N" id="REg-FB-X70"/>
+                                                <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="Hgl-Tn-Min"/>
+                                                <binding destination="t5W-WI-XMN" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Hgl-Tn-Min" id="nN3-8O-Max"/>
+                                                <binding destination="t5W-WI-XMN" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="nN3-8O-Max" id="LMD-5J-eVH"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -1710,7 +1711,7 @@
                 <customObject id="krD-za-eaE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="t5W-WI-XMN"/>
             </objects>
-            <point key="canvasLocation" x="-2261" y="1645"/>
+            <point key="canvasLocation" x="-2261.5" y="1645"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="eCm-Ka-rU8">
@@ -1819,7 +1820,7 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     <connections>
-                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.title_id" id="IWm-LQ-7s7">
+                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.titleId" id="K3J-FT-RWU">
                                             <dictionary key="options">
                                                 <string key="NSNoSelectionPlaceholder">--</string>
                                                 <string key="NSNotApplicablePlaceholder">N/A</string>
@@ -2026,7 +2027,7 @@
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.download_type" id="G19-Ad-rBy"/>
+                                                                        <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.fileType" id="reP-8j-em8"/>
                                                                     </connections>
                                                                 </textField>
                                                                 <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">

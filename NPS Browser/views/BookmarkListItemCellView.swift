@@ -9,11 +9,11 @@
 import Cocoa
 
 class BookmarkListItemCellView: NSTableCellView {
-    var item: BookmarksMO?
+    var item: Bookmark?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.item = objectValue as? BookmarksMO
+        self.item = objectValue as? Bookmark
     }
     
     @IBAction func btnDownloadClicked(_ sender: NSButton) {
@@ -21,11 +21,14 @@ class BookmarkListItemCellView: NSTableCellView {
         // TODO: Add all 3 download types to DL list
         
         let dlItem              = DLItem()
-        dlItem.type             = self.item?.type
-        dlItem.title_id         = self.item?.title_id
+        dlItem.fileType         = self.item?.fileType
+        dlItem.consoleType      = self.item?.consoleType
+        dlItem.titleId         = self.item?.titleId
         dlItem.name             = self.item?.name
-        dlItem.download_link    = self.item?.download_link
+        dlItem.downloadUrl    = URL(string: (self.item?.downloadUrl)!)
         dlItem.zrif             = self.item?.zrif
+        
+        
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
 }

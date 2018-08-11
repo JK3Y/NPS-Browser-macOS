@@ -1,5 +1,5 @@
 //
-//  Settings.swift
+//  SettingsViewController.swift
 //  NPS Browser
 //
 //  Created by JK3Y on 4/28/18.
