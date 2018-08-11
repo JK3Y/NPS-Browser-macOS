@@ -65,7 +65,7 @@ class Parser {
         var x: String?
 
         do {
-            x = try? lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.text as! String
+            x = try lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.text
 
             if (x == nil) {
                 x = try lastpkg.element?.attribute(by: "url")?.text

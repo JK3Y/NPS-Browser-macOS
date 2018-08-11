@@ -98,7 +98,7 @@ struct DownloadSettings: Codable {
     var library_folder: URL
     
     init(){
-        self.library_location      = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
+        self.library_location      = try! NSHomeDirectory().asURL().appendingPathComponent("Downloads")
         self.concurrent_downloads   = 3
         self.library_folder = library_location.appendingPathComponent("NPS Downloads")
     }

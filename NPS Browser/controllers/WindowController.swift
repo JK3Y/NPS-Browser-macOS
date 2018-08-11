@@ -29,16 +29,7 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBAction func onTypeChanged(_ sender: Any) {
         self.delegate = getDataController()
 
-        delegate?.setArrayControllerContent(content: nil)
-
-//        if (Helpers().getCoreDataIO().recordsAreEmpty()) {
-//            NetworkManager().makeHTTPRequest()
-//        } else {
-//            let content = Helpers().getCoreDataIO().getRecords()
-//            delegate?.setArrayControllerContent(content: content)
-//        }
-        
-        
+        delegate?.filterType(itemType: getItemType(), region: getRegion())
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
@@ -75,28 +66,9 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         return loadingViewController!
     }
 
-    
-    
-    
-    func getType() -> String {
-        let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
-        return type!
-    }
-    
     func getItemType() -> ItemType {
         return ItemType.parseString((tbType.selectedItem?.title)!)
     }
-    
-//    func getConsole() -> Console {
-//        let c = getType().prefix(3)
-//        return Console(prefix: String(c))
-//    }
-    
-//    func getType() -> FileType {
-//        let type = tbType.selectedItem?.title.replacingOccurrences(of: " ", with: "")
-//        let ft = FileType(ddlSelectedType: type!)
-//        return ft
-//    }
     
     func getRegion() -> String {
         let region = tbRegion.selectedItem?.title

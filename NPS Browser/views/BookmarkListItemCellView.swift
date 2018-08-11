@@ -9,23 +9,23 @@
 import Cocoa
 
 class BookmarkListItemCellView: NSTableCellView {
-    var item: BookmarksMO?
+    var item: Bookmark?
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.item = objectValue as? BookmarksMO
+        self.item = objectValue as? Bookmark
     }
     
     @IBAction func btnDownloadClicked(_ sender: NSButton) {
         
         // TODO: Add all 3 download types to DL list
         
-        let dlItem              = DLItem()
-        dlItem.type             = self.item?.type
-        dlItem.title_id         = self.item?.title_id
-        dlItem.name             = self.item?.name
-        dlItem.download_link    = self.item?.download_link
-        dlItem.zrif             = self.item?.zrif
-        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
+//        let dlItem              = DLItem()
+//        dlItem.type             = self.item?.type
+//        dlItem.title_id         = self.item?.title_id
+//        dlItem.name             = self.item?.name
+//        dlItem.download_link    = self.item?.download_link
+//        dlItem.zrif             = self.item?.zrif
+//        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
 }

@@ -10,16 +10,13 @@
 		325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */; };
 		5108B79E211641190065BA71 /* TSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108B79D211641190065BA71 /* TSVData.swift */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
-		512F42A520A95955007D2412 /* NPSModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F42A420A95955007D2412 /* NPSModels.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
 		5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */; };
 		513BDDA22096689500D82889 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513BDDA12096689500D82889 /* SettingsManager.swift */; };
-		5149B3C920A8F63C00D3D82C /* OLD.NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149B3C820A8F63C00D3D82C /* OLD.NetworkManager.swift */; };
 		515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515B77B420AF794500C7B07D /* ToolbarDelegate.swift */; };
 		5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167430420AFE098003AFC4D /* DownloadManager.swift */; };
 		516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7620CAE275004D6AE5 /* CHANGELOG.md */; };
 		516A1B7920CAE28A004D6AE5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7820CAE28A004D6AE5 /* README.md */; };
-		516BE6AA209E14B300FC9580 /* CoreDataIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516BE6A9209E14B300FC9580 /* CoreDataIO.swift */; };
 		5177A78620C33C0F002F81F9 /* pkg2zip in Resources */ = {isa = PBXBuildFile; fileRef = 5177A78520C33C0E002F81F9 /* pkg2zip */; };
 		5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A78720C3508D002F81F9 /* ExtractionManager.swift */; };
 		517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CD22B20AFA4A200C33623 /* DownloadController.swift */; };
@@ -39,7 +36,6 @@
 		519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */; };
 		519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */; };
 		519F0D7720CCC07900332987 /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7620CCC07900332987 /* BookmarkManager.swift */; };
-		519F0D7920CCC56900332987 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7820CCC56900332987 /* Bookmark.swift */; };
 		51ABB7572115D8A3009C98DA /* NPSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABB7562115D8A3009C98DA /* NPSItem.swift */; };
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
@@ -47,7 +43,6 @@
 		51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */ = {isa = PBXBuildFile; fileRef = 51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */; };
 		51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE81E2094E094005D44DC /* AppDelegate.swift */; };
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
-		51EBE8242094E094005D44DC /* NPS_Browser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8222094E094005D44DC /* NPS_Browser.xcdatamodeld */; };
 		51EBE8262094E095005D44DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8252094E095005D44DC /* Assets.xcassets */; };
 		51EBE8292094E095005D44DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8272094E095005D44DC /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -57,16 +52,13 @@
 		5108B79D211641190065BA71 /* TSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVData.swift; sourceTree = "<group>"; };
 		5121752E20A73EBC00772C86 /* NPS Browser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NPS Browser.entitlements"; sourceTree = "<group>"; };
 		512175A720A7D28B00772C86 /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
-		512F42A420A95955007D2412 /* NPSModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSModels.swift; sourceTree = "<group>"; };
 		5139DF86209F6DE9004F65F9 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		513BDDA12096689500D82889 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		5149B3C820A8F63C00D3D82C /* OLD.NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLD.NetworkManager.swift; sourceTree = "<group>"; };
 		515B77B420AF794500C7B07D /* ToolbarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDelegate.swift; sourceTree = "<group>"; };
 		5167430420AFE098003AFC4D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		516A1B7620CAE275004D6AE5 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		516A1B7820CAE28A004D6AE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		516BE6A9209E14B300FC9580 /* CoreDataIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIO.swift; sourceTree = "<group>"; };
 		5177A78520C33C0E002F81F9 /* pkg2zip */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pkg2zip; sourceTree = "<group>"; };
 		5177A78720C3508D002F81F9 /* ExtractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionManager.swift; sourceTree = "<group>"; };
 		517CD22B20AFA4A200C33623 /* DownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
@@ -86,7 +78,6 @@
 		519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListItemCellView.swift; sourceTree = "<group>"; };
 		519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		519F0D7620CCC07900332987 /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
-		519F0D7820CCC56900332987 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ABB7562115D8A3009C98DA /* NPSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSItem.swift; sourceTree = "<group>"; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
@@ -96,7 +87,6 @@
 		51EBE81B2094E094005D44DC /* NPS Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPS Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EBE81E2094E094005D44DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EBE8202094E094005D44DC /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		51EBE8232094E094005D44DC /* NPS_Browser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NPS_Browser.xcdatamodel; sourceTree = "<group>"; };
 		51EBE8252094E095005D44DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51EBE8282094E095005D44DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51EBE82A2094E095005D44DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,11 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				519F0D7620CCC07900332987 /* BookmarkManager.swift */,
-				516BE6A9209E14B300FC9580 /* CoreDataIO.swift */,
 				5167430420AFE098003AFC4D /* DownloadManager.swift */,
 				5177A78720C3508D002F81F9 /* ExtractionManager.swift */,
 				518C72EA20C4153B0022375E /* Helpers.swift */,
-				5149B3C820A8F63C00D3D82C /* OLD.NetworkManager.swift */,
 				513BDDA12096689500D82889 /* SettingsManager.swift */,
 				517FD71E2114B7FF00E56CB6 /* Parser.swift */,
 				517FD72221153C5100E56CB6 /* Renascene.swift */,
@@ -177,9 +165,7 @@
 		51A767A220A699AC00052F53 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				519F0D7820CCC56900332987 /* Bookmark.swift */,
 				51B12A1320B0603500E83844 /* DLItem.swift */,
-				512F42A420A95955007D2412 /* NPSModels.swift */,
 				518BF15820B2260100A8044C /* Settings.swift */,
 				5182C57E21140757003A5527 /* ItemType.swift */,
 				5108B79D211641190065BA71 /* TSVData.swift */,
@@ -243,7 +229,6 @@
 				51EBE8272094E095005D44DC /* Main.storyboard */,
 				51EBE82A2094E095005D44DC /* Info.plist */,
 				5121752E20A73EBC00772C86 /* NPS Browser.entitlements */,
-				51EBE8222094E094005D44DC /* NPS_Browser.xcdatamodeld */,
 			);
 			path = "NPS Browser";
 			sourceTree = "<group>";
@@ -400,11 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				516BE6AA209E14B300FC9580 /* CoreDataIO.swift in Sources */,
-				51EBE8242094E094005D44DC /* NPS_Browser.xcdatamodeld in Sources */,
 				518C72EB20C4153B0022375E /* Helpers.swift in Sources */,
 				5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */,
-				5149B3C920A8F63C00D3D82C /* OLD.NetworkManager.swift in Sources */,
 				519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */,
 				5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */,
 				515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */,
@@ -419,7 +401,6 @@
 				517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */,
 				5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */,
 				519F0D7720CCC07900332987 /* BookmarkManager.swift in Sources */,
-				512F42A520A95955007D2412 /* NPSModels.swift in Sources */,
 				5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */,
 				51ABB7572115D8A3009C98DA /* NPSItem.swift in Sources */,
 				512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */,
@@ -431,7 +412,6 @@
 				5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */,
 				519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */,
 				513BDDA22096689500D82889 /* SettingsManager.swift in Sources */,
-				519F0D7920CCC56900332987 /* Bookmark.swift in Sources */,
 				5182C57F21140757003A5527 /* ItemType.swift in Sources */,
 				5181948E20DDB52C009282AB /* NSTableView+keydown.swift in Sources */,
 				5108B79E211641190065BA71 /* TSVData.swift in Sources */,
@@ -580,7 +560,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -606,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -638,19 +618,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		51EBE8222094E094005D44DC /* NPS_Browser.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				51EBE8232094E094005D44DC /* NPS_Browser.xcdatamodel */,
-			);
-			currentVersion = 51EBE8232094E094005D44DC /* NPS_Browser.xcdatamodel */;
-			path = NPS_Browser.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 51EBE8132094E094005D44DC /* Project object */;
 }

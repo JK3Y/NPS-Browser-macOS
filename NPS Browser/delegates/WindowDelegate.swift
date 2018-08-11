@@ -7,7 +7,7 @@
 //
 
 protocol WindowDelegate {
-    func getType() -> String
+//    func getType() -> String
     func getRegion() -> String
     
     func getItemType() -> ItemType
@@ -17,5 +17,4 @@ protocol WindowDelegate {
     
     func getDataController() -> DataViewController
     func getLoadingViewController() -> LoadingViewController
-//    func getVCFromStoryboard<T>(identifier: String, type: T) -> T
 }

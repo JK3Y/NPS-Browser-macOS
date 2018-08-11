@@ -24,9 +24,6 @@ class DataViewController: NSViewController, ToolbarDelegate {
     var items: Results<Item>?
     
     override func viewWillAppear() {
-        
-        // TODO: Check if realm is empty, if it is run network manager
-        
         super.viewDidLoad()
         // Do view setup here.
         let it = self.windowDelegate.getItemType()
@@ -35,8 +32,11 @@ class DataViewController: NSViewController, ToolbarDelegate {
         let reg = self.windowDelegate.getRegion()
 
         items = try! Realm().objects(Item.self)
-        
-        setArrayControllerContent(content: Array(items!.filter(NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg))))
+        if (items?.isEmpty)! {
+            NetworkManager().makeRequest()
+        } else {
+            setArrayControllerContent(content: items!.filter(NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
+        }
     }
     
     override var representedObject: Any? {
@@ -55,14 +55,24 @@ class DataViewController: NSViewController, ToolbarDelegate {
     
     func filterByRegion(region: String) {
         let p = NSPredicate(format: "region == %@", region)
-        setArrayControllerContent(content: Array( items!.filter(p) ))
+        setArrayControllerContent(content: items!.filter(p))
     }
     
-    func filterType(itemType: ItemType) {}
+    func filterType(itemType: ItemType, region: String) {
+        let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@", itemType.console.rawValue, itemType.fileType.rawValue, region)
+       
+        let objects = items!.filter(p)
+        
+        if objects.isEmpty {
+            NetworkManager().makeRequest()
+        } else {
+            setArrayControllerContent(content: objects)
+        }
+    }
     
-    func setArrayControllerContent(content: [Item]?) {
+    func setArrayControllerContent(content: Results<Item>?) {
         tsvResultsController.content = nil
-        tsvResultsController.content = content
+        tsvResultsController.content = Array(content!)
         tsvResultsController.setSelectionIndex(0)
         tableSelectionChanged(tableView)
     }

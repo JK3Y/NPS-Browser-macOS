@@ -92,8 +92,9 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryURL = userSettings?.download.library_folder.appendingPathComponent(item.getConsole())
-        task.executableURL = URL(fileURLWithPath: pkg2zipPath)
+        task.currentDirectoryPath = (userSettings?.download.library_folder.appendingPathComponent(item.getConsole()).absoluteString)!
+        
+        task.launchPath = pkg2zipPath
         
         task.arguments = getArguments()
         task.standardOutput = pipe
@@ -116,7 +117,7 @@ class ExtractionManager {
         }
         
         do {
-            try task.run()
+            try task.launch()
         } catch let error as NSError {
             debugPrint(error)
         }

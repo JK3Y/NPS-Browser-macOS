@@ -18,11 +18,6 @@ class DetailsViewController: NSViewController {
     @IBOutlet weak var chkDLCompatPack: NSButton!
     
     var windowDelegate: WindowDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
 
     override var representedObject: Any? {
         didSet {

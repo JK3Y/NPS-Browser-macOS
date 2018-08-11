@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 struct TSVData {
     var titleId                 : String?
@@ -85,28 +84,6 @@ struct TSVData {
         }
     }
  
-//    func managedObject<T:Object<T>>() -> T {
-//        let r: T<NPSItem> = {
-//            switch (consoleType) {
-//            case .PSV: return PSV(tsvData: self)
-//            //        case .PS3 = PS3(tsvData: self)
-//            default: break
-//            }
-//            return nil
-//        }()
-//        
-//        return NPSItem<T>
-//        
-//            switch (consoleType) {
-//            case .PSV: return PSV(tsvData: self)
-//            //        case .PS3 = PS3(tsvData: self)
-//            default: break
-//            }
-//            return nil
-//        
-////        return obj!
-//    }
-
     func parseDate(dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

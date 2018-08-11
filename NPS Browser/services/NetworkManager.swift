@@ -151,11 +151,6 @@ class NetworkManager {
                 self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
                 DBManager().storeBulk(objArray: result)
-//                do {
-//                    try storage.safeWrite {
-//                        storage.realm?.add(result)
-//                    }
-//                }
             }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
@@ -174,7 +169,7 @@ class NetworkManager {
         let errpipe = Pipe()
         task.standardError = errpipe
 
-        task.executableURL = URL(fileURLWithPath: vitaupdatelinksPath)
+        task.launchPath = vitaupdatelinksPath
         task.arguments = [title_id]
 
         task.launch()

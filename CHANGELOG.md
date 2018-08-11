@@ -1,10 +1,17 @@
 # Changelog
 
+## 2.0.0
+### Changed
+- **NOW COMPATIBLE WITH OS 10.10+**
+- Database has been changed over from Core Data to Realm. This allows for the database to be Apple-independant and code can be used in future Android and Linux ports.
+- Massive code refactoring, cleanup, and optimization
+
+### Added
+- The side panel is now split horizontally, with the game boxart displayed on the bottom panel
+
 ## 1.3.7
 ### Added
 - Downloads/extractions are separated into folders based on console type
-
-TODO: Start/finish Boxart View Controller
 
 ### Changed
 - Location label in the Preferences window has been changed to "Library Location"
