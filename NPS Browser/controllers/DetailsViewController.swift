@@ -70,12 +70,12 @@ class DetailsViewController: NSViewController {
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-        let bookmark = Bookmark(item: getROManagedObject())
-        
         if (sender.state == .on) {
+            let bookmark = Bookmark(item: getROManagedObject())
             DBManager().store(object: bookmark)
         } else {
-            DBManager().delete(object: bookmark)
+            let bookmark = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", getROManagedObject().uuid)).first
+            DBManager().delete(object: bookmark!)
         }
     }
 
@@ -142,11 +142,10 @@ class DetailsViewController: NSViewController {
         }
     }
     
-    func toggleBookmark(compareUUID: UUID) {
-//        let obj: NSUUID = getROManagedObject().value(forKey: "uuid") as! NSUUID
-//        if (obj.isEqual(to: (compareUUID as NSUUID))) {
-//            chkBookmark.state = .off
-//        }
+    func toggleBookmark(compareUUID: String) {
+        if getROManagedObject().uuid == compareUUID {
+            chkBookmark.state = .off
+        }
     }
 
     func sendDLData(url: URL, download_type: DownloadType) {

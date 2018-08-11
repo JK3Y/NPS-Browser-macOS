@@ -58,9 +58,7 @@ class DBManager {
     // MARK: Delete
     func delete(object: Storable) {
         do {
-            try storage.safeWrite {
-                storage.realm?.delete(object as! Object)
-            }
+            try storage.delete(object: object)
         } catch let error as NSError {
             log.error(error)
         }

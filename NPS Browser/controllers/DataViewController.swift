@@ -26,11 +26,16 @@ class DataViewController: NSViewController, ToolbarDelegate {
         // Do view setup here.
         
         notificationToken = realm.objects(Item.self).observe { change in
+            let it = self.windowDelegate.getItemType()
+            let ct = it.console.rawValue
+            let ft = it.fileType.rawValue
+            let reg = self.windowDelegate.getRegion()
+            
             switch change {
             case .initial(let objects):
-                self.setArrayControllerContent(content: Array(objects.filter("pkgDirectLink != 'MISSING'")))
+                self.setArrayControllerContent(content: Array(objects.filter("consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
             case .update(let objects, _, _, _):
-                self.setArrayControllerContent(content: Array(objects.filter("pkgDirectLink != 'MISSING'")))
+                self.setArrayControllerContent(content: Array(objects.filter("consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
             case .error(let error):
                 log.error(error)
             }
