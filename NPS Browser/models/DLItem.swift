@@ -6,7 +6,6 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
-import Cocoa
 import Alamofire
 
 struct DownloadList: Codable {
@@ -16,15 +15,10 @@ struct DownloadList: Codable {
     }
 }
 
-enum DownloadType: String {
-    case Game, Patch, CPatch, CPack, RAP
-}
-
-
 class DLItem: NSObject, Codable {
-    @objc dynamic var title_id          : String?
+    @objc dynamic var titleId          : String?
     @objc dynamic var name              : String?
-    @objc dynamic var download_link     : URL?
+    @objc dynamic var downloadUrl     : URL?
     @objc dynamic var progress          : Double = 0.0
     @objc dynamic var zrif              : String?
     @objc dynamic var status            : String?
@@ -37,7 +31,6 @@ class DLItem: NSObject, Codable {
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
-    @objc dynamic var download_type     : String?
     @objc dynamic var cpackPath         : URL?
     @objc dynamic var cpatchPath        : URL?
     @objc dynamic var doNext            : DLItem? = nil
@@ -46,9 +39,9 @@ class DLItem: NSObject, Codable {
     @objc dynamic var fileType          : String?
     
     enum CodingKeys: String, CodingKey {
-        case title_id
+        case titleId
         case name
-        case download_link
+        case downloadUrl
         case progress
         case zrif
         case status
@@ -59,7 +52,6 @@ class DLItem: NSObject, Codable {
         case isViewable
         case isRemovable
         case isResumable
-        case download_type
         case cpackPath
         case cpatchPath
         case doNext

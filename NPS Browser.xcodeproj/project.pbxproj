@@ -31,12 +31,15 @@
 		5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE7E211E18EA004A2E90 /* NetworkManager.swift */; };
 		5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE80211E219D004A2E90 /* CompatPack.swift */; };
 		5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE82211E31B4004A2E90 /* DBManager.swift */; };
+		5192CE86211F1968004A2E90 /* LayerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE85211F1968004A2E90 /* LayerProtocols.swift */; };
+		5192CE88211F1977004A2E90 /* LayerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE87211F1977004A2E90 /* LayerAPI.swift */; };
+		5192CE8A211F19FA004A2E90 /* RealmStorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE89211F19FA004A2E90 /* RealmStorageContext.swift */; };
+		5192CE8C211F1AAE004A2E90 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE8B211F1AAE004A2E90 /* Bookmark.swift */; };
 		51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51932D9620DEEA8400F44520 /* LoadingViewController.swift */; };
 		51932D9920DF06C700F44520 /* LoadingViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51932D9820DF06C700F44520 /* LoadingViewDelegate.swift */; };
 		519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */; };
 		519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */; };
-		519F0D7720CCC07900332987 /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F0D7620CCC07900332987 /* BookmarkManager.swift */; };
-		51ABB7572115D8A3009C98DA /* NPSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABB7562115D8A3009C98DA /* NPSItem.swift */; };
+		51ABB7572115D8A3009C98DA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABB7562115D8A3009C98DA /* Item.swift */; };
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
 		51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* SettingsViewController.swift */; };
@@ -73,13 +76,16 @@
 		5192CE7E211E18EA004A2E90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5192CE80211E219D004A2E90 /* CompatPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatPack.swift; sourceTree = "<group>"; };
 		5192CE82211E31B4004A2E90 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		5192CE85211F1968004A2E90 /* LayerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerProtocols.swift; sourceTree = "<group>"; };
+		5192CE87211F1977004A2E90 /* LayerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerAPI.swift; sourceTree = "<group>"; };
+		5192CE89211F19FA004A2E90 /* RealmStorageContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorageContext.swift; sourceTree = "<group>"; };
+		5192CE8B211F1AAE004A2E90 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		51932D9620DEEA8400F44520 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		51932D9820DF06C700F44520 /* LoadingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewDelegate.swift; sourceTree = "<group>"; };
 		519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListItemCellView.swift; sourceTree = "<group>"; };
 		519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
-		519F0D7620CCC07900332987 /* BookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51ABB7562115D8A3009C98DA /* NPSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSItem.swift; sourceTree = "<group>"; };
+		51ABB7562115D8A3009C98DA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
 		51B1A314209511A6009C799C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +122,6 @@
 		516B855220AE7FE800E4A083 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				519F0D7620CCC07900332987 /* BookmarkManager.swift */,
 				5167430420AFE098003AFC4D /* DownloadManager.swift */,
 				5177A78720C3508D002F81F9 /* ExtractionManager.swift */,
 				518C72EA20C4153B0022375E /* Helpers.swift */,
@@ -147,6 +152,16 @@
 			path = delegates;
 			sourceTree = "<group>";
 		};
+		5192CE84211F192D004A2E90 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5192CE8B211F1AAE004A2E90 /* Bookmark.swift */,
+				5192CE80211E219D004A2E90 /* CompatPack.swift */,
+				51ABB7562115D8A3009C98DA /* Item.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		51A767A120A6992500052F53 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,13 +188,15 @@
 			path = models;
 			sourceTree = "<group>";
 		};
-		51ABB7552115D80F009C98DA /* Entities */ = {
+		51ABB7552115D80F009C98DA /* db */ = {
 			isa = PBXGroup;
 			children = (
-				51ABB7562115D8A3009C98DA /* NPSItem.swift */,
-				5192CE80211E219D004A2E90 /* CompatPack.swift */,
+				5192CE84211F192D004A2E90 /* models */,
+				5192CE85211F1968004A2E90 /* LayerProtocols.swift */,
+				5192CE87211F1977004A2E90 /* LayerAPI.swift */,
+				5192CE89211F19FA004A2E90 /* RealmStorageContext.swift */,
 			);
-			path = Entities;
+			path = db;
 			sourceTree = "<group>";
 		};
 		51B12A1520B0C59400E83844 /* views */ = {
@@ -218,7 +235,7 @@
 				51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */,
 				5177A78520C33C0E002F81F9 /* pkg2zip */,
 				51A767A120A6992500052F53 /* controllers */,
-				51ABB7552115D80F009C98DA /* Entities */,
+				51ABB7552115D80F009C98DA /* db */,
 				51A767A220A699AC00052F53 /* models */,
 				51B12A1520B0C59400E83844 /* views */,
 				516B855220AE7FE800E4A083 /* services */,
@@ -400,13 +417,15 @@
 				51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */,
 				517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */,
 				5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */,
-				519F0D7720CCC07900332987 /* BookmarkManager.swift in Sources */,
+				5192CE86211F1968004A2E90 /* LayerProtocols.swift in Sources */,
 				5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */,
-				51ABB7572115D8A3009C98DA /* NPSItem.swift in Sources */,
+				5192CE88211F1977004A2E90 /* LayerAPI.swift in Sources */,
+				51ABB7572115D8A3009C98DA /* Item.swift in Sources */,
 				512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */,
 				517FD72321153C5100E56CB6 /* Renascene.swift in Sources */,
 				5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */,
 				517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */,
+				5192CE8C211F1AAE004A2E90 /* Bookmark.swift in Sources */,
 				51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */,
 				51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */,
 				5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */,
@@ -415,6 +434,7 @@
 				5182C57F21140757003A5527 /* ItemType.swift in Sources */,
 				5181948E20DDB52C009282AB /* NSTableView+keydown.swift in Sources */,
 				5108B79E211641190065BA71 /* TSVData.swift in Sources */,
+				5192CE8A211F19FA004A2E90 /* RealmStorageContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

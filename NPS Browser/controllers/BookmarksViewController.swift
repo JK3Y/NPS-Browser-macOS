@@ -13,9 +13,7 @@ class BookmarksViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     
     @IBOutlet var bookmarksArrayController: NSArrayController!
-    
-    let bookmarkManager: BookmarkManager = Helpers().getSharedAppDelegate().bookmarkManager
-    
+
     override func viewDidLoad() {
         updateView()
         super.viewDidLoad()
@@ -24,22 +22,14 @@ class BookmarksViewController: NSViewController {
     @IBAction func doRemoveBookmark(_ sender: NSButton) {
         let bookmark = Helpers().getRowObjectFromTableRowButton(sender) as! Bookmark
         let uuid = bookmark.uuid
+
+        let storedBookmark = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", uuid!)).first
         
-        
-        let realBM = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", uuid!)).first
-        
-        DBManager().delete(object: realBM!)
+        DBManager().delete(object: storedBookmark!)
 
         Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: uuid!)
 
         updateView()
-        
-//        let bookmark = Helpers().makeBookmark(data: rowData)
-//        bookmarkManager.removeBookmark(bookmark)
-//        
-//        Helpers().getDataController().getDetailsViewController().toggleBookmark(compareUUID: bookmark.uuid)
-//
-//        updateView()
     }
     
     func updateView() {

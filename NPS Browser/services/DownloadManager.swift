@@ -52,7 +52,7 @@ class DownloadManager {
         
         makeConsoleFolder(dlItem: data)
         
-        let request = Alamofire.download(data.download_link!, to: destination)
+        let request = Alamofire.download(data.downloadUrl!, to: destination)
         data.request = request
         data.destination = destination
             

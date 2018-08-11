@@ -11,8 +11,7 @@
 - The side panel is now split horizontally, with the game boxart displayed on the bottom panel
 
 ### Fixed
-// TODO
-- "Game" label for download checkbox needs to change to fileType (DLC, Theme, etc)
+- "Game" label for download checkbox now changes to fileType (DLC, Theme, etc)
 
 ## 1.3.7
 ### Added

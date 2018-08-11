@@ -13,7 +13,7 @@ enum ConsoleType: String {
 }
 
 enum FileType: String {
-    case Game, Update, DLC, Theme, Avatar, CPack, CPatch
+    case Game, Update, DLC, Theme, Avatar, CPack, CPatch, RAP
 }
 
 struct ItemType: CustomStringConvertible {

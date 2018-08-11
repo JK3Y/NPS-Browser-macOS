@@ -8,6 +8,7 @@
 
 import Cocoa
 import Foundation
+import RealmSwift
 
 class Helpers {
     
@@ -44,8 +45,6 @@ class Helpers {
         getDataController().presentViewControllerAsSheet(getWindowDelegate().getLoadingViewController())
     }
     
-    
-    
     func getRowObjectFromTableRowButton(_ sender: NSButton) -> Any? {
         var superView = sender.superview
         while let view = superView, !(view is NSTableCellView) {
@@ -58,21 +57,17 @@ class Helpers {
         
         return cell.objectValue
     }
-
     
-    func makeDLItem(data: Item, download_link: URL, download_type: DownloadType) -> DLItem {
+    func makeDLItem(data: Item, downloadUrl: URL, fileType: FileType) -> DLItem {
         let obj = DLItem()
-
         let ctype: ConsoleType = ConsoleType.init(rawValue: data.consoleType!)!
-        let ftype: FileType = FileType.init(rawValue: data.fileType!)!
 
-        obj.title_id        = data.titleId
-        obj.name            = "\(download_type.rawValue) - \(data.name!)"
-        obj.download_link   = download_link
-        obj.download_type = download_type.rawValue
+        obj.titleId        = data.titleId
+        obj.name            = "\(fileType.rawValue) - \(data.name!)"
+        obj.downloadUrl   = downloadUrl
         obj.zrif = data.zrif
         obj.consoleType = data.consoleType
-        obj.fileType = data.fileType
+        obj.fileType = fileType.rawValue
 
         return obj
     }

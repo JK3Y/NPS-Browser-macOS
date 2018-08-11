@@ -34,7 +34,7 @@ class ExtractionManager {
             return
         }
         
-        if (item.download_type == "CPatch" || item.download_type == "CPack") {
+        if (item.fileType == "CPatch" || item.fileType == "CPack") {
             unzipPPK()
         } else {
             usePkg2Zip()
@@ -51,9 +51,9 @@ class ExtractionManager {
     func unzipPPK() {
         var filepath = SettingsManager().getDownloads().library_folder
         let rpf = makeRepatchFolder(filepath: filepath)
-        filepath = rpf.appendingPathComponent("\(item.title_id!)")
+        filepath = rpf.appendingPathComponent("\(item.titleId!)")
         
-        if (item.download_type == "CPack") {
+        if (item.fileType == "CPack") {
             do {
                 try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
                 completeDownload(status: "Extraction Complete")
@@ -63,7 +63,7 @@ class ExtractionManager {
             }
         }
         
-        if (item.download_type == "CPatch") {
+        if (item.fileType == "CPatch") {
             do {
                 if (item.cpackPath != nil) {
                     try Zip.unzipFile(item.cpackPath!, destination: filepath, overwrite: true, password: nil)

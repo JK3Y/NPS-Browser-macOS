@@ -1463,7 +1463,7 @@
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="title_id" editable="NO" width="88" minWidth="40" maxWidth="1000" id="TMh-Cn-0WR">
+                                                <tableColumn identifier="" editable="NO" width="88" minWidth="40" maxWidth="1000" id="TMh-Cn-0WR">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title ID">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1543,7 +1543,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="name" editable="NO" width="356" minWidth="10" maxWidth="3.4028234663852886e+38" id="eMB-Ps-xSE">
+                                                <tableColumn identifier="" editable="NO" width="356" minWidth="10" maxWidth="3.4028234663852886e+38" id="eMB-Ps-xSE">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1584,7 +1584,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="file_size" width="63" minWidth="10" maxWidth="3.4028234663852886e+38" id="yCr-dO-lvB">
+                                                <tableColumn identifier="" width="63" minWidth="10" maxWidth="3.4028234663852886e+38" id="yCr-dO-lvB">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File Size">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1626,7 +1626,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="last_modification_date" width="96" minWidth="10" maxWidth="3.4028234663852886e+38" id="Lpm-t1-F3h" userLabel="Last Modified">
+                                                <tableColumn identifier="" width="96" minWidth="10" maxWidth="3.4028234663852886e+38" id="Lpm-t1-F3h" userLabel="Last Modified">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Last Modified">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1676,6 +1676,7 @@
                                                 <action selector="tableSelectionChanged:" target="jMM-GG-iAN" id="Evx-Kl-mGn"/>
                                                 <binding destination="t5W-WI-XMN" name="content" keyPath="arrangedObjects" id="Hgl-Tn-Min"/>
                                                 <binding destination="t5W-WI-XMN" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Hgl-Tn-Min" id="nN3-8O-Max"/>
+                                                <binding destination="t5W-WI-XMN" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="nN3-8O-Max" id="LMD-5J-eVH"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -2026,7 +2027,7 @@
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                                     </textFieldCell>
                                                                     <connections>
-                                                                        <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.download_type" id="G19-Ad-rBy"/>
+                                                                        <binding destination="DaP-mC-AOO" name="value" keyPath="objectValue.fileType" id="reP-8j-em8"/>
                                                                     </connections>
                                                                 </textField>
                                                                 <stackView distribution="equalCentering" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-7H-Xw7">

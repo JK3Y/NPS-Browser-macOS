@@ -20,12 +20,15 @@ class BookmarkListItemCellView: NSTableCellView {
         
         // TODO: Add all 3 download types to DL list
         
-//        let dlItem              = DLItem()
-//        dlItem.type             = self.item?.type
-//        dlItem.title_id         = self.item?.title_id
-//        dlItem.name             = self.item?.name
-//        dlItem.download_link    = self.item?.download_link
-//        dlItem.zrif             = self.item?.zrif
-//        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
+        let dlItem              = DLItem()
+        dlItem.fileType         = self.item?.fileType
+        dlItem.consoleType      = self.item?.consoleType
+        dlItem.titleId         = self.item?.titleId
+        dlItem.name             = self.item?.name
+        dlItem.downloadUrl    = URL(string: (self.item?.downloadUrl)!)
+        dlItem.zrif             = self.item?.zrif
+        
+        
+        Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
 }

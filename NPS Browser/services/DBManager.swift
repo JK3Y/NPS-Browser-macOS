@@ -32,8 +32,7 @@ class DBManager {
         } catch let error as NSError {
             log.error(error)
         }
-    }
-    
+    }    
     
     // MARK: Read
     func fetch<T>(_ model: T.Type, predicate: NSPredicate? = nil, sorted: Sorted? = nil) -> [T]{
@@ -76,8 +75,4 @@ class DBManager {
             log.error(error)
         }
     }
-    
-
-    
-    
 }

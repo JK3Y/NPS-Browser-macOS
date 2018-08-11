@@ -1,28 +1,12 @@
 //
-//  CompatPack.swift
+//  Bookmark.swift
 //  NPS Browser
 //
-//  Created by JK3Y on 8/10/18.
+//  Created by JK3Y on 8/11/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
 import RealmSwift
-
-@objcMembers
-class CompatPack: Object {
-    enum Property: String {
-        case titleId, downloadUrl, type, uuid
-    }
-    
-    dynamic var titleId: String?
-    dynamic var downloadUrl: String?
-    dynamic var type: String?
-    dynamic var uuid: String = UUID().uuidString
-    
-    override static func primaryKey() -> String? {
-        return CompatPack.Property.uuid.rawValue
-    }
-}
 
 @objcMembers
 class Bookmark: Object {
@@ -33,7 +17,8 @@ class Bookmark: Object {
     dynamic var titleId: String?
     dynamic var downloadUrl: String?
     dynamic var name: String?
-    dynamic var type: String?
+    dynamic var fileType: String?
+    dynamic var consoleType: String?
     dynamic var zrif: String?
     dynamic var uuid: String?
     
@@ -46,7 +31,8 @@ class Bookmark: Object {
         self.titleId = item.titleId
         self.downloadUrl = item.pkgDirectLink
         self.name = item.name
-        self.type = item.fileType
+        self.fileType = item.fileType
+        self.consoleType = item.consoleType
         self.zrif = item.zrif
         self.uuid = item.uuid
     }

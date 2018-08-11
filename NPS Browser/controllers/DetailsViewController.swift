@@ -34,13 +34,13 @@ class DetailsViewController: NSViewController {
 
         if (chkDLGame.state == .on) {
             let url = try? obj.pkgDirectLink!.asURL()
-            self.sendDLData(url: url!, download_type: .Game)
+            self.sendDLData(url: url!, fileType: .Game)
         }
         if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
             let url = NetworkManager().getUpdateXMLURLFromHMAC(titleId: getROManagedObject().titleId!)
             let pxml = NetworkManager().fetchUpdateXML(url: url)
             pxml().then { res in
-                self.sendDLData(url: res, download_type: .Patch)
+                self.sendDLData(url: res, fileType: .Update)
             }
         }
         if (chkDLCompatPack.state == .on && chkDLCompatPack.isEnabled && chkDLCompatPack.isHidden == false) {
@@ -49,7 +49,7 @@ class DetailsViewController: NSViewController {
             switch(ct) {
             case .PS3:
                 let url = URL(string: obj.downloadRapFile!)
-                sendDLData(url: url!, download_type: .RAP)
+                sendDLData(url: url!, fileType: .RAP)
             case .PSV:
                 switch(ft) {
                 case .Game:
@@ -57,12 +57,12 @@ class DetailsViewController: NSViewController {
                     
                     if let cpacko: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPack'", titleId!), sorted: nil).first {
                         let url = URL(string: (cpacko!.downloadUrl!))
-                        baseDLItem = Helpers().makeDLItem(data: obj, download_link: url!, download_type: .CPack)
+                        baseDLItem = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPack)
                     }
                     
                     if let cpatcho: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPatch'", titleId!), sorted: nil).first {
                         let url = URL(string: (cpatcho!.downloadUrl!))
-                        let item = Helpers().makeDLItem(data: obj, download_link: url!, download_type: .CPatch)
+                        let item = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPatch)
                         baseDLItem?.doNext = item
                         item.parentItem = baseDLItem
                     }
@@ -100,6 +100,8 @@ class DetailsViewController: NSViewController {
         let ctype: ConsoleType = ConsoleType(rawValue: getROManagedObject().consoleType!)!
         let ftype: FileType = FileType(rawValue: getROManagedObject().fileType!)!
         
+        chkDLGame.title = ftype.rawValue
+        
         switch(ctype) {
         case .PSV:
             switch(ftype) {
@@ -118,12 +120,16 @@ class DetailsViewController: NSViewController {
                         chkDLCompatPack.isHidden = false
                     }
                 }
-                
-            default: break
+            default:
+                chkDLCompatPack.isHidden = true
+                chkDLCompatPack.isEnabled = false
+                chkDLUpdate.isHidden = true
+                chkDLUpdate.isEnabled = false
             }
         case .PS3:
             let rap = getROManagedObject().rap!
             chkDLCompatPack.isHidden = false
+            chkDLUpdate.isHidden = true
             if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
                 chkDLCompatPack.title = rap
                 chkDLCompatPack.isEnabled = false
@@ -154,9 +160,9 @@ class DetailsViewController: NSViewController {
         }
     }
 
-    func sendDLData(url: URL, download_type: DownloadType) {
+    func sendDLData(url: URL, fileType: FileType) {
         let obj = getROManagedObject()
-        let dlItem = Helpers().makeDLItem(data: obj, download_link: url, download_type: download_type)
+        let dlItem = Helpers().makeDLItem(data: obj, downloadUrl: url, fileType: fileType)
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
     

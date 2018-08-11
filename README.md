@@ -24,6 +24,7 @@ defaults delete JK3Y.NPS-Browser
 * Bookmarks can be saved by clicking the star icon in the corner of the details panel.
 * Downloads can be started from the bookmark list
 * Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
+* Compatibility pack support for FW 3.61+
 
 ## Building
 Make sure you have [CocoaPods][] installed.
