@@ -26,19 +26,22 @@ class DownloadManager {
             // .pkg filename
             let pathComponent = response.suggestedFilename!
             let downloadSettings = SettingsManager().getDownloads()
-            let cf = data.getConsole()
-            var path: URL = downloadSettings.library_folder.appendingPathComponent(cf)
+            let cf = data.consoleType
+            var path: URL = downloadSettings.library_folder.appendingPathComponent(cf!)
             path.appendPathComponent(pathComponent)
-            return (path, [.removePreviousFile, .createIntermediateDirectories])
+
+            let decodedurl = path.path.removingPercentEncoding
+            let url = URL(fileURLWithPath: decodedurl!)
+            return (url, [.removePreviousFile, .createIntermediateDirectories])
         }
         return destination
     }
     
     func makeConsoleFolder(dlItem: DLItem) {
         let filepath = SettingsManager().getDownloads().library_folder
-        let console = dlItem.getConsole()
+        let console = dlItem.consoleType
 
-        if (try? Folder(path: filepath.path).createSubfolderIfNeeded(withName: console)) != nil {
+        if (try? Folder(path: filepath.path).createSubfolderIfNeeded(withName: console!)) != nil {
             return
         } else {
             Helpers().getSharedAppDelegate().setupDownloadsDirectory()
@@ -52,7 +55,7 @@ class DownloadManager {
         
         makeConsoleFolder(dlItem: data)
         
-        let request = Alamofire.download(data.download_link!, to: destination)
+        let request = Alamofire.download(data.downloadUrl!, to: destination)
         data.request = request
         data.destination = destination
             
@@ -111,6 +114,8 @@ class DownloadManager {
             Helpers().makeAlert(messageText: "Save Failed",
                                 informativeText: "Download list could not be stored.",
                                 alertStyle: .warning)
+            
+            log.error("Save Failed. Download list could not be stored.")
         }
     }
     
@@ -123,6 +128,8 @@ class DownloadManager {
                 self.downloadItems = downloadList.items
             } catch let error as NSError {
                 debugPrint(error)
+                
+                log.error(error)
             }
         }
     }
@@ -151,7 +158,9 @@ class DownloadManager {
                     }
                     response.result.ifFailure {
                         guard let resumeData = response.resumeData else {
-                            dlItem.status = "Failed! \(response.error.debugDescription)"
+                            dlItem.status = "Failed! \(response.error!)"
+                            log.error(response.error)
+                            
                             dlItem.makeRemovable()
                             return
                         }

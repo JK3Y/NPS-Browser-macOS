@@ -1,5 +1,5 @@
 //
-//  DetailsController.swift
+//  DetailsViewController.swift
 //  NPS Browser
 //
 //  Created by JK3Y on 5/6/18.
@@ -18,69 +18,77 @@ class DetailsViewController: NSViewController {
     @IBOutlet weak var chkDLCompatPack: NSButton!
     
     var windowDelegate: WindowDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
 
     override var representedObject: Any? {
         didSet {
             enableBookmarkButton()
             toggleBookmark()
             enableDownloadOptions()
+            
+            getBoxartViewController().representedObject = representedObject
         }
     }
 
     @IBAction func btnDownloadClicked(_ sender: Any) {
         let obj = getROManagedObject()
-        let type = obj.value(forKey: "type") as! String
-        
+
         var baseDLItem: DLItem? = nil
-        
+
         if (chkDLGame.state == .on) {
-            self.sendDLData(url: obj.value(forKey: "pkg_direct_link") as! URL, download_type: .Game)
+            let url = try? obj.pkgDirectLink!.asURL()
+            self.sendDLData(url: url!, fileType: .Game)
         }
         if (chkDLUpdate.state == .on && chkDLUpdate.isEnabled && chkDLUpdate.isHidden == false) {
-            let url = NetworkManager().getUpdateXMLURLFromHMAC(title_id: getROManagedObject().value(forKey: "title_id") as! String)
+            let url = NetworkManager().getUpdateXMLURLFromHMAC(titleId: getROManagedObject().titleId!)
             let pxml = NetworkManager().fetchUpdateXML(url: url)
             pxml().then { res in
-                self.sendDLData(url: res, download_type: .Patch)
+                self.sendDLData(url: res, fileType: .Update)
             }
         }
         if (chkDLCompatPack.state == .on && chkDLCompatPack.isEnabled && chkDLCompatPack.isHidden == false) {
-            if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
-                sendDLData(url: getROManagedObject().value(forKey: "download_rap_file") as! URL, download_type: .RAP)
-            } else if (type == "PSVGames") {
-                let title_id = getROManagedObject().value(forKey: "title_id") as! String
-
-                if let cpacko: CompatPacksMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) as? CompatPacksMO {
-                    baseDLItem = Helpers().makeDLItem(data: obj, download_link: cpacko.download_url!, download_type: .CPack)
+            let ct: ConsoleType = ConsoleType(rawValue: obj.consoleType!)!
+            let ft: FileType = FileType(rawValue: obj.fileType!)!
+            switch(ct) {
+            case .PS3:
+                let url = URL(string: obj.downloadRapFile!)
+                sendDLData(url: url!, fileType: .RAP)
+            case .PSV:
+                switch(ft) {
+                case .Game:
+                    let titleId = obj.titleId
+                    
+                    if let cpacko: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPack'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpacko!.downloadUrl!))
+                        baseDLItem = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPack)
+                    }
+                    
+                    if let cpatcho: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPatch'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpatcho!.downloadUrl!))
+                        let item = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPatch)
+                        baseDLItem?.doNext = item
+                        item.parentItem = baseDLItem
+                    }
+                    
+                    Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: baseDLItem!)
+                default: break
                 }
-                
-                if let cpatcho:CompatPatchMO = Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id, searchPatches: true) as? CompatPatchMO {
-                    let item = Helpers().makeDLItem(data: obj, download_link: cpatcho.download_url!, download_type: .CPatch)
-                    baseDLItem?.doNext = item
-                    item.parentItem = baseDLItem
-                }
-
-                Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: baseDLItem!)
+            default: break
             }
         }
     }
     
     @IBAction func btnBookmarkToggle(_ sender: NSButton) {
-        let bookmark: Bookmark = Helpers().makeBookmark(data: representedObject as! NSManagedObject)
-
         if (sender.state == .on) {
-            Helpers().getSharedAppDelegate().bookmarkManager.addBookmark(bookmark: bookmark, item: getROManagedObject())
+            let bookmark = Bookmark(item: getROManagedObject())
+            DBManager().store(object: bookmark)
         } else {
-            Helpers().getSharedAppDelegate().bookmarkManager.removeBookmark(bookmark)
+            let bookmark = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", getROManagedObject().uuid)).first
+            DBManager().delete(object: bookmark!)
         }
     }
 
     func enableBookmarkButton() {
-        let link = (getROManagedObject().value(forKey: "pkg_direct_link") as! URL?)?.absoluteString
+        let link = getROManagedObject().pkgDirectLink
         if (link == "MISSING") {
             btnDownload.isEnabled = false
             chkBookmark.isEnabled = false
@@ -91,26 +99,39 @@ class DetailsViewController: NSViewController {
     }
     
     func enableDownloadOptions() {
-        let type = (getROManagedObject().value(forKey: "type") as! String)
+        let ctype: ConsoleType = ConsoleType(rawValue: getROManagedObject().consoleType!)!
+        let ftype: FileType = FileType(rawValue: getROManagedObject().fileType!)!
         
-        if (type == "PSVGames") {
-            let title_id = getROManagedObject().value(forKey: "title_id") as! String
-            chkDLCompatPack.title = "Compat Pack"
-            chkDLGame.isEnabled = true
-            chkDLUpdate.isEnabled = true
-            chkDLUpdate.isHidden = false
-            
-            if (Helpers().getCoreDataIO().searchCompatPacks(searchString: title_id) != nil) {
-                chkDLCompatPack.isEnabled = true
-                chkDLCompatPack.isHidden = false
-            } else {
+        chkDLGame.title = ftype.rawValue
+        
+        switch(ctype) {
+        case .PSV:
+            switch(ftype) {
+            case .Game:
+                let titleId = getROManagedObject().titleId
+                chkDLCompatPack.title = "Compat Pack"
+                chkDLGame.isEnabled = true
+                chkDLUpdate.isEnabled = true
+                chkDLUpdate.isHidden = false
+                
+                try! RealmStorageContext().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@", titleId!)) { result in
+                    if (result.isEmpty) {
+                        chkDLCompatPack.isEnabled = false
+                    } else {
+                        chkDLCompatPack.isEnabled = true
+                        chkDLCompatPack.isHidden = false
+                    }
+                }
+            default:
+                chkDLCompatPack.isHidden = true
                 chkDLCompatPack.isEnabled = false
+                chkDLUpdate.isHidden = true
+                chkDLUpdate.isEnabled = false
             }
-        }
-        
-        else if (type == "PS3Games" || type == "PS3DLCs" || type == "PS3Themes" || type == "PS3Avatars") {
-            let rap = (getROManagedObject().value(forKey: "rap") as! String)
+        case .PS3:
+            let rap = getROManagedObject().rap!
             chkDLCompatPack.isHidden = false
+            chkDLUpdate.isHidden = true
             if (rap == "NOT REQUIRED" || rap == "UNLOCK/LICENSE BY DLC" || rap == "MISSING") {
                 chkDLCompatPack.title = rap
                 chkDLCompatPack.isEnabled = false
@@ -118,38 +139,41 @@ class DetailsViewController: NSViewController {
                 chkDLCompatPack.title = "RAP"
                 chkDLCompatPack.isEnabled = true
             }
-        }
-        
-        else {
+        default:
             chkDLUpdate.isHidden = true
             chkDLCompatPack.isHidden = true
         }
     }
     
     func toggleBookmark() {
-        let bookmark = Helpers().getCoreDataIO().getRecordByUUID(entityName: "Bookmarks", uuid: getROManagedObject().value(forKey: "uuid") as! UUID)
-        
-        if ( bookmark != nil) {
-            chkBookmark.state = .on
-        } else {
+        let predicate = NSPredicate(format: "uuid == %@", getROManagedObject().uuid)
+        let bookmark = DBManager().fetch(Bookmark.self, predicate: predicate)
+
+        if bookmark.isEmpty {
             chkBookmark.state = .off
+        } else {
+            chkBookmark.state = .on
         }
     }
     
-    func toggleBookmark(compareUUID: UUID) {
-        let obj: NSUUID = getROManagedObject().value(forKey: "uuid") as! NSUUID
-        if (obj.isEqual(to: (compareUUID as NSUUID))) {
+    func toggleBookmark(compareUUID: String) {
+        if getROManagedObject().uuid == compareUUID {
             chkBookmark.state = .off
         }
     }
 
-    func sendDLData(url: URL, download_type: DownloadType) {
+    func sendDLData(url: URL, fileType: FileType) {
         let obj = getROManagedObject()
-        let dlItem = Helpers().makeDLItem(data: obj, download_link: url, download_type: download_type)
+        let dlItem = Helpers().makeDLItem(data: obj, downloadUrl: url, fileType: fileType)
         Helpers().getSharedAppDelegate().downloadManager.addToDownloadQueue(data: dlItem)
     }
     
-    func getROManagedObject() -> NSManagedObject {
-        return representedObject as! NSManagedObject
-    }    
+    func getROManagedObject() -> Item {
+        return representedObject as! Item
+    }
+    
+    func getBoxartViewController() -> BoxartViewController {
+        let vc: BoxartViewController = parent?.childViewControllers[1] as! BoxartViewController
+        return vc
+    }
 }

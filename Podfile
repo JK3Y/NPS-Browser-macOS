@@ -10,9 +10,10 @@ target 'NPS Browser' do
   pod 'Alamofire', '~> 4.7'
   pod 'PromisesSwift', '~> 1.2'
   pod 'Queuer'
-  pod 'SWXMLHash', '~> 4.7'
   pod 'SwiftyBeaver'
   pod 'Files', :git => 'https://github.com/JohnSundell/Files.git'
   pod 'Zip', '~> 1.1'
+  pod 'RealmSwift'
+  pod 'Fuzi', '~> 2.1.0'
 
 end

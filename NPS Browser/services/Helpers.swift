@@ -35,11 +35,7 @@ class Helpers {
     func getDataController() -> DataViewController {
         return getWindowDelegate().getDataController()
     }
-    
-    func getCoreDataIO() -> CoreDataIO {
-        return getSharedAppDelegate().coreDataIO
-    }
-    
+        
     func getLoadingViewController() -> LoadingViewController {
         return getWindowDelegate().getLoadingViewController()
     }
@@ -47,8 +43,6 @@ class Helpers {
     func showLoadingViewController() {
         getDataController().presentViewControllerAsSheet(getWindowDelegate().getLoadingViewController())
     }
-    
-    
     
     func getRowObjectFromTableRowButton(_ sender: NSButton) -> Any? {
         var superView = sender.superview
@@ -62,54 +56,18 @@ class Helpers {
         
         return cell.objectValue
     }
-
-    func makeBookmark(data: NSManagedObject) -> Bookmark {
-        if (data.entity.name == "Bookmarks") {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: data.value(forKey: "zrif") as? String ?? nil,
-                            download_link: data.value(forKey: "download_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        } else if (data.entity.name == "PSVGames" ||
-            data.entity.name == "PSVDLCs" ||
-            data.entity.name == "PSVThemes") {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: data.value(forKey: "zrif") as? String,
-                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        } else {
-            return Bookmark(name: data.value(forKey: "name") as! String,
-                            title_id: data.value(forKey: "title_id") as! String,
-                            type: data.value(forKey: "type") as! String,
-                            zrif: nil,
-                            download_link: data.value(forKey: "pkg_direct_link") as? URL,
-                            uuid: data.value(forKey: "uuid") as! UUID)
-        }
-    }
     
-    func makeDLItem(data: NSManagedObject, download_link: URL, download_type: DownloadType) -> DLItem {
-        let type = data.value(forKey: "type") as? String ?? getWindowDelegate().getType()
+    func makeDLItem(data: Item, downloadUrl: URL, fileType: FileType) -> DLItem {
         let obj = DLItem()
+        let ctype: ConsoleType = ConsoleType.init(rawValue: data.consoleType!)!
 
-        obj.type = type
-        obj.title_id        = data.value(forKey: "title_id") as! String? ?? ""
-        obj.name            = "\(download_type.rawValue) - \(data.value(forKey: "name") as! String)" ?? ""
-        obj.download_link   = download_link
-        obj.download_type = download_type.rawValue
+        obj.titleId        = data.titleId
+        obj.name            = "\(fileType.rawValue) - \(data.name!)"
+        obj.downloadUrl   = downloadUrl
+        obj.zrif = data.zrif
+        obj.consoleType = data.consoleType
+        obj.fileType = fileType.rawValue
 
-        switch(type) {
-        case "PSVGames":
-            obj.zrif = (data as! PSVGameMO).zrif ?? ""
-            break
-        case "PSVDLCs":
-            obj.zrif = (data as! PSVDLCMO).zrif ?? ""
-            break
-        default:
-            break
-        }
         return obj
     }
 }

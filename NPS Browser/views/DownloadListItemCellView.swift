@@ -34,23 +34,30 @@ class DownloadListItemCellView: NSTableCellView {
         let extractSettings = SettingsManager().getExtract()
 
         if (extractSettings.extract_after_downloading) {
-            switch (item!.type) {
-            case "PSVGames":
-                dlLoc.appendPathComponent("app/\(item!.title_id!)")
-            case "PSVDLCs":
-                dlLoc.appendPathComponent("addcont/\(item!.title_id!)")
-            case "PSVUpdates":
-                dlLoc.appendPathComponent("patch/\(item!.title_id!)")
-            case "PSVThemes":
-                dlLoc.appendPathComponent("bgdl/t")
-            case "PSPGames":
+            let ct:ConsoleType = ConsoleType(rawValue: item!.consoleType!)!
+            let ft:FileType = FileType(rawValue: item!.fileType!)!
+            
+            dlLoc.appendPathComponent(item!.consoleType!)
+            
+            switch (ct) {
+            case .PSV:
+                switch(ft) {
+                case .Game:
+                    dlLoc.appendPathComponent("app/\(item!.titleId!)")
+                case .DLC:
+                    dlLoc.appendPathComponent("addcont/\(item!.titleId!)")
+                case .Update:
+                    dlLoc.appendPathComponent("patch/\(item!.titleId!)")
+                case .Theme:
+                    dlLoc.appendPathComponent("bgdl/t")
+                default: break
+                }
+            case .PS3:
+                NSWorkspace.shared.open(dlLoc)
+            case .PSP:
                 dlLoc.appendPathComponent("pspemu/ISO")
-            case "PSXGames":
+            case .PSX:
                 dlLoc.appendPathComponent("pspemu/")
-            case "PS3Games", "PS3DLCs", "PS3Themes", "PS3Avatars":
-                NSWorkspace.shared.open(dlLoc)
-            default:
-                NSWorkspace.shared.open(dlLoc)
             }
         }
         

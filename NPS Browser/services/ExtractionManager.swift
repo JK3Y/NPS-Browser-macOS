@@ -21,7 +21,7 @@ class ExtractionManager {
         self.item = item
         Zip.addCustomFileExtension("ppk")
 
-        if (item.type == "PS3Games" || item.type == "PS3DLCs" || item.type == "PS3Themes" || item.type == "PS3Avatars") {
+        if (item.consoleType == "PS3") {
             self.isPS3 = true
         }
     
@@ -34,7 +34,7 @@ class ExtractionManager {
             return
         }
         
-        if (item.download_type == "CPatch" || item.download_type == "CPack") {
+        if (item.fileType == "CPatch" || item.fileType == "CPack") {
             unzipPPK()
         } else {
             usePkg2Zip()
@@ -42,7 +42,7 @@ class ExtractionManager {
     }
     
     func makeRepatchFolder(filepath: URL) -> URL {
-        let fp = filepath.appendingPathComponent(item.getConsole())
+        let fp = filepath.appendingPathComponent(item.consoleType!)
         try! Folder(path: fp.path).createSubfolderIfNeeded(withName: "rePatch")
         
         return fp.appendingPathComponent("rePatch")
@@ -51,9 +51,9 @@ class ExtractionManager {
     func unzipPPK() {
         var filepath = SettingsManager().getDownloads().library_folder
         let rpf = makeRepatchFolder(filepath: filepath)
-        filepath = rpf.appendingPathComponent("\(item.title_id!)")
+        filepath = rpf.appendingPathComponent("\(item.titleId!)")
         
-        if (item.download_type == "CPack") {
+        if (item.fileType == "CPack") {
             do {
                 try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
                 completeDownload(status: "Extraction Complete")
@@ -63,7 +63,7 @@ class ExtractionManager {
             }
         }
         
-        if (item.download_type == "CPatch") {
+        if (item.fileType == "CPatch") {
             do {
                 if (item.cpackPath != nil) {
                     try Zip.unzipFile(item.cpackPath!, destination: filepath, overwrite: true, password: nil)
@@ -88,12 +88,13 @@ class ExtractionManager {
         
         setStatus("Extracting...")
         
-        let pkg2zipPath = Bundle.main.resourcePath! + "/pkg2zip"
+        let pkg2zipPath = Bundle.main.path(forResource: "pkg2zip", ofType: nil)
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryURL = userSettings?.download.library_folder.appendingPathComponent(item.getConsole())
-        task.executableURL = URL(fileURLWithPath: pkg2zipPath)
+        task.currentDirectoryPath = (userSettings?.download.library_folder.appendingPathComponent(item.consoleType!).path)!
+        
+        task.launchPath = pkg2zipPath
         
         task.arguments = getArguments()
         task.standardOutput = pipe
@@ -116,7 +117,7 @@ class ExtractionManager {
         }
         
         do {
-            try task.run()
+            try task.launch()
         } catch let error as NSError {
             debugPrint(error)
         }
@@ -162,7 +163,7 @@ class ExtractionManager {
             arguments.append("-x")
         }
         
-        if (item.type! == "PSPGames" && (extractSettings?.compress_psp_iso)!) { // == true
+        if (item.consoleType! == "PSP" && item.fileType! == "Game" && (extractSettings?.compress_psp_iso)!) { // == true
             arguments.append("-c\(extractSettings?.compression_factor ?? 1)")
         }
         
