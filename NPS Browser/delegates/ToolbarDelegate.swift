@@ -10,7 +10,7 @@ import RealmSwift
 protocol ToolbarDelegate {
     func setArrayControllerContent(content: Results<Item>?)
     
-    func filterByRegion(region: String)
+//    func filterByRegion(region: String)
     
     func filterType(itemType: ItemType, region: String)
 }

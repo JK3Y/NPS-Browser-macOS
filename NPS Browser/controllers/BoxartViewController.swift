@@ -11,12 +11,17 @@ import Cocoa
 class BoxartViewController: NSViewController {
     @IBOutlet weak var imgBoxart: NSImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+    override var representedObject: Any? {
+        didSet {
+            getImage()
+        }
     }
     
     func setImage(url: URL) {
         
+    }
+    
+    func getImage() {
+        Renascene(item: representedObject as! Item).requestImage()
     }
 }

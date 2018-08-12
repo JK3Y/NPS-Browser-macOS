@@ -17,33 +17,35 @@ class NetworkManager {
     
     let settings = SettingsManager().getUrls()
     
-    func getURL() -> URL {
-        guard let url = try? settings.getByType(itemType: itemType!) else {
-            Helpers().makeAlert(messageText: "No URL set for \(self.itemType?.fileType.rawValue)!", informativeText: "Set URL paths in the preferences window.", alertStyle: .warning)
-            Helpers().getDataController().setArrayControllerContent(content: nil)
-            windowDelegate.stopBtnReloadAnimation()
-            
-            log.error("Invalid ItemType given: \(itemType?.description)")
-        }
-        return url!
-    }
-    
     func makeRequest() {
         itemType = windowDelegate.getItemType()
-        let url = getURL()
+        guard let url = settings.getByType(itemType: itemType!) else {
+            Helpers().makeAlert(messageText: "No URL set for \(self.itemType!.console.rawValue) \(self.itemType!.fileType.rawValue)s.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+            windowDelegate.stopBtnReloadAnimation()
+            
+            log.error("Invalid URL given for item type: \(itemType!.description)")
+            return
+        }
         
-        var storage = try! RealmStorageContext()
-        let ft = self.windowDelegate.getItemType().fileType.rawValue
-        let ct = self.windowDelegate.getItemType().console.rawValue
+        if (url.isFileURL) {
+            guard let isReachable = try? url.checkResourceIsReachable() else {
+                Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(url)", alertStyle: .warning)
+                return
+            }
+        }
+
+        let storage = try! RealmStorageContext()
+        let ft:FileType = self.windowDelegate.getItemType().fileType
+        let ct:ConsoleType = self.windowDelegate.getItemType().console
         
         Promise<[TSVData]> { fulfill, reject in
             Helpers().showLoadingViewController()
-            Helpers().getLoadingViewController().setLabel(text: "Requesting data... (step 1/6)")
+            Helpers().getLoadingViewController().setLabel(text: "Requesting data... (step 1/5)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
             
             Alamofire.request(url)
                 .downloadProgress { progress in
-                    self.windowDelegate.getLoadingViewController().setLabel(text: "Receiving data... (step 2/6)")
+                    self.windowDelegate.getLoadingViewController().setLabel(text: "Receiving data... (step 2/5)")
                     self.windowDelegate.getLoadingViewController().setProgress(amount: progress.fractionCompleted / 20)
                 }
                 
@@ -51,7 +53,7 @@ class NetworkManager {
                     let utf8Text = String(data: response.data!, encoding: .utf8)
                     
                     if (response.result.isSuccess) {
-                        self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/6)")
+                        self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/5)")
                         self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
                         let parsedTSV = Parser().parseTSV(data: utf8Text!, itemType: self.itemType!)
                         fulfill(parsedTSV)
@@ -62,15 +64,15 @@ class NetworkManager {
             }
         }
             .then { _ in
-                self.windowDelegate.getLoadingViewController().setLabel(text: "Removing old values... (step 4/6)")
+                self.windowDelegate.getLoadingViewController().setLabel(text: "Removing old values... (step 4/5)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 50)
 
                 do {
-                    try storage.deleteAll(Item.self, predicate: NSPredicate(format: "fileType == %@ AND consoleType == %@", ft, ct))
+                    try storage.deleteAll(Item.self, predicate: NSPredicate(format: "fileType == %@ AND consoleType == %@", ft.rawValue, ct.rawValue))
                 }
         }
             .then { result in
-                self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/6)")
+                self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
                 
                 do {
@@ -79,45 +81,69 @@ class NetworkManager {
                     }
                     DBManager().storeBulk(objArray: objs)
                 }
-            }
+        }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
                 self.windowDelegate.stopBtnReloadAnimation()
         }
             .then { _ in
                 if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
-                    self.makeCompatPackRequests()
+                    guard let cpackurl = SettingsManager().getUrls().compatPacks else {
+                        Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+                        self.windowDelegate.stopBtnReloadAnimation()
+                        
+                        log.error("Invalid URL given for compat packs.")
+                        return
+                    }
+                    
+                    if (cpackurl.isFileURL) {
+                        guard (try? cpackurl.checkResourceIsReachable()) != nil else {
+                            Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpackurl)", alertStyle: .warning)
+                            return
+                        }
+                    }
+                    
+                    if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
+                        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch else {
+                            Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+                            self.windowDelegate.stopBtnReloadAnimation()
+                            
+                            log.error("Invalid URL given for compat patches")
+                            return
+                        }
+                        
+                        if (cpatchurl.isFileURL) {
+                            guard (try? cpatchurl.checkResourceIsReachable()) != nil else {
+                                Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpatchurl)", alertStyle: .warning)
+                                return
+                            }
+                        }
+
+                    
+                        self.makeCompatPackRequestPromise(url: cpackurl, isPatch: false)
+                        .then {_ in
+                            self.makeCompatPackRequestPromise(url: cpatchurl, isPatch: true)
+                        }
+                    }
                 }
         }
-            .then { _ in
-                self.windowDelegate.getDataController().filterType(itemType: self.windowDelegate.getItemType(), region: self.windowDelegate.getRegion())
-        }
-    }
-    
-    func makeCompatPackRequests() {
-        guard let cpackurl: URL = SettingsManager().getUrls().compatPacks ?? URL(string: "") else {
-            log.debug("no compatpack url")
-            return
-        }
-        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch ?? URL(string: "") else {
-            log.debug("no compatpatch url")
-            return
-        }
-
-        makeCompatPackRequestPromise(url: cpackurl, isPatch: false)
-            .then { _ in
-                self.makeCompatPackRequestPromise(url: cpatchurl, isPatch: true)
+            .then {_ in
+                Helpers().getDataController().filterType(itemType: ItemType(console: ct, fileType: ft), region: self.windowDelegate.getRegion())
         }
     }
 
-    func makeCompatPackRequestPromise(url: URL, isPatch: Bool) -> Promise<[CompatPack]> {
+    func makeCompatPackRequestPromise(url: URL, isPatch: Bool) -> Promise<[CompatPack]?> {
+        if url.absoluteString.isEmpty {
+            return Promise(nil)
+        }
+        
         let storage = try! RealmStorageContext()
         
         var typeName: String = "CompatPack"
         if isPatch {
             typeName = "CompatPatch"
         }
-        return Promise<[CompatPack]> { fulfill, reject in
+        return Promise<[CompatPack]?> { fulfill, reject in
             Helpers().showLoadingViewController()
             Helpers().getLoadingViewController().setLabel(text: "Requesting Comp Packs... (step 1/5)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
@@ -131,7 +157,7 @@ class NetworkManager {
                     let utf8Text = String(data: response.data!, encoding: .utf8)
 
                     if (response.result.isSuccess) {
-                        self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/6)")
+                        self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/5)")
                         self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
                         let parsed = Parser().parseCompatPackEntries(data: utf8Text!, isPatch: isPatch, typeName: typeName)
                         fulfill(parsed)
@@ -152,11 +178,11 @@ class NetworkManager {
             .then { result in
                 self.windowDelegate.getLoadingViewController().setLabel(text: "Storing new values... (step 5/5)")
                 self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                DBManager().storeBulk(objArray: result)
+                DBManager().storeBulk(objArray: result!)
             }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
-                self.windowDelegate.stopBtnReloadAnimation()
+//                self.windowDelegate.stopBtnReloadAnimation()
         }
     }
 

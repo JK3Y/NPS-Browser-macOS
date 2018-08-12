@@ -24,18 +24,16 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         super.windowDidLoad()
         let vc: LoadingViewController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "loadingVC")) as! LoadingViewController
         loadingViewController = vc
+        
+        self.delegate = getDataController()
     }
     
     @IBAction func onTypeChanged(_ sender: Any) {
-        self.delegate = getDataController()
-
         delegate?.filterType(itemType: getItemType(), region: getRegion())
     }
     
     @IBAction func onRegionChanged(_ sender: Any) {
-        self.delegate = getDataController()
-        
-        delegate?.filterByRegion(region: getRegion())
+        delegate?.filterType(itemType: getItemType(), region: getRegion())
     }
 
     @IBAction func btnReloadClicked(_ sender: Any) {

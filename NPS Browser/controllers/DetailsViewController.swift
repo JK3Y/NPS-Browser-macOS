@@ -24,6 +24,8 @@ class DetailsViewController: NSViewController {
             enableBookmarkButton()
             toggleBookmark()
             enableDownloadOptions()
+            
+            getBoxartViewController().representedObject = representedObject
         }
     }
 
@@ -170,9 +172,8 @@ class DetailsViewController: NSViewController {
         return representedObject as! Item
     }
     
-//    func getBoxartViewController() -> DetailsViewController {
-//        let sc: NSSplitViewController = parent?.childViewControllers[1] as! NSSplitViewController
-//        let vc: DetailsViewController = sc.childViewControllers[0] as! DetailsViewController
-//        return vc
-//    }
+    func getBoxartViewController() -> BoxartViewController {
+        let vc: BoxartViewController = parent?.childViewControllers[1] as! BoxartViewController
+        return vc
+    }
 }
