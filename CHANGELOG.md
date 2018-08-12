@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.4.0
+## v1.4.0
 ### Added
 - **NOW COMPATIBLE WITH OS 10.10+**
 - The side panel is now split horizontally, with the game artwork displayed on the bottom panel. Artwork is taken from Renascene
@@ -13,7 +13,7 @@
 - "Game" label for download checkbox now changes to fileType (DLC, Theme, etc)
 - Required FW is now properly formatted to the thousandths place if the FW is missing the second decimal place. Eg. 3.2 -> 3.20
 
-## 1.3.7
+## v1.3.7
 ### Added
 - Downloads/extractions are separated into folders based on console type
 
@@ -27,7 +27,7 @@
 - Bug that was displaying the library location in Preferences with "/NPS Downloads" attached instead of the path to the library's parent folder. This was causing the NPS Downloads folder to be created inside the previous NPS Downloads folder.
 - Bug where compat patches weren't being downloaded
 
-## 1.3.6
+## v1.3.6
 ### Added
 - On startup the app checks for the folder "NPS Downloads" at the given download location specified in Preferences. By default this folder is the Downloads folder. If "~/Downloads/NPS Downloads" does not exist it will be created.
 - Better logging!
