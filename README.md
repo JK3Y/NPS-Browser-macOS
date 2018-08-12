@@ -50,12 +50,13 @@ Export an app bundle by going to Product > Archive > Export.
 * [AlamoFire][]
 * [Promises][]
 * [Queuer][]
-* [SWXMLHash][]
+* [Fuzi][]
 * [Files][]
 * [Zip][]
 
 [Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
 [Screenshots]: https://imgur.com/gallery/9VLxpOm
+[CocoaPods]: https://cocoapods.org
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip
 [vitanpupdatelinks]: https://github.com/devnoname120/vitanpupdatelinks
@@ -63,7 +64,6 @@ Export an app bundle by going to Product > Archive > Export.
 [AlamoFire]:https://github.com/Alamofire/Alamofire
 [Promises]:https://github.com/google/promises
 [Queuer]:https://github.com/FabrizioBrancati/Queuer
-[SWXMLHash]: https://github.com/drmohundro/SWXMLHash
+[Fuzi]: https://github.com/cezheng/Fuzi
 [Files]: https://github.com/JohnSundell/Files
 [Zip]: https://github.com/marmelroy/Zip
-[CocoaPods]: https://cocoapods.org

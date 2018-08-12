@@ -1418,11 +1418,11 @@
             <objects>
                 <viewController title="Boxart View" showSeguePresentationStyle="single" id="oQp-IL-ICL" customClass="BoxartViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="57b-td-7BK">
-                        <rect key="frame" x="0.0" y="0.0" width="273" height="168"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="332"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-B1-tSc">
-                                <rect key="frame" x="20" y="20" width="233" height="128"/>
+                                <rect key="frame" x="20" y="20" width="233" height="292"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSQuickLookTemplate" id="lXm-eq-SzH"/>
                             </imageView>
                         </subviews>
@@ -1439,7 +1439,7 @@
                 </viewController>
                 <customObject id="nCm-GB-QxV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1219" y="1744"/>
+            <point key="canvasLocation" x="-1218.5" y="1867"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="XAb-Oy-g8a">
@@ -1718,11 +1718,11 @@
             <objects>
                 <viewController title="Details View Controller" showSeguePresentationStyle="single" id="n9v-5p-6cD" customClass="DetailsViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="H9H-LI-MqF">
-                        <rect key="frame" x="0.0" y="0.0" width="273" height="532"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="389"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0vg-8l-O1H" userLabel="Bookmark">
-                                <rect key="frame" x="240" y="499" width="25" height="25"/>
+                                <rect key="frame" x="240" y="356" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="cJI-ba-FT8"/>
                                     <constraint firstAttribute="width" constant="25" id="i4S-21-pJ3"/>
@@ -1741,7 +1741,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="F5X-qz-juG" userLabel="Name">
-                                <rect key="frame" x="18" y="441" width="249" height="58"/>
+                                <rect key="frame" x="18" y="298" width="249" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="K2e-Sd-Nzp"/>
                                 </constraints>
@@ -1794,7 +1794,7 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     <connections>
-                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.required_fw" id="OpC-NJ-Azl">
+                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.requiredFw" id="34S-RY-qQb">
                                             <dictionary key="options">
                                                 <string key="NSNoSelectionPlaceholder">--</string>
                                                 <string key="NSNotApplicablePlaceholder">N/A</string>
@@ -1933,7 +1933,7 @@
                 </viewController>
                 <customObject id="jFT-Ju-8NY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1218.5" y="1368"/>
+            <point key="canvasLocation" x="-1218.5" y="1439.5"/>
         </scene>
         <!--Download Progress View Controller-->
         <scene sceneID="X8h-Gp-760">
