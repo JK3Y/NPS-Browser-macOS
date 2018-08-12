@@ -3,23 +3,25 @@ PODS:
   - AlamofireImage (3.3.1):
     - Alamofire (~> 4.5)
   - Files (2.0.1)
+  - Fuzi (2.1.0)
   - PromisesObjC (1.2.3)
   - PromisesSwift (1.2.3):
     - PromisesObjC (= 1.2.3)
   - Queuer (1.3.2)
-  - Realm (3.7.5):
-    - Realm/Headers (= 3.7.5)
-  - Realm/Headers (3.7.5)
-  - RealmSwift (3.7.5):
-    - Realm (= 3.7.5)
+  - Realm (3.7.6):
+    - Realm/Headers (= 3.7.6)
+  - Realm/Headers (3.7.6)
+  - RealmSwift (3.7.6):
+    - Realm (= 3.7.6)
   - SwiftyBeaver (1.6.0)
-  - SWXMLHash (4.7.0)
+  - SWXMLHash (4.7.1)
   - Zip (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireImage (~> 3.3)
   - Files (from `https://github.com/JohnSundell/Files.git`)
+  - Fuzi (~> 2.1.0)
   - PromisesSwift (~> 1.2)
   - Queuer
   - RealmSwift
@@ -31,6 +33,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - Fuzi
     - PromisesObjC
     - PromisesSwift
     - Queuer
@@ -53,15 +56,16 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   Files: dd0aa68aa068e87c60ec844b13e0a95179e2fb62
+  Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
   PromisesObjC: a3a4263d8a9260214267e0b3788d0f83466ad449
   PromisesSwift: f7f45c21986419e85f7c5b645ed8c6a2c10c04b4
   Queuer: 1d4953c0ce3d674a2da01951e61dc0595e90e7cb
-  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
-  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
+  Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
+  RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
-  SWXMLHash: f4522438189f72b41e39676d19469a8969d60dd1
+  SWXMLHash: 661b67bc94a01fe71a6ad4ca690cf2cafa5d1d6f
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: bd509125706690cbc64b8d1fdb6577c7834d7f08
+PODFILE CHECKSUM: 413cc66b57d8078c5ba6ed6215c692f4d048bc89
 
 COCOAPODS: 1.5.3

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SWXMLHash
+import Fuzi
 
 class Parser {
     func parseTSV(data: String, itemType: ItemType) -> [TSVData] {
@@ -51,24 +51,28 @@ class Parser {
     }
 
     func parseUpdateXML(data: String) -> URL? {
-        guard let xml = try? SWXMLHash.parse(data) else {
-            return nil
-        }
-
-        let subindexer = xml["titlepatch"]["tag"]
-
-        guard let lastpkg = subindexer.children.last else {
-            return nil
-        }
-
+        let xml = data
         var x: String?
-
+        
         do {
-            x = try lastpkg.byKey("hybrid_package").element?.attribute(by: "url")?.name
-        } catch {
-            x = try lastpkg.element?.attribute(by: "url")?.text
+            let document = try XMLDocument(string: xml)
+            
+            if let root = document.root {
+                guard let lastpkg = root.firstChild(tag: "tag")?.children.last else {
+                    return nil
+                }
+                
+                var hp = lastpkg.firstChild(tag: "hybrid_package")
+                if hp == nil {
+                    x = lastpkg.attributes["url"]
+                } else {
+                    x = hp?.attributes["url"]
+                }
+            }
+        } catch let error {
+            log.error(error)
         }
-
+        
         return URL(string: x!)
     }
 }
