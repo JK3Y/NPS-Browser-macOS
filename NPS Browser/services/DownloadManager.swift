@@ -29,7 +29,10 @@ class DownloadManager {
             let cf = data.consoleType
             var path: URL = downloadSettings.library_folder.appendingPathComponent(cf!)
             path.appendPathComponent(pathComponent)
-            return (path, [.removePreviousFile, .createIntermediateDirectories])
+
+            let decodedurl = path.path.removingPercentEncoding
+            let url = URL(fileURLWithPath: decodedurl!)
+            return (url, [.removePreviousFile, .createIntermediateDirectories])
         }
         return destination
     }
@@ -111,6 +114,8 @@ class DownloadManager {
             Helpers().makeAlert(messageText: "Save Failed",
                                 informativeText: "Download list could not be stored.",
                                 alertStyle: .warning)
+            
+            log.error("Save Failed. Download list could not be stored.")
         }
     }
     
@@ -123,6 +128,8 @@ class DownloadManager {
                 self.downloadItems = downloadList.items
             } catch let error as NSError {
                 debugPrint(error)
+                
+                log.error(error)
             }
         }
     }
@@ -151,7 +158,9 @@ class DownloadManager {
                     }
                     response.result.ifFailure {
                         guard let resumeData = response.resumeData else {
-                            dlItem.status = "Failed! \(response.error.debugDescription)"
+                            dlItem.status = "Failed! \(response.error!)"
+                            log.error(response.error)
+                            
                             dlItem.makeRemovable()
                             return
                         }

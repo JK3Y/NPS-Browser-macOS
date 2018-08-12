@@ -13,4 +13,6 @@ protocol ToolbarDelegate {
 //    func filterByRegion(region: String)
     
     func filterType(itemType: ItemType, region: String)
+    
+    func filterString(itemType: ItemType, region: String, searchString: String)
 }

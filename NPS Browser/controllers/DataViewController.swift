@@ -50,13 +50,17 @@ class DataViewController: NSViewController, ToolbarDelegate {
     
     func filterType(itemType: ItemType, region: String) {
         let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@", itemType.console.rawValue, itemType.fileType.rawValue, region)
-            
         let objects = items!.filter(p)
         
         if objects.isEmpty {
             NetworkManager().makeRequest()
         }
-            
+        setArrayControllerContent(content: objects)
+    }
+    
+    func filterString(itemType: ItemType, region: String, searchString: String) {
+        let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND name contains[c] %@ AND pkgDirectLink != 'MISSING'", itemType.console.rawValue, itemType.fileType.rawValue, region, searchString)
+        let objects = items!.filter(p) ?? nil
         setArrayControllerContent(content: objects)
     }
     

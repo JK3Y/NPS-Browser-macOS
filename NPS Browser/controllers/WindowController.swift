@@ -42,16 +42,13 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
     @IBAction func onFilterSearchBar(_ sender: NSSearchField) {
-//        self.delegate = getDataController()
-//        let searchString = tbSearchBar.stringValue
-//
-//        if (searchString.isEmpty) {
-//            let content = CoreDataIO().getRecords()
-//            delegate?.setArrayControllerContent(content: content)
-//        } else {
-//            let content = CoreDataIO().searchRecords(searchString: searchString)
-//            delegate?.setArrayControllerContent(content: content)
-//        }
+        let searchString = tbSearchBar.stringValue
+        
+        if (!searchString.isEmpty) {
+            delegate?.filterString(itemType: getItemType(), region: getRegion(), searchString: searchString)
+        } else {
+            delegate?.filterType(itemType: getItemType(), region: getRegion())
+        }
     }
     
     func getDataController() -> DataViewController {

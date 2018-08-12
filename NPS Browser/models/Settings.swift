@@ -100,12 +100,12 @@ struct DownloadSettings: Codable {
     init(){
         self.library_location      = try! NSHomeDirectory().asURL().appendingPathComponent("Downloads")
         self.concurrent_downloads   = 3
-        self.library_folder = library_location.appendingPathComponent("NPS Downloads")
+        self.library_folder = library_location.appendingPathComponent("NPS Downloads", isDirectory: true)
     }
     init(library_location: URL, concurrent_downloads: Int) {
         self.library_location      = library_location
         self.concurrent_downloads   = concurrent_downloads
-        self.library_folder = library_location.appendingPathComponent("NPS Downloads")
+        self.library_folder = library_location.appendingPathComponent("NPS Downloads", isDirectory: true)
     }
 }
 
