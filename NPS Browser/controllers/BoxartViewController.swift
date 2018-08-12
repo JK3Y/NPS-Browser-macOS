@@ -18,10 +18,19 @@ class BoxartViewController: NSViewController {
     }
     
     func setImage(url: URL) {
-        
+        let i = NSImage(contentsOf: url)
+        self.imgBoxart.sizeToFit()
+        self.imgBoxart.image = i
     }
     
     func getImage() {
-        Renascene(item: representedObject as! Item).requestImage()
+        let rs = Renascene(item: representedObject as! Item)
+        let f = rs.fetch()
+        
+        f().then { url in
+
+            self.setImage(url: url)
+
+        }
     }
 }

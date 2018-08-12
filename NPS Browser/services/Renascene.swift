@@ -8,19 +8,28 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
+import Promises
+import Fuzi
 
 class Renascene {
     
     var item: Item
     var consoleType: ConsoleType
+    var searchResultsUrl: String?
+    var imageUrl: URL?
     
     init(item: Item) {
         self.item = item
         self.consoleType = ConsoleType(rawValue: item.consoleType!)!
     }
     
-    func getUrl(titleId: String) -> URL {
+    func fetch() -> (() -> (Promise<URL>)) {
+        return {
+            self.getSearchResultsUrl().then(self.getImageUrl)
+        }
+    }
+    
+    func getSearchUrl(titleId: String) -> URL {
         var url: URL
         switch (consoleType) {
         case .PSV:
@@ -35,15 +44,73 @@ class Renascene {
         return url
     }
     
-    func requestImage() {
-        let url = getUrl(titleId: item.titleId!)
-        Alamofire.request(url)
-            .responseString { response in
-//                let html = response
-//                
-//                if let doc: HTMLDocument = try? HTML(html: html, encoding: .utf8) {
-//                    debugPrint(doc.title)
-//                }
+    func getImageUrl(url: String) -> Promise<URL> {
+        return Promise<URL> {fulfill, reject in
+            Alamofire.request(url)
+                .responseString {response in
+                    if let string = self.parseRsItem(html: response.data) {
+                        let url = URL(string: string)
+                        self.imageUrl = url
+                        
+                        fulfill(url!)
+                        return
+                    } else {
+                        reject(response.error!)
+                        
+                        log.error(response.error!)
+                    }
+                }
+            }
+        
+    }
+    
+    func getSearchResultsUrl() -> Promise<String> {
+        return Promise<String> {fulfill, reject in
+            let url = self.getSearchUrl(titleId: self.item.titleId!)
+            Alamofire.request(url)
+                .responseString { response in
+                    let html = response.data
+                    
+                    if let sr = self.parseRsSearchResults(html: html) {
+                        self.searchResultsUrl = sr
+                        
+                        fulfill(sr)
+                        return
+                    } else {
+                        reject(response.error!)
+                        
+                        log.error(response.error!)
+                    }
+                }
         }
+        
+    }
+    
+    func parseRsSearchResults(html: Data?) -> String? {
+        let doc: HTMLDocument
+        do {
+            doc = try HTMLDocument(data: html!)
+            
+            if let rsDBUrl = doc.firstChild(css: "td.l > a") {
+                return rsDBUrl["href"]!
+            }
+        } catch let error {
+            log.error(error)
+        }
+        return nil
+    }
+    
+    func parseRsItem(html: Data?) -> String? {
+        let doc: HTMLDocument
+        do {
+            doc = try HTMLDocument(data: html!)
+
+            if let imgUrl = doc.firstChild(css: "td > following-sibling::td[width='300pt'] > img") {
+                return imgUrl["src"]!
+            }
+        } catch let error {
+            log.error(error)
+        }
+        return nil
     }
 }

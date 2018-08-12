@@ -1418,11 +1418,11 @@
             <objects>
                 <viewController title="Boxart View" showSeguePresentationStyle="single" id="oQp-IL-ICL" customClass="BoxartViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="57b-td-7BK">
-                        <rect key="frame" x="0.0" y="0.0" width="273" height="108"/>
+                        <rect key="frame" x="0.0" y="0.0" width="273" height="168"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-B1-tSc">
-                                <rect key="frame" x="20" y="20" width="233" height="68"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-B1-tSc">
+                                <rect key="frame" x="20" y="20" width="233" height="128"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSQuickLookTemplate" id="lXm-eq-SzH"/>
                             </imageView>
                         </subviews>

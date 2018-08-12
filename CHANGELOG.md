@@ -3,7 +3,7 @@
 ## 1.4.0
 ### Added
 - **NOW COMPATIBLE WITH OS 10.10+**
-- The side panel is now split horizontally, with the game boxart displayed on the bottom panel
+- The side panel is now split horizontally, with the game artwork displayed on the bottom panel. Artwork is taken from Renascene
 
 ### Changed
 - Database has been changed over from Core Data to Realm. This allows for the database to be Apple-independant and code can be used in future Android and Linux ports.
@@ -11,9 +11,6 @@
 
 ### Fixed
 - "Game" label for download checkbox now changes to fileType (DLC, Theme, etc)
-
-### TODO:
-- Renascene HTML Parsing
 
 ## 1.3.7
 ### Added
