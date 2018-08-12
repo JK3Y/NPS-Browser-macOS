@@ -15,6 +15,7 @@ A Swift 4 implementation of NPS Browser.
 * Downloads can be started from the bookmark list
 * Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
 * Compatibility pack support for FW 3.61+
+* Game artwork is displayed
 
 ## Removal
 After moving to trash, run:
