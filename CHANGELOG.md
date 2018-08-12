@@ -11,6 +11,7 @@
 
 ### Fixed
 - "Game" label for download checkbox now changes to fileType (DLC, Theme, etc)
+- Required FW is now properly formatted to the thousandths place if the FW is missing the second decimal place. Eg. 3.2 -> 3.20
 
 ## 1.3.7
 ### Added
