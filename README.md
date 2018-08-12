@@ -2,15 +2,19 @@
 
 A Swift 4 implementation of NPS Browser.
 
-#### [Download][]
-
-#### [Screenshots][]
+![](/Screenshots/Screen%20Shot%202018-08-12%20at%2012.53.48%20PM.png?raw=true)
 
 ## Usage
 **Requires macOS 10.10+**
 
 * Set URLs and extraction preferences in the Preferences window
 * Click the refresh button in the corner of the window to pull fresh data from the server. 
+
+## Features
+* Bookmarks can be saved by clicking the star icon in the corner of the details panel.
+* Downloads can be started from the bookmark list
+* Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
+* Compatibility pack support for FW 3.61+
 
 ## Removal
 After moving to trash, run:
@@ -19,12 +23,6 @@ rm -r ~/Library/Application\ Support/JK3Y.NPS-Browser/
 rm -r ~/Library/Caches/JK3Y.NPS-Browser
 defaults delete JK3Y.NPS-Browser
 ```
-
-## Features
-* Bookmarks can be saved by clicking the star icon in the corner of the details panel.
-* Downloads can be started from the bookmark list
-* Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
-* Compatibility pack support for FW 3.61+
 
 ## Building
 Make sure you have [CocoaPods][] installed.
@@ -55,7 +53,6 @@ Export an app bundle by going to Product > Archive > Export.
 * [Zip][]
 
 [Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
-[Screenshots]: https://imgur.com/gallery/9VLxpOm
 [CocoaPods]: https://cocoapods.org
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip

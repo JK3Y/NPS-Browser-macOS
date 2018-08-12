@@ -22,8 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Insert code here to initialize your application
         setupSwiftyBeaverLogging()
         setupDownloadsDirectory()
-        
-//        populateMasterTable()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -34,23 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
-    
-//    func populateMasterTable() {
-//        let it = Helpers().getWindowDelegate().getItemType()
-//        let ct = it.console.rawValue
-//        let ft = it.fileType.rawValue
-//        let reg = Helpers().getWindowDelegate().getRegion()
-//
-//        var items = try! Realm().objects(Item.self)
-//        if (items.isEmpty) {
-//            NetworkManager().makeRequest()
-//        } else {
-//            Helpers().getDataController().setArrayControllerContent(content: items.filter(NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND pkgDirectLink != 'MISSING'", ct, ft, reg)))
-//            
-//            Helpers().getDataController().items = items
-//        }
-//    }
-    
+
     func setupSwiftyBeaverLogging() {
         let console = ConsoleDestination()
         let file = FileDestination()
