@@ -8,32 +8,37 @@
 
 import Cocoa
 
-class BoxartViewController: NSViewController {
+class BoxartViewController: NSViewController, GameArtworkDelegate {
     @IBOutlet weak var imgBoxart: NSImageView!
     
     override var representedObject: Any? {
         didSet {
+            imgBoxart.image = nil
+            
             getImage()
         }
     }
     
-//    func setImage(url: URL) {
-//
-//        let i = NSImage(contentsOf: url)
-//        self.imgBoxart.sizeToFit()
-//        self.imgBoxart.image = i
-//    }
+    func setImage(image: NSImage) {
+        self.imgBoxart.sizeToFit()
+        self.imgBoxart.image = image
+    }
     
     func getImage() {
         let rs = Renascene(item: representedObject as! Item)
         let f = rs.fetch()
         
         f().then { url in
-
-//            self.setImage(url: url)
-            let i = NSImage(contentsOf: url)
-            self.imgBoxart.sizeToFit()
-            self.imgBoxart.image = i
+            if let i = NSImage(contentsOf: url) {
+                self.setImage(image: i)
+            } else {
+                self.noImage()
+            }
         }
+    }
+    
+    func noImage() {
+        let img = #imageLiteral(resourceName: "no-image")
+        setImage(image: img)
     }
 }

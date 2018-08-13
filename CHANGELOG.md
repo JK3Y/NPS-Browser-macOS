@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.1
+### Changed
+- Changed placeholder image for game artwork
+
+### Fixed
+- Bug causing app to crash if no game artwork was found on Renascene.
+- Some PSV titles that are cart-only with no zrif weren't being filtered out
+
 ## v1.4.0
 ### Added
 - **NOW COMPATIBLE WITH OS 10.10+**

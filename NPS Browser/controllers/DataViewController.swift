@@ -48,8 +48,24 @@ class DataViewController: NSViewController, ToolbarDelegate {
         }
     }
     
+    func makePredicateString() -> String {
+        var str = "consoleType == %@ AND fileType == %@ AND region == %@ "
+        let it = windowDelegate.getItemType()
+        
+        if SettingsManager().getDisplay().hide_invalid_url_items {
+            str.append(" AND pkgDirectLink != 'MISSING'")
+            
+            switch( it.console ) {
+            case .PSV:
+                str.append(" AND zrif != 'MISSING'")
+            default: break
+            }
+        }
+        return str
+    }
+    
     func filterType(itemType: ItemType, region: String) {
-        let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@", itemType.console.rawValue, itemType.fileType.rawValue, region)
+        let p = NSPredicate(format: makePredicateString(), itemType.console.rawValue, itemType.fileType.rawValue, region)
         let objects = items!.filter(p)
         
         if objects.isEmpty {
@@ -59,8 +75,12 @@ class DataViewController: NSViewController, ToolbarDelegate {
     }
     
     func filterString(itemType: ItemType, region: String, searchString: String) {
-        let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND name contains[c] %@ AND pkgDirectLink != 'MISSING'", itemType.console.rawValue, itemType.fileType.rawValue, region, searchString)
-        let objects = items!.filter(p) ?? nil
+//        let p = NSPredicate(format: "consoleType == %@ AND fileType == %@ AND region == %@ AND name contains[c] %@ AND pkgDirectLink != 'MISSING'", itemType.console.rawValue, itemType.fileType.rawValue, region, searchString)
+        var p = makePredicateString()
+        p.append(" AND name contains[c] %@")
+        var q = NSPredicate(format: p, itemType.console.rawValue, itemType.fileType.rawValue, region, searchString)
+
+        let objects = items!.filter(q) ?? nil
         setArrayControllerContent(content: objects)
     }
     

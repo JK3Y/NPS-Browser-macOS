@@ -1423,7 +1423,7 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-B1-tSc">
                                 <rect key="frame" x="20" y="20" width="233" height="292"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSQuickLookTemplate" id="lXm-eq-SzH"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="no-image" id="lXm-eq-SzH"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -2205,11 +2205,11 @@
         <image name="Follow Link" width="24" height="24"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSFolder" width="32" height="32"/>
-        <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSTouchBarDownloadTemplate" width="18" height="30"/>
         <image name="Remove" width="11" height="11"/>
         <image name="Start" width="22" height="25"/>
         <image name="Stop" width="12" height="12"/>
+        <image name="no-image" width="525" height="421"/>
     </resources>
 </document>

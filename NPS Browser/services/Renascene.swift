@@ -17,10 +17,13 @@ class Renascene {
     var consoleType: ConsoleType
     var searchResultsUrl: String?
     var imageUrl: URL?
+    var delegate: GameArtworkDelegate?
     
     init(item: Item) {
         self.item = item
         self.consoleType = ConsoleType(rawValue: item.consoleType!)!
+        
+        self.delegate = Helpers().getDataController().getDetailsViewController().getBoxartViewController()
     }
     
     func fetch() -> (() -> (Promise<URL>)) {
@@ -55,9 +58,10 @@ class Renascene {
                         fulfill(url!)
                         return
                     } else {
-                        reject(response.error!)
+                        log.error(response.error)
                         
-                        log.error(response.error!)
+                        self.delegate?.noImage()
+                        return
                     }
                 }
             }
@@ -77,9 +81,11 @@ class Renascene {
                         fulfill(sr)
                         return
                     } else {
-                        reject(response.error!)
+                        log.error(response.error)
                         
-                        log.error(response.error!)
+                        self.delegate?.noImage()
+                        
+                        return
                     }
                 }
         }

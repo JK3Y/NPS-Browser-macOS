@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */; };
 		5108B79E211641190065BA71 /* TSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108B79D211641190065BA71 /* TSVData.swift */; };
+		511BB9D92120FE3E004F4860 /* GameArtworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511BB9D82120FE3E004F4860 /* GameArtworkDelegate.swift */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
 		5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.debug.xcconfig"; sourceTree = "<group>"; };
 		5108B79D211641190065BA71 /* TSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVData.swift; sourceTree = "<group>"; };
+		511BB9D82120FE3E004F4860 /* GameArtworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArtworkDelegate.swift; sourceTree = "<group>"; };
 		5121752E20A73EBC00772C86 /* NPS Browser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NPS Browser.entitlements"; sourceTree = "<group>"; };
 		512175A720A7D28B00772C86 /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
 		5139DF86209F6DE9004F65F9 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				515B77B420AF794500C7B07D /* ToolbarDelegate.swift */,
 				512175A720A7D28B00772C86 /* WindowDelegate.swift */,
 				51932D9820DF06C700F44520 /* LoadingViewDelegate.swift */,
+				511BB9D82120FE3E004F4860 /* GameArtworkDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */,
 				5192CE88211F1977004A2E90 /* LayerAPI.swift in Sources */,
 				51ABB7572115D8A3009C98DA /* Item.swift in Sources */,
+				511BB9D92120FE3E004F4860 /* GameArtworkDelegate.swift in Sources */,
 				512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */,
 				517FD72321153C5100E56CB6 /* Renascene.swift in Sources */,
 				5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */,
