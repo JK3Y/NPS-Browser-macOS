@@ -6,7 +6,8 @@
 
 ### Changed
 - Preferences window layout. Is now more legible and is broken up into different setting groups.
-# TODO: Change download icon
+- Changed downloads icon to an image that's compatible with macOS 10.10
+- Added a minimum window width to prevent toolbar items from collapsing into an unusable menu
 
 ### Fixed
 # TODO: Validate sources URLs upon saving Preferences
