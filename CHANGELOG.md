@@ -5,6 +5,7 @@
 # TODO: Github Auto-updater
 
 ### Changed
+- Reload button is no longer located in the toolbar. There is a menu titled "Database" that contains an option to reload. There is also a keyboard shortcut available - ⌘R
 - Preferences window layout. Is now more legible and is broken up into different setting groups.
 - Changed downloads icon to an image that's compatible with macOS 10.10
 - Added a minimum window width to prevent toolbar items from collapsing into an unusable menu

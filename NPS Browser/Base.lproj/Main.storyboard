@@ -62,39 +62,17 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Database" id="A3e-Pg-gZW">
                                     <items>
-                                        <menuItem title="Reload" keyEquivalent="r" id="yf5-If-lyN"/>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="View" id="H8h-7b-M4v">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="View" id="HyV-fh-RgO">
-                                    <items>
-                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        <menuItem title="Reload" keyEquivalent="r" id="yf5-If-lyN">
                                             <connections>
-                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="BXY-wc-z0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
-                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                        </menuItem>
-                                        <menuItem title="Show Artwork" enabled="NO" id="q2Y-nT-YCy" userLabel="Show Artwork">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
-                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
+                                                <action selector="reloadDatabase:" target="Ady-hI-5gd" id="hV7-bI-NVs"/>
                                             </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Edit" hidden="YES" enabled="NO" id="5QF-Oa-p0T">
+                            <menuItem title="Edit" allowsKeyEquivalentWhenHidden="YES" id="5QF-Oa-p0T">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Edit" id="W48-6f-4Dl">
+                                <menu key="submenu" title="Edit" autoenablesItems="NO" id="W48-6f-4Dl">
                                     <items>
                                         <menuItem title="Undo" enabled="NO" keyEquivalent="z" id="dRJ-4n-Yzg">
                                             <connections>
@@ -290,6 +268,32 @@
                                                     </menuItem>
                                                 </items>
                                             </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="View" id="H8h-7b-M4v">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="View" id="HyV-fh-RgO">
+                                    <items>
+                                        <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleToolbarShown:" target="Ady-hI-5gd" id="BXY-wc-z0C"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
+                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Show Artwork" enabled="NO" id="q2Y-nT-YCy" userLabel="Show Artwork">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -637,9 +641,6 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <connections>
-                                                    <action selector="btnReloadClicked:" target="wh3-3u-Qnj" id="J2g-aw-BCV"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -683,7 +684,6 @@
                     <connections>
                         <outlet property="progressSpinner" destination="E0v-ge-S60" id="DE2-k1-hf2"/>
                         <outlet property="tbRegion" destination="5DJ-Vn-CX3" id="HJY-XG-o67"/>
-                        <outlet property="tbReload" destination="v2V-SS-WqE" id="tOx-FE-IRX"/>
                         <outlet property="tbSearchBar" destination="e3p-xw-D6U" id="6hs-Wb-8tk"/>
                         <outlet property="tbType" destination="vLX-UE-RVQ" id="PWW-oI-4e8"/>
                         <outlet property="toolbar" destination="phv-2f-UYc" id="qbw-vC-94c"/>
@@ -2068,7 +2068,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lvt-HJ-Cae">
-                                            <rect key="frame" x="81" y="27" width="179" height="22"/>
+                                            <rect key="frame" x="81" y="27" width="199" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Library Location" usesSingleLineMode="YES" bezelStyle="round" id="OIE-2C-WJg">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2091,11 +2091,11 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="650-6s-Qbl" userLabel="Choose Folder">
-                                            <rect key="frame" x="262" y="21" width="57" height="32"/>
+                                            <rect key="frame" x="282" y="21" width="41" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="yW9-kg-5TG"/>
+                                                <constraint firstAttribute="width" constant="29" id="yW9-kg-5TG"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSFolder" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZQv-WX-FIj">
+                                            <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZQv-WX-FIj">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -2112,7 +2112,7 @@
                                         <constraint firstItem="htK-pk-Qi7" firstAttribute="leading" secondItem="C7p-Ah-3RJ" secondAttribute="leading" constant="20" symbolic="YES" id="Njx-ua-Dnv"/>
                                         <constraint firstItem="jSM-Tr-Zqs" firstAttribute="leading" secondItem="C7p-Ah-3RJ" secondAttribute="leading" constant="21" id="QUq-wl-SCi"/>
                                         <constraint firstItem="Lvt-HJ-Cae" firstAttribute="top" secondItem="hWR-1M-0IT" secondAttribute="bottom" constant="6" id="SFG-eA-3qu"/>
-                                        <constraint firstAttribute="trailing" secondItem="650-6s-Qbl" secondAttribute="trailing" constant="24" id="bw6-hm-LSr"/>
+                                        <constraint firstAttribute="trailing" secondItem="650-6s-Qbl" secondAttribute="trailing" constant="20" id="bw6-hm-LSr"/>
                                         <constraint firstItem="htK-pk-Qi7" firstAttribute="centerY" secondItem="hWR-1M-0IT" secondAttribute="centerY" id="ehn-9r-F7u"/>
                                         <constraint firstItem="jSM-Tr-Zqs" firstAttribute="centerY" secondItem="Lvt-HJ-Cae" secondAttribute="centerY" id="gqE-bG-tDT"/>
                                         <constraint firstAttribute="bottom" secondItem="Lvt-HJ-Cae" secondAttribute="bottom" constant="27" id="hjv-zk-Ca5"/>
@@ -2128,18 +2128,15 @@
                                     <rect key="frame" x="2" y="2" width="337" height="86"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-JY-Sht">
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-JY-Sht">
                                             <rect key="frame" x="18" y="50" width="194" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Hide items with invalid URLs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="El2-Vr-haN">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Hide items with invalid URLs" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="El2-Vr-haN">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="d7G-JY-Sht" firstAttribute="top" secondItem="wTU-lv-AVT" secondAttribute="top" constant="20" symbolic="YES" id="ZrY-uf-pwJ"/>
-                                        <constraint firstItem="d7G-JY-Sht" firstAttribute="leading" secondItem="wTU-lv-AVT" secondAttribute="leading" constant="20" symbolic="YES" id="fx9-mk-y4V"/>
-                                    </constraints>
                                 </view>
                             </box>
                             <box title="Updates" translatesAutoresizingMaskIntoConstraints="NO" id="lpb-Qp-OL7">
@@ -2283,7 +2280,6 @@
         <image name="Favorite Star Filled" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Follow Link" width="24" height="24"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
-        <image name="NSFolder" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="Remove" width="11" height="11"/>
         <image name="Start" width="22" height="25"/>
