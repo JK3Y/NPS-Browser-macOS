@@ -44,6 +44,7 @@
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
 		51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* SettingsViewController.swift */; };
+		51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E6684C2121447600FC154A /* AppUpdateChecker.swift */; };
 		51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */ = {isa = PBXBuildFile; fileRef = 51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */; };
 		51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE81E2094E094005D44DC /* AppDelegate.swift */; };
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
@@ -91,6 +92,7 @@
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
 		51B1A314209511A6009C799C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		51E6684C2121447600FC154A /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = vitaupdatelinks; sourceTree = "<group>"; };
 		51EBE81B2094E094005D44DC /* NPS Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPS Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EBE81E2094E094005D44DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				517FD72221153C5100E56CB6 /* Renascene.swift */,
 				5192CE7E211E18EA004A2E90 /* NetworkManager.swift */,
 				5192CE82211E31B4004A2E90 /* DBManager.swift */,
+				51E6684C2121447600FC154A /* AppUpdateChecker.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
 				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
@@ -381,6 +385,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
@@ -407,6 +412,7 @@
 				5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */,
 				519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */,
 				5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */,
+				51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */,
 				515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */,
 				51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */,
 				518BF15920B2260100A8044C /* Settings.swift in Sources */,
@@ -578,10 +584,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -604,10 +607,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";

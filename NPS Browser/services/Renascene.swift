@@ -89,7 +89,6 @@ class Renascene {
                     }
                 }
         }
-        
     }
     
     func parseRsSearchResults(html: Data?) -> String? {
