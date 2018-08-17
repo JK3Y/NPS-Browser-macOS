@@ -1,5 +1,5 @@
 //
-//  BoxartViewController.swift
+//  GameArtworkViewController.swift
 //  NPS Browser
 //
 //  Created by JK3Y on 8/3/18.
@@ -9,7 +9,7 @@
 import Cocoa
 import Alamofire
 
-class BoxartViewController: NSViewController, GameArtworkDelegate {
+class GameArtworkViewController: NSViewController, GameArtworkDelegate {
     @IBOutlet weak var imgBoxart: NSImageView!
     
     override var representedObject: Any? {

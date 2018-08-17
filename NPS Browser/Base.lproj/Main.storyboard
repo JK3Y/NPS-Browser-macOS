@@ -747,7 +747,7 @@
         <!--Boxart View-->
         <scene sceneID="Bo8-qb-4xj">
             <objects>
-                <viewController title="Boxart View" showSeguePresentationStyle="single" id="oQp-IL-ICL" customClass="BoxartViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Boxart View" showSeguePresentationStyle="single" id="oQp-IL-ICL" customClass="GameArtworkViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="57b-td-7BK">
                         <rect key="frame" x="0.0" y="0.0" width="273" height="332"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1273,7 +1273,7 @@
         <!--Download Progress View Controller-->
         <scene sceneID="X8h-Gp-760">
             <objects>
-                <viewController title="Download Progress View Controller" storyboardIdentifier="downloadVC" showSeguePresentationStyle="single" id="SOC-lv-SK1" customClass="DownloadController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Download Progress View Controller" storyboardIdentifier="downloadVC" showSeguePresentationStyle="single" id="SOC-lv-SK1" customClass="DownloadViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Qc3-hK-TXY">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="284"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1537,9 +1537,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box title="Sources" translatesAutoresizingMaskIntoConstraints="NO" id="eDk-4l-ZtT">
-                                <rect key="frame" x="17" y="158" width="375" height="377"/>
+                                <rect key="frame" x="17" y="158" width="372" height="377"/>
                                 <view key="contentView" id="PG3-RK-BDb">
-                                    <rect key="frame" x="2" y="2" width="371" height="360"/>
+                                    <rect key="frame" x="2" y="2" width="368" height="360"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="747" translatesAutoresizingMaskIntoConstraints="NO" id="90f-dz-bTy">
@@ -1551,7 +1551,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G5Y-wx-1dB" userLabel="PSVG Field">
-                                            <rect key="frame" x="130" y="318" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="318" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="iuc-EO-Y2q">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1567,7 +1567,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-0s-k96">
-                                            <rect key="frame" x="130" y="289" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="289" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="Qwh-cy-0kt">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1583,7 +1583,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-FU-T5z" userLabel="PSVT Field">
-                                            <rect key="frame" x="130" y="259" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="259" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="VKU-SK-I5o">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1599,7 +1599,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kSq-ys-fYH">
-                                            <rect key="frame" x="130" y="229" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="229" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="5HB-gO-ket">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1615,7 +1615,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-Pe-ymg">
-                                            <rect key="frame" x="130" y="201" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="201" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="S1C-gw-f9z">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1631,7 +1631,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xWB-Ar-ZsC" userLabel="Ps3G Field">
-                                            <rect key="frame" x="130" y="171" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="171" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="3Xe-xs-Vs3">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1647,7 +1647,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jEC-aG-tT3" userLabel="PS3D Field">
-                                            <rect key="frame" x="130" y="141" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="141" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="GsK-sp-ZRQ">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1663,7 +1663,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5gp-fB-2ea" userLabel="PS3T Field">
-                                            <rect key="frame" x="130" y="113" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="113" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" usesSingleLineMode="YES" bezelStyle="round" id="eGJ-xB-4qS">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1679,7 +1679,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="70M-MR-Qn7" userLabel="Ps3A Field">
-                                            <rect key="frame" x="130" y="83" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="83" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="314-jf-BWf">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1687,7 +1687,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TUs-2P-lpR">
-                                            <rect key="frame" x="130" y="53" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="53" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="foH-xv-iG7">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1703,7 +1703,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CjZ-ua-8Gu">
-                                            <rect key="frame" x="130" y="23" width="181" height="22"/>
+                                            <rect key="frame" x="130" y="23" width="178" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="url goes here" bezelStyle="round" id="BEJ-IT-bTi">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1719,7 +1719,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button identifier="psvg" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NE7-rX-ZQW" userLabel="btnPSVGFile">
-                                            <rect key="frame" x="313" y="311" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="311" width="40" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="28" id="HN1-Nj-X8b"/>
                                             </constraints>
@@ -1732,7 +1732,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="psvd" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n0c-0G-KeW" userLabel="btnPSVDFile">
-                                            <rect key="frame" x="313" y="282" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="282" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jjx-qd-AZ2">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1742,7 +1742,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="psvt" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5G1-Se-eUE" userLabel="btnPSVTFile">
-                                            <rect key="frame" x="313" y="252" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="252" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pyf-pd-7mE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1752,7 +1752,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="psxg" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ENE-FB-XZQ" userLabel="btnPSXFile">
-                                            <rect key="frame" x="313" y="222" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="222" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fKt-pb-9lz">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1762,7 +1762,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="pspg" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yhs-cz-Q17" userLabel="btnPSPGFile">
-                                            <rect key="frame" x="313" y="194" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="194" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hxl-eq-kLL">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1772,7 +1772,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="ps3g" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FU1-Qk-XVS" userLabel="btnPS3GFile">
-                                            <rect key="frame" x="313" y="164" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="164" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zl8-so-fsA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1782,7 +1782,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="ps3d" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J4A-Gx-Izr" userLabel="btnPS3DFile">
-                                            <rect key="frame" x="313" y="134" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="134" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VIe-MZ-aWa">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1792,7 +1792,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="ps3t" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-by-xes" userLabel="btnPS3TFile">
-                                            <rect key="frame" x="313" y="106" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="106" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="glb-tq-2FN">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1802,7 +1802,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="ps3a" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x8v-9o-K8S" userLabel="btnPS3AFile">
-                                            <rect key="frame" x="313" y="75" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="75" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwm-iZ-WHw">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1812,7 +1812,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="compatpack" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-Ap-bSm" userLabel="btnCPFile">
-                                            <rect key="frame" x="313" y="46" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="46" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fQj-0f-tng">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1822,7 +1822,7 @@
                                             </connections>
                                         </button>
                                         <button identifier="compatpatch" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y4A-m2-bMc" userLabel="btnCPPFile">
-                                            <rect key="frame" x="313" y="16" width="40" height="32"/>
+                                            <rect key="frame" x="310" y="16" width="40" height="32"/>
                                             <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dMk-aG-Dlj">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1942,13 +1942,13 @@
                                 </view>
                             </box>
                             <box title="Extraction Methods" translatesAutoresizingMaskIntoConstraints="NO" id="Ln7-es-lWC">
-                                <rect key="frame" x="394" y="158" width="341" height="152"/>
+                                <rect key="frame" x="391" y="158" width="344" height="152"/>
                                 <view key="contentView" id="5XA-Ag-1Uf">
-                                    <rect key="frame" x="2" y="2" width="337" height="135"/>
+                                    <rect key="frame" x="2" y="2" width="340" height="135"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Snq-h1-gZk">
-                                            <rect key="frame" x="18" y="103" width="279" height="18"/>
+                                            <rect key="frame" x="18" y="103" width="282" height="18"/>
                                             <buttonCell key="cell" type="check" title="Extract PKG after downloading" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Yvg-Ni-f30">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1958,28 +1958,28 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MCl-48-XCd">
-                                            <rect key="frame" x="18" y="83" width="279" height="18"/>
+                                            <rect key="frame" x="18" y="83" width="282" height="18"/>
                                             <buttonCell key="cell" type="check" title="Create NoNpDRM license with extraction" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3xY-W5-LaM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lG2-Gk-7Yt">
-                                            <rect key="frame" x="18" y="63" width="279" height="18"/>
+                                            <rect key="frame" x="18" y="63" width="282" height="18"/>
                                             <buttonCell key="cell" type="check" title="Keep PKG after extraction" bezelStyle="regularSquare" imagePosition="left" inset="2" id="bvt-hI-KLe">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jqV-AE-q4L">
-                                            <rect key="frame" x="18" y="43" width="279" height="18"/>
+                                            <rect key="frame" x="18" y="43" width="282" height="18"/>
                                             <buttonCell key="cell" type="check" title="Save decrypted PKG as ZIP file" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3h3-w4-cco">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z9Q-6U-haY">
-                                            <rect key="frame" x="18" y="23" width="193" height="18"/>
+                                            <rect key="frame" x="18" y="23" width="196" height="18"/>
                                             <buttonCell key="cell" type="check" title="Compress PSP ISO to .CSO" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cU6-Yg-yfn">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1989,7 +1989,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-9K-Jte">
-                                            <rect key="frame" x="215" y="23" width="43" height="17"/>
+                                            <rect key="frame" x="218" y="23" width="43" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Factor" id="vIl-E9-eh1">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1997,7 +1997,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dyL-m0-GBF">
-                                            <rect key="frame" x="264" y="21" width="31" height="22"/>
+                                            <rect key="frame" x="267" y="21" width="31" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="31" id="8LK-Os-0HM"/>
                                             </constraints>
@@ -2012,7 +2012,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rIk-f2-NOt">
-                                            <rect key="frame" x="294" y="18" width="19" height="27"/>
+                                            <rect key="frame" x="297" y="18" width="19" height="27"/>
                                             <stepperCell key="cell" continuous="YES" enabled="NO" alignment="left" minValue="1" maxValue="9" doubleValue="1" valueWraps="YES" id="nXc-4B-Dfd"/>
                                             <connections>
                                                 <action selector="stepCompressionFactor:" target="nJG-V9-zfz" id="lRf-b0-NB0"/>
@@ -2046,9 +2046,9 @@
                                 </view>
                             </box>
                             <box title="Downloads" translatesAutoresizingMaskIntoConstraints="NO" id="ZXg-Ug-dCx">
-                                <rect key="frame" x="394" y="314" width="341" height="114"/>
+                                <rect key="frame" x="391" y="314" width="344" height="114"/>
                                 <view key="contentView" id="C7p-Ah-3RJ">
-                                    <rect key="frame" x="2" y="2" width="337" height="97"/>
+                                    <rect key="frame" x="2" y="2" width="340" height="97"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jSM-Tr-Zqs">
@@ -2068,7 +2068,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lvt-HJ-Cae">
-                                            <rect key="frame" x="81" y="27" width="199" height="22"/>
+                                            <rect key="frame" x="81" y="27" width="202" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Library Location" usesSingleLineMode="YES" bezelStyle="round" id="OIE-2C-WJg">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -2091,7 +2091,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="650-6s-Qbl" userLabel="Choose Folder">
-                                            <rect key="frame" x="282" y="21" width="41" height="32"/>
+                                            <rect key="frame" x="285" y="21" width="41" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="29" id="yW9-kg-5TG"/>
                                             </constraints>
@@ -2123,9 +2123,9 @@
                                 </view>
                             </box>
                             <box title="Display" translatesAutoresizingMaskIntoConstraints="NO" id="fuk-ZQ-Ugp">
-                                <rect key="frame" x="394" y="432" width="341" height="103"/>
+                                <rect key="frame" x="391" y="432" width="344" height="103"/>
                                 <view key="contentView" id="wTU-lv-AVT">
-                                    <rect key="frame" x="2" y="2" width="337" height="86"/>
+                                    <rect key="frame" x="2" y="2" width="340" height="86"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d7G-JY-Sht">
@@ -2140,14 +2140,14 @@
                                 </view>
                             </box>
                             <box title="Updates" translatesAutoresizingMaskIntoConstraints="NO" id="lpb-Qp-OL7">
-                                <rect key="frame" x="394" y="57" width="341" height="97"/>
+                                <rect key="frame" x="391" y="57" width="344" height="97"/>
                                 <view key="contentView" id="CF1-rW-hac">
-                                    <rect key="frame" x="2" y="2" width="337" height="80"/>
+                                    <rect key="frame" x="2" y="2" width="340" height="80"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q2z-e7-fXp" userLabel="I">
-                                            <rect key="frame" x="18" y="44" width="251" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Automatcally check for latest updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JFR-1v-uEb">
+                                            <rect key="frame" x="18" y="44" width="254" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Automatically check for latest updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="JFR-1v-uEb">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -2164,7 +2164,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hb4-JP-xAQ">
-                                            <rect key="frame" x="91" y="21" width="123" height="17"/>
+                                            <rect key="frame" x="91" y="21" width="126" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Never" id="opw-1d-oTr">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2172,7 +2172,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-ti-mZZ">
-                                            <rect key="frame" x="214" y="12" width="109" height="32"/>
+                                            <rect key="frame" x="217" y="12" width="109" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="97" id="DWn-o5-AHR"/>
                                             </constraints>
@@ -2180,6 +2180,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="checkUpdateApp:" target="nJG-V9-zfz" id="nWp-Vk-NOA"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

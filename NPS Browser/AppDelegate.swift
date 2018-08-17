@@ -36,8 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func setupSwiftyBeaverLogging() {
         let console = ConsoleDestination()
         let file = FileDestination()
-        
-//        FileDestin
 
         log.addDestination(console)
         log.addDestination(file)

@@ -1,5 +1,5 @@
 //
-//  DownloadController.swift
+//  DownloadViewController.swift
 //  NPS Browser
 //
 //  Created by JK3Y on 5/18/18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class DownloadController: NSViewController {
+class DownloadViewController: NSViewController {
 
     @IBOutlet weak var dlTableView: NSTableView!
     @IBOutlet var dlArrayController: NSArrayController!

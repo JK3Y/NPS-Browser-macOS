@@ -2,7 +2,7 @@
 
 ## v1.4.2
 ### Added
-# TODO: Github Auto-updater
+- Application can now check for new updates automatically and download them.
 
 ### Changed
 - Reload button is no longer located in the toolbar. There is a menu titled "Database" that contains an option to reload. There is also a keyboard shortcut available - ⌘R
