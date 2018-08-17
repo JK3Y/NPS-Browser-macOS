@@ -1085,78 +1085,6 @@
                                     </connections>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-eV-PlI">
-                                <rect key="frame" x="18" y="137" width="50" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Region:" id="KHB-eh-LxF">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpa-vU-RGC" userLabel="Region">
-                                <rect key="frame" x="118" y="137" width="137" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="bfq-He-Rzx">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.region" id="cUI-JS-2y4">
-                                            <dictionary key="options">
-                                                <string key="NSNoSelectionPlaceholder">--</string>
-                                                <string key="NSNotApplicablePlaceholder">N/A</string>
-                                                <string key="NSNullPlaceholder">--</string>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-OH-Nhz">
-                                <rect key="frame" x="18" y="112" width="85" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Required FW:" id="Wcn-XJ-lpK">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-dt-TEK" userLabel="Required FW">
-                                <rect key="frame" x="118" y="112" width="137" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="hGN-av-fNe">
-                                    <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#,##0.00" negativeFormat="-#,##0.00" thousandSeparator="," id="Usg-ZS-wVo">
-                                        <decimal key="minimum" value="NaN"/>
-                                        <decimal key="maximum" value="NaN"/>
-                                    </numberFormatter>
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.requiredFw" id="34S-RY-qQb">
-                                            <dictionary key="options">
-                                                <string key="NSNoSelectionPlaceholder">--</string>
-                                                <string key="NSNotApplicablePlaceholder">N/A</string>
-                                                <string key="NSNullPlaceholder">--</string>
-                                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nh5-hR-v1d" userLabel="Title ID">
-                                <rect key="frame" x="118" y="87" width="137" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="kYM-oz-2FE">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.titleId" id="K3J-FT-RWU">
-                                            <dictionary key="options">
-                                                <string key="NSNoSelectionPlaceholder">--</string>
-                                                <string key="NSNotApplicablePlaceholder">N/A</string>
-                                                <string key="NSNullPlaceholder">--</string>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textFieldCell>
-                            </textField>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-gx-qiW">
                                 <rect key="frame" x="21" y="76" width="232" height="5"/>
                             </box>
@@ -1219,10 +1147,65 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-eV-PlI">
+                                <rect key="frame" x="18" y="112" width="50" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Region:" id="KHB-eh-LxF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dpa-vU-RGC" userLabel="Region">
+                                <rect key="frame" x="118" y="112" width="137" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="bfq-He-Rzx">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.region" id="cUI-JS-2y4">
+                                            <dictionary key="options">
+                                                <string key="NSNoSelectionPlaceholder">--</string>
+                                                <string key="NSNotApplicablePlaceholder">N/A</string>
+                                                <string key="NSNullPlaceholder">--</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-OH-Nhz">
+                                <rect key="frame" x="18" y="87" width="85" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Required FW:" id="Wcn-XJ-lpK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-dt-TEK" userLabel="Required FW">
+                                <rect key="frame" x="118" y="87" width="137" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="hGN-av-fNe">
+                                    <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#,##0.00" negativeFormat="-#,##0.00" thousandSeparator="," id="Usg-ZS-wVo">
+                                        <decimal key="minimum" value="NaN"/>
+                                        <decimal key="maximum" value="NaN"/>
+                                    </numberFormatter>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="n9v-5p-6cD" name="value" keyPath="self.representedObject.requiredFw" id="34S-RY-qQb">
+                                            <dictionary key="options">
+                                                <string key="NSNoSelectionPlaceholder">--</string>
+                                                <string key="NSNotApplicablePlaceholder">N/A</string>
+                                                <string key="NSNullPlaceholder">--</string>
+                                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="eTw-gx-qiW" firstAttribute="top" secondItem="Oc5-OH-Nhz" secondAttribute="bottom" constant="8" symbolic="YES" id="7Hb-Qc-S8K"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="top" secondItem="jm2-eV-PlI" secondAttribute="bottom" constant="8" symbolic="YES" id="CM9-bU-4M3"/>
-                            <constraint firstItem="Nh5-hR-v1d" firstAttribute="trailing" secondItem="eTw-gx-qiW" secondAttribute="trailing" id="E48-vB-ln3"/>
                             <constraint firstAttribute="trailing" secondItem="0vg-8l-O1H" secondAttribute="trailing" constant="8" id="Jqa-w7-ENw"/>
                             <constraint firstItem="0vg-8l-O1H" firstAttribute="trailing" secondItem="F5X-qz-juG" secondAttribute="trailing" id="Obh-BC-e4E"/>
                             <constraint firstItem="dpa-vU-RGC" firstAttribute="trailing" secondItem="Hz6-dt-TEK" secondAttribute="trailing" id="Sgp-UJ-F9Q"/>
@@ -1230,12 +1213,11 @@
                             <constraint firstItem="inm-Fx-xFQ" firstAttribute="top" secondItem="eTw-gx-qiW" secondAttribute="bottom" constant="8" symbolic="YES" id="a5J-lZ-H92"/>
                             <constraint firstItem="Hz6-dt-TEK" firstAttribute="leading" secondItem="Oc5-OH-Nhz" secondAttribute="trailing" constant="19" id="bl9-J9-xOb"/>
                             <constraint firstAttribute="trailing" secondItem="dpa-vU-RGC" secondAttribute="trailing" constant="20" symbolic="YES" id="cls-XH-RAw"/>
+                            <constraint firstItem="Hz6-dt-TEK" firstAttribute="trailing" secondItem="eTw-gx-qiW" secondAttribute="trailing" id="ghH-mY-tg8"/>
                             <constraint firstItem="eTw-gx-qiW" firstAttribute="trailing" secondItem="inm-Fx-xFQ" secondAttribute="trailing" id="hnu-GE-As0"/>
                             <constraint firstItem="eTw-gx-qiW" firstAttribute="leading" secondItem="inm-Fx-xFQ" secondAttribute="leading" id="iBx-Oi-zTE"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="baseline" secondItem="Hz6-dt-TEK" secondAttribute="baseline" id="mUd-m0-Wao"/>
-                            <constraint firstItem="Hz6-dt-TEK" firstAttribute="trailing" secondItem="Nh5-hR-v1d" secondAttribute="trailing" id="oD8-ak-ejG"/>
                             <constraint firstItem="jm2-eV-PlI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="20" id="p5l-Zo-Jdk"/>
-                            <constraint firstItem="Hz6-dt-TEK" firstAttribute="leading" secondItem="Nh5-hR-v1d" secondAttribute="leading" id="rWA-4R-iSJ"/>
                             <constraint firstItem="jm2-eV-PlI" firstAttribute="leading" secondItem="Oc5-OH-Nhz" secondAttribute="leading" id="seO-5O-92h"/>
                             <constraint firstItem="F5X-qz-juG" firstAttribute="leading" secondItem="jm2-eV-PlI" secondAttribute="leading" id="tZS-Ij-jaN"/>
                             <constraint firstItem="jm2-eV-PlI" firstAttribute="baseline" secondItem="dpa-vU-RGC" secondAttribute="baseline" id="uxd-Y7-1qP"/>

@@ -44,24 +44,7 @@ Export an app bundle by going to Product > Archive > Export.
 * Luro02 for the [pkg2zip][] fork
 * devnoname120 for [vitanpupdatelinks][]
 
-### Dependencies
-* [Realm][]
-* [AlamoFire][]
-* [Promises][]
-* [Queuer][]
-* [Fuzi][]
-* [Files][]
-* [Zip][]
-
-[Download]: https://github.com/JK3Y/NPS-Browser-macOS/releases
 [CocoaPods]: https://cocoapods.org
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip
 [vitanpupdatelinks]: https://github.com/devnoname120/vitanpupdatelinks
-[Realm]: https://realm.io
-[AlamoFire]:https://github.com/Alamofire/Alamofire
-[Promises]:https://github.com/google/promises
-[Queuer]:https://github.com/FabrizioBrancati/Queuer
-[Fuzi]: https://github.com/cezheng/Fuzi
-[Files]: https://github.com/JohnSundell/Files
-[Zip]: https://github.com/marmelroy/Zip
