@@ -10,7 +10,6 @@ import Cocoa
 import RealmSwift
 
 class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
-    @IBOutlet weak var tbReload: NSButton!
     @IBOutlet weak var progressSpinner: NSProgressIndicator!
     @IBOutlet weak var toolbar: NSToolbar!
     @IBOutlet weak var tbType: NSPopUpButton!
@@ -36,11 +35,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         delegate?.filterType(itemType: getItemType(), region: getRegion())
     }
 
-    @IBAction func btnReloadClicked(_ sender: Any) {
-        startBtnReloadAnimation()
-        NetworkManager().makeRequest()
-    }
-    
     @IBAction func onFilterSearchBar(_ sender: NSSearchField) {
         let searchString = tbSearchBar.stringValue
         
@@ -50,6 +44,11 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
             delegate?.filterType(itemType: getItemType(), region: getRegion())
         }
     }
+    
+    @IBAction func reloadDatabase(_ sender: NSMenuItem) {
+        NetworkManager().makeRequest()
+    }
+    
     
     func getDataController() -> DataViewController {
         let splitViewController = self.window!.contentViewController! as! NSSplitViewController
@@ -70,14 +69,4 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
         return region!
     }
     
-    func startBtnReloadAnimation() {
-        self.tbReload.isHidden = true
-        self.progressSpinner.usesThreadedAnimation = true
-        self.progressSpinner.startAnimation(nil)
-    }
-    
-    func stopBtnReloadAnimation() {
-        self.progressSpinner.stopAnimation(nil)
-        self.tbReload.isHidden = false
-    }
 }

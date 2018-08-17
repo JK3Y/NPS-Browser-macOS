@@ -8,6 +8,7 @@ target 'NPS Browser' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireImage', '~> 3.3.1'
   pod 'PromisesSwift', '~> 1.2'
   pod 'Queuer'
   pod 'SwiftyBeaver'

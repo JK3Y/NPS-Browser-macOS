@@ -11,9 +11,6 @@ protocol WindowDelegate {
     
     func getItemType() -> ItemType
     
-    func startBtnReloadAnimation()
-    func stopBtnReloadAnimation()
-    
     func getDataController() -> DataViewController
     func getLoadingViewController() -> LoadingViewController
 }

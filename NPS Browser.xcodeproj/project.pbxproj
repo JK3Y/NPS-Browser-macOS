@@ -20,15 +20,16 @@
 		516A1B7920CAE28A004D6AE5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7820CAE28A004D6AE5 /* README.md */; };
 		5177A78620C33C0F002F81F9 /* pkg2zip in Resources */ = {isa = PBXBuildFile; fileRef = 5177A78520C33C0E002F81F9 /* pkg2zip */; };
 		5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A78720C3508D002F81F9 /* ExtractionManager.swift */; };
-		517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CD22B20AFA4A200C33623 /* DownloadController.swift */; };
+		517CD22C20AFA4A200C33623 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517CD22B20AFA4A200C33623 /* DownloadViewController.swift */; };
 		517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD71E2114B7FF00E56CB6 /* Parser.swift */; };
-		517FD72121153BB700E56CB6 /* BoxartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72021153BB700E56CB6 /* BoxartViewController.swift */; };
+		517FD72121153BB700E56CB6 /* GameArtworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72021153BB700E56CB6 /* GameArtworkViewController.swift */; };
 		517FD72321153C5100E56CB6 /* Renascene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517FD72221153C5100E56CB6 /* Renascene.swift */; };
 		5181948E20DDB52C009282AB /* NSTableView+keydown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181948D20DDB52C009282AB /* NSTableView+keydown.swift */; };
 		5182C57F21140757003A5527 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182C57E21140757003A5527 /* ItemType.swift */; };
 		51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 51843FD020CB9DF2009AE9A4 /* .gitignore */; };
 		518BF15920B2260100A8044C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BF15820B2260100A8044C /* Settings.swift */; };
 		518C72EB20C4153B0022375E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C72EA20C4153B0022375E /* Helpers.swift */; };
+		518F8D8721270AB9005530C6 /* GHLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F8D8621270AB9005530C6 /* GHLatestRelease.swift */; };
 		5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE7E211E18EA004A2E90 /* NetworkManager.swift */; };
 		5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE80211E219D004A2E90 /* CompatPack.swift */; };
 		5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE82211E31B4004A2E90 /* DBManager.swift */; };
@@ -43,7 +44,8 @@
 		51ABB7572115D8A3009C98DA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABB7562115D8A3009C98DA /* Item.swift */; };
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
-		51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* SettingsViewController.swift */; };
+		51B1A315209511A6009C799C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* PreferencesViewController.swift */; };
+		51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E6684C2121447600FC154A /* AppUpdateChecker.swift */; };
 		51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */ = {isa = PBXBuildFile; fileRef = 51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */; };
 		51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE81E2094E094005D44DC /* AppDelegate.swift */; };
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
@@ -66,15 +68,16 @@
 		516A1B7820CAE28A004D6AE5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5177A78520C33C0E002F81F9 /* pkg2zip */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pkg2zip; sourceTree = "<group>"; };
 		5177A78720C3508D002F81F9 /* ExtractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionManager.swift; sourceTree = "<group>"; };
-		517CD22B20AFA4A200C33623 /* DownloadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadController.swift; sourceTree = "<group>"; };
+		517CD22B20AFA4A200C33623 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		517FD71E2114B7FF00E56CB6 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		517FD72021153BB700E56CB6 /* BoxartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxartViewController.swift; sourceTree = "<group>"; };
+		517FD72021153BB700E56CB6 /* GameArtworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArtworkViewController.swift; sourceTree = "<group>"; };
 		517FD72221153C5100E56CB6 /* Renascene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renascene.swift; sourceTree = "<group>"; };
 		5181948D20DDB52C009282AB /* NSTableView+keydown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+keydown.swift"; sourceTree = "<group>"; };
 		5182C57E21140757003A5527 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		51843FD020CB9DF2009AE9A4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		518BF15820B2260100A8044C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		518C72EA20C4153B0022375E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		518F8D8621270AB9005530C6 /* GHLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHLatestRelease.swift; sourceTree = "<group>"; };
 		5192CE7E211E18EA004A2E90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5192CE80211E219D004A2E90 /* CompatPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatPack.swift; sourceTree = "<group>"; };
 		5192CE82211E31B4004A2E90 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -90,7 +93,8 @@
 		51ABB7562115D8A3009C98DA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
-		51B1A314209511A6009C799C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		51B1A314209511A6009C799C /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		51E6684C2121447600FC154A /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = vitaupdatelinks; sourceTree = "<group>"; };
 		51EBE81B2094E094005D44DC /* NPS Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPS Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EBE81E2094E094005D44DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				517FD72221153C5100E56CB6 /* Renascene.swift */,
 				5192CE7E211E18EA004A2E90 /* NetworkManager.swift */,
 				5192CE82211E31B4004A2E90 /* DBManager.swift */,
+				51E6684C2121447600FC154A /* AppUpdateChecker.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -171,11 +176,11 @@
 				519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */,
 				51EBE8202094E094005D44DC /* DataViewController.swift */,
 				5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */,
-				517CD22B20AFA4A200C33623 /* DownloadController.swift */,
-				51B1A314209511A6009C799C /* SettingsViewController.swift */,
+				517CD22B20AFA4A200C33623 /* DownloadViewController.swift */,
+				51B1A314209511A6009C799C /* PreferencesViewController.swift */,
 				5139DF86209F6DE9004F65F9 /* WindowController.swift */,
 				51932D9620DEEA8400F44520 /* LoadingViewController.swift */,
-				517FD72021153BB700E56CB6 /* BoxartViewController.swift */,
+				517FD72021153BB700E56CB6 /* GameArtworkViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				518BF15820B2260100A8044C /* Settings.swift */,
 				5182C57E21140757003A5527 /* ItemType.swift */,
 				5108B79D211641190065BA71 /* TSVData.swift */,
+				518F8D8621270AB9005530C6 /* GHLatestRelease.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
 				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
@@ -381,6 +388,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
@@ -404,19 +412,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				518C72EB20C4153B0022375E /* Helpers.swift in Sources */,
+				518F8D8721270AB9005530C6 /* GHLatestRelease.swift in Sources */,
 				5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */,
 				519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */,
 				5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */,
+				51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */,
 				515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */,
 				51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */,
 				518BF15920B2260100A8044C /* Settings.swift in Sources */,
 				51B12A1420B0603500E83844 /* DLItem.swift in Sources */,
-				517FD72121153BB700E56CB6 /* BoxartViewController.swift in Sources */,
+				517FD72121153BB700E56CB6 /* GameArtworkViewController.swift in Sources */,
 				5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */,
 				51EBE8212094E094005D44DC /* DataViewController.swift in Sources */,
 				51932D9920DF06C700F44520 /* LoadingViewDelegate.swift in Sources */,
 				51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */,
-				517CD22C20AFA4A200C33623 /* DownloadController.swift in Sources */,
+				517CD22C20AFA4A200C33623 /* DownloadViewController.swift in Sources */,
 				5177A78820C3508D002F81F9 /* ExtractionManager.swift in Sources */,
 				5192CE86211F1968004A2E90 /* LayerProtocols.swift in Sources */,
 				5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */,
@@ -429,7 +439,7 @@
 				517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */,
 				5192CE8C211F1AAE004A2E90 /* Bookmark.swift in Sources */,
 				51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */,
-				51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */,
+				51B1A315209511A6009C799C /* PreferencesViewController.swift in Sources */,
 				5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */,
 				519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */,
 				513BDDA22096689500D82889 /* SettingsManager.swift in Sources */,

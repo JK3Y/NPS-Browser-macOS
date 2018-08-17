@@ -9,7 +9,8 @@
 import Cocoa
 import Foundation
 
-class SettingsViewController: NSViewController {
+class PreferencesViewController: NSViewController {
+    // Sources
     @IBOutlet weak var psvgField: NSTextField!
     @IBOutlet weak var psvdlcField: NSTextField!
     @IBOutlet weak var psvtField: NSTextField!
@@ -22,11 +23,14 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compatPackField: NSTextField!
     @IBOutlet weak var compatPatchField: NSTextField!
     
+    // Display
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
+    // Downloads
     @IBOutlet weak var ccDLField: NSTextField!
     @IBOutlet weak var dlPathField: NSTextField!
     
+    // Extraction Methods
     @IBOutlet weak var chkExtractPKG: NSButton!
     @IBOutlet weak var chkCreateLicense: NSButton!
     @IBOutlet weak var chkKeepPKG: NSButton!
@@ -36,8 +40,15 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compressionFactorField: NSTextField!
 //    @IBOutlet weak var chkUnpackPS3Packages: NSButton!
     
+    // Updates
+    @IBOutlet weak var chkAutomaticallyCheck: NSButton!
+    @IBOutlet weak var btnCheckUpdatesNow: NSButton!
+    @IBOutlet weak var lblUpdateLastChecked: NSTextField!
+    
+    
     let settings = SettingsManager().getSettings()
     var dlLocation: URL?
+    var update_checked: Date? = nil
     
     override func viewWillAppear() {
         // Remove fullscreen and ability to resize the window
@@ -115,6 +126,9 @@ class SettingsViewController: NSViewController {
         compressionFactorStepper.integerValue   = settings.extract.compression_factor
 //        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
         
+        chkAutomaticallyCheck.state             = settings.update.automatically_check ? .on : .off
+        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked!)
+        
         toggleEnableExtractionSettings(self)
         toggleCompressionFactor(self)
     }
@@ -166,6 +180,39 @@ class SettingsViewController: NSViewController {
         }
     }
     
+    @IBAction func checkUpdateApp(_ sender: NSButton) {
+        AppUpdateChecker().fetchLatest() { (ghVersion, browserDownloadURL) in
+            // Get current date
+            let date = Date()
+            self.update_checked = date
+            self.lblUpdateLastChecked.stringValue = Helpers().relativePast(for: date)
+
+            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                debugPrint("App Version: \(appVersion)")
+                debugPrint("GH Version: \(ghVersion)")
+                debugPrint(browserDownloadURL)
+                
+                let downloadUrl: URL = URL(string: browserDownloadURL)!
+                
+                if appVersion < ghVersion {
+                    let alert = NSAlert()
+                    alert.messageText = "Update Available"
+                    alert.informativeText = "A new version is available!"
+                    alert.alertStyle = .informational
+                    alert.addButton(withTitle: "Download")
+                    alert.addButton(withTitle: "Cancel")
+                    let responseTag = alert.runModal()
+                    
+                    if responseTag.rawValue == 1000 {
+                        self.save(self)
+                        AppUpdateChecker().downloadUpdate(url: downloadUrl)
+                        log.info("Downloading update")
+                    }
+                }
+            }
+        }
+    }
+
     @IBAction func resetToDefaults(_ sender: Any) {
         updateTextFields(settings: SettingsManager().getDefaultSettings())
     }
@@ -190,8 +237,10 @@ class SettingsViewController: NSViewController {
                                           create_license: chkCreateLicense.state == .on,
                                           compress_psp_iso: chkCompressPSPISO.state == .on,
                                           compression_factor: compressionFactorField.integerValue)
+        let update      = UpdateSettings(automatically_check: chkAutomaticallyCheck.state == .on,
+                                         last_checked: update_checked)
         let display     = DisplaySettings(hide_invalid_url_items: chkHideInvalidURLItems.state == .on)
-        let settings = Settings(source: source, download: download, extract: extract, display: display)
+        let settings = Settings(source: source, download: download, extract: extract, display: display, update: update)
         SettingsManager().setSettings(settings: settings)
         
         dismissViewController(self)

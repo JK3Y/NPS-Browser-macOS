@@ -13,17 +13,20 @@ struct Settings: Codable {
     var download: DownloadSettings
     var extract : ExtractSettings
     var display : DisplaySettings
+    var update  : UpdateSettings
     init(){
-        self.source     = SourceSettings.init()
-        self.download   = DownloadSettings.init()
-        self.extract    = ExtractSettings.init()
-        self.display    = DisplaySettings.init()
+        self.source     = SourceSettings()
+        self.download   = DownloadSettings()
+        self.extract    = ExtractSettings()
+        self.display    = DisplaySettings()
+        self.update     = UpdateSettings()
     }
-    init(source: SourceSettings, download: DownloadSettings, extract: ExtractSettings, display: DisplaySettings) {
+    init(source: SourceSettings, download: DownloadSettings, extract: ExtractSettings, display: DisplaySettings, update: UpdateSettings) {
         self.source     = source
         self.download   = download
         self.extract    = extract
         self.display    = display
+        self.update     = update
     }
 }
 
@@ -144,5 +147,18 @@ struct DisplaySettings: Codable {
     }
     init(hide_invalid_url_items: Bool) {
         self.hide_invalid_url_items = hide_invalid_url_items
+    }
+}
+
+struct UpdateSettings: Codable {
+    var automatically_check: Bool
+    var last_checked: Date?
+    init() {
+        self.automatically_check = true
+        self.last_checked = nil
+    }
+    init(automatically_check: Bool, last_checked: Date?) {
+        self.automatically_check = automatically_check
+        self.last_checked = last_checked
     }
 }

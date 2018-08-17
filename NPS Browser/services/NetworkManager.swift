@@ -21,8 +21,7 @@ class NetworkManager {
         itemType = windowDelegate.getItemType()
         guard let url = settings.getByType(itemType: itemType!) else {
             Helpers().makeAlert(messageText: "No URL set for \(self.itemType!.console.rawValue) \(self.itemType!.fileType.rawValue)s.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-            windowDelegate.stopBtnReloadAnimation()
-            
+
             log.error("Invalid URL given for item type: \(itemType!.description)")
             return
         }
@@ -84,13 +83,11 @@ class NetworkManager {
         }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
-                self.windowDelegate.stopBtnReloadAnimation()
         }
             .then { _ in
                 if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
                     guard let cpackurl = SettingsManager().getUrls().compatPacks else {
                         Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-                        self.windowDelegate.stopBtnReloadAnimation()
                         
                         log.error("Invalid URL given for compat packs.")
                         return
@@ -106,7 +103,6 @@ class NetworkManager {
                     if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
                         guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch else {
                             Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-                            self.windowDelegate.stopBtnReloadAnimation()
                             
                             log.error("Invalid URL given for compat patches")
                             return
@@ -182,7 +178,6 @@ class NetworkManager {
             }
             .then { _ in
                 Helpers().getLoadingViewController().closeWindow()
-//                self.windowDelegate.stopBtnReloadAnimation()
         }
     }
 
@@ -223,8 +218,6 @@ class NetworkManager {
         } else {
             return error.first!
         }
-
-//        return (output, error, status)
     }
 
     func fetchUpdateXML(url: String) -> (() -> (Promise<URL>)) {
@@ -235,8 +228,7 @@ class NetworkManager {
                 Promise<URL> { fulfill, reject in
                 Alamofire.request(url)
                     .responseString { response in
-
-
+                        
                         if let data = response.value {
                             let updateurl = Parser().parseUpdateXML(data: data)
                             if (updateurl != nil) {
@@ -247,6 +239,7 @@ class NetworkManager {
                         } else {
                             reject(response.error!)
                         }
+                        
                 }
             }
         }

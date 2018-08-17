@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.7.3)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
   - Files (2.0.1)
   - Fuzi (2.1.0)
   - PromisesObjC (1.2.3)
@@ -16,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - AlamofireImage (~> 3.3.1)
   - Files (from `https://github.com/JohnSundell/Files.git`)
   - Fuzi (~> 2.1.0)
   - PromisesSwift (~> 1.2)
@@ -27,6 +30,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireImage
     - Fuzi
     - PromisesObjC
     - PromisesSwift
@@ -47,6 +51,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
   Files: dd0aa68aa068e87c60ec844b13e0a95179e2fb62
   Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
   PromisesObjC: a3a4263d8a9260214267e0b3788d0f83466ad449
@@ -57,6 +62,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: c3249705a9338bb130cc47b2a254891dda4d62d4
+PODFILE CHECKSUM: f180b8532165ae1fba7b0b1bda37dda6e8ee7136
 
 COCOAPODS: 1.5.3

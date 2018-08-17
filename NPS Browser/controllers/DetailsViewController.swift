@@ -172,8 +172,8 @@ class DetailsViewController: NSViewController {
         return representedObject as! Item
     }
     
-    func getBoxartViewController() -> BoxartViewController {
-        let vc: BoxartViewController = parent?.childViewControllers[1] as! BoxartViewController
+    func getBoxartViewController() -> GameArtworkViewController {
+        let vc: GameArtworkViewController = parent?.childViewControllers[1] as! GameArtworkViewController
         return vc
     }
 }
