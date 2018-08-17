@@ -71,13 +71,13 @@ class Helpers {
         return obj
     }
     
-    func relativePast(for date : Date) -> String {
+    func relativePast(for date : Date?) -> String {
         if (date == nil) {
             return "Never"
         }
         
         let units = Set<Calendar.Component>([.year, .month, .day, .hour, .minute, .second, .weekOfYear])
-        let components = Calendar.current.dateComponents(units, from: date, to: Date())
+        let components = Calendar.current.dateComponents(units, from: date!, to: Date())
         
         if components.year! > 0 {
             return "\(components.year!) " + (components.year! > 1 ? "years ago" : "year ago")

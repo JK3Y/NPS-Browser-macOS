@@ -12,6 +12,11 @@ import Alamofire
 
 class AppUpdateChecker {
     
+    func checkForUpdate() {
+        
+    }
+    
+    
     func fetchLatest(successHandler: @escaping ((_ tagName: String, _ browserDownloadURL: String) -> ()) ) {
         let url = "https://api.github.com/repos/JK3Y/NPS-Browser-macOS/releases/latest"
         
@@ -29,7 +34,7 @@ class AppUpdateChecker {
                     successHandler(ghVersion!, browserDownloadUrl!)
                 } else {
                     log.error(response.error!)
-                    Helpers().makeAlert(messageText: "App Update", informativeText: "There is no new update available.", alertStyle: .informational)
+//                    Helpers().makeAlert(messageText: "App Update", informativeText: "There is no new update available.", alertStyle: .informational)
                 }
         }
     }

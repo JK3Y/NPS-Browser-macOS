@@ -127,7 +127,7 @@ class PreferencesViewController: NSViewController {
 //        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
         
         chkAutomaticallyCheck.state             = settings.update.automatically_check ? .on : .off
-        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked!)
+        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked)
         
         toggleEnableExtractionSettings(self)
         toggleCompressionFactor(self)
@@ -188,10 +188,6 @@ class PreferencesViewController: NSViewController {
             self.lblUpdateLastChecked.stringValue = Helpers().relativePast(for: date)
 
             if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                debugPrint("App Version: \(appVersion)")
-                debugPrint("GH Version: \(ghVersion)")
-                debugPrint(browserDownloadURL)
-                
                 let downloadUrl: URL = URL(string: browserDownloadURL)!
                 
                 if appVersion < ghVersion {

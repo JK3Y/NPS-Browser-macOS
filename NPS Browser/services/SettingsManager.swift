@@ -51,6 +51,10 @@ class SettingsManager {
         return (getSettings()?.display)!
     }
     
+    func getUpdate() -> UpdateSettings {
+        return (getSettings()?.update)!
+    }
+    
     func getUserDefaults() -> UserDefaults {
         return UserDefaults.standard
     }

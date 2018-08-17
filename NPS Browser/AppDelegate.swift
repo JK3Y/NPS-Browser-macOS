@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         // Insert code here to initialize your application
         setupSwiftyBeaverLogging()
         setupDownloadsDirectory()
+        checkUpdateSettings()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -46,6 +47,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         let dlDirName = "NPS Downloads"
         
         try! Folder(path: dlFolder.path).createSubfolderIfNeeded(withName: dlDirName)
+    }
+    
+    func checkUpdateSettings() {
+        let settings = SettingsManager().getUpdate()
+        if settings.automatically_check {
+            AppUpdateChecker().fetchLatest() { ghVersion, browserDownloadURL in
+                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    let downloadUrl: URL = URL(string: browserDownloadURL)!
+                    
+                    if appVersion < ghVersion {
+                        let alert = NSAlert()
+                        alert.messageText = "Update Available"
+                        alert.informativeText = "A new version is available!"
+                        alert.alertStyle = .informational
+                        alert.addButton(withTitle: "Download")
+                        alert.addButton(withTitle: "Cancel")
+                        let responseTag = alert.runModal()
+                        
+                        if responseTag.rawValue == 1000 {
+                            AppUpdateChecker().downloadUpdate(url: downloadUrl)
+                            log.info("Downloading update")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Notifications
