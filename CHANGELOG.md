@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.4.2
+### Added
+# TODO: Github Auto-updater
+
+### Changed
+- Preferences window layout. Is now more legible and is broken up into different setting groups.
+# TODO: Change download icon
+
+### Fixed
+# TODO: Validate sources URLs upon saving Preferences
+# TODO: Preferences window cropping on 10.10
+
 ## v1.4.1
 ### Changed
 - Changed placeholder image for game artwork

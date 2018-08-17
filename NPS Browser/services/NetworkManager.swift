@@ -235,8 +235,7 @@ class NetworkManager {
                 Promise<URL> { fulfill, reject in
                 Alamofire.request(url)
                     .responseString { response in
-
-
+                        
                         if let data = response.value {
                             let updateurl = Parser().parseUpdateXML(data: data)
                             if (updateurl != nil) {
@@ -247,6 +246,7 @@ class NetworkManager {
                         } else {
                             reject(response.error!)
                         }
+                        
                 }
             }
         }

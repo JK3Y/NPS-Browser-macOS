@@ -8,22 +8,20 @@
 
 import Foundation
 import Alamofire
-import Fuzi
 
 class AppUpdateChecker {
     
-    func requestLatest() {
+    func makeRequest() {
+        let url = "https://api.github.com/repos/JK3Y/NPS-Browser-macOS/releases/latest"
         
-//        Alamofire.request(url)
-//            .responseString { response in
-//                if response.result.isSuccess {
-//                    parseLatestHtml(html: response.data)
-//                }
-//        }
+        Alamofire.request(url)
+            .responseJSON { response in
+                
+                debugPrint(response)
+//                let gHLatestRelease = try? newJSONDecoder().decode(GHLatestRelease.self, from: jsonData)
+                
+        }
         
-    }
-    
-    func parseLatestHtml(html: Data) {
         
     }
     

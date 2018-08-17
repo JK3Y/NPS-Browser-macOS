@@ -29,6 +29,7 @@
 		51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 51843FD020CB9DF2009AE9A4 /* .gitignore */; };
 		518BF15920B2260100A8044C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BF15820B2260100A8044C /* Settings.swift */; };
 		518C72EB20C4153B0022375E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C72EA20C4153B0022375E /* Helpers.swift */; };
+		518F8D8721270AB9005530C6 /* GHLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F8D8621270AB9005530C6 /* GHLatestRelease.swift */; };
 		5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE7E211E18EA004A2E90 /* NetworkManager.swift */; };
 		5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE80211E219D004A2E90 /* CompatPack.swift */; };
 		5192CE83211E31B4004A2E90 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192CE82211E31B4004A2E90 /* DBManager.swift */; };
@@ -43,7 +44,7 @@
 		51ABB7572115D8A3009C98DA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ABB7562115D8A3009C98DA /* Item.swift */; };
 		51B12A1420B0603500E83844 /* DLItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1320B0603500E83844 /* DLItem.swift */; };
 		51B12A1920B0CD1E00E83844 /* DownloadListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */; };
-		51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* SettingsViewController.swift */; };
+		51B1A315209511A6009C799C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B1A314209511A6009C799C /* PreferencesViewController.swift */; };
 		51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E6684C2121447600FC154A /* AppUpdateChecker.swift */; };
 		51E82B0D210CEBAC00E68A31 /* vitaupdatelinks in Resources */ = {isa = PBXBuildFile; fileRef = 51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */; };
 		51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE81E2094E094005D44DC /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		51843FD020CB9DF2009AE9A4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		518BF15820B2260100A8044C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		518C72EA20C4153B0022375E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		518F8D8621270AB9005530C6 /* GHLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHLatestRelease.swift; sourceTree = "<group>"; };
 		5192CE7E211E18EA004A2E90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5192CE80211E219D004A2E90 /* CompatPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatPack.swift; sourceTree = "<group>"; };
 		5192CE82211E31B4004A2E90 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		51ABB7562115D8A3009C98DA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
-		51B1A314209511A6009C799C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		51B1A314209511A6009C799C /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		51E6684C2121447600FC154A /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		51E82B0C210CEBAC00E68A31 /* vitaupdatelinks */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = vitaupdatelinks; sourceTree = "<group>"; };
 		51EBE81B2094E094005D44DC /* NPS Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NPS Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +177,7 @@
 				51EBE8202094E094005D44DC /* DataViewController.swift */,
 				5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */,
 				517CD22B20AFA4A200C33623 /* DownloadController.swift */,
-				51B1A314209511A6009C799C /* SettingsViewController.swift */,
+				51B1A314209511A6009C799C /* PreferencesViewController.swift */,
 				5139DF86209F6DE9004F65F9 /* WindowController.swift */,
 				51932D9620DEEA8400F44520 /* LoadingViewController.swift */,
 				517FD72021153BB700E56CB6 /* BoxartViewController.swift */,
@@ -190,6 +192,7 @@
 				518BF15820B2260100A8044C /* Settings.swift */,
 				5182C57E21140757003A5527 /* ItemType.swift */,
 				5108B79D211641190065BA71 /* TSVData.swift */,
+				518F8D8621270AB9005530C6 /* GHLatestRelease.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				518C72EB20C4153B0022375E /* Helpers.swift in Sources */,
+				518F8D8721270AB9005530C6 /* GHLatestRelease.swift in Sources */,
 				5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */,
 				519F0D7520CCBFDA00332987 /* BookmarksViewController.swift in Sources */,
 				5192CE81211E219D004A2E90 /* CompatPack.swift in Sources */,
@@ -435,7 +439,7 @@
 				517FD71F2114B7FF00E56CB6 /* Parser.swift in Sources */,
 				5192CE8C211F1AAE004A2E90 /* Bookmark.swift in Sources */,
 				51EBE81F2094E094005D44DC /* AppDelegate.swift in Sources */,
-				51B1A315209511A6009C799C /* SettingsViewController.swift in Sources */,
+				51B1A315209511A6009C799C /* PreferencesViewController.swift in Sources */,
 				5192CE7F211E18EA004A2E90 /* NetworkManager.swift in Sources */,
 				519F0D7320CC852C00332987 /* BookmarkListItemCellView.swift in Sources */,
 				513BDDA22096689500D82889 /* SettingsManager.swift in Sources */,
@@ -584,7 +588,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -607,7 +614,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";

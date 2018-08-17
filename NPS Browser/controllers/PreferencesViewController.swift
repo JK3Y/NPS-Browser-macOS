@@ -9,7 +9,8 @@
 import Cocoa
 import Foundation
 
-class SettingsViewController: NSViewController {
+class PreferencesViewController: NSViewController {
+    // Sources
     @IBOutlet weak var psvgField: NSTextField!
     @IBOutlet weak var psvdlcField: NSTextField!
     @IBOutlet weak var psvtField: NSTextField!
@@ -22,11 +23,14 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compatPackField: NSTextField!
     @IBOutlet weak var compatPatchField: NSTextField!
     
+    // Display
     @IBOutlet weak var chkHideInvalidURLItems: NSButton!
     
+    // Downloads
     @IBOutlet weak var ccDLField: NSTextField!
     @IBOutlet weak var dlPathField: NSTextField!
     
+    // Extraction Methods
     @IBOutlet weak var chkExtractPKG: NSButton!
     @IBOutlet weak var chkCreateLicense: NSButton!
     @IBOutlet weak var chkKeepPKG: NSButton!
@@ -35,6 +39,12 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var compressionFactorStepper: NSStepper!
     @IBOutlet weak var compressionFactorField: NSTextField!
 //    @IBOutlet weak var chkUnpackPS3Packages: NSButton!
+    
+    // Updates
+    @IBOutlet weak var chkAutomaticallyCheck: NSButton!
+    @IBOutlet weak var btnCheckUpdatesNow: NSButton!
+    @IBOutlet weak var lblUpdateLastChecked: NSTextField!
+    
     
     let settings = SettingsManager().getSettings()
     var dlLocation: URL?
