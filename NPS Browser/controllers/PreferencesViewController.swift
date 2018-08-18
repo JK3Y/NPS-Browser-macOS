@@ -8,6 +8,7 @@
 
 import Cocoa
 import Foundation
+import SwiftyUserDefaults
 
 class PreferencesViewController: NSViewController {
     // Sources
@@ -46,7 +47,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var lblUpdateLastChecked: NSTextField!
     
     
-    let settings = SettingsManager().getSettings()
+//    let settings = SettingsManager().getSettings()
     var dlLocation: URL?
     var update_checked: Date? = nil
     
@@ -57,7 +58,7 @@ class PreferencesViewController: NSViewController {
     }
 
     override func viewDidLoad() {
-        updateTextFields(settings: settings!)
+        updateTextFields()
         super.viewDidLoad()
     }
     
@@ -96,38 +97,66 @@ class PreferencesViewController: NSViewController {
         compressionFactorField.integerValue = compressionFactorStepper.integerValue
     }
     
-    func updateTextFields(settings: Settings) {
-        self.dlLocation = settings.download.library_location
+    func updateTextFields() {
+        self.dlLocation = Defaults[.dl_library_location]
 
-        psvgField.stringValue                   = settings.source.psv_games?.absoluteString ?? ""
-        psvdlcField.stringValue                 = settings.source.psv_dlc?.absoluteString ?? ""
-        psvtField.stringValue                   = settings.source.psv_themes?.absoluteString ?? ""
-        psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
-        pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
-        ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
-        ps3dlcField.stringValue                 = settings.source.ps3_dlc?.absoluteString ?? ""
-        ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
-        ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
-        compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""
-        compatPatchField.stringValue            = settings.source.compatPatch?.absoluteString ?? ""
+//        psvgField.stringValue                   = settings.source.psv_games?.absoluteString ?? ""
+//        psvdlcField.stringValue                 = settings.source.psv_dlc?.absoluteString ?? ""
+//        psvtField.stringValue                   = settings.source.psv_themes?.absoluteString ?? ""
+//        psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
+//        pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
+//        ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
+//        ps3dlcField.stringValue                 = settings.source.ps3_dlc?.absoluteString ?? ""
+//        ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
+//        ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
+//        compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""
+//        compatPatchField.stringValue            = settings.source.compatPatch?.absoluteString ?? ""
         
-        chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
+//        chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
+//        ccDLField.integerValue                  = settings.download.concurrent_downloads
+        
+//        chkExtractPKG.state                     = settings.extract.extract_after_downloading ? .on : .off
+//        chkKeepPKG.state                        = settings.extract.keep_pkg ? .on : .off
+//        chkSaveZip.state                        = settings.extract.save_as_zip ? .on : .off
+//        chkCreateLicense.state                  = settings.extract.create_license ? .on : .off
+//        chkCompressPSPISO.state                 = settings.extract.compress_psp_iso ? .on : .off
+        
+//        compressionFactorField.integerValue     = settings.extract.compression_factor
+//        compressionFactorStepper.integerValue   = settings.extract.compression_factor
 
-        ccDLField.integerValue                  = settings.download.concurrent_downloads
+//        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
+//
+//        chkAutomaticallyCheck.state             = settings.update.automatically_check ? .on : .off
+//        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked)
+
+
+        psvgField.stringValue                   = Defaults[.src_psv_games]?.absoluteString ?? ""
+        psvdlcField.stringValue                 = Defaults[.src_psv_dlcs]?.absoluteString ?? ""
+        psvtField.stringValue                   = Defaults[.src_psv_themes]?.absoluteString ?? ""
+        psxgField.stringValue                   = Defaults[.src_psx_games]?.absoluteString ?? ""
+        pspgField.stringValue                   = Defaults[.src_psp_games]?.absoluteString ?? ""
+        ps3gField.stringValue                   = Defaults[.src_ps3_games]?.absoluteString ?? ""
+        ps3dlcField.stringValue                 = Defaults[.src_ps3_dlcs]?.absoluteString ?? ""
+        ps3tField.stringValue                   = Defaults[.src_ps3_themes]?.absoluteString ?? ""
+        ps3aField.stringValue                   = Defaults[.src_ps3_avatars]?.absoluteString ?? ""
+        compatPackField.stringValue             = Defaults[.src_compatPacks]?.absoluteString ?? ""
+        compatPatchField.stringValue            = Defaults[.src_compatPatch]?.absoluteString ?? ""
+
+        chkHideInvalidURLItems.state            = Defaults[.dsp_hide_invalid_url_items] ? .on : .off
+        ccDLField.integerValue                  = Defaults[.dl_concurrent_downloads]
         dlPathField.stringValue                 = self.dlLocation!.path
 
-        chkExtractPKG.state                     = settings.extract.extract_after_downloading ? .on : .off
-        chkKeepPKG.state                        = settings.extract.keep_pkg ? .on : .off
-        chkSaveZip.state                        = settings.extract.save_as_zip ? .on : .off
-        chkCreateLicense.state                  = settings.extract.create_license ? .on : .off
-        chkCompressPSPISO.state                 = settings.extract.compress_psp_iso ? .on : .off
-
-        compressionFactorField.integerValue     = settings.extract.compression_factor
-        compressionFactorStepper.integerValue   = settings.extract.compression_factor
-//        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
+        chkExtractPKG.state                     = Defaults[.xt_extract_after_downloading] ? .on : .off
+        chkKeepPKG.state                        = Defaults[.xt_keep_pkg] ? .on : .off
+        chkSaveZip.state                        = Defaults[.xt_save_as_zip] ? .on : .off
+        chkCreateLicense.state                  = Defaults[.xt_create_license] ? .on : .off
+        chkCompressPSPISO.state                 = Defaults[.xt_compress_psp_iso] ? .on : .off
         
-        chkAutomaticallyCheck.state             = settings.update.automatically_check ? .on : .off
-        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked)
+        compressionFactorField.integerValue     = Defaults[.xt_compression_factor]
+        compressionFactorStepper.integerValue   = Defaults[.xt_compression_factor]
+        
+        chkAutomaticallyCheck.state             = Defaults[.upd_automatically_check] ? .on : .off
+        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: Defaults[.upd_last_checked])
         
         toggleEnableExtractionSettings(self)
         toggleCompressionFactor(self)
@@ -212,7 +241,8 @@ class PreferencesViewController: NSViewController {
     }
 
     @IBAction func resetToDefaults(_ sender: Any) {
-        updateTextFields(settings: SettingsManager().getDefaultSettings())
+//        updateTextFields(settings: SettingsManager().getDefaultSettings())
+        Defaults.removeAll()
     }
     
 //    func validateURL(_ urlString: String, _ endsWith: String) -> String? {
@@ -229,30 +259,57 @@ class PreferencesViewController: NSViewController {
 //    }
     
     @IBAction func save(_ sender: Any) {
-        let source      = SourceSettings(psv_games: psvgField.stringValue,
-                                         psv_dlc: psvdlcField.stringValue,
-                                         psv_themes: psvtField.stringValue,
-                                         psp_games: pspgField.stringValue,
-                                         psx_games: psxgField.stringValue,
-                                         ps3_games: ps3gField.stringValue,
-                                         ps3_dlc: ps3dlcField.stringValue,
-                                         ps3_themes: ps3tField.stringValue,
-                                         ps3_avatars: ps3aField.stringValue,
-                                         compat_pack: compatPackField.stringValue,
-                                         compat_patch: compatPatchField.stringValue)
-        let download    = DownloadSettings(library_location: self.dlLocation!.absoluteURL,
-                                           concurrent_downloads: ccDLField.integerValue)
-        let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
-                                          keep_pkg: chkKeepPKG.state == .on,
-                                          save_as_zip: chkSaveZip.state == .on,
-                                          create_license: chkCreateLicense.state == .on,
-                                          compress_psp_iso: chkCompressPSPISO.state == .on,
-                                          compression_factor: compressionFactorField.integerValue)
-        let update      = UpdateSettings(automatically_check: chkAutomaticallyCheck.state == .on,
-                                         last_checked: update_checked)
-        let display     = DisplaySettings(hide_invalid_url_items: chkHideInvalidURLItems.state == .on)
-        let settings = Settings(source: source, download: download, extract: extract, display: display, update: update)
-        SettingsManager().setSettings(settings: settings)
+        Defaults[.src_psv_games]    = URL(string: psvgField.stringValue)
+        Defaults[.src_psv_dlcs]     = URL(string: psvdlcField.stringValue)
+        Defaults[.src_psv_themes]   = URL(string: psvtField.stringValue)
+        Defaults[.src_psx_games]    = URL(string: psxgField.stringValue)
+        Defaults[.src_psp_games]    = URL(string: pspgField.stringValue)
+        Defaults[.src_ps3_games]    = URL(string: ps3gField.stringValue)
+        Defaults[.src_ps3_dlcs]     = URL(string: ps3dlcField.stringValue)
+        Defaults[.src_ps3_themes]   = URL(string: ps3tField.stringValue)
+        Defaults[.src_ps3_avatars]  = URL(string: ps3aField.stringValue)
+        Defaults[.src_compatPacks]  = URL(string: compatPackField.stringValue)
+        Defaults[.src_compatPatch]  = URL(string: compatPatchField.stringValue)
+
+        Defaults[.dl_library_location]      = self.dlLocation!.absoluteURL
+        Defaults[.dl_concurrent_downloads]  = ccDLField.integerValue
+        
+        Defaults[.xt_extract_after_downloading] = chkExtractPKG.state == .on
+        Defaults[.xt_keep_pkg]                  = chkKeepPKG.state == .on
+        Defaults[.xt_save_as_zip]               = chkSaveZip.state == .on
+        Defaults[.xt_create_license]            = chkCreateLicense.state == .on
+        Defaults[.xt_compress_psp_iso]          = chkCompressPSPISO.state == .on
+        Defaults[.xt_compression_factor]        = compressionFactorField.integerValue
+        
+        Defaults[.dsp_hide_invalid_url_items]   = chkHideInvalidURLItems.state == .on
+        
+        Defaults[.upd_automatically_check]      = chkAutomaticallyCheck.state == .on
+        Defaults[.upd_last_checked]             = update_checked
+        
+//        let source      = SourceSettings(psv_games: psvgField.stringValue,
+//                                         psv_dlc: psvdlcField.stringValue,
+//                                         psv_themes: psvtField.stringValue,
+//                                         psp_games: pspgField.stringValue,
+//                                         psx_games: psxgField.stringValue,
+//                                         ps3_games: ps3gField.stringValue,
+//                                         ps3_dlc: ps3dlcField.stringValue,
+//                                         ps3_themes: ps3tField.stringValue,
+//                                         ps3_avatars: ps3aField.stringValue,
+//                                         compat_pack: compatPackField.stringValue,
+//                                         compat_patch: compatPatchField.stringValue)
+//        let download    = DownloadSettings(library_location: self.dlLocation!.absoluteURL,
+//                                           concurrent_downloads: ccDLField.integerValue)
+//        let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
+//                                          keep_pkg: chkKeepPKG.state == .on,
+//                                          save_as_zip: chkSaveZip.state == .on,
+//                                          create_license: chkCreateLicense.state == .on,
+//                                          compress_psp_iso: chkCompressPSPISO.state == .on,
+//                                          compression_factor: compressionFactorField.integerValue)
+//        let update      = UpdateSettings(automatically_check: chkAutomaticallyCheck.state == .on,
+//                                         last_checked: update_checked)
+//        let display     = DisplaySettings(hide_invalid_url_items: chkHideInvalidURLItems.state == .on)
+//        let settings = Settings(source: source, download: download, extract: extract, display: display, update: update)
+//        SettingsManager().setSettings(settings: settings)
         
         dismissViewController(self)
     }

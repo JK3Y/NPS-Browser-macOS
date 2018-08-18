@@ -52,7 +52,7 @@ class Parser {
 
     func parseUpdateXML(data: String) -> URL? {
         let xml = data
-        var x: String?
+        var x: String = ""
         
         do {
             let document = try XMLDocument(string: xml)
@@ -64,15 +64,15 @@ class Parser {
                 
                 var hp = lastpkg.firstChild(tag: "hybrid_package")
                 if hp == nil {
-                    x = lastpkg.attributes["url"]
+                    x = lastpkg.attributes["url"]!
                 } else {
-                    x = hp?.attributes["url"]
+                    x = (hp?.attributes["url"])!
                 }
             }
         } catch let error {
             log.error(error)
         }
         
-        return URL(string: x!)
+        return URL(string: x)
     }
 }

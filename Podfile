@@ -16,5 +16,6 @@ target 'NPS Browser' do
   pod 'Zip', '~> 1.1'
   pod 'RealmSwift'
   pod 'Fuzi', '~> 2.1.0'
+  pod 'SwiftyUserDefaults', '4.0.0-alpha.1'
 
 end

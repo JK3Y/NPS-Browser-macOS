@@ -8,6 +8,7 @@
 
 import Promises
 import Alamofire
+import SwiftyUserDefaults
 
 class NetworkManager {
     
@@ -15,11 +16,11 @@ class NetworkManager {
     
     var itemType: ItemType?
     
-    let settings = SettingsManager().getUrls()
+//    let settings = SettingsManager().getUrls()
     
     func makeRequest() {
         itemType = windowDelegate.getItemType()
-        guard let url = settings.getByType(itemType: itemType!) else {
+        guard let url = Helpers().getUrlSettingsByType(itemType: itemType!) else {
             Helpers().makeAlert(messageText: "No URL set for \(self.itemType!.console.rawValue) \(self.itemType!.fileType.rawValue)s.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
 
             log.error("Invalid URL given for item type: \(itemType!.description)")
@@ -86,22 +87,35 @@ class NetworkManager {
         }
             .then { _ in
                 if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
-                    guard let cpackurl = SettingsManager().getUrls().compatPacks else {
+//                    guard let cpackurl = SettingsManager().getUrls().compatPacks else {
+//                        Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+//
+//                        log.error("Invalid URL given for compat packs.")
+//                        return
+//                    }
+                    guard let cpackurl = Defaults[.src_compatPacks] else {
                         Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
                         
                         log.error("Invalid URL given for compat packs.")
                         return
                     }
                     
-                    if (cpackurl.isFileURL) {
-                        guard (try? cpackurl.checkResourceIsReachable()) != nil else {
-                            Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpackurl)", alertStyle: .warning)
-                            return
-                        }
-                    }
+//                    if (cpackurl.isFileURL) {
+//                        guard (try? cpackurl.checkResourceIsReachable()) != nil else {
+//                            Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpackurl)", alertStyle: .warning)
+//                            return
+//                        }
+//                    }
                     
                     if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
-                        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch else {
+//                        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch else {
+//                            Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+//
+//                            log.error("Invalid URL given for compat patches")
+//                            return
+//                        }
+                        
+                        guard let cpatchurl: URL = Defaults[.src_compatPatch] else {
                             Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
                             
                             log.error("Invalid URL given for compat patches")

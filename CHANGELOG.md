@@ -11,6 +11,7 @@
 
 ### Fixed
 - Changed downloads icon to an image that's compatible with macOS 10.10
+- Bug where if a game didn't have an update on PSN it would crash
 
 ## v1.4.1
 ### Changed

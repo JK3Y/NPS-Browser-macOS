@@ -27,6 +27,7 @@
 		5181948E20DDB52C009282AB /* NSTableView+keydown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181948D20DDB52C009282AB /* NSTableView+keydown.swift */; };
 		5182C57F21140757003A5527 /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182C57E21140757003A5527 /* ItemType.swift */; };
 		51843FD120CB9DF2009AE9A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 51843FD020CB9DF2009AE9A4 /* .gitignore */; };
+		518A35FD2127BC4900F661F5 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518A35FC2127BC4900F661F5 /* DefaultsKeys.swift */; };
 		518BF15920B2260100A8044C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518BF15820B2260100A8044C /* Settings.swift */; };
 		518C72EB20C4153B0022375E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C72EA20C4153B0022375E /* Helpers.swift */; };
 		518F8D8721270AB9005530C6 /* GHLatestRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F8D8621270AB9005530C6 /* GHLatestRelease.swift */; };
@@ -75,6 +76,7 @@
 		5181948D20DDB52C009282AB /* NSTableView+keydown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+keydown.swift"; sourceTree = "<group>"; };
 		5182C57E21140757003A5527 /* ItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		51843FD020CB9DF2009AE9A4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		518A35FC2127BC4900F661F5 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		518BF15820B2260100A8044C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		518C72EA20C4153B0022375E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		518F8D8621270AB9005530C6 /* GHLatestRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHLatestRelease.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				5182C57E21140757003A5527 /* ItemType.swift */,
 				5108B79D211641190065BA71 /* TSVData.swift */,
 				518F8D8621270AB9005530C6 /* GHLatestRelease.swift */,
+				518A35FC2127BC4900F661F5 /* DefaultsKeys.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -397,6 +401,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +425,7 @@
 				515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */,
 				51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */,
 				518BF15920B2260100A8044C /* Settings.swift in Sources */,
+				518A35FD2127BC4900F661F5 /* DefaultsKeys.swift in Sources */,
 				51B12A1420B0603500E83844 /* DLItem.swift in Sources */,
 				517FD72121153BB700E56CB6 /* GameArtworkViewController.swift in Sources */,
 				5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */,
@@ -588,10 +594,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -614,10 +617,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";

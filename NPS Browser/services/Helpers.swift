@@ -8,6 +8,7 @@
 
 import Cocoa
 import Foundation
+import SwiftyUserDefaults
 
 class Helpers {
     
@@ -99,5 +100,31 @@ class Helpers {
         } else {
             return components.second! > 5 ? "\(components.second!) seconds ago" : "Just Now"
         }
+    }
+    
+    func getUrlSettingsByType(itemType: ItemType) -> URL? {
+        switch (itemType.console) {
+        case .PSV:
+            switch (itemType.fileType) {
+            case .Game: return Defaults[.src_psv_games]
+            case .DLC: return Defaults[.src_psv_dlcs]
+            case .Theme: return Defaults[.src_psv_themes]
+            case .CPack: return Defaults[.src_compatPacks]
+            case .CPatch: return Defaults[.src_compatPatch]
+            default: break
+            }
+        case .PS3:
+            switch (itemType.fileType) {
+            case .Game: return Defaults[.src_ps3_games]
+            case .DLC: return Defaults[.src_ps3_dlcs]
+            case .Theme: return Defaults[.src_ps3_themes]
+            case .Avatar: return Defaults[.src_ps3_avatars]
+            default: break
+            }
+        case .PSP: return Defaults[.src_psp_games]
+        case .PSX: return Defaults[.src_psx_games]
+        }
+        
+        return nil
     }
 }

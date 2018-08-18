@@ -14,6 +14,7 @@ PODS:
   - RealmSwift (3.7.6):
     - Realm (= 3.7.6)
   - SwiftyBeaver (1.6.0)
+  - SwiftyUserDefaults (4.0.0-alpha.1)
   - Zip (1.1.0)
 
 DEPENDENCIES:
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Queuer
   - RealmSwift
   - SwiftyBeaver
+  - SwiftyUserDefaults (= 4.0.0-alpha.1)
   - Zip (~> 1.1)
 
 SPEC REPOS:
@@ -38,6 +40,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftyBeaver
+    - SwiftyUserDefaults
     - Zip
 
 EXTERNAL SOURCES:
@@ -60,8 +63,9 @@ SPEC CHECKSUMS:
   Realm: 9eaecad54712d6246d08ba34c10f354e4715d7d3
   RealmSwift: 1fe08b4ebaeeaacf17f9ba0343f7b25c9fc31fa6
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
+  SwiftyUserDefaults: cebe0ff9472f52699772a514b6f7155861d8069b
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: f180b8532165ae1fba7b0b1bda37dda6e8ee7136
+PODFILE CHECKSUM: 9edbc143ab0b5f9975b29471676086a93244da38
 
 COCOAPODS: 1.5.3
