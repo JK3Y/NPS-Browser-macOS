@@ -12,11 +12,6 @@ import Alamofire
 
 class AppUpdateChecker {
     
-    func checkForUpdate() {
-        
-    }
-    
-    
     func fetchLatest(successHandler: @escaping ((_ tagName: String, _ browserDownloadURL: String) -> ()) ) {
         let url = "https://api.github.com/repos/JK3Y/NPS-Browser-macOS/releases/latest"
         
@@ -43,7 +38,6 @@ class AppUpdateChecker {
         
         Helpers().showLoadingViewController()
         Helpers().getLoadingViewController().setLabel(text: "Fetching update...")
-//        Helpers().getLoadingViewController().setProgress(amount: 20)
         
         let destination: DownloadRequest.DownloadFileDestination = { request, response in
             // .pkg filename

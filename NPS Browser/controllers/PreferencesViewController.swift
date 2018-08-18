@@ -190,6 +190,8 @@ class PreferencesViewController: NSViewController {
             if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                 let downloadUrl: URL = URL(string: browserDownloadURL)!
                 
+                debugPrint(appVersion, ghVersion, browserDownloadURL)
+                
                 if appVersion < ghVersion {
                     let alert = NSAlert()
                     alert.messageText = "Update Available"
@@ -212,6 +214,19 @@ class PreferencesViewController: NSViewController {
     @IBAction func resetToDefaults(_ sender: Any) {
         updateTextFields(settings: SettingsManager().getDefaultSettings())
     }
+    
+//    func validateURL(_ urlString: String, _ endsWith: String) -> String? {
+//        let url = URL(string: urlString)
+//        
+//        debugPrint(url?.pathExtension)
+//        
+//        if url?.pathExtension == endsWith {
+//            return urlString
+//        }
+//        
+//        try? Helpers().makeAlert(messageText: "Invalid URL", informativeText: "Invalid URL given: \(urlString). File must have extension '.\(endsWith)'", alertStyle: .critical)
+//        return nil
+//    }
     
     @IBAction func save(_ sender: Any) {
         let source      = SourceSettings(psv_games: psvgField.stringValue,
