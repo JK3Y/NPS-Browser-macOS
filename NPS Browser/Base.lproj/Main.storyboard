@@ -1114,7 +1114,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="goH-a2-kkQ">
-                                        <rect key="frame" x="74" y="-7" width="101" height="32"/>
+                                        <rect key="frame" x="73" y="-7" width="102" height="32"/>
                                         <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7vk-H7-6Tb">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1125,8 +1125,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="goH-a2-kkQ" firstAttribute="top" secondItem="Ky6-hR-u0a" secondAttribute="bottom" constant="8" id="6bx-8y-frd"/>
                                     <constraint firstItem="Ky6-hR-u0a" firstAttribute="leading" secondItem="inm-Fx-xFQ" secondAttribute="leading" constant="8" id="IcX-yq-2Cz"/>
                                     <constraint firstAttribute="trailing" secondItem="Ky6-hR-u0a" secondAttribute="trailing" constant="8" id="Nty-Hk-S2f"/>
+                                    <constraint firstItem="goH-a2-kkQ" firstAttribute="leading" secondItem="inm-Fx-xFQ" secondAttribute="leading" constant="79" id="oT3-rL-fkW"/>
+                                    <constraint firstAttribute="trailing" secondItem="goH-a2-kkQ" secondAttribute="trailing" constant="79" id="pVa-Uk-Tet"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -1210,6 +1213,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="eTw-gx-qiW" firstAttribute="top" secondItem="Oc5-OH-Nhz" secondAttribute="bottom" constant="8" symbolic="YES" id="4E2-oM-x4T"/>
+                            <constraint firstAttribute="bottom" secondItem="goH-a2-kkQ" secondAttribute="bottom" constant="20" id="5jF-f1-xZr"/>
                             <constraint firstItem="Oc5-OH-Nhz" firstAttribute="top" secondItem="jm2-eV-PlI" secondAttribute="bottom" constant="8" symbolic="YES" id="CM9-bU-4M3"/>
                             <constraint firstItem="eTw-gx-qiW" firstAttribute="leading" secondItem="F5X-qz-juG" secondAttribute="leading" id="D3h-Ul-5of"/>
                             <constraint firstItem="inm-Fx-xFQ" firstAttribute="leading" secondItem="H9H-LI-MqF" secondAttribute="leading" constant="12" id="E8N-RI-9Dc"/>

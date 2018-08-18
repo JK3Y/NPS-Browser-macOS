@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */; };
 		5108B79E211641190065BA71 /* TSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108B79D211641190065BA71 /* TSVData.swift */; };
-		511BE5442128192E008B749F /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511BE5432128192E008B749F /* SettingsManager.swift */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
 		5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */; };
@@ -55,7 +54,6 @@
 /* Begin PBXFileReference section */
 		0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.debug.xcconfig"; sourceTree = "<group>"; };
 		5108B79D211641190065BA71 /* TSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVData.swift; sourceTree = "<group>"; };
-		511BE5432128192E008B749F /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		5121752E20A73EBC00772C86 /* NPS Browser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NPS Browser.entitlements"; sourceTree = "<group>"; };
 		512175A720A7D28B00772C86 /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
 		5139DF86209F6DE9004F65F9 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 		516B855220AE7FE800E4A083 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				511BE5432128192E008B749F /* SettingsManager.swift */,
 				5167430420AFE098003AFC4D /* DownloadManager.swift */,
 				5177A78720C3508D002F81F9 /* ExtractionManager.swift */,
 				518C72EA20C4153B0022375E /* Helpers.swift */,
@@ -418,7 +415,6 @@
 				51E6684D2121447600FC154A /* AppUpdateChecker.swift in Sources */,
 				515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */,
 				51932D9720DEEA8400F44520 /* LoadingViewController.swift in Sources */,
-				511BE5442128192E008B749F /* SettingsManager.swift in Sources */,
 				518A35FD2127BC4900F661F5 /* DefaultsKeys.swift in Sources */,
 				51B12A1420B0603500E83844 /* DLItem.swift in Sources */,
 				517FD72121153BB700E56CB6 /* GameArtworkViewController.swift in Sources */,

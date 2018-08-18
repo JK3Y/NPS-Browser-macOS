@@ -2,13 +2,14 @@
 
 A Swift 4 implementation of NPS Browser.
 
-![](/Screenshots/Screen%20Shot%202018-08-12%20at%2012.53.48%20PM.png?raw=true)
+![](/Screenshots/main.png?raw=true)
 
 ## Usage
 **Requires macOS 10.10+**
 
 * Set URLs and extraction preferences in the Preferences window
-* Click the refresh button in the corner of the window to pull fresh data from the server. 
+* From the menu select Database > Reload or press ⌘R
+* Compatibility pack URLs must be the raw text file.
 
 ## Features
 * Bookmarks can be saved by clicking the star icon in the corner of the details panel.
