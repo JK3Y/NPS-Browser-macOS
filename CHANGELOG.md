@@ -4,6 +4,7 @@
 ### Added
 - Application can now check for new application updates automatically and download them.
 - URL validation on source URLs.
+- Game artwork is now fetched directly from the Sony servers. This gives us way faster image loading and reduces resource usage.
 
 ### Changed
 - Reload button is no longer located in the toolbar. There is a menu titled "Database" that contains an option to reload. There is also a keyboard shortcut available - ⌘R
@@ -12,6 +13,7 @@
 - Changed how user preferences are stored. No more losing your saved configuration after upgrading to the latest version!
 
 ### Fixed
+- Bug where users running on Mac OS 10.10 Yosemite would have the UI elements placed on top of each other, making the app almost impossible to use.
 - Changed downloads icon to an image that's compatible with macOS 10.10
 - Bug where if a game didn't have an update on PSN it would crash
 

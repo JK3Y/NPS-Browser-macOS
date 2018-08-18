@@ -7,9 +7,8 @@
 //
 
 import Cocoa
-import Alamofire
 
-class GameArtworkViewController: NSViewController, GameArtworkDelegate {
+class GameArtworkViewController: NSViewController {
     @IBOutlet weak var imgBoxart: NSImageView!
     
     override var representedObject: Any? {
@@ -20,26 +19,15 @@ class GameArtworkViewController: NSViewController, GameArtworkDelegate {
         }
     }
     
-    func setImage(image: NSImage) {
+    private func setImage(image: NSImage) {
         self.imgBoxart.sizeToFit()
         self.imgBoxart.image = image
     }
     
     func getImage() {
-        let rs = Renascene(item: representedObject as! Item)
-        let f = rs.fetch()
-        
-        f().then { url in
-            
+        PSNStoreApi(item: representedObject as! Item).getImage()
+            .then { image in
+                self.setImage(image: image)
         }
-    }
-    
-    func noImage() {
-        let img = #imageLiteral(resourceName: "no-image")
-        setImage(image: img)
-    }
-    
-    func fetchImage() {
-        
     }
 }
