@@ -8,6 +8,7 @@
 
 import Cocoa
 import RealmSwift
+import SwiftyUserDefaults
 
 class DataViewController: NSViewController, ToolbarDelegate {
     
@@ -52,7 +53,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
         var str = "consoleType == %@ AND fileType == %@ AND region == %@ "
         let it = windowDelegate.getItemType()
         
-        if SettingsManager().getDisplay().hide_invalid_url_items {
+        if Defaults[.dsp_hide_invalid_url_items] {
             str.append(" AND pkgDirectLink != 'MISSING'")
             
             switch( it.console ) {

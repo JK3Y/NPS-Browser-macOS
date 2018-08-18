@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftyUserDefaults
 
 class DownloadListItemCellView: NSTableCellView {
     
@@ -14,7 +15,7 @@ class DownloadListItemCellView: NSTableCellView {
     @IBOutlet weak var btnCancel: NSButton!
     @IBOutlet weak var btnRetry: NSButton!
     var item: DLItem?
-    var dlLoc = SettingsManager().getDownloads().library_folder
+    var dlLoc = Defaults[.dl_library_folder]
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -31,37 +32,35 @@ class DownloadListItemCellView: NSTableCellView {
     }
     
     @IBAction func doViewDownloadedFile(_ sender: NSButton) {
-        let extractSettings = SettingsManager().getExtract()
-
-        if (extractSettings.extract_after_downloading) {
+        if Defaults[.xt_extract_after_downloading] {
             let ct:ConsoleType = ConsoleType(rawValue: item!.consoleType!)!
             let ft:FileType = FileType(rawValue: item!.fileType!)!
             
-            dlLoc.appendPathComponent(item!.consoleType!)
+            dlLoc?.appendPathComponent(item!.consoleType!)
             
             switch (ct) {
             case .PSV:
                 switch(ft) {
                 case .Game:
-                    dlLoc.appendPathComponent("app/\(item!.titleId!)")
+                    dlLoc?.appendPathComponent("app/\(item!.titleId!)")
                 case .DLC:
-                    dlLoc.appendPathComponent("addcont/\(item!.titleId!)")
+                    dlLoc?.appendPathComponent("addcont/\(item!.titleId!)")
                 case .Update:
-                    dlLoc.appendPathComponent("patch/\(item!.titleId!)")
+                    dlLoc?.appendPathComponent("patch/\(item!.titleId!)")
                 case .Theme:
-                    dlLoc.appendPathComponent("bgdl/t")
+                    dlLoc?.appendPathComponent("bgdl/t")
                 default: break
                 }
             case .PS3:
-                NSWorkspace.shared.open(dlLoc)
+                NSWorkspace.shared.open(dlLoc!)
             case .PSP:
-                dlLoc.appendPathComponent("pspemu/ISO")
+                dlLoc?.appendPathComponent("pspemu/ISO")
             case .PSX:
-                dlLoc.appendPathComponent("pspemu/")
+                dlLoc?.appendPathComponent("pspemu/")
             }
         }
         
-        NSWorkspace.shared.open(dlLoc)
+        NSWorkspace.shared.open(dlLoc!)
     }
     @IBAction func doRetryRequest(_ sender: NSButton) {
         item!.status = "Retrying..."

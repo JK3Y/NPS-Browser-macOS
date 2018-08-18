@@ -10,10 +10,11 @@ import Foundation
 import Cocoa
 import Zip
 import Files
+import SwiftyUserDefaults
 
 class ExtractionManager {
     private var item: DLItem
-    private let userSettings = SettingsManager().getSettings()
+//    private let userSettings = SettingsManager().getSettings()
     private var downloadManager: DownloadManager
     private var isPS3: Bool = false
     
@@ -49,13 +50,13 @@ class ExtractionManager {
     }
     
     func unzipPPK() {
-        var filepath = SettingsManager().getDownloads().library_folder
-        let rpf = makeRepatchFolder(filepath: filepath)
+        var filepath = Defaults[.dl_library_folder]
+        let rpf = makeRepatchFolder(filepath: filepath!)
         filepath = rpf.appendingPathComponent("\(item.titleId!)")
         
         if (item.fileType == "CPack") {
             do {
-                try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
+                try Zip.unzipFile(item.destinationURL!, destination: filepath!, overwrite: true, password: nil)
                 completeDownload(status: "Extraction Complete")
             }
             catch {
@@ -66,12 +67,12 @@ class ExtractionManager {
         if (item.fileType == "CPatch") {
             do {
                 if (item.cpackPath != nil) {
-                    try Zip.unzipFile(item.cpackPath!, destination: filepath, overwrite: true, password: nil)
+                    try Zip.unzipFile(item.cpackPath!, destination: filepath!, overwrite: true, password: nil)
                     item.parentItem?.status = "Extraction Complete"
                     item.parentItem?.makeViewable()
                     Helpers().makeNotification(title: (item.parentItem?.name!)!, subtitle: (item.parentItem?.status!)!)
                 }
-                try Zip.unzipFile(item.destinationURL!, destination: filepath, overwrite: true, password: nil)
+                try Zip.unzipFile(item.destinationURL!, destination: filepath!, overwrite: true, password: nil)
                 completeDownload(status: "Extraction Complete")
             }
             catch {
@@ -92,7 +93,7 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryPath = (userSettings?.download.library_folder.appendingPathComponent(item.consoleType!).path)!
+        task.currentDirectoryPath = (Defaults[.dl_library_folder]?.appendingPathComponent(item.consoleType!).path)!
         
         task.launchPath = pkg2zipPath
         
@@ -140,11 +141,11 @@ class ExtractionManager {
         if (isPS3) {
             return false
         }
-        return userSettings!.extract.extract_after_downloading
+        return Defaults[.xt_extract_after_downloading]
     }
     
     private func cleanup() {
-        if (!(userSettings?.extract.keep_pkg)!) { // false
+        if (!(Defaults[.xt_keep_pkg])) { // false
             let pkg_path = item.destinationURL
             do {
                 try FileManager.default.removeItem(at: pkg_path!)
@@ -157,19 +158,18 @@ class ExtractionManager {
     private func getArguments() -> [String] {
         // pkg2zip args: [zip (nothing) or not (-x)] [.pkg path] [zRIF string]
         var arguments: [String] = []
-        let extractSettings = userSettings?.extract
         
-        if (!(extractSettings?.save_as_zip)!) { // == false
+        if (!(Defaults[.xt_save_as_zip])) { // == false
             arguments.append("-x")
         }
         
-        if (item.consoleType! == "PSP" && item.fileType! == "Game" && (extractSettings?.compress_psp_iso)!) { // == true
-            arguments.append("-c\(extractSettings?.compression_factor ?? 1)")
+        if (item.consoleType! == "PSP" && item.fileType! == "Game" && Defaults[.xt_compress_psp_iso]) { // == true
+            arguments.append("-c\(Defaults[.xt_compression_factor] ?? 1)")
         }
         
         arguments.append((item.destinationURL?.path)!)
         
-        if (item.zrif != nil && (extractSettings?.create_license)!) { // == true
+        if (item.zrif != nil && Defaults[.xt_create_license]) { // == true
             arguments.append(item.zrif!)
         }
         

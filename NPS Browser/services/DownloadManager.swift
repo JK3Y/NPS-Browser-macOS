@@ -11,11 +11,12 @@ import Queuer
 import Alamofire
 import Promises
 import Files
+import SwiftyUserDefaults
 
 class DownloadManager {
     
     var downloadItems: [DLItem] = []
-    let queue = Queuer(name: "DLQueue", maxConcurrentOperationCount: SettingsManager().getDownloads().concurrent_downloads, qualityOfService: .default)
+    let queue = Queuer(name: "DLQueue", maxConcurrentOperationCount: Defaults[.dl_concurrent_downloads], qualityOfService: .default)
     
     init() {
         restoreDownloadList()
@@ -25,9 +26,8 @@ class DownloadManager {
         let destination: DownloadRequest.DownloadFileDestination = { request, response in
             // .pkg filename
             let pathComponent = response.suggestedFilename!
-            let downloadSettings = SettingsManager().getDownloads()
             let cf = data.consoleType
-            var path: URL = downloadSettings.library_folder.appendingPathComponent(cf!)
+            var path: URL = Defaults[.dl_library_folder]!.appendingPathComponent(cf!)
             path.appendPathComponent(pathComponent)
 
             let decodedurl = path.path.removingPercentEncoding
@@ -38,7 +38,7 @@ class DownloadManager {
     }
     
     func makeConsoleFolder(dlItem: DLItem) {
-        let filepath = SettingsManager().getDownloads().library_folder
+        let filepath = Defaults[.dl_library_folder]!
         let console = dlItem.consoleType
 
         if (try? Folder(path: filepath.path).createSubfolderIfNeeded(withName: console!)) != nil {

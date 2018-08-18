@@ -10,6 +10,7 @@ import Cocoa
 import Files
 import SwiftyBeaver
 import RealmSwift
+import SwiftyUserDefaults
 
 let log = SwiftyBeaver.self
 
@@ -43,16 +44,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func setupDownloadsDirectory() {
-        let dlFolder = SettingsManager().getDownloads().library_location
+        let dlFolder = Defaults[.dl_library_location]
         let dlDirName = "NPS Downloads"
         
-        try! Folder(path: dlFolder.path).createSubfolderIfNeeded(withName: dlDirName)
+        try! Folder(path: (dlFolder?.path)!).createSubfolderIfNeeded(withName: dlDirName)
     }
     
     func checkUpdateSettings() {
-        let settings = SettingsManager().getUpdate()
-        if settings.automatically_check {
+        if Defaults[.upd_automatically_check] {
             AppUpdateChecker().fetchLatest() { ghVersion, browserDownloadURL in
+                Defaults[.upd_last_checked] = Date()
+                
                 if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                     let downloadUrl: URL = URL(string: browserDownloadURL)!
                     
