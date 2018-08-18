@@ -14,16 +14,13 @@ class NetworkManager {
     
     let windowDelegate: WindowDelegate = Helpers().getWindowDelegate()
     
-    var itemType: ItemType?
-    
-//    let settings = SettingsManager().getUrls()
-    
-    func makeRequest() {
-        itemType = windowDelegate.getItemType()
-        guard let url = Helpers().getUrlSettingsByType(itemType: itemType!) else {
-            Helpers().makeAlert(messageText: "No URL set for \(self.itemType!.console.rawValue) \(self.itemType!.fileType.rawValue)s.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+    let itemType = Helpers().getWindowDelegate().getItemType()
 
-            log.error("Invalid URL given for item type: \(itemType!.description)")
+    func makeRequest() {
+        guard let url = Helpers().getUrlSettingsByType(itemType: itemType) else {
+            Helpers().makeAlert(messageText: "No URL set for \(self.itemType.console.rawValue) \(self.itemType.fileType.rawValue)s.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
+
+            log.error("Invalid URL given for item type: \(itemType.description)")
             return
         }
         
@@ -55,7 +52,7 @@ class NetworkManager {
                     if (response.result.isSuccess) {
                         self.windowDelegate.getLoadingViewController().setLabel(text: "Preparing... (step 3/5)")
                         self.windowDelegate.getLoadingViewController().setProgress(amount: 20)
-                        let parsedTSV = Parser().parseTSV(data: utf8Text!, itemType: self.itemType!)
+                        let parsedTSV = Parser().parseTSV(data: utf8Text!, itemType: self.itemType)
                         fulfill(parsedTSV)
                     }
                     else {
@@ -86,13 +83,8 @@ class NetworkManager {
                 Helpers().getLoadingViewController().closeWindow()
         }
             .then { _ in
-                if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
-//                    guard let cpackurl = SettingsManager().getUrls().compatPacks else {
-//                        Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-//
-//                        log.error("Invalid URL given for compat packs.")
-//                        return
-//                    }
+                if (self.itemType.console == ConsoleType.PSV && self.itemType.fileType == FileType.Game) {
+
                     guard let cpackurl = Defaults[.src_compatPacks] else {
                         Helpers().makeAlert(messageText: "No URL set for Compat Packs.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
                         
@@ -100,20 +92,7 @@ class NetworkManager {
                         return
                     }
                     
-//                    if (cpackurl.isFileURL) {
-//                        guard (try? cpackurl.checkResourceIsReachable()) != nil else {
-//                            Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpackurl)", alertStyle: .warning)
-//                            return
-//                        }
-//                    }
-                    
-                    if (self.itemType?.console == ConsoleType.PSV && self.itemType?.fileType == FileType.Game) {
-//                        guard let cpatchurl: URL = SettingsManager().getUrls().compatPatch else {
-//                            Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-//
-//                            log.error("Invalid URL given for compat patches")
-//                            return
-//                        }
+                    if (self.itemType.console == ConsoleType.PSV && self.itemType.fileType == FileType.Game) {
                         
                         guard let cpatchurl: URL = Defaults[.src_compatPatch] else {
                             Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)

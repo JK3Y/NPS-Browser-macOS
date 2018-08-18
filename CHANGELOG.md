@@ -3,6 +3,7 @@
 ## v1.4.2
 ### Added
 - Application can now check for new application updates automatically and download them.
+- URL validation on source URLs.
 
 ### Changed
 - Reload button is no longer located in the toolbar. There is a menu titled "Database" that contains an option to reload. There is also a keyboard shortcut available - ⌘R

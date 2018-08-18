@@ -100,36 +100,6 @@ class PreferencesViewController: NSViewController {
     func updateTextFields() {
         self.dlLocation = Defaults[.dl_library_location]
 
-//        psvgField.stringValue                   = settings.source.psv_games?.absoluteString ?? ""
-//        psvdlcField.stringValue                 = settings.source.psv_dlc?.absoluteString ?? ""
-//        psvtField.stringValue                   = settings.source.psv_themes?.absoluteString ?? ""
-//        psxgField.stringValue                   = settings.source.psx_games?.absoluteString ?? ""
-//        pspgField.stringValue                   = settings.source.psp_games?.absoluteString ?? ""
-//        ps3gField.stringValue                   = settings.source.ps3_games?.absoluteString ?? ""
-//        ps3dlcField.stringValue                 = settings.source.ps3_dlc?.absoluteString ?? ""
-//        ps3tField.stringValue                   = settings.source.ps3_themes?.absoluteString ?? ""
-//        ps3aField.stringValue                   = settings.source.ps3_avatars?.absoluteString ?? ""
-//        compatPackField.stringValue             = settings.source.compatPacks?.absoluteString ?? ""
-//        compatPatchField.stringValue            = settings.source.compatPatch?.absoluteString ?? ""
-        
-//        chkHideInvalidURLItems.state            = settings.display.hide_invalid_url_items ? .on : .off
-//        ccDLField.integerValue                  = settings.download.concurrent_downloads
-        
-//        chkExtractPKG.state                     = settings.extract.extract_after_downloading ? .on : .off
-//        chkKeepPKG.state                        = settings.extract.keep_pkg ? .on : .off
-//        chkSaveZip.state                        = settings.extract.save_as_zip ? .on : .off
-//        chkCreateLicense.state                  = settings.extract.create_license ? .on : .off
-//        chkCompressPSPISO.state                 = settings.extract.compress_psp_iso ? .on : .off
-        
-//        compressionFactorField.integerValue     = settings.extract.compression_factor
-//        compressionFactorStepper.integerValue   = settings.extract.compression_factor
-
-//        chkUnpackPS3Packages.state = settings.extract.unpack_ps3_packages ? .on : .off
-//
-//        chkAutomaticallyCheck.state             = settings.update.automatically_check ? .on : .off
-//        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: settings.update.last_checked)
-
-
         psvgField.stringValue                   = Defaults[.src_psv_games]?.absoluteString ?? ""
         psvdlcField.stringValue                 = Defaults[.src_psv_dlcs]?.absoluteString ?? ""
         psvtField.stringValue                   = Defaults[.src_psv_themes]?.absoluteString ?? ""
@@ -241,76 +211,68 @@ class PreferencesViewController: NSViewController {
     }
 
     @IBAction func resetToDefaults(_ sender: Any) {
-//        updateTextFields(settings: SettingsManager().getDefaultSettings())
         Defaults.removeAll()
     }
     
-//    func validateURL(_ urlString: String, _ endsWith: String) -> String? {
-//        let url = URL(string: urlString)
-//        
-//        debugPrint(url?.pathExtension)
-//        
-//        if url?.pathExtension == endsWith {
-//            return urlString
-//        }
-//        
-//        try? Helpers().makeAlert(messageText: "Invalid URL", informativeText: "Invalid URL given: \(urlString). File must have extension '.\(endsWith)'", alertStyle: .critical)
-//        return nil
-//    }
-    
     @IBAction func save(_ sender: Any) {
-        Defaults[.src_psv_games]    = URL(string: psvgField.stringValue)
-        Defaults[.src_psv_dlcs]     = URL(string: psvdlcField.stringValue)
-        Defaults[.src_psv_themes]   = URL(string: psvtField.stringValue)
-        Defaults[.src_psx_games]    = URL(string: psxgField.stringValue)
-        Defaults[.src_psp_games]    = URL(string: pspgField.stringValue)
-        Defaults[.src_ps3_games]    = URL(string: ps3gField.stringValue)
-        Defaults[.src_ps3_dlcs]     = URL(string: ps3dlcField.stringValue)
-        Defaults[.src_ps3_themes]   = URL(string: ps3tField.stringValue)
-        Defaults[.src_ps3_avatars]  = URL(string: ps3aField.stringValue)
-        Defaults[.src_compatPacks]  = URL(string: compatPackField.stringValue)
-        Defaults[.src_compatPatch]  = URL(string: compatPatchField.stringValue)
+        storePreferences()
+        
+    }
+    
+    func validateAndStore(urlString: String, endsWith: String, defaultsKey: DefaultsKey<URL?>) throws {
+        if urlString.isEmpty {
+            Defaults.set(URL(string:""), forKey: defaultsKey._key)
+            return
+        }
 
-        Defaults[.dl_library_location]      = self.dlLocation!.absoluteURL
-        Defaults[.dl_concurrent_downloads]  = ccDLField.integerValue
-        
-        Defaults[.xt_extract_after_downloading] = chkExtractPKG.state == .on
-        Defaults[.xt_keep_pkg]                  = chkKeepPKG.state == .on
-        Defaults[.xt_save_as_zip]               = chkSaveZip.state == .on
-        Defaults[.xt_create_license]            = chkCreateLicense.state == .on
-        Defaults[.xt_compress_psp_iso]          = chkCompressPSPISO.state == .on
-        Defaults[.xt_compression_factor]        = compressionFactorField.integerValue
-        
-        Defaults[.dsp_hide_invalid_url_items]   = chkHideInvalidURLItems.state == .on
-        
-        Defaults[.upd_automatically_check]      = chkAutomaticallyCheck.state == .on
-        Defaults[.upd_last_checked]             = update_checked
-        
-//        let source      = SourceSettings(psv_games: psvgField.stringValue,
-//                                         psv_dlc: psvdlcField.stringValue,
-//                                         psv_themes: psvtField.stringValue,
-//                                         psp_games: pspgField.stringValue,
-//                                         psx_games: psxgField.stringValue,
-//                                         ps3_games: ps3gField.stringValue,
-//                                         ps3_dlc: ps3dlcField.stringValue,
-//                                         ps3_themes: ps3tField.stringValue,
-//                                         ps3_avatars: ps3aField.stringValue,
-//                                         compat_pack: compatPackField.stringValue,
-//                                         compat_patch: compatPatchField.stringValue)
-//        let download    = DownloadSettings(library_location: self.dlLocation!.absoluteURL,
-//                                           concurrent_downloads: ccDLField.integerValue)
-//        let extract     = ExtractSettings(extract_after_downloading: chkExtractPKG.state == .on,
-//                                          keep_pkg: chkKeepPKG.state == .on,
-//                                          save_as_zip: chkSaveZip.state == .on,
-//                                          create_license: chkCreateLicense.state == .on,
-//                                          compress_psp_iso: chkCompressPSPISO.state == .on,
-//                                          compression_factor: compressionFactorField.integerValue)
-//        let update      = UpdateSettings(automatically_check: chkAutomaticallyCheck.state == .on,
-//                                         last_checked: update_checked)
-//        let display     = DisplaySettings(hide_invalid_url_items: chkHideInvalidURLItems.state == .on)
-//        let settings = Settings(source: source, download: download, extract: extract, display: display, update: update)
-//        SettingsManager().setSettings(settings: settings)
-        
-        dismissViewController(self)
+        let url = URL(string: urlString)
+
+        if url?.pathExtension == endsWith {
+//            Defaults.set(url, forKey: defaultsKey._key)
+            debugPrint(Defaults[defaultsKey])
+            
+            Defaults[defaultsKey] = url
+            
+            debugPrint(Defaults[defaultsKey])
+        } else {
+            Helpers().makeAlert(messageText: "Invalid URL", informativeText: "Invalid URL given: \(urlString). File must have extension '.\(endsWith)'", alertStyle: .critical)
+            throw NSError()
+        }
+    }
+    
+    func storePreferences() {
+        do {
+            try validateAndStore(urlString: psvgField.stringValue, endsWith: "tsv", defaultsKey: .src_psv_games)
+            try validateAndStore(urlString: psvdlcField.stringValue, endsWith: "tsv", defaultsKey: .src_psv_dlcs)
+            try validateAndStore(urlString: psvtField.stringValue, endsWith: "tsv", defaultsKey: .src_psv_themes)
+            try validateAndStore(urlString: psxgField.stringValue, endsWith: "tsv", defaultsKey: .src_psx_games)
+            try validateAndStore(urlString: pspgField.stringValue, endsWith: "tsv", defaultsKey: .src_psp_games)
+            try validateAndStore(urlString: ps3gField.stringValue, endsWith: "tsv", defaultsKey: .src_ps3_games)
+            try validateAndStore(urlString: ps3dlcField.stringValue, endsWith: "tsv", defaultsKey: .src_ps3_dlcs)
+            try validateAndStore(urlString: ps3tField.stringValue, endsWith: "tsv", defaultsKey: .src_ps3_themes)
+            try validateAndStore(urlString: ps3aField.stringValue, endsWith: "tsv", defaultsKey: .src_ps3_avatars)
+            try validateAndStore(urlString: compatPackField.stringValue, endsWith: "txt", defaultsKey: .src_compatPacks)
+            try validateAndStore(urlString: compatPatchField.stringValue, endsWith: "txt", defaultsKey: .src_compatPatch)
+
+            Defaults[.dl_library_location]      = self.dlLocation!.absoluteURL
+            Defaults[.dl_concurrent_downloads]  = ccDLField.integerValue
+            
+            Defaults[.xt_extract_after_downloading] = chkExtractPKG.state == .on
+            Defaults[.xt_keep_pkg]                  = chkKeepPKG.state == .on
+            Defaults[.xt_save_as_zip]               = chkSaveZip.state == .on
+            Defaults[.xt_create_license]            = chkCreateLicense.state == .on
+            Defaults[.xt_compress_psp_iso]          = chkCompressPSPISO.state == .on
+            Defaults[.xt_compression_factor]        = compressionFactorField.integerValue
+            
+            Defaults[.dsp_hide_invalid_url_items]   = chkHideInvalidURLItems.state == .on
+            
+            Defaults[.upd_automatically_check]      = chkAutomaticallyCheck.state == .on
+            Defaults[.upd_last_checked]             = update_checked
+
+            
+            dismissViewController(self)
+        } catch {
+            return
+        }
     }
 }
