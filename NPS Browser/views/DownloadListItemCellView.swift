@@ -60,7 +60,10 @@ class DownloadListItemCellView: NSTableCellView {
             }
         }
         
-        NSWorkspace.shared.open(dlLoc!)
+        let str = dlLoc?.absoluteString.removingPercentEncoding
+        let path = URL(fileURLWithPath: str!, isDirectory: true)
+        
+        NSWorkspace.shared.open(path)
     }
     @IBAction func doRetryRequest(_ sender: NSButton) {
         item!.status = "Retrying..."
