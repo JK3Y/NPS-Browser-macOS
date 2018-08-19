@@ -1,22 +1,23 @@
 # NPS Browser for macOS
 
 A Swift 4 implementation of NPS Browser.
+**Requires macOS 10.10+**
 
 ![](/Screenshots/main.png?raw=true)
 
-## Usage
-**Requires macOS 10.10+**
+## Features
+* Automatic app updates
+* Bookmarks can be saved by clicking the star icon in the corner of the details panel
+* Downloads can be started from the bookmark list
+* Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download
+* Compatibility pack support for FW 3.61+
+* Game updates are always the latest version
+* Game artwork is displayed
 
+## Usage
 * Set URLs and extraction preferences in the Preferences window
 * From the menu select Database > Reload or press ⌘R
 * Compatibility pack URLs must be the raw text file.
-
-## Features
-* Bookmarks can be saved by clicking the star icon in the corner of the details panel.
-* Downloads can be started from the bookmark list
-* Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download.
-* Compatibility pack support for FW 3.61+
-* Game artwork is displayed
 
 ## Removal
 After moving to trash, run:
