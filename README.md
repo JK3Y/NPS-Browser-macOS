@@ -1,7 +1,7 @@
 # NPS Browser for macOS
 
-A Swift 4 implementation of NPS Browser.
-**Requires macOS 10.10+**
+A Swift 4 implementation of NPS Browser.\
+**For macOS 10.10+**
 
 ![](/Screenshots/main.png?raw=true)
 
