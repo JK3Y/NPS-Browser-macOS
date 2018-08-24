@@ -10,7 +10,7 @@ import Cocoa
 
 class GameArtworkViewController: NSViewController {
     @IBOutlet weak var imgBoxart: NSImageView!
-    
+
     override var representedObject: Any? {
         didSet {
             imgBoxart.image = nil

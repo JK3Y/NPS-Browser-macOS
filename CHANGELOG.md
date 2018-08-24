@@ -1,8 +1,11 @@
 # Changelog
 ## v1.4.3
+### Added
+- Menu option for showing and hiding the sidebar.
+
 ### Fixed
 - Bug where "Show In Finder" button on completed downloads weren't using the correct path
-- "Compat Patches" label in Preferences was lightly overlapped in OS 10.10
+- "Compat Patches" label in Preferences was slightly overlapped in OS 10.10
 
 ## v1.4.2
 ### Added

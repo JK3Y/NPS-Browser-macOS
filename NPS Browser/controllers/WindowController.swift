@@ -48,6 +48,24 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     @IBAction func reloadDatabase(_ sender: NSMenuItem) {
         NetworkManager().makeRequest()
     }
+
+//    @IBAction func toggleArtworkSidebar(_ sender: NSMenuItem) {
+//        debugPrint(sender)
+//
+//        let sv = getDataController().getDetailsViewController().getBoxartViewController().parent as! NSSplitViewController
+//        let av = sv.splitViewItems.last!
+//
+//        if av.isCollapsed {
+//            av.isCollapsed = false
+//
+//            sender.title = "Hide Artwork"
+//        } else {
+//            av.isCollapsed = true
+//            sender.title = "Show Artwork"
+//        }
+//        // TODO: use nextResponder to pass toggleSidebar call to Artwork Controller
+////        Respon
+//    }
     
     
     func getDataController() -> DataViewController {

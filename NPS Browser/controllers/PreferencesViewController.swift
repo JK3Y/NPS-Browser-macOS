@@ -216,7 +216,6 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func save(_ sender: Any) {
         storePreferences()
-        
     }
     
     func validateAndStore(urlString: String, endsWith: String, defaultsKey: DefaultsKey<URL?>) throws {
