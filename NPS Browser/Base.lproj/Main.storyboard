@@ -283,7 +283,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
-                                        <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
+                                        <menuItem title="Hide Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
                                                 <action selector="toggleSidebar:" target="Ady-hI-5gd" id="nKA-bq-ZPK"/>
@@ -524,8 +524,7 @@
                 <windowController showSeguePresentationStyle="single" id="wh3-3u-Qnj" customClass="WindowController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="NPS Browser" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="NPS Browser" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="gEz-wV-LLD">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-                        <rect key="contentRect" x="29" y="292" width="696" height="363"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="696" height="363"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="600" height="150"/>
                         <toolbar key="toolbar" implicitIdentifier="1AC8C513-A611-448D-9E70-38C329F5F907" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="phv-2f-UYc">
@@ -696,12 +695,12 @@
         <!--Main Split View-->
         <scene sceneID="gFT-sY-3Wg">
             <objects>
-                <splitViewController title="Main Split View" showSeguePresentationStyle="single" id="KdV-6f-3Pd" sceneMemberID="viewController">
+                <splitViewController title="Main Split View" showSeguePresentationStyle="single" id="KdV-6f-3Pd" customClass="SplitViewController" customModule="NPS_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="S1m-bR-Dnr"/>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="4s6-Fn-fZL"/>
                     </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="ZeY-eR-YKC">
+                    <splitView key="splitView" dividerStyle="paneSplitter" vertical="YES" id="ZeY-eR-YKC">
                         <rect key="frame" x="-381" y="0.0" width="841" height="443"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -726,7 +725,7 @@
                         <splitViewItem id="6pY-E6-I04"/>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="stM-ZF-aSB"/>
                     </splitViewItems>
-                    <splitView key="splitView" id="dSI-lK-Gr8">
+                    <splitView key="splitView" dividerStyle="paneSplitter" id="dSI-lK-Gr8">
                         <rect key="frame" x="0.0" y="148" width="275" height="497"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -1044,7 +1043,7 @@
                 <customObject id="krD-za-eaE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController id="t5W-WI-XMN"/>
             </objects>
-            <point key="canvasLocation" x="-1893" y="1604"/>
+            <point key="canvasLocation" x="-1893" y="1595"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="eCm-Ka-rU8">
@@ -1089,7 +1088,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-eV-PlI">
-                                <rect key="frame" x="18" y="102" width="50" height="17"/>
+                                <rect key="frame" x="18" y="107" width="50" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Region:" id="KHB-eh-LxF">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1097,7 +1096,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dpa-vU-RGC" userLabel="Region">
-                                <rect key="frame" x="211" y="102" width="43" height="17"/>
+                                <rect key="frame" x="211" y="107" width="43" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="region" id="bfq-He-Rzx">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1114,7 +1113,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oc5-OH-Nhz">
-                                <rect key="frame" x="18" y="77" width="85" height="17"/>
+                                <rect key="frame" x="18" y="82" width="85" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Required FW:" id="Wcn-XJ-lpK">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1122,7 +1121,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-dt-TEK" userLabel="Required FW">
-                                <rect key="frame" x="222" y="77" width="32" height="17"/>
+                                <rect key="frame" x="222" y="82" width="32" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="0.00" id="hGN-av-fNe">
                                     <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="#,##0.00" negativeFormat="-#,##0.00" thousandSeparator="," id="Usg-ZS-wVo">
                                         <decimal key="minimum" value="NaN"/>
@@ -1144,10 +1143,10 @@
                                 </textFieldCell>
                             </textField>
                             <box horizontalHuggingPriority="241" verticalHuggingPriority="750" horizontalCompressionResistancePriority="780" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-gx-qiW">
-                                <rect key="frame" x="20" y="66" width="232" height="5"/>
+                                <rect key="frame" x="20" y="71" width="232" height="5"/>
                             </box>
-                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="1000" verticalStackHuggingPriority="250" verticalClippingResistancePriority="250" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Ky6-hR-u0a">
-                                <rect key="frame" x="20" y="46" width="232" height="14"/>
+                            <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="1000" verticalStackHuggingPriority="1000" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Ky6-hR-u0a">
+                                <rect key="frame" x="20" y="51" width="232" height="14"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-Pc-Hif">
                                         <rect key="frame" x="-2" y="-2" width="58" height="18"/>
@@ -1188,7 +1187,7 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <button horizontalHuggingPriority="251" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="goH-a2-kkQ">
+                            <button horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="goH-a2-kkQ">
                                 <rect key="frame" x="76" y="13" width="120" height="32"/>
                                 <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7vk-H7-6Tb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1200,6 +1199,7 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="jm2-eV-PlI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="F5X-qz-juG" secondAttribute="bottom" constant="5" id="3Zm-wx-OQx"/>
                             <constraint firstItem="Ky6-hR-u0a" firstAttribute="trailing" secondItem="eTw-gx-qiW" secondAttribute="trailing" id="6DI-dt-3kH"/>
                             <constraint firstItem="eTw-gx-qiW" firstAttribute="top" secondItem="Oc5-OH-Nhz" secondAttribute="bottom" constant="8" symbolic="YES" id="8Et-zv-nCs"/>
                             <constraint firstAttribute="bottom" secondItem="goH-a2-kkQ" secondAttribute="bottom" constant="20" symbolic="YES" id="DBf-h1-9rB"/>
@@ -1213,7 +1213,7 @@
                             <constraint firstItem="F5X-qz-juG" firstAttribute="trailing" secondItem="Hz6-dt-TEK" secondAttribute="trailing" id="V9I-xm-UTY"/>
                             <constraint firstItem="dpa-vU-RGC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H9H-LI-MqF" secondAttribute="leading" constant="20" symbolic="YES" id="VIF-Ii-tDM"/>
                             <constraint firstItem="Ky6-hR-u0a" firstAttribute="leading" secondItem="eTw-gx-qiW" secondAttribute="leading" id="ZNI-nM-m31"/>
-                            <constraint firstItem="goH-a2-kkQ" firstAttribute="top" secondItem="Ky6-hR-u0a" secondAttribute="bottom" constant="5" id="a7a-hx-2zL"/>
+                            <constraint firstItem="goH-a2-kkQ" firstAttribute="top" secondItem="Ky6-hR-u0a" secondAttribute="bottom" constant="10" id="a7a-hx-2zL"/>
                             <constraint firstItem="goH-a2-kkQ" firstAttribute="leading" secondItem="H9H-LI-MqF" secondAttribute="leading" constant="82" id="anB-3w-Udb"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jm2-eV-PlI" secondAttribute="trailing" constant="20" symbolic="YES" id="czT-HB-40t"/>
                             <constraint firstAttribute="trailing" secondItem="Hz6-dt-TEK" secondAttribute="trailing" constant="20" id="fN5-Mr-iDY"/>

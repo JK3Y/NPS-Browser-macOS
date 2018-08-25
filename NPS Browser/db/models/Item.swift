@@ -14,7 +14,7 @@ class Item: Object {
         case titleId, region, name, pkgDirectLink, lastModificationDate, fileSize, sha256, contentId, consoleType, fileType, uuid
     }
     
-    dynamic var uuid                    : String = UUID().uuidString
+    dynamic var uuid                    : String = ""
     dynamic var titleId                 : String?
     dynamic var region                  : String?
     dynamic var contentId               : String?
@@ -30,7 +30,7 @@ class Item: Object {
     let fileSize = RealmOptional<Int64>()
     dynamic var sha256                  : String?
 
-    override static func primaryKey() -> String? {
+    override static func primaryKey() -> String {
         return Item.Property.uuid.rawValue
     }
     
@@ -52,6 +52,14 @@ class Item: Object {
         self.requiredFw.value = tsvData.requiredFw
         self.rap = tsvData.rap
         self.downloadRapFile = tsvData.downloadRapFile
+        
+        let fn = tsvData.pkgDirectLink
+        if let fnurl = URL(string: fn!) {
+            self.uuid = fnurl.deletingPathExtension().lastPathComponent.appending(self.contentId!)
+        } else {
+            self.uuid = UUID().uuidString
+        }
+        
     }
     
     static public func asObject(fromObject: Item) -> Item {

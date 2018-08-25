@@ -2,9 +2,11 @@
 ## v1.4.3
 ### Added
 - Menu option for showing and hiding the sidebar.
+- DB migrations for future changes to the database
 
 ### Fixed
 - "Show In Finder" button on completed downloads weren't using the correct path
+- Bookmarks are now working properly. Bookmarks were being orphaned when the DB is refreshed. Now, bookmarks are given a UUID created from the .pkg URL and the contentId of the item.
 - "Compat Patches" label in Preferences was slightly overlapped in OS X 10.10
 - Download button was displayed over DL options on OS X 10.10
 - Artwork images weren't displaying immediately upon startup on OS X 10.10

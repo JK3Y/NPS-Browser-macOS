@@ -12,7 +12,7 @@ import RealmSwift
 class DBManager {
     
     let storage = try! RealmStorageContext()
-
+    
     // MARK: Create
     func store(object: Storable) {
         do {

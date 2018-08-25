@@ -57,13 +57,13 @@ class DetailsViewController: NSViewController {
                 case .Game:
                     let titleId = obj.titleId
                     
-                    if let cpacko: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPack'", titleId!), sorted: nil).first {
-                        let url = URL(string: (cpacko!.downloadUrl!))
+                    if let cpacko: CompatPack = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPack'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpacko.downloadUrl)!)
                         baseDLItem = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPack)
                     }
                     
-                    if let cpatcho: CompatPack? = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPatch'", titleId!), sorted: nil).first {
-                        let url = URL(string: (cpatcho!.downloadUrl!))
+                    if let cpatcho: CompatPack = DBManager().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@ AND type == 'CompatPatch'", titleId!), sorted: nil).first {
+                        let url = URL(string: (cpatcho.downloadUrl)!)
                         let item = Helpers().makeDLItem(data: obj, downloadUrl: url!, fileType: .CPatch)
                         baseDLItem?.doNext = item
                         item.parentItem = baseDLItem

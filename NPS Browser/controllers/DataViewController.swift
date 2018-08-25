@@ -19,7 +19,7 @@ class DataViewController: NSViewController, ToolbarDelegate {
     var notificationToken: NotificationToken?
     
     private var realm: Realm = {
-        return try! Realm()
+        return DBMigration.configureMigration()
     }()
     
     var items: Results<Item>? = try! Realm().objects(Item.self)

@@ -88,3 +88,35 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
     
 }
+
+import Foundation
+class SplitViewController: NSSplitViewController {
+    
+    override func toggleSidebar(_ sender: Any?) {
+        let mi = sender as! NSMenuItem
+        debugPrint(mi.title)
+
+        for view in splitViewItems {
+            if view.canCollapse {
+                if view.isCollapsed {
+                    view.isCollapsed = false
+                    mi.title = "Hide Sidebar"
+                } else  {
+                    view.isCollapsed = true
+                    mi.title = "Show Sidebar"
+                }
+            }
+        }
+    }
+    
+}
+
+//class MenuItemController: NSMenuItem {
+//    func fds() {
+//        self.get
+//    }
+//    
+////    override func menuWillOpen(_ menu: NSMenu) {
+//////        menu.su
+////    }
+//}
