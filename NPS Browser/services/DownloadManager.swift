@@ -102,6 +102,7 @@ class DownloadManager {
                 item.makeViewable()
             } else {
                 item.request?.cancel()
+                item.status = "Stopped"
                 item.makeResumable()
             }
         }
@@ -140,7 +141,7 @@ class DownloadManager {
             
             request.downloadProgress { progress in
                 dlItem.status = "Downloading..."
-                dlItem.makeCancelable()
+                dlItem.makeStoppable()
                 dlItem.progress = (progress.fractionCompleted * 100).rounded()
                 dlItem.timeRemaining = progress.fractionCompleted
                 }

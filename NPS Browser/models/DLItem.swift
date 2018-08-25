@@ -27,7 +27,7 @@ class DLItem: NSObject, Codable {
     var resumeData                      : Data?
     var destination                     : DownloadRequest.DownloadFileDestination?
     @objc dynamic var destinationURL    : URL?
-    @objc dynamic var isCancelable      : Bool = false
+    @objc dynamic var isStoppable      : Bool = false
     @objc dynamic var isViewable        : Bool = false
     @objc dynamic var isRemovable       : Bool = false
     @objc dynamic var isResumable       : Bool = false
@@ -37,6 +37,7 @@ class DLItem: NSObject, Codable {
     @objc dynamic var parentItem        : DLItem? = nil
     @objc dynamic var consoleType       : String?
     @objc dynamic var fileType          : String?
+    @objc dynamic var actionImage: NSImage?
     
     enum CodingKeys: String, CodingKey {
         case titleId
@@ -48,7 +49,7 @@ class DLItem: NSObject, Codable {
         case timeRemaining
         case resumeData
         case destinationURL
-        case isCancelable
+        case isStoppable
         case isViewable
         case isRemovable
         case isResumable
@@ -68,32 +69,40 @@ class DLItem: NSObject, Codable {
         return doNext != nil
     }
     
-    func makeCancelable() {
-        self.isCancelable   = true
+    func makeStoppable() {
+        self.isStoppable    = true
         self.isRemovable    = false
         self.isResumable    = false
         self.isViewable     = false
+        
+        actionImage = #imageLiteral(resourceName: "Stop")
     }
     
     func makeViewable() {
         self.isViewable     = true
         self.isRemovable    = true
-        self.isCancelable   = false
+        self.isStoppable    = false
         self.isResumable    = false
+        
+        actionImage = #imageLiteral(resourceName: "Reveal")
     }
     
     func makeResumable() {
         self.isResumable    = true
         self.isRemovable    = true
-        self.isCancelable   = false
+        self.isStoppable    = false
         self.isViewable     = false
+        
+        actionImage = #imageLiteral(resourceName: "Start")
     }
     
     func makeRemovable() {
         self.isRemovable    = true
         self.isResumable    = false
-        self.isCancelable   = false
+        self.isStoppable    = false
         self.isViewable     = false
+        
+        actionImage = #imageLiteral(resourceName: "Reveal")
     }
 
 }

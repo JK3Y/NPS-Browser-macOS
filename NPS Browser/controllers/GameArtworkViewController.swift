@@ -20,7 +20,7 @@ class GameArtworkViewController: NSViewController {
     }
     
     private func setImage(image: NSImage) {
-        self.imgBoxart.sizeToFit()
+//        self.imgBoxart.sizeToFit()
         self.imgBoxart.image = image
     }
     

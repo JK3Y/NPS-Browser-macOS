@@ -8,6 +8,8 @@
 - "Compat Patches" label in Preferences was slightly overlapped in OS X 10.10
 - Download button was displayed over DL options on OS X 10.10
 - Artwork images weren't displaying immediately upon startup on OS X 10.10
+- Artwork would sometimes just stop appearing altogether on OS X 10.10
+- Buttons to resume/stop/view downloaded items weren't showing on OS X 10.10
 
 ## v1.4.2
 ### Added
