@@ -4,8 +4,10 @@
 - Menu option for showing and hiding the sidebar.
 
 ### Fixed
-- Bug where "Show In Finder" button on completed downloads weren't using the correct path
-- "Compat Patches" label in Preferences was slightly overlapped in OS 10.10
+- "Show In Finder" button on completed downloads weren't using the correct path
+- "Compat Patches" label in Preferences was slightly overlapped in OS X 10.10
+- Download button was displayed over DL options on OS X 10.10
+- Artwork images weren't displaying immediately upon startup on OS X 10.10
 
 ## v1.4.2
 ### Added
