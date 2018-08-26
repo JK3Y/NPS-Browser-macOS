@@ -14,7 +14,7 @@ class Item: Object {
         case titleId, region, name, pkgDirectLink, lastModificationDate, fileSize, sha256, contentId, consoleType, fileType, uuid
     }
     
-    dynamic var uuid                    : String = ""
+    dynamic var uuid                    : String = UUID().uuidString
     dynamic var titleId                 : String?
     dynamic var region                  : String?
     dynamic var contentId               : String?
@@ -25,11 +25,13 @@ class Item: Object {
     dynamic var rap                         : String?
     dynamic var downloadRapFile             : String?
     dynamic var zrif                       : String?
-    let requiredFw = RealmOptional<Float>()
+    let requiredFw = RealmOptional<Double>()
     dynamic var lastModificationDate    : Date?
     let fileSize = RealmOptional<Int64>()
     dynamic var sha256                  : String?
-
+    
+    dynamic var pk: String?
+    
     override static func primaryKey() -> String {
         return Item.Property.uuid.rawValue
     }
@@ -53,12 +55,15 @@ class Item: Object {
         self.rap = tsvData.rap
         self.downloadRapFile = tsvData.downloadRapFile
         
-        let fn = tsvData.pkgDirectLink
-        if let fnurl = URL(string: fn!) {
-            self.uuid = fnurl.deletingPathExtension().lastPathComponent.appending(self.contentId!)
-        } else {
-            self.uuid = UUID().uuidString
-        }
+        self.pk = "\(region!)\(fileType!)\(titleId!)\(contentId!)"
+        
+//        let fn = tsvData.pkgDirectLink
+//        if let fnurl = URL(string: fn!) {
+//            self.uuid = (titleId?.appending(fnurl.deletingPathExtension().lastPathComponent.appending(self.contentId!)))!
+//            self.uuid = "\(titleId!)\(region!)\(fileType!)\(fnurl.deletingPathExtension().lastPathComponent.appending(self.contentId!))"
+//        } else {
+//            self.uuid = UUID().uuidString
+//        }
         
     }
     

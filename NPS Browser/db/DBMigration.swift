@@ -21,7 +21,6 @@ final class DBMigration {
             migrationBlock: { migration, oldSchemaVersion in
                 switch oldSchemaVersion {
                 case 1:
-                    debugPrint("INSIDE SCHEMAVERSION 1")
                     break
                 default:
                     // Nothing to do!
@@ -38,18 +37,34 @@ final class DBMigration {
     
     // MARK: - Migrations
     static func zeroToOne(with migration: Migration) {
+        
 
         migration.enumerateObjects(ofType: Item.className()) { oldItem, newItem in
-            guard let fn = oldItem?["pkgDirectLink"] as? String else {
-                fatalError("Invalid pkgDirectLink: \(oldItem!["pkgDirectLink"] as? String)")
-            }
-            if let fnurl = URL(string: fn) {
-                let filename = fnurl.deletingPathExtension().lastPathComponent.appending(oldItem!["contentId"] as! String)
-                newItem?["uuid"] = filename
-            } else {
-                newItem?["uuid"] = UUID().uuidString
-                log.error("Invalid UUID supplied for newItem")
-            }
+//            oldItem.to
+            
+            newItem!["requiredFw"] = Double(oldItem!["requiredFw"] as! Float)
+            
+            let filetype = oldItem!["fileType"] as! String
+            let tid = oldItem!["titleId"] as! String
+            let reg = oldItem!["region"] as! String
+            let cid = oldItem!["contentId"] as! String
+            
+            newItem?["pk"] = "\(reg)\(filetype)\(tid)\(cid)"
         }
+//        migration.enumerateObjects(ofType: Item.className()) { oldItem, newItem in
+//            guard let fn = oldItem?["pkgDirectLink"] as? String else {
+//                fatalError("Invalid pkgDirectLink: \(oldItem!["pkgDirectLink"] as! String)")
+//            }
+//            if let fnurl = URL(string: fn) {
+//                let filename = fnurl.deletingPathExtension().lastPathComponent.appending(oldItem!["contentId"] as! String)
+//                let filetype = oldItem!["fileType"] as! String
+//                let tid = oldItem!["titleId"] as! String
+//                let reg = oldItem!["region"] as! String
+//                newItem?["uuid"] = "\(tid)\(reg)\(filetype)\(filename)"
+//            } else {
+//                newItem?["uuid"] = UUID().uuidString
+//                log.error("Invalid UUID supplied for newItem")
+//            }
+//        }
     }
 }

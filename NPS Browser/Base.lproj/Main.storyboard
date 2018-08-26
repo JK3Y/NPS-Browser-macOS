@@ -550,12 +550,12 @@
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="20" height="17"/>
                                     <size key="maxSize" width="25" height="25"/>
-                                    <button key="view" verticalHuggingPriority="750" id="AB6-Wy-v3A">
+                                    <button key="view" toolTip="Downloads" verticalHuggingPriority="750" id="AB6-Wy-v3A">
                                         <rect key="frame" x="20" y="14" width="25" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="Download" imagePosition="only" alignment="center" controlSize="mini" scrollable="YES" lineBreakMode="clipping" imageScaling="proportionallyDown" inset="2" id="zzn-O4-idv">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="Download" imagePosition="only" alignment="center" scrollable="YES" lineBreakMode="clipping" imageScaling="proportionallyDown" inset="2" id="zzn-O4-idv">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="miniSystem"/>
+                                            <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
                                     <connections>

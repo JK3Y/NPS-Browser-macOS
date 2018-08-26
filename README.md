@@ -24,6 +24,7 @@ After moving to trash, run:
 ```
 rm -r ~/Library/Application\ Support/JK3Y.NPS-Browser/
 rm -r ~/Library/Caches/JK3Y.NPS-Browser
+rm -r ~/Library/Caches/NPS\ Browser
 defaults delete JK3Y.NPS-Browser
 ```
 
