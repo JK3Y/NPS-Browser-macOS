@@ -19,7 +19,7 @@ struct TSVData {
     var zrif                    : String?
     var contentId               : String?
     var originalName            : String?
-    var requiredFw              : Double?
+    var requiredFw              : Float?
     var rap                     : String?
     var downloadRapFile         : String?
     var consoleType             : ConsoleType
@@ -43,7 +43,7 @@ struct TSVData {
                 originalName          = values[7]
                 fileSize              = Int64(values[8])
                 sha256                = values[9]
-                requiredFw            = Double(values[10])
+                requiredFw            = Float(values[10])
             case .DLC, .Theme:
                 name                  = values[2]
                 pkgDirectLink         = values[3]

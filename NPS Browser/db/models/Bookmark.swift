@@ -34,6 +34,6 @@ class Bookmark: Object {
         self.fileType = item.fileType
         self.consoleType = item.consoleType
         self.zrif = item.zrif
-        self.uuid = item.uuid
+        self.uuid = item.pk
     }
 }

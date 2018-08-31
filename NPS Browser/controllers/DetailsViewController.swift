@@ -82,7 +82,7 @@ class DetailsViewController: NSViewController {
             let bookmark = Bookmark(item: getROManagedObject())
             DBManager().store(object: bookmark)
         } else {
-            let bookmark = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", getROManagedObject().uuid)).first
+            let bookmark = DBManager().fetch(Bookmark.self, predicate: NSPredicate(format: "uuid == %@", getROManagedObject().pk)).first
             DBManager().delete(object: bookmark!)
         }
     }
@@ -146,7 +146,7 @@ class DetailsViewController: NSViewController {
     }
     
     func toggleBookmark() {
-        let predicate = NSPredicate(format: "uuid == %@", getROManagedObject().uuid)
+        let predicate = NSPredicate(format: "uuid == %@", getROManagedObject().pk)
         let bookmark = DBManager().fetch(Bookmark.self, predicate: predicate)
 
         if bookmark.isEmpty {
@@ -156,8 +156,8 @@ class DetailsViewController: NSViewController {
         }
     }
     
-    func toggleBookmark(compareUUID: String) {
-        if getROManagedObject().uuid == compareUUID {
+    func toggleBookmark(comparePK: String) {
+        if getROManagedObject().pk == comparePK {
             chkBookmark.state = .off
         }
     }
