@@ -109,17 +109,17 @@ class DetailsViewController: NSViewController {
             switch(ftype) {
             case .Game:
                 let titleId = getROManagedObject().titleId
-                chkDLCompatPack.title = "Compat Pack"
+                chkDLCompatPack.title = "CPack"
                 chkDLGame.isEnabled = true
                 chkDLUpdate.isEnabled = true
                 chkDLUpdate.isHidden = false
+                chkDLCompatPack.isHidden = false
                 
                 try! RealmStorageContext().fetch(CompatPack.self, predicate: NSPredicate(format: "titleId == %@", titleId!)) { result in
                     if (result.isEmpty) {
                         chkDLCompatPack.isEnabled = false
                     } else {
                         chkDLCompatPack.isEnabled = true
-                        chkDLCompatPack.isHidden = false
                     }
                 }
             default:
