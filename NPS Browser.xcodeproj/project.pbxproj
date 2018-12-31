@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */; };
 		5108B79E211641190065BA71 /* TSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108B79D211641190065BA71 /* TSVData.swift */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
@@ -51,10 +50,91 @@
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
 		51EBE8262094E095005D44DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8252094E095005D44DC /* Assets.xcassets */; };
 		51EBE8292094E095005D44DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8272094E095005D44DC /* Main.storyboard */; };
+		737A797421D9BADE00DB22DD /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796821D9BADD00DB22DD /* AlamofireImage.framework */; };
+		737A797521D9BADE00DB22DD /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796821D9BADD00DB22DD /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A797621D9BADE00DB22DD /* Queuer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796921D9BADD00DB22DD /* Queuer.framework */; };
+		737A797721D9BADE00DB22DD /* Queuer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796921D9BADD00DB22DD /* Queuer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A797821D9BADE00DB22DD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796A21D9BADD00DB22DD /* Realm.framework */; };
+		737A797921D9BADE00DB22DD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796A21D9BADD00DB22DD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A797A21D9BADE00DB22DD /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796B21D9BADD00DB22DD /* FBLPromises.framework */; };
+		737A797B21D9BADE00DB22DD /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796B21D9BADD00DB22DD /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A797C21D9BADE00DB22DD /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796C21D9BADD00DB22DD /* RealmSwift.framework */; };
+		737A797D21D9BADE00DB22DD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796C21D9BADD00DB22DD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A797E21D9BADE00DB22DD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796D21D9BADD00DB22DD /* Alamofire.framework */; };
+		737A797F21D9BADE00DB22DD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796D21D9BADD00DB22DD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798021D9BADE00DB22DD /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796E21D9BADD00DB22DD /* Fuzi.framework */; };
+		737A798121D9BADE00DB22DD /* Fuzi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796E21D9BADD00DB22DD /* Fuzi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798221D9BADE00DB22DD /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */; };
+		737A798321D9BADE00DB22DD /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798421D9BADE00DB22DD /* Files.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797021D9BADD00DB22DD /* Files.framework */; };
+		737A798521D9BADE00DB22DD /* Files.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797021D9BADD00DB22DD /* Files.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798621D9BADE00DB22DD /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */; };
+		737A798721D9BADE00DB22DD /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798821D9BADE00DB22DD /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797221D9BADE00DB22DD /* Zip.framework */; };
+		737A798921D9BADE00DB22DD /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797221D9BADE00DB22DD /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A798A21D9BADE00DB22DD /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797321D9BADE00DB22DD /* Promises.framework */; };
+		737A798B21D9BADE00DB22DD /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797321D9BADE00DB22DD /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		737A799921D9BB2F00DB22DD /* RealmSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */; };
+		737A799A21D9BB2F00DB22DD /* Zip.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */; };
+		737A799B21D9BB2F00DB22DD /* Fuzi.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */; };
+		737A799C21D9BB2F00DB22DD /* AlamofireImage.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */; };
+		737A799D21D9BB2F00DB22DD /* Files.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799121D9BB2E00DB22DD /* Files.framework.dSYM */; };
+		737A799E21D9BB2F00DB22DD /* Queuer.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */; };
+		737A799F21D9BB2F00DB22DD /* SwiftyUserDefaults.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */; };
+		737A79A021D9BB2F00DB22DD /* Realm.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */; };
+		737A79A121D9BB2F00DB22DD /* Promises.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */; };
+		737A79A221D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */; };
+		737A79A321D9BB2F00DB22DD /* FBLPromises.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */; };
+		737A79A421D9BB2F00DB22DD /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		735C819F21D93730003884A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				737A799921D9BB2F00DB22DD /* RealmSwift.framework.dSYM in CopyFiles */,
+				737A799A21D9BB2F00DB22DD /* Zip.framework.dSYM in CopyFiles */,
+				737A799B21D9BB2F00DB22DD /* Fuzi.framework.dSYM in CopyFiles */,
+				737A799C21D9BB2F00DB22DD /* AlamofireImage.framework.dSYM in CopyFiles */,
+				737A799D21D9BB2F00DB22DD /* Files.framework.dSYM in CopyFiles */,
+				737A799E21D9BB2F00DB22DD /* Queuer.framework.dSYM in CopyFiles */,
+				737A799F21D9BB2F00DB22DD /* SwiftyUserDefaults.framework.dSYM in CopyFiles */,
+				737A79A021D9BB2F00DB22DD /* Realm.framework.dSYM in CopyFiles */,
+				737A79A121D9BB2F00DB22DD /* Promises.framework.dSYM in CopyFiles */,
+				737A79A221D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM in CopyFiles */,
+				737A79A321D9BB2F00DB22DD /* FBLPromises.framework.dSYM in CopyFiles */,
+				737A79A421D9BB2F00DB22DD /* Alamofire.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		737A798C21D9BADE00DB22DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				737A798B21D9BADE00DB22DD /* Promises.framework in Embed Frameworks */,
+				737A797921D9BADE00DB22DD /* Realm.framework in Embed Frameworks */,
+				737A797F21D9BADE00DB22DD /* Alamofire.framework in Embed Frameworks */,
+				737A798121D9BADE00DB22DD /* Fuzi.framework in Embed Frameworks */,
+				737A797D21D9BADE00DB22DD /* RealmSwift.framework in Embed Frameworks */,
+				737A798921D9BADE00DB22DD /* Zip.framework in Embed Frameworks */,
+				737A797521D9BADE00DB22DD /* AlamofireImage.framework in Embed Frameworks */,
+				737A798721D9BADE00DB22DD /* SwiftyBeaver.framework in Embed Frameworks */,
+				737A798521D9BADE00DB22DD /* Files.framework in Embed Frameworks */,
+				737A798321D9BADE00DB22DD /* SwiftyUserDefaults.framework in Embed Frameworks */,
+				737A797721D9BADE00DB22DD /* Queuer.framework in Embed Frameworks */,
+				737A797B21D9BADE00DB22DD /* FBLPromises.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.debug.xcconfig"; sourceTree = "<group>"; };
 		5108B79D211641190065BA71 /* TSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVData.swift; sourceTree = "<group>"; };
 		5121752E20A73EBC00772C86 /* NPS Browser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NPS Browser.entitlements"; sourceTree = "<group>"; };
 		512175A720A7D28B00772C86 /* WindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +169,6 @@
 		51932D9820DF06C700F44520 /* LoadingViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewDelegate.swift; sourceTree = "<group>"; };
 		519F0D7220CC852C00332987 /* BookmarkListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListItemCellView.swift; sourceTree = "<group>"; };
 		519F0D7420CCBFDA00332987 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
-		51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NPS_Browser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ABB7562115D8A3009C98DA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		51B12A1320B0603500E83844 /* DLItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLItem.swift; sourceTree = "<group>"; };
 		51B12A1820B0CD1E00E83844 /* DownloadListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListItemCellView.swift; sourceTree = "<group>"; };
@@ -102,7 +181,30 @@
 		51EBE8252094E095005D44DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51EBE8282094E095005D44DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51EBE82A2094E095005D44DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NPS Browser.release.xcconfig"; path = "Pods/Target Support Files/Pods-NPS Browser/Pods-NPS Browser.release.xcconfig"; sourceTree = "<group>"; };
+		737A796821D9BADD00DB22DD /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/Mac/AlamofireImage.framework; sourceTree = "<group>"; };
+		737A796921D9BADD00DB22DD /* Queuer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Queuer.framework; path = Carthage/Build/Mac/Queuer.framework; sourceTree = "<group>"; };
+		737A796A21D9BADD00DB22DD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
+		737A796B21D9BADD00DB22DD /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
+		737A796C21D9BADD00DB22DD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
+		737A796D21D9BADD00DB22DD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		737A796E21D9BADD00DB22DD /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/Mac/Fuzi.framework; sourceTree = "<group>"; };
+		737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/Mac/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
+		737A797021D9BADD00DB22DD /* Files.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Files.framework; path = Carthage/Build/Mac/Files.framework; sourceTree = "<group>"; };
+		737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		737A797221D9BADE00DB22DD /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/Mac/Zip.framework; sourceTree = "<group>"; };
+		737A797321D9BADE00DB22DD /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
+		737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RealmSwift.framework.dSYM; path = Carthage/Build/Mac/RealmSwift.framework.dSYM; sourceTree = "<group>"; };
+		737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Zip.framework.dSYM; path = Carthage/Build/Mac/Zip.framework.dSYM; sourceTree = "<group>"; };
+		737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Fuzi.framework.dSYM; path = Carthage/Build/Mac/Fuzi.framework.dSYM; sourceTree = "<group>"; };
+		737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlamofireImage.framework.dSYM; path = Carthage/Build/Mac/AlamofireImage.framework.dSYM; sourceTree = "<group>"; };
+		737A799121D9BB2E00DB22DD /* Files.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Files.framework.dSYM; path = Carthage/Build/Mac/Files.framework.dSYM; sourceTree = "<group>"; };
+		737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Queuer.framework.dSYM; path = Carthage/Build/Mac/Queuer.framework.dSYM; sourceTree = "<group>"; };
+		737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyUserDefaults.framework.dSYM; path = Carthage/Build/Mac/SwiftyUserDefaults.framework.dSYM; sourceTree = "<group>"; };
+		737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/Mac/Realm.framework.dSYM; sourceTree = "<group>"; };
+		737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Promises.framework.dSYM; path = Carthage/Build/Mac/Promises.framework.dSYM; sourceTree = "<group>"; };
+		737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
+		737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = FBLPromises.framework.dSYM; path = Carthage/Build/Mac/FBLPromises.framework.dSYM; sourceTree = "<group>"; };
+		737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,21 +212,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				325116335FB3B36ED93C5E15 /* Pods_NPS_Browser.framework in Frameworks */,
+				737A798A21D9BADE00DB22DD /* Promises.framework in Frameworks */,
+				737A797821D9BADE00DB22DD /* Realm.framework in Frameworks */,
+				737A797E21D9BADE00DB22DD /* Alamofire.framework in Frameworks */,
+				737A798021D9BADE00DB22DD /* Fuzi.framework in Frameworks */,
+				737A797C21D9BADE00DB22DD /* RealmSwift.framework in Frameworks */,
+				737A798821D9BADE00DB22DD /* Zip.framework in Frameworks */,
+				737A797421D9BADE00DB22DD /* AlamofireImage.framework in Frameworks */,
+				737A798621D9BADE00DB22DD /* SwiftyBeaver.framework in Frameworks */,
+				737A798421D9BADE00DB22DD /* Files.framework in Frameworks */,
+				737A798221D9BADE00DB22DD /* SwiftyUserDefaults.framework in Frameworks */,
+				737A797621D9BADE00DB22DD /* Queuer.framework in Frameworks */,
+				737A797A21D9BADE00DB22DD /* FBLPromises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D9ADAD9C9E626C1407D0969 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				51A1E740B4DC196812A14F35 /* Pods_NPS_Browser.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		516B855220AE7FE800E4A083 /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,14 +324,13 @@
 		51EBE8122094E094005D44DC = {
 			isa = PBXGroup;
 			children = (
+				737A796421D9922400DB22DD /* Frameworks */,
 				518A892D213062E800821EE7 /* LICENSE.md */,
 				51843FD020CB9DF2009AE9A4 /* .gitignore */,
 				516A1B7820CAE28A004D6AE5 /* README.md */,
 				516A1B7620CAE275004D6AE5 /* CHANGELOG.md */,
 				51EBE81D2094E094005D44DC /* NPS Browser */,
 				51EBE81C2094E094005D44DC /* Products */,
-				2D9ADAD9C9E626C1407D0969 /* Frameworks */,
-				C2D1BAB79E01FBB5E34E9353 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,13 +363,35 @@
 			path = "NPS Browser";
 			sourceTree = "<group>";
 		};
-		C2D1BAB79E01FBB5E34E9353 /* Pods */ = {
+		737A796421D9922400DB22DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */,
-				F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */,
+				737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */,
+				737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */,
+				737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */,
+				737A799121D9BB2E00DB22DD /* Files.framework.dSYM */,
+				737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */,
+				737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */,
+				737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */,
+				737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */,
+				737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */,
+				737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */,
+				737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */,
+				737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */,
+				737A796D21D9BADD00DB22DD /* Alamofire.framework */,
+				737A796821D9BADD00DB22DD /* AlamofireImage.framework */,
+				737A796B21D9BADD00DB22DD /* FBLPromises.framework */,
+				737A797021D9BADD00DB22DD /* Files.framework */,
+				737A796E21D9BADD00DB22DD /* Fuzi.framework */,
+				737A797321D9BADE00DB22DD /* Promises.framework */,
+				737A796921D9BADD00DB22DD /* Queuer.framework */,
+				737A796A21D9BADD00DB22DD /* Realm.framework */,
+				737A796C21D9BADD00DB22DD /* RealmSwift.framework */,
+				737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */,
+				737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */,
+				737A797221D9BADE00DB22DD /* Zip.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,11 +401,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51EBE82E2094E095005D44DC /* Build configuration list for PBXNativeTarget "NPS Browser" */;
 			buildPhases = (
-				62485319F0B13059B6D62557 /* [CP] Check Pods Manifest.lock */,
 				51EBE8172094E094005D44DC /* Sources */,
 				51EBE8182094E094005D44DC /* Frameworks */,
 				51EBE8192094E094005D44DC /* Resources */,
-				B6404AB26DE6873FEDF0EC1A /* [CP] Embed Pods Frameworks */,
+				735C819F21D93730003884A1 /* CopyFiles */,
+				737A798C21D9BADE00DB22DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,67 +474,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		62485319F0B13059B6D62557 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NPS Browser-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6404AB26DE6873FEDF0EC1A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Files/Files.framework",
-				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
-				"${BUILT_PRODUCTS_DIR}/Queuer/Queuer.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
-				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Files.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Queuer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NPS Browser/Pods-NPS Browser-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51EBE8172094E094005D44DC /* Sources */ = {
@@ -588,8 +653,8 @@
 		};
 		51EBE82F2094E095005D44DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D2727CCD3895D77ED8CB0CF /* Pods-NPS Browser.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -597,10 +662,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "$(inherited)\n$(inherited)\n$(inherited)\n \"-D\"\n \"COCOAPODS\"";
@@ -616,8 +687,8 @@
 		};
 		51EBE8302094E095005D44DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F354D0EAB719006A27CF7F0B /* Pods-NPS Browser.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -625,10 +696,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "$(SRCROOT)/NPS Browser/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "$(inherited)\n$(inherited)\n$(inherited)\n \"-D\"\n \"COCOAPODS\"";

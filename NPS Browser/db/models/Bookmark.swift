@@ -6,6 +6,7 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
+import Foundation
 import RealmSwift
 
 @objcMembers
