@@ -136,7 +136,7 @@ class DownloadManager {
     }
 
     func makeConucurrentOperation(dlItem: DLItem, request: DownloadRequest) -> ConcurrentOperation {
-        return ConcurrentOperation {
+        return ConcurrentOperation { _ in
             dlItem.status = "Queued..."
             
             request.downloadProgress { progress in

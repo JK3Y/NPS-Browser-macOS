@@ -6,6 +6,7 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
+import AppKit
 import Alamofire
 
 struct DownloadList: Codable {
