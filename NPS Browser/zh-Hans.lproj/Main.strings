@@ -1,0 +1,619 @@
+
+/* Class = "NSTextFieldCell"; placeholderString = "Status"; ObjectID = "0F7-8x-vMT"; */
+"0F7-8x-vMT.placeholderString" = "Status";
+
+/* Class = "NSMenuItem"; title = "PSV 主题"; ObjectID = "0LQ-To-8h6"; */
+"0LQ-To-8h6.title" = "PSV 主题";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Clear Downloads"; ObjectID = "0u4-nU-RL9"; */
+"0u4-nU-RL9.ibShadowedToolTip" = "Clear Downloads";
+
+/* Class = "NSMenuItem"; title = "NPS Browser"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "NPS Browser";
+
+/* Class = "NSMenu"; title = "查找"; ObjectID = "1b7-l0-nxx"; */
+"1b7-l0-nxx.title" = "查找";
+
+/* Class = "NSMenuItem"; title = "变形"; ObjectID = "2oI-Rn-ZJC"; */
+"2oI-Rn-ZJC.title" = "变形";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "314-jf-BWf"; */
+"314-jf-BWf.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "PSX 游戏"; ObjectID = "33j-Nl-d4x"; */
+"33j-Nl-d4x.title" = "PSX 游戏";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "--"; ObjectID = "34S-RY-qQb"; */
+"34S-RY-qQb.ibShadowedIsNilPlaceholder" = "--";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = "--"; ObjectID = "34S-RY-qQb"; */
+"34S-RY-qQb.ibShadowedNoSelectionPlaceholder" = "--";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "34S-RY-qQb"; */
+"34S-RY-qQb.ibShadowedNotApplicablePlaceholder" = "N/A";
+
+/* Class = "NSMenu"; title = "拼写和语法"; ObjectID = "3IN-sU-3Bg"; */
+"3IN-sU-3Bg.title" = "拼写和语法";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "3Xe-xs-Vs3"; */
+"3Xe-xs-Vs3.placeholderString" = "url在这里填写";
+
+/* Class = "NSButtonCell"; title = "将解密的PKG保存为ZIP文件"; ObjectID = "3h3-w4-cco"; */
+"3h3-w4-cco.title" = "将解密的PKG保存为ZIP文件";
+
+/* Class = "NSMenu"; title = "语音"; ObjectID = "3rS-ZA-NoH"; */
+"3rS-ZA-NoH.title" = "语音";
+
+/* Class = "NSButtonCell"; title = "通过提取创建NoNpDRM许可证"; ObjectID = "3xY-W5-LaM"; */
+"3xY-W5-LaM.title" = "通过提取创建NoNpDRM许可证";
+
+/* Class = "NSMenuItem"; title = "查找"; ObjectID = "4EN-yA-p0u"; */
+"4EN-yA-p0u.title" = "查找";
+
+/* Class = "NSMenuItem"; title = "进入全屏幕"; ObjectID = "4J7-dP-txa"; */
+"4J7-dP-txa.title" = "进入全屏幕";
+
+/* Class = "NSMenuItem"; title = "PS3 图标"; ObjectID = "4q1-1b-TZ6"; */
+"4q1-1b-TZ6.title" = "PS3 图标";
+
+/* Class = "NSMenuItem"; title = "退出NPS Browser"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出NPS Browser";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "5HB-gO-ket"; */
+"5HB-gO-ket.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "编辑"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "编辑";
+
+/* Class = "NSMenuItem"; title = "关于NPS Browser"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "关于NPS Browser";
+
+/* Class = "NSMenuItem"; title = "PSV 游戏"; ObjectID = "6SS-c2-qNo"; */
+"6SS-c2-qNo.title" = "PSV 游戏";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Type"; ObjectID = "6VF-MI-KNX"; */
+"6VF-MI-KNX.placeholderString" = "Type";
+
+/* Class = "NSMenuItem"; title = "重做"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "重做";
+
+/* Class = "NSMenuItem"; title = "PSV DLC"; ObjectID = "6ed-Cl-q8z"; */
+"6ed-Cl-q8z.title" = "PSV DLC";
+
+/* Class = "NSMenuItem"; title = "数据库"; ObjectID = "6oq-Vk-1lp"; */
+"6oq-Vk-1lp.title" = "数据库";
+
+/* Class = "NSMenuItem"; title = "自动更正拼写"; ObjectID = "78Y-hA-62v"; */
+"78Y-hA-62v.title" = "自动更正拼写";
+
+/* Class = "NSButtonCell"; title = "下载"; ObjectID = "7vk-H7-6Tb"; */
+"7vk-H7-6Tb.title" = "下载";
+
+/* Class = "NSButtonCell"; title = "CPack"; ObjectID = "85Q-2n-tC8"; */
+"85Q-2n-tC8.title" = "CPack";
+
+/* Class = "NSMenuItem"; title = "替换"; ObjectID = "9ic-FL-obx"; */
+"9ic-FL-obx.title" = "替换";
+
+/* Class = "NSMenuItem"; title = "智能复制/粘贴"; ObjectID = "9yt-4B-nSM"; */
+"9yt-4B-nSM.title" = "智能复制/粘贴";
+
+/* Class = "NSMenu"; title = "数据库"; ObjectID = "A3e-Pg-gZW"; */
+"A3e-Pg-gZW.title" = "数据库";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Downloads"; ObjectID = "AB6-Wy-v3A"; */
+"AB6-Wy-v3A.ibShadowedToolTip" = "Downloads";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "BEJ-IT-bTi"; */
+"BEJ-IT-bTi.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "偏好设置…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "偏好设置…";
+
+/* Class = "NSSplitViewController"; title = "Sidebar Split View"; ObjectID = "Cgn-K5-ek6"; */
+"Cgn-K5-ek6.title" = "Sidebar Split View";
+
+/* Class = "NSMenuItem"; title = "拼写和语法"; ObjectID = "Dv1-io-Yv7"; */
+"Dv1-io-Yv7.title" = "拼写和语法";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "E8I-Dq-6Vs"; */
+"E8I-Dq-6Vs.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "隐藏包含无效网址的项目"; ObjectID = "El2-Vr-haN"; */
+"El2-Vr-haN.title" = "隐藏包含无效网址的项目";
+
+/* Class = "NSMenu"; title = "替换"; ObjectID = "FeM-D8-WVr"; */
+"FeM-D8-WVr.title" = "替换";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "GsK-sp-ZRQ"; */
+"GsK-sp-ZRQ.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "视图"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "视图";
+
+/* Class = "NSMenuItem"; title = "文本替换"; ObjectID = "HFQ-gK-NFA"; */
+"HFQ-gK-NFA.title" = "文本替换";
+
+/* Class = "NSMenuItem"; title = "显示拼写和语法"; ObjectID = "HFo-cy-zxI"; */
+"HFo-cy-zxI.title" = "显示拼写和语法";
+
+/* Class = "NSTextFieldCell"; title = "同时下载数"; ObjectID = "HwK-JR-zIM"; */
+"HwK-JR-zIM.title" = "同时下载数";
+
+/* Class = "NSTextFieldCell"; title = "位置"; ObjectID = "HwL-OR-Tfu"; */
+"HwL-OR-Tfu.title" = "位置";
+
+/* Class = "NSMenu"; title = "视图"; ObjectID = "HyV-fh-RgO"; */
+"HyV-fh-RgO.title" = "视图";
+
+/* Class = "NSTextFieldCell"; title = "PSP 游戏"; ObjectID = "IPC-J1-MGG"; */
+"IPC-J1-MGG.title" = "PSP 游戏";
+
+/* Class = "NSToolbarItem"; label = "地区"; ObjectID = "ITM-y0-txp"; */
+"ITM-y0-txp.label" = "地区";
+
+/* Class = "NSToolbarItem"; paletteLabel = "地区"; ObjectID = "ITM-y0-txp"; */
+"ITM-y0-txp.paletteLabel" = "地区";
+
+/* Class = "NSButtonCell"; title = "自动检查最新更新"; ObjectID = "JFR-1v-uEb"; */
+"JFR-1v-uEb.title" = "自动检查最新更新";
+
+/* Class = "NSMenuItem"; title = "PSP 游戏"; ObjectID = "JUC-fi-Dnd"; */
+"JUC-fi-Dnd.title" = "PSP 游戏";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Jkf-Xm-ZM9"; */
+"Jkf-Xm-ZM9.title" = "Table View Cell";
+
+/* Class = "NSToolbarItem"; label = "下载"; ObjectID = "Jr5-TI-hKt"; */
+"Jr5-TI-hKt.label" = "下载";
+
+/* Class = "NSToolbarItem"; paletteLabel = "下载"; ObjectID = "Jr5-TI-hKt"; */
+"Jr5-TI-hKt.paletteLabel" = "下载";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Download"; ObjectID = "K0q-Lo-NPO"; */
+"K0q-Lo-NPO.ibShadowedToolTip" = "Download";
+
+/* Class = "NSTextFieldCell"; title = "地区:"; ObjectID = "KHB-eh-LxF"; */
+"KHB-eh-LxF.title" = "地区:";
+
+/* Class = "NSToolbarItem"; label = "收藏夹"; ObjectID = "KPC-Q2-FnR"; */
+"KPC-Q2-FnR.label" = "收藏夹";
+
+/* Class = "NSToolbarItem"; paletteLabel = "收藏夹"; ObjectID = "KPC-Q2-FnR"; */
+"KPC-Q2-FnR.paletteLabel" = "收藏夹";
+
+/* Class = "NSMenuItem"; title = "显示全部"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "显示全部";
+
+/* Class = "NSSplitViewController"; title = "Main Split View"; ObjectID = "KdV-6f-3Pd"; */
+"KdV-6f-3Pd.title" = "Main Split View";
+
+/* Class = "NSTextFieldCell"; title = "PSV DLC"; ObjectID = "L7w-ra-m01"; */
+"L7w-ra-m01.title" = "PSV DLC";
+
+/* Class = "NSMenuItem"; title = "前置全部窗口"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "前置全部窗口";
+
+/* Class = "NSBox"; title = "提取方式"; ObjectID = "Ln7-es-lWC"; */
+"Ln7-es-lWC.title" = "提取方式";
+
+/* Class = "NSTableColumn"; headerCell.title = "上次修改"; ObjectID = "Lpm-t1-F3h"; */
+"Lpm-t1-F3h.headerCell.title" = "上次修改";
+
+/* Class = "NSToolbarItem"; label = "类型"; ObjectID = "Mrf-SQ-VJh"; */
+"Mrf-SQ-VJh.label" = "类型";
+
+/* Class = "NSToolbarItem"; paletteLabel = "类型"; ObjectID = "Mrf-SQ-VJh"; */
+"Mrf-SQ-VJh.paletteLabel" = "类型";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Nn2-Ct-nQh"; */
+"Nn2-Ct-nQh.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "下载地址"; ObjectID = "OIE-2C-WJg"; */
+"OIE-2C-WJg.placeholderString" = "下载地址";
+
+/* Class = "NSMenuItem"; title = "最小化"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "最小化";
+
+/* Class = "NSTextFieldCell"; title = "Compat Packs"; ObjectID = "Ofq-x3-wOT"; */
+"Ofq-x3-wOT.title" = "Compat Packs";
+
+/* Class = "NSTextFieldCell"; placeholderString = "3"; ObjectID = "OhS-B2-rNK"; */
+"OhS-B2-rNK.placeholderString" = "3";
+
+/* Class = "NSMenuItem"; title = "隐藏NPS Browser"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "隐藏NPS Browser";
+
+/* Class = "NSMenuItem"; title = "查找上一个"; ObjectID = "OwM-mh-QMV"; */
+"OwM-mh-QMV.title" = "查找上一个";
+
+/* Class = "NSMenuItem"; title = "停止讲话"; ObjectID = "Oyz-dy-DGm"; */
+"Oyz-dy-DGm.title" = "停止讲话";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "PXZ-S7-M3p"; */
+"PXZ-S7-M3p.title" = "Text Cell";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Remove"; ObjectID = "Pqh-e6-jyw"; */
+"Pqh-e6-jyw.ibShadowedToolTip" = "Remove";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "Pyf-pd-7mE"; */
+"Pyf-pd-7mE.title" = "...";
+
+/* Class = "NSViewController"; title = "Bookmarks View Controller"; ObjectID = "QQM-88-Wvd"; */
+"QQM-88-Wvd.title" = "Bookmarks View Controller";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "Qwh-cy-0kt"; */
+"Qwh-cy-0kt.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "缩放"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "缩放";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Rg0-Z5-FLz"; */
+"Rg0-Z5-FLz.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "RuY-Yx-7it"; */
+"RuY-Yx-7it.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "全选"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "全选";
+
+/* Class = "NSMenuItem"; title = "跳到所选部分"; ObjectID = "S0p-oC-mLd"; */
+"S0p-oC-mLd.title" = "跳到所选部分";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "S1C-gw-f9z"; */
+"S1C-gw-f9z.placeholderString" = "url在这里填写";
+
+/* Class = "NSTextFieldCell"; title = "最后检查:"; ObjectID = "SJ7-uj-L8V"; */
+"SJ7-uj-L8V.title" = "最后检查:";
+
+/* Class = "NSViewController"; title = "Download Progress View Controller"; ObjectID = "SOC-lv-SK1"; */
+"SOC-lv-SK1.title" = "Download Progress View Controller";
+
+/* Class = "NSTableColumn"; headerCell.title = "地区"; ObjectID = "SgC-bH-Mwx"; */
+"SgC-bH-Mwx.headerCell.title" = "地区";
+
+/* Class = "NSTextFieldCell"; title = "PS3 游戏"; ObjectID = "SkS-fk-21K"; */
+"SkS-fk-21K.title" = "PS3 游戏";
+
+/* Class = "NSTextFieldCell"; title = "PS3 DLC"; ObjectID = "Snj-Vn-zlQ"; */
+"Snj-Vn-zlQ.title" = "PS3 DLC";
+
+/* Class = "NSTextFieldCell"; placeholderString = "1"; ObjectID = "TDI-Yj-oQi"; */
+"TDI-Yj-oQi.placeholderString" = "1";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Title"; ObjectID = "TIu-Xr-ONW"; */
+"TIu-Xr-ONW.placeholderString" = "Title";
+
+/* Class = "NSTableColumn"; headerCell.title = "游戏 ID"; ObjectID = "TMh-Cn-0WR"; */
+"TMh-Cn-0WR.headerCell.title" = "游戏 ID";
+
+/* Class = "NSMenu"; title = "窗口"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "窗口";
+
+/* Class = "NSMenuItem"; title = "首字母大写"; ObjectID = "UEZ-Bs-lqG"; */
+"UEZ-Bs-lqG.title" = "首字母大写";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "VIe-MZ-aWa"; */
+"VIe-MZ-aWa.title" = "...";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "VKU-SK-I5o"; */
+"VKU-SK-I5o.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "隐藏其他应用"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "隐藏其他应用";
+
+/* Class = "NSMenu"; title = "编辑"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "编辑";
+
+/* Class = "NSTextFieldCell"; title = "最低固件版本:"; ObjectID = "Wcn-XJ-lpK"; */
+"Wcn-XJ-lpK.title" = "最低固件版本:";
+
+/* Class = "NSMenuItem"; title = "粘贴并匹配样式"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "粘贴并匹配样式";
+
+/* Class = "NSTextFieldCell"; title = "PS3 图标"; ObjectID = "XNq-bF-lbb"; */
+"XNq-bF-lbb.title" = "PS3 图标";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "XU7-TU-N2R"; */
+"XU7-TU-N2R.title" = "...";
+
+/* Class = "NSMenuItem"; title = "查找…"; ObjectID = "Xz5-n4-O0W"; */
+"Xz5-n4-O0W.title" = "查找…";
+
+/* Class = "NSMenuItem"; title = "查找并替换…"; ObjectID = "YEy-JH-Tfz"; */
+"YEy-JH-Tfz.title" = "查找并替换…";
+
+/* Class = "NSMenuItem"; title = "开始讲话"; ObjectID = "Ynk-f8-cLZ"; */
+"Ynk-f8-cLZ.title" = "开始讲话";
+
+/* Class = "NSButtonCell"; title = "更新"; ObjectID = "Yr7-I7-uux"; */
+"Yr7-I7-uux.title" = "更新";
+
+/* Class = "NSButtonCell"; title = "下载后提取PKG"; ObjectID = "Yvg-Ni-f30"; */
+"Yvg-Ni-f30.title" = "下载后提取PKG";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "ZCj-PF-2is"; */
+"ZCj-PF-2is.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "ZQv-WX-FIj"; */
+"ZQv-WX-FIj.title" = "...";
+
+/* Class = "NSBox"; title = "下载"; ObjectID = "ZXg-Ug-dCx"; */
+"ZXg-Ug-dCx.title" = "下载";
+
+/* Class = "NSToolbarItem"; label = "搜索"; ObjectID = "Zb1-Gr-mvT"; */
+"Zb1-Gr-mvT.label" = "搜索";
+
+/* Class = "NSToolbarItem"; paletteLabel = "搜索"; ObjectID = "Zb1-Gr-mvT"; */
+"Zb1-Gr-mvT.paletteLabel" = "搜索";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "Zl8-so-fsA"; */
+"Zl8-so-fsA.title" = "...";
+
+/* Class = "NSMenuItem"; title = "窗口"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "窗口";
+
+/* Class = "NSMenuItem"; title = "PS3 主题"; ObjectID = "bKD-hT-cBr"; */
+"bKD-hT-cBr.title" = "PS3 主题";
+
+/* Class = "NSTextFieldCell"; placeholderString = "region"; ObjectID = "bfq-He-Rzx"; */
+"bfq-He-Rzx.placeholderString" = "region";
+
+/* Class = "NSMenuItem"; title = "PS3 游戏"; ObjectID = "brt-cy-6FW"; */
+"brt-cy-6FW.title" = "PS3 游戏";
+
+/* Class = "NSMenuItem"; title = "使用所选内容查找"; ObjectID = "buJ-ug-pKt"; */
+"buJ-ug-pKt.title" = "使用所选内容查找";
+
+/* Class = "NSButtonCell"; title = "提取后保留PKG"; ObjectID = "bvt-hI-KLe"; */
+"bvt-hI-KLe.title" = "提取后保留PKG";
+
+/* Class = "NSMenu"; title = "变形"; ObjectID = "c8a-y6-VQd"; */
+"c8a-y6-VQd.title" = "变形";
+
+/* Class = "NSButtonCell"; title = "将PSP ISO压缩为.CSO"; ObjectID = "cU6-Yg-yfn"; */
+"cU6-Yg-yfn.title" = "将PSP ISO压缩为.CSO";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "--"; ObjectID = "cUI-JS-2y4"; */
+"cUI-JS-2y4.ibShadowedIsNilPlaceholder" = "--";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = "--"; ObjectID = "cUI-JS-2y4"; */
+"cUI-JS-2y4.ibShadowedNoSelectionPlaceholder" = "--";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "N/A"; ObjectID = "cUI-JS-2y4"; */
+"cUI-JS-2y4.ibShadowedNotApplicablePlaceholder" = "N/A";
+
+/* Class = "NSMenuItem"; title = "智能链接"; ObjectID = "cwL-P1-jid"; */
+"cwL-P1-jid.title" = "智能链接";
+
+/* Class = "NSButtonCell"; title = "游戏"; ObjectID = "d21-RQ-NIf"; */
+"d21-RQ-NIf.title" = "游戏";
+
+/* Class = "NSMenuItem"; title = "小写"; ObjectID = "d9M-CD-aMd"; */
+"d9M-CD-aMd.title" = "小写";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "dMk-aG-Dlj"; */
+"dMk-aG-Dlj.title" = "...";
+
+/* Class = "NSMenuItem"; title = "撤销"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "撤销";
+
+/* Class = "NSButtonCell"; title = "保存"; ObjectID = "dVz-1g-gMj"; */
+"dVz-1g-gMj.title" = "保存";
+
+/* Class = "NSBox"; title = "资源"; ObjectID = "eDk-4l-ZtT"; */
+"eDk-4l-ZtT.title" = "资源";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "eGJ-xB-4qS"; */
+"eGJ-xB-4qS.placeholderString" = "url在这里填写";
+
+/* Class = "NSTableColumn"; headerCell.title = "名称"; ObjectID = "eMB-Ps-xSE"; */
+"eMB-Ps-xSE.headerCell.title" = "名称";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "ek9-yU-x1t"; */
+"ek9-yU-x1t.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "fKt-pb-9lz"; */
+"fKt-pb-9lz.title" = "...";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "fMf-6J-WgR"; */
+"fMf-6J-WgR.title" = "Table View Cell";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "fQj-0f-tng"; */
+"fQj-0f-tng.title" = "...";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedIsNilPlaceholder = "---"; ObjectID = "fTh-C0-enL"; */
+"fTh-C0-enL.ibShadowedIsNilPlaceholder" = "---";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedMultipleValuesPlaceholder = "---"; ObjectID = "fTh-C0-enL"; */
+"fTh-C0-enL.ibShadowedMultipleValuesPlaceholder" = "---";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNoSelectionPlaceholder = "---"; ObjectID = "fTh-C0-enL"; */
+"fTh-C0-enL.ibShadowedNoSelectionPlaceholder" = "---";
+
+/* Class = "CocoaBindingsConnection"; ibShadowedNotApplicablePlaceholder = "---"; ObjectID = "fTh-C0-enL"; */
+"fTh-C0-enL.ibShadowedNotApplicablePlaceholder" = "---";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "foH-xv-iG7"; */
+"foH-xv-iG7.placeholderString" = "url在这里填写";
+
+/* Class = "NSBox"; title = "显示"; ObjectID = "fuk-ZQ-Ugp"; */
+"fuk-ZQ-Ugp.title" = "显示";
+
+/* Class = "NSTextFieldCell"; placeholderString = "%%%"; ObjectID = "gEU-8X-bNu"; */
+"gEU-8X-bNu.placeholderString" = "%%%";
+
+/* Class = "NSWindow"; title = "NPS Browser"; ObjectID = "gEz-wV-LLD"; */
+"gEz-wV-LLD.title" = "NPS Browser";
+
+/* Class = "NSMenuItem"; title = "粘贴"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "粘贴";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "glb-tq-2FN"; */
+"glb-tq-2FN.title" = "...";
+
+/* Class = "NSMenuItem"; title = "日本"; ObjectID = "gn1-hs-gbI"; */
+"gn1-hs-gbI.title" = "日本";
+
+/* Class = "NSTextFieldCell"; placeholderString = "0.00"; ObjectID = "hGN-av-fNe"; */
+"hGN-av-fNe.placeholderString" = "0.00";
+
+/* Class = "NSMenuItem"; title = "智能引号"; ObjectID = "hQb-2v-fYv"; */
+"hQb-2v-fYv.title" = "智能引号";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "hxl-eq-kLL"; */
+"hxl-eq-kLL.title" = "...";
+
+/* Class = "NSMenuItem"; title = "立即检查文稿"; ObjectID = "hz2-CU-CR7"; */
+"hz2-CU-CR7.title" = "立即检查文稿";
+
+/* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "iuc-EO-Y2q"; */
+"iuc-EO-Y2q.placeholderString" = "url在这里填写";
+
+/* Class = "NSMenuItem"; title = "欧洲"; ObjectID = "jAb-Oc-quw"; */
+"jAb-Oc-quw.title" = "欧洲";
+
+/* Class = "NSViewController"; title = "Data View Controller"; ObjectID = "jMM-GG-iAN"; */
+"jMM-GG-iAN.title" = "Data View Controller";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "jjx-qd-AZ2"; */
+"jjx-qd-AZ2.title" = "...";
+
+/* Class = "NSMenuItem"; title = "隐藏工具栏"; ObjectID = "kIP-vf-haE"; */
+"kIP-vf-haE.title" = "隐藏工具栏";
+
+/* Class = "NSTextFieldCell"; placeholderString = "title name"; ObjectID = "kOh-FH-Yln"; */
+"kOh-FH-Yln.placeholderString" = "title name";
+
+/* Class = "NSTextFieldCell"; title = "PSV 主题"; ObjectID = "l7a-O4-SBF"; */
+"l7a-O4-SBF.title" = "PSV 主题";
+
+/* Class = "NSButtonCell"; title = "现在检查"; ObjectID = "li4-sf-HMF"; */
+"li4-sf-HMF.title" = "现在检查";
+
+/* Class = "NSBox"; title = "更新"; ObjectID = "lpb-Qp-OL7"; */
+"lpb-Qp-OL7.title" = "更新";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Type of file"; ObjectID = "lsh-3i-7Ci"; */
+"lsh-3i-7Ci.ibShadowedToolTip" = "Type of file";
+
+/* Class = "NSTextFieldCell"; title = "PSX 游戏"; ObjectID = "m92-Fh-sNa"; */
+"m92-Fh-sNa.title" = "PSX 游戏";
+
+/* Class = "NSTextFieldCell"; title = "PSV 游戏"; ObjectID = "mF3-Jm-UlQ"; */
+"mF3-Jm-UlQ.title" = "PSV 游戏";
+
+/* Class = "NSMenuItem"; title = "拼写时检查语法"; ObjectID = "mK6-2p-4JG"; */
+"mK6-2p-4JG.title" = "拼写时检查语法";
+
+/* Class = "NSButtonCell"; title = "..."; ObjectID = "mwm-iZ-WHw"; */
+"mwm-iZ-WHw.title" = "...";
+
+/* Class = "NSViewController"; title = "Details View Controller"; ObjectID = "n9v-5p-6cD"; */
+"n9v-5p-6cD.title" = "Details View Controller";
+
+/* Class = "NSViewController"; title = "Preferences"; ObjectID = "nJG-V9-zfz"; */
+"nJG-V9-zfz.title" = "Preferences";
+
+/* Class = "NSViewController"; title = "Artwork View"; ObjectID = "oQp-IL-ICL"; */
+"oQp-IL-ICL.title" = "Artwork View";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "oTj-nI-kQK"; */
+"oTj-nI-kQK.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Never"; ObjectID = "opw-1d-oTr"; */
+"opw-1d-oTr.title" = "Never";
+
+/* Class = "NSMenuItem"; title = "删除"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "删除";
+
+/* Class = "NSTextFieldCell"; title = "Compat Patches"; ObjectID = "pkc-Rj-8Ls"; */
+"pkc-Rj-8Ls.title" = "Compat Patches";
+
+/* Class = "NSMenuItem"; title = "查找下一个"; ObjectID = "q09-fT-Sye"; */
+"q09-fT-Sye.title" = "查找下一个";
+
+/* Class = "NSTextFieldCell"; title = "PS3 主题"; ObjectID = "q3m-Fw-oE0"; */
+"q3m-Fw-oE0.title" = "PS3 主题";
+
+/* Class = "NSMenuItem"; title = "键入内容时检查拼写"; ObjectID = "rbD-Rh-wIN"; */
+"rbD-Rh-wIN.title" = "键入内容时检查拼写";
+
+/* Class = "NSMenuItem"; title = "智能破折号"; ObjectID = "rgM-f4-ycn"; */
+"rgM-f4-ycn.title" = "智能破折号";
+
+/* Class = "NSButtonCell"; title = "使用默认值"; ObjectID = "sEk-an-SX4"; */
+"sEk-an-SX4.title" = "使用默认值";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "sIY-oG-9Z5"; */
+"sIY-oG-9Z5.title" = "Table View Cell";
+
+/* Class = "NSMenuItem"; title = "显示工具栏"; ObjectID = "snW-S8-Cw5"; */
+"snW-S8-Cw5.title" = "显示工具栏";
+
+/* Class = "NSMenuItem"; title = "PS3 DLC"; ObjectID = "tMY-5i-zVw"; */
+"tMY-5i-zVw.title" = "PS3 DLC";
+
+/* Class = "NSMenuItem"; title = "数据检测"; ObjectID = "tRr-pd-1PS"; */
+"tRr-pd-1PS.title" = "数据检测";
+
+/* Class = "NSMenu"; title = "NPS Browser"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "NPS Browser";
+
+/* Class = "NSMenuItem"; title = "剪切"; ObjectID = "uRl-iY-unG"; */
+"uRl-iY-unG.title" = "剪切";
+
+/* Class = "NSMenuItem"; title = "美国"; ObjectID = "uqp-4b-8ti"; */
+"uqp-4b-8ti.title" = "美国";
+
+/* Class = "NSTextFieldCell"; title = "Factor"; ObjectID = "vIl-E9-eh1"; */
+"vIl-E9-eh1.title" = "Factor";
+
+/* Class = "NSMenuItem"; title = "大写"; ObjectID = "vmV-6d-7jI"; */
+"vmV-6d-7jI.title" = "大写";
+
+/* Class = "NSViewController"; title = "Loading..."; ObjectID = "vnt-bk-4ap"; */
+"vnt-bk-4ap.title" = "Loading...";
+
+/* Class = "NSTextFieldCell"; title = "下载"; ObjectID = "wxO-0r-gjW"; */
+"wxO-0r-gjW.title" = "下载";
+
+/* Class = "NSMenuItem"; title = "亚洲"; ObjectID = "x3f-XS-6er"; */
+"x3f-XS-6er.title" = "亚洲";
+
+/* Class = "NSMenuItem"; title = "复制"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "复制";
+
+/* Class = "NSToolbarItem"; label = "Reload"; ObjectID = "x6e-BC-oZE"; */
+"x6e-BC-oZE.label" = "Reload";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Reload Button + Spinner"; ObjectID = "x6e-BC-oZE"; */
+"x6e-BC-oZE.paletteLabel" = "Reload Button + Spinner";
+
+/* Class = "NSMenuItem"; title = "语音"; ObjectID = "xrE-MZ-jX0"; */
+"xrE-MZ-jX0.title" = "语音";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "y3f-ns-l4Y"; */
+"y3f-ns-l4Y.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "文件大小"; ObjectID = "yCr-dO-lvB"; */
+"yCr-dO-lvB.headerCell.title" = "文件大小";
+
+/* Class = "NSMenuItem"; title = "重新加载"; ObjectID = "yf5-If-lyN"; */
+"yf5-If-lyN.title" = "重新加载";
+
+/* Class = "NSMenuItem"; title = "显示替换"; ObjectID = "z6F-FW-3nz"; */
+"z6F-FW-3nz.title" = "显示替换";
+
+/* Class = "NSTextFieldCell"; title = "收藏夹"; ObjectID = "zrP-Kf-B0w"; */
+"zrP-Kf-B0w.title" = "收藏夹";
+
+/* Class = "NSTextFieldCell"; title = "名称"; ObjectID = "zs9-kp-FLs"; */
+"zs9-kp-FLs.title" = "名称";
+
+/* Class = "NSButtonCell"; title = "清除"; ObjectID = "zxK-37-XlQ"; */
+"zxK-37-XlQ.title" = "清除";
+
