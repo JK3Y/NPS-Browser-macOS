@@ -1,12 +1,12 @@
 # NPS Browser for macOS
 
 A Swift 4 implementation of NPS Browser.\
-**Tested and working on macOS 10.10-10.15**
+**Tested and working on macOS 10.11-10.15**
 
 ![](/Screenshots/main.png?raw=true)
 
 ## Features
-* Automatic app updates
+* Localization in Simplified Chinese
 * Bookmarks can be saved by clicking the star icon in the corner of the details panel
 * Downloads can be started from the bookmark list
 * Downloads can be stopped and resumed at any point, they can also be resumed if the app is closed during download
@@ -15,7 +15,7 @@ A Swift 4 implementation of NPS Browser.\
 * Game artwork is displayed
 
 ## Usage
-* Set URLs and extraction preferences in the Preferences window
+* Change or set URLs and extraction preferences in the Preferences window
 * From the menu select Database > Reload or press ⌘R
 * Compatibility pack URLs must be the raw text file.
 
@@ -29,7 +29,7 @@ defaults delete JK3Y.NPS-Browser
 ```
 
 ## Building
-Make sure you have [Carthage][] installed.
+Make sure you have Xcode 10.2 and [Carthage][] installed.
 Open a terminal and install the dependencies:
 ```
 carthage bootstrap --platform macOS --no-use-binaries --cache-builds
@@ -46,6 +46,7 @@ Export an app bundle by going to Product > Archive > Export.
 * Ann0ying for app icon
 * Luro02 for the [pkg2zip][] fork
 * devnoname120 for [vitanpupdatelinks][]
+* L1cardo for Simplified Chinese translation
 
 [Carthage]: https://github.com/Carthage/Carthage
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md

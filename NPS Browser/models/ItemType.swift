@@ -26,10 +26,33 @@ struct ItemType: CustomStringConvertible {
         self.console = console
         self.fileType = fileType
     }
-    static func parseString(_ txt: String) -> ItemType {
+    static func getTypeFromTag(_ tag: Int) -> FileType {
+        switch (tag) {
+        case 0:
+            return FileType.Game
+        case 1:
+            return FileType.DLC
+        case 2:
+            return FileType.Theme
+        case 3:
+            return FileType.Update
+        case 4:
+            return FileType.Avatar
+        case 5:
+            return FileType.CPack
+        case 6:
+            return FileType.CPatch
+        case 7:
+            return FileType.RAP
+        default:
+            return FileType.Game
+        }
+    }
+    static func parseString(_ txt: String = "", _ type: FileType) -> ItemType {
         let parsed = try txt.split(separator: " ")
-        let c = ConsoleType(rawValue: String(parsed.first!))
-        let ft = FileType(rawValue: String(parsed.last!.dropLast()))
-        return ItemType(console: c!, fileType: ft!)
+        let c = ConsoleType(rawValue: String(parsed.first ?? ""))
+//        let ft = FileType(rawValue: String(parsed.last?.dropLast() ?? ""))
+        let ft = type
+        return ItemType(console: c ?? ConsoleType.PSV, fileType: ft)
     }
 }

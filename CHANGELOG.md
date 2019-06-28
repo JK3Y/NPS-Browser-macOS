@@ -1,4 +1,18 @@
 # Changelog
+## v1.4.4
+### Added
+- Simplified Chinese localization (Thanks L1cardo!)
+
+### Changed
+- macOS 10.10 is no longer supported. App now requires 10.11 to run
+- Removed the Update Checker functionality, it didn't always work. May reimplement this in the future.
+- UI tweaks in Preferences window
+- NPS URLs have been hardcoded
+
+### Fixed
+- Fixed a random crash bug related to loading progress window.
+- Fixed app crash if an external path used for storing the downloads is not available. Now defaults to Downloads folder.
+
 ## v1.4.3
 ### Added
 - Menu option for showing and hiding the sidebar.

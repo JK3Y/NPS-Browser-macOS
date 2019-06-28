@@ -10,7 +10,7 @@ import Cocoa
 import Queuer
 import Alamofire
 import Promises
-import Files
+//import Files
 import SwiftyUserDefaults
 
 class DownloadManager {
@@ -27,7 +27,11 @@ class DownloadManager {
             // .pkg filename
             let pathComponent = response.suggestedFilename!
             let cf = data.consoleType
-            var path: URL = Defaults[.dl_library_folder]!.appendingPathComponent(cf!)
+            
+            var path: URL = Defaults[.dl_library_folder] ?? URL(string: try! Folder.home.subfolder(named: "Downloads").path)!
+            
+            path.appendPathComponent(cf!)
+//            var path: URL = Defaults[.dl_library_folder]!.appendingPathComponent(cf!)
             path.appendPathComponent(pathComponent)
 
             let decodedurl = path.path.removingPercentEncoding

@@ -41,11 +41,6 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var compressionFactorField: NSTextField!
 //    @IBOutlet weak var chkUnpackPS3Packages: NSButton!
     
-    // Updates
-    @IBOutlet weak var chkAutomaticallyCheck: NSButton!
-    @IBOutlet weak var btnCheckUpdatesNow: NSButton!
-    @IBOutlet weak var lblUpdateLastChecked: NSTextField!
-    
     
 //    let settings = SettingsManager().getSettings()
     var dlLocation: URL?
@@ -125,9 +120,6 @@ class PreferencesViewController: NSViewController {
         compressionFactorField.integerValue     = Defaults[.xt_compression_factor]
         compressionFactorStepper.integerValue   = Defaults[.xt_compression_factor]
         
-        chkAutomaticallyCheck.state             = Defaults[.upd_automatically_check] ? .on : .off
-        lblUpdateLastChecked.stringValue        = Helpers().relativePast(for: Defaults[.upd_last_checked])
-        
         toggleEnableExtractionSettings(self)
         toggleCompressionFactor(self)
     }
@@ -176,37 +168,6 @@ class PreferencesViewController: NSViewController {
         case "compatpack": openDialog(txtField: self.compatPackField)
         case "compatpatch": openDialog(txtField: self.compatPatchField)
         default: break
-        }
-    }
-    
-    @IBAction func checkUpdateApp(_ sender: NSButton) {
-        AppUpdateChecker().fetchLatest() { (ghVersion, browserDownloadURL) in
-            // Get current date
-            let date = Date()
-            self.update_checked = date
-            self.lblUpdateLastChecked.stringValue = Helpers().relativePast(for: date)
-
-            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                let downloadUrl: URL = URL(string: browserDownloadURL)!
-                
-                debugPrint(appVersion, ghVersion, browserDownloadURL)
-                
-                if appVersion < ghVersion {
-                    let alert = NSAlert()
-                    alert.messageText = "Update Available"
-                    alert.informativeText = "A new version is available!"
-                    alert.alertStyle = .informational
-                    alert.addButton(withTitle: "Download")
-                    alert.addButton(withTitle: "Cancel")
-                    let responseTag = alert.runModal()
-                    
-                    if responseTag.rawValue == 1000 {
-                        self.save(self)
-                        AppUpdateChecker().downloadUpdate(url: downloadUrl)
-                        log.info("Downloading update")
-                    }
-                }
-            }
         }
     }
 
@@ -259,9 +220,6 @@ class PreferencesViewController: NSViewController {
             Defaults[.xt_compression_factor]        = compressionFactorField.integerValue
             
             Defaults[.dsp_hide_invalid_url_items]   = chkHideInvalidURLItems.state == .on
-            
-            Defaults[.upd_automatically_check]      = chkAutomaticallyCheck.state == .on
-            Defaults[.upd_last_checked]             = update_checked
 
             
             dismissViewController(self)

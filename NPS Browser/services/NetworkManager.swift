@@ -92,28 +92,26 @@ class NetworkManager {
                         return
                     }
                     
-                    if (self.itemType.console == ConsoleType.PSV && self.itemType.fileType == FileType.Game) {
+                    guard let cpatchurl: URL = Defaults[.src_compatPatch] else {
+                        Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
                         
-                        guard let cpatchurl: URL = Defaults[.src_compatPatch] else {
-                            Helpers().makeAlert(messageText: "No URL set for Compat Patches.", informativeText: "Set source paths in the preferences window.", alertStyle: .warning)
-                            
-                            log.error("Invalid URL given for compat patches")
+                        log.error("Invalid URL given for compat patches")
+                        return
+                    }
+                        
+                    if (cpatchurl.isFileURL) {
+                        guard (try? cpatchurl.checkResourceIsReachable()) != nil else {
+                            Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpatchurl)", alertStyle: .warning)
                             return
                         }
-                        
-                        if (cpatchurl.isFileURL) {
-                            guard (try? cpatchurl.checkResourceIsReachable()) != nil else {
-                                Helpers().makeAlert(messageText: "Resource not found!", informativeText: "File does not exist at path: \(cpatchurl)", alertStyle: .warning)
-                                return
-                            }
-                        }
-
-                    
-                        self.makeCompatPackRequestPromise(url: cpackurl, isPatch: false)
-                        .then {_ in
-                            self.makeCompatPackRequestPromise(url: cpatchurl, isPatch: true)
-                        }
                     }
+
+                
+                    self.makeCompatPackRequestPromise(url: cpackurl, isPatch: false)
+                    .then {_ in
+                        self.makeCompatPackRequestPromise(url: cpatchurl, isPatch: true)
+                    }
+                    
                 }
         }
             .then {_ in
@@ -133,7 +131,10 @@ class NetworkManager {
             typeName = "CompatPatch"
         }
         return Promise<[CompatPack]?> { fulfill, reject in
-            Helpers().showLoadingViewController()
+            
+            if (self.windowDelegate.getLoadingViewController().presenting != nil) {
+                Helpers().showLoadingViewController()
+            }
             Helpers().getLoadingViewController().setLabel(text: "Requesting Comp Packs... (step 1/5)")
             Helpers().getLoadingViewController().setProgress(amount: 20)
 
