@@ -8,17 +8,17 @@
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let src_psv_games   = DefaultsKey<URL?>("src_psv_games", defaultValue: URL(string:""))
-    static let src_psv_dlcs    = DefaultsKey<URL?>("src_psv_dlcs", defaultValue: URL(string:""))
-    static let src_psv_themes  = DefaultsKey<URL?>("src_psv_themes", defaultValue: URL(string:""))
-    static let src_psp_games   = DefaultsKey<URL?>("src_psp_games", defaultValue: URL(string:""))
-    static let src_psx_games   = DefaultsKey<URL?>("src_psx_games", defaultValue: URL(string:""))
-    static let src_ps3_games   = DefaultsKey<URL?>("src_ps3_games", defaultValue: URL(string:""))
-    static let src_ps3_dlcs    = DefaultsKey<URL?>("src_ps3_dlcs", defaultValue: URL(string:""))
-    static let src_ps3_themes  = DefaultsKey<URL?>("src_ps3_themes", defaultValue: URL(string:""))
-    static let src_ps3_avatars = DefaultsKey<URL?>("src_ps3_avatars", defaultValue: URL(string:""))
-    static let src_compatPacks = DefaultsKey<URL?>("src_compatPacks", defaultValue: URL(string:""))
-    static let src_compatPatch = DefaultsKey<URL?>("src_compatPatch", defaultValue: URL(string:""))
+    static let src_psv_games   = DefaultsKey<URL?>("src_psv_games", defaultValue: URL(string:"http://nopaystation.com/tsv/PSV_GAMES.tsv")!)
+    static let src_psv_dlcs    = DefaultsKey<URL?>("src_psv_dlcs", defaultValue: URL(string:"http://nopaystation.com/tsv/PSV_DLCS.tsv")!)
+    static let src_psv_themes  = DefaultsKey<URL?>("src_psv_themes", defaultValue: URL(string:"http://nopaystation.com/tsv/PSV_THEMES.tsv")!)
+    static let src_psp_games   = DefaultsKey<URL?>("src_psp_games", defaultValue: URL(string:"http://nopaystation.com/tsv/PSP_GAMES.tsv")!)
+    static let src_psx_games   = DefaultsKey<URL?>("src_psx_games", defaultValue: URL(string:"http://nopaystation.com/tsv/PSX_GAMES.tsv")!)
+    static let src_ps3_games   = DefaultsKey<URL?>("src_ps3_games", defaultValue: URL(string:"http://nopaystation.com/tsv/PS3_GAMES.tsv")!)
+    static let src_ps3_dlcs    = DefaultsKey<URL?>("src_ps3_dlcs", defaultValue: URL(string:"http://nopaystation.com/tsv/PS3_DLCS.tsv")!)
+    static let src_ps3_themes  = DefaultsKey<URL?>("src_ps3_themes", defaultValue: URL(string:"http://nopaystation.com/tsv/PS3_THEMES.tsv")!)
+    static let src_ps3_avatars = DefaultsKey<URL?>("src_ps3_avatars", defaultValue: URL(string:"http://nopaystation.com/tsv/PS3_AVATARS.tsv")!)
+    static let src_compatPacks = DefaultsKey<URL?>("src_compatPacks", defaultValue: URL(string:"https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries.txt")!)
+    static let src_compatPatch = DefaultsKey<URL?>("src_compatPatch", defaultValue: URL(string:"https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries_patch.txt")!)
     
     static let dl_library_location        = DefaultsKey<URL?>("dl_library_location", defaultValue: try! NSHomeDirectory().asURL().appendingPathComponent("Downloads"))
     static let dl_concurrent_downloads    = DefaultsKey<Int>("dl_concurrent_downloads", defaultValue: 3)
@@ -33,7 +33,4 @@ extension DefaultsKeys {
     static let xt_unpack_ps3_packages         = DefaultsKey<Bool>("xt_unpack_ps3_packages", defaultValue: false)
     
     static let dsp_hide_invalid_url_items = DefaultsKey<Bool>("dsp_hide_invalid_url_items", defaultValue: true)
-    
-    static let upd_automatically_check  = DefaultsKey<Bool>("upd_automatically_check", defaultValue: true)
-    static let upd_last_checked         = DefaultsKey<Date?>("upd_last_checked")
 }

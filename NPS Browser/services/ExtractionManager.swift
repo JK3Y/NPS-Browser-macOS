@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 import Zip
-import Files
+//import Files
 import SwiftyUserDefaults
 
 class ExtractionManager {

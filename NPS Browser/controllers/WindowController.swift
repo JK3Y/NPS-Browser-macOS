@@ -79,12 +79,26 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     }
 
     func getItemType() -> ItemType {
-        return ItemType.parseString((tbType.selectedItem?.title)!)
+//        return
+        return ItemType.parseString((tbType.selectedItem?.title)!, ItemType.getTypeFromTag(tbType.selectedItem?.tag ?? 0))
     }
     
     func getRegion() -> String {
-        let region = tbRegion.selectedItem?.title
-        return region!
+        let tag = tbRegion.selectedItem?.tag
+        switch (tag) {
+        case 0:
+            return "US"
+        case 1:
+            return "EU"
+        case 2:
+            return "JP"
+        case 3:
+            return "ASIA"
+        default:
+            return "US"
+        }
+        
+//        return region!
     }
     
 }

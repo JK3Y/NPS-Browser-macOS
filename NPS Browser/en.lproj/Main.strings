@@ -6,7 +6,7 @@
 "0LQ-To-8h6.title" = "PSV Themes";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Clear Downloads"; ObjectID = "0u4-nU-RL9"; */
-"0u4-nU-RL9.ibShadowedToolTip" = "Clear Downloads";
+"0u4-nU-RL9.ibShadowedToolTip" = "Remove completed and stopped downloads";
 
 /* Class = "NSMenuItem"; title = "NPS Browser"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "NPS Browser";

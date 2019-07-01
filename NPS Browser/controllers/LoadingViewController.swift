@@ -30,6 +30,10 @@ class LoadingViewController: NSViewController, LoadingViewDelegate {
     }
     
     func closeWindow() {
-        dismissViewController(self)
+        if (self.presenting != nil) {
+            dismissViewController(self)
+        } else {
+            return
+        }
     }
 }
