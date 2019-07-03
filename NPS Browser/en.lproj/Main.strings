@@ -5,7 +5,7 @@
 /* Class = "NSMenuItem"; title = "PSV Themes"; ObjectID = "0LQ-To-8h6"; */
 "0LQ-To-8h6.title" = "PSV Themes";
 
-/* Class = "NSButton"; ibShadowedToolTip = "Clear Downloads"; ObjectID = "0u4-nU-RL9"; */
+/* Class = "NSButton"; ibShadowedToolTip = "Remove completed and stopped downloads"; ObjectID = "0u4-nU-RL9"; */
 "0u4-nU-RL9.ibShadowedToolTip" = "Remove completed and stopped downloads";
 
 /* Class = "NSMenuItem"; title = "NPS Browser"; ObjectID = "1Xt-HY-uBw"; */
@@ -158,9 +158,6 @@
 /* Class = "NSToolbarItem"; paletteLabel = "Region"; ObjectID = "ITM-y0-txp"; */
 "ITM-y0-txp.paletteLabel" = "Region";
 
-/* Class = "NSButtonCell"; title = "Automatically check for latest updates"; ObjectID = "JFR-1v-uEb"; */
-"JFR-1v-uEb.title" = "Automatically check for latest updates";
-
 /* Class = "NSMenuItem"; title = "PSP Games"; ObjectID = "JUC-fi-Dnd"; */
 "JUC-fi-Dnd.title" = "PSP Games";
 
@@ -265,9 +262,6 @@
 
 /* Class = "NSTextFieldCell"; placeholderString = "url goes here"; ObjectID = "S1C-gw-f9z"; */
 "S1C-gw-f9z.placeholderString" = "url goes here";
-
-/* Class = "NSTextFieldCell"; title = "Last check:"; ObjectID = "SJ7-uj-L8V"; */
-"SJ7-uj-L8V.title" = "Last check:";
 
 /* Class = "NSViewController"; title = "Download Progress View Controller"; ObjectID = "SOC-lv-SK1"; */
 "SOC-lv-SK1.title" = "Download Progress View Controller";
@@ -491,12 +485,6 @@
 /* Class = "NSTextFieldCell"; title = "PSV Themes"; ObjectID = "l7a-O4-SBF"; */
 "l7a-O4-SBF.title" = "PSV Themes";
 
-/* Class = "NSButtonCell"; title = "Check Now"; ObjectID = "li4-sf-HMF"; */
-"li4-sf-HMF.title" = "Check Now";
-
-/* Class = "NSBox"; title = "Updates"; ObjectID = "lpb-Qp-OL7"; */
-"lpb-Qp-OL7.title" = "Updates";
-
 /* Class = "NSTextField"; ibShadowedToolTip = "Type of file"; ObjectID = "lsh-3i-7Ci"; */
 "lsh-3i-7Ci.ibShadowedToolTip" = "Type of file";
 
@@ -523,9 +511,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "oTj-nI-kQK"; */
 "oTj-nI-kQK.title" = "Table View Cell";
-
-/* Class = "NSTextFieldCell"; title = "Never"; ObjectID = "opw-1d-oTr"; */
-"opw-1d-oTr.title" = "Never";
 
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
 "pa3-QI-u2k.title" = "Delete";
