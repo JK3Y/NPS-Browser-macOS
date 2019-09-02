@@ -597,7 +597,7 @@
                                                 <items>
                                                     <menuItem title="PSV Games" state="on" id="6SS-c2-qNo"/>
                                                     <menuItem title="PSV DLCs" tag="1" id="6ed-Cl-q8z"/>
-                                                    <menuItem title="PSV Themes" tag="3" id="0LQ-To-8h6"/>
+                                                    <menuItem title="PSV Themes" tag="2" id="0LQ-To-8h6"/>
                                                     <menuItem isSeparatorItem="YES" id="ubb-BX-Rh1"/>
                                                     <menuItem title="PS3 Games" id="brt-cy-6FW"/>
                                                     <menuItem title="PS3 DLCs" tag="1" id="tMY-5i-zVw" userLabel="PS3 DLCs"/>
