@@ -5,7 +5,7 @@
 /* Class = "NSMenuItem"; title = "PSV 主题"; ObjectID = "0LQ-To-8h6"; */
 "0LQ-To-8h6.title" = "PSV 主题";
 
-/* Class = "NSButton"; ibShadowedToolTip = "Clear Downloads"; ObjectID = "0u4-nU-RL9"; */
+/* Class = "NSButton"; ibShadowedToolTip = "移除已完成与已暂停项目"; ObjectID = "0u4-nU-RL9"; */
 "0u4-nU-RL9.ibShadowedToolTip" = "移除已完成与已暂停项目";
 
 /* Class = "NSMenuItem"; title = "NPS Browser"; ObjectID = "1Xt-HY-uBw"; */
@@ -158,9 +158,6 @@
 /* Class = "NSToolbarItem"; paletteLabel = "地区"; ObjectID = "ITM-y0-txp"; */
 "ITM-y0-txp.paletteLabel" = "地区";
 
-/* Class = "NSButtonCell"; title = "自动检查最新更新"; ObjectID = "JFR-1v-uEb"; */
-"JFR-1v-uEb.title" = "自动检查最新更新";
-
 /* Class = "NSMenuItem"; title = "PSP 游戏"; ObjectID = "JUC-fi-Dnd"; */
 "JUC-fi-Dnd.title" = "PSP 游戏";
 
@@ -265,9 +262,6 @@
 
 /* Class = "NSTextFieldCell"; placeholderString = "url在这里填写"; ObjectID = "S1C-gw-f9z"; */
 "S1C-gw-f9z.placeholderString" = "url在这里填写";
-
-/* Class = "NSTextFieldCell"; title = "最后检查:"; ObjectID = "SJ7-uj-L8V"; */
-"SJ7-uj-L8V.title" = "最后检查:";
 
 /* Class = "NSViewController"; title = "Download Progress View Controller"; ObjectID = "SOC-lv-SK1"; */
 "SOC-lv-SK1.title" = "Download Progress View Controller";
@@ -491,12 +485,6 @@
 /* Class = "NSTextFieldCell"; title = "PSV 主题"; ObjectID = "l7a-O4-SBF"; */
 "l7a-O4-SBF.title" = "PSV 主题";
 
-/* Class = "NSButtonCell"; title = "现在检查"; ObjectID = "li4-sf-HMF"; */
-"li4-sf-HMF.title" = "现在检查";
-
-/* Class = "NSBox"; title = "更新"; ObjectID = "lpb-Qp-OL7"; */
-"lpb-Qp-OL7.title" = "更新";
-
 /* Class = "NSTextField"; ibShadowedToolTip = "Type of file"; ObjectID = "lsh-3i-7Ci"; */
 "lsh-3i-7Ci.ibShadowedToolTip" = "Type of file";
 
@@ -523,9 +511,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "oTj-nI-kQK"; */
 "oTj-nI-kQK.title" = "Table View Cell";
-
-/* Class = "NSTextFieldCell"; title = "Never"; ObjectID = "opw-1d-oTr"; */
-"opw-1d-oTr.title" = "Never";
 
 /* Class = "NSMenuItem"; title = "删除"; ObjectID = "pa3-QI-u2k"; */
 "pa3-QI-u2k.title" = "删除";
@@ -616,4 +601,3 @@
 
 /* Class = "NSButtonCell"; title = "清除"; ObjectID = "zxK-37-XlQ"; */
 "zxK-37-XlQ.title" = "清除";
-
