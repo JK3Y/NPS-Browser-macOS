@@ -25,7 +25,10 @@ class DownloadManager {
     func getDestination(data: DLItem) -> DownloadRequest.DownloadFileDestination {
         let destination: DownloadRequest.DownloadFileDestination = { request, response in
             // .pkg filename
-            let pathComponent = response.suggestedFilename!
+            var pathComponent = response.suggestedFilename!
+            if let unwrappedName = data.name {
+                pathComponent = "\(unwrappedName).\(URL(fileURLWithPath: pathComponent).pathExtension)"
+            }
             let cf = data.consoleType
             
             var path: URL = Defaults[.dl_library_folder] ?? URL(string: try! Folder.home.subfolder(named: "Downloads").path)!
