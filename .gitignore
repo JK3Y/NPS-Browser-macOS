@@ -1,18 +1,16 @@
-# Created by https://www.gitignore.io/api/swift,xcode,cocoapods
 
-.DS_Store
-
-.idea/
+# Created by https://www.gitignore.io/api/xcode,swift,carthage
+# Edit at https://www.gitignore.io/?templates=xcode,swift,carthage
 
 ### Carthage ###
 # Carthage
-
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
 Carthage/Checkouts
 Carthage/Build
 
 ### Swift ###
 # Xcode
-#
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
@@ -46,18 +44,26 @@ timeline.xctimeline
 playground.xcworkspace
 
 # Swift Package Manager
-#
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
+# Package.resolved
 .build/
 
-# CocoaPods - Refactored to standalone file
+# CocoaPods
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+# Pods/
+# Add this line if you want to avoid checking in source code from the Xcode workspace
+# *.xcworkspace
 
-# Carthage - Refactored to standalone file
+
+# Accio dependency management
+Dependencies/
+.accio/
 
 # fastlane
-#
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
@@ -65,27 +71,33 @@ playground.xcworkspace
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots
+fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Code Injection
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject/
 
 ### Xcode ###
 # Xcode
-#
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Build generated
+## User settings
 
-## Various settings
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 
-## Other
+## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 
-### Xcode Patch ###
+## Xcode Patch
 *.xcodeproj/*
-*.xcworkspace/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
-#*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+### Xcode Patch ###
+**/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.gitignore.io/api/swift,xcode,cocoapods
+# End of https://www.gitignore.io/api/xcode,swift,carthage

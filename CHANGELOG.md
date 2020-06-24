@@ -1,4 +1,9 @@
 # Changelog
+## v1.4.5
+### Fixed
+- Merged an update to fix localization files (@L1cardo)
+- Merged a fix for PSV Themes throwing an error about a missing update URL (@AnalogMan151)
+
 ## v1.4.4
 ### Added
 - Simplified Chinese localization (Thanks L1cardo!)
