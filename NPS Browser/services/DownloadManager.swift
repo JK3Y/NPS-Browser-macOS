@@ -48,7 +48,7 @@ class DownloadManager {
         if (try? Folder(path: filepath.path).createSubfolderIfNeeded(withName: console!)) != nil {
             return
         } else {
-            Helpers().getSharedAppDelegate().setupDownloadsDirectory()
+            Helpers.setupDownloadsDirectory()
             makeConsoleFolder(dlItem: dlItem)
         }
     }
@@ -66,32 +66,35 @@ class DownloadManager {
         // add object to downloadItems array
         downloadItems.insert(data, at: 0)
         
-        let downloadItemsIndex = downloadItems.index(of: data)!
+        let downloadItemsIndex = downloadItems.firstIndex(of: data)!
         
         // get object back out of downloadItems array so the async operation can use it and update the properties as it runs
         let dlItem = self.downloadItems[downloadItemsIndex]
         
-        let dlFileOperation = makeConucurrentOperation(dlItem: dlItem, request: request)
+        let dlFileOperation = makeConcurrentOperation(dlItem: dlItem, request: request)
         self.queue.addOperation(dlFileOperation)
     }
     
     func resumeDownload(data: DLItem) {
-        let request = Alamofire.download(resumingWith: data.resumeData!, to: data.destination)
-        data.request = request
-        let op = makeConucurrentOperation(dlItem: data, request: request)
-        queue.addOperation(op)
+      if let resumeData = data.resumeData {
+          let request = Alamofire.download(resumingWith: resumeData, to: data.destination)
+
+          data.request = request
+          let op = makeConcurrentOperation(dlItem: data, request: request)
+          queue.addOperation(op)
+      }
     }
 
     func removeCompleted() {
         for item in downloadItems {
             if (item.isRemovable) {
-                downloadItems.remove(at: downloadItems.index(of: item)!)
+              downloadItems.remove(at: downloadItems.firstIndex(of: item)!)
             }
         }
     }
     
     func moveToCompleted(item: DLItem) {
-        downloadItems.remove(at: downloadItems.index(of: item)!)
+        downloadItems.remove(at: downloadItems.firstIndex(of: item)!)
         downloadItems.insert(item, at: downloadItems.endIndex)
     }
     
@@ -139,7 +142,7 @@ class DownloadManager {
         }
     }
 
-    func makeConucurrentOperation(dlItem: DLItem, request: DownloadRequest) -> ConcurrentOperation {
+    func makeConcurrentOperation(dlItem: DLItem, request: DownloadRequest) -> ConcurrentOperation {
         return ConcurrentOperation { _ in
             dlItem.status = "Queued..."
             
@@ -164,8 +167,10 @@ class DownloadManager {
                     response.result.ifFailure {
                         guard let resumeData = response.resumeData else {
                             dlItem.status = "Failed! \(response.error!)"
-                            log.error(response.error)
-                            
+                            if let error = response.error {
+                              log.error(error)
+                            }
+
                             dlItem.makeRemovable()
                             return
                         }

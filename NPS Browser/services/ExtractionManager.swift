@@ -50,7 +50,7 @@ class ExtractionManager {
     }
     
     func unzipPPK() {
-        var filepath = Defaults[.dl_library_folder]
+        var filepath = Defaults[.xt_library_folder]
         let rpf = makeRepatchFolder(filepath: filepath!)
         filepath = rpf.appendingPathComponent("\(item.titleId!)")
         
@@ -93,8 +93,8 @@ class ExtractionManager {
         let task = Process()
         let pipe = Pipe()
         
-        task.currentDirectoryPath = (Defaults[.dl_library_folder]?.appendingPathComponent(item.consoleType!).path)!
-        
+        task.currentDirectoryPath = (Defaults[.xt_library_folder]?.appendingPathComponent(item.consoleType!).path)!
+
         task.launchPath = pkg2zipPath
         
         task.arguments = getArguments()

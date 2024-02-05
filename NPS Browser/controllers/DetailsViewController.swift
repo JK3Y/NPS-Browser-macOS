@@ -173,7 +173,7 @@ class DetailsViewController: NSViewController {
     }
     
     func getBoxartViewController() -> GameArtworkViewController {
-        let vc: GameArtworkViewController = parent?.childViewControllers[1] as! GameArtworkViewController
+      let vc: GameArtworkViewController = parent?.children[1] as! GameArtworkViewController
         return vc
     }
 }

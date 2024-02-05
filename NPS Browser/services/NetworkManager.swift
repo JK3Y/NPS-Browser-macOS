@@ -6,6 +6,7 @@
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
 
+import Foundation
 import Promises
 import Alamofire
 import SwiftyUserDefaults
@@ -132,7 +133,7 @@ class NetworkManager {
         }
         return Promise<[CompatPack]?> { fulfill, reject in
             
-            if (self.windowDelegate.getLoadingViewController().presenting != nil) {
+          if (self.windowDelegate.getLoadingViewController().presentingViewController != nil) {
                 Helpers().showLoadingViewController()
             }
             Helpers().getLoadingViewController().setLabel(text: "Requesting Comp Packs... (step 1/5)")

@@ -3,18 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F46EFE22B705F730059E4AE /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFE12B705F730059E4AE /* AlamofireImage */; };
+		4F46EFE52B705FC30059E4AE /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFE42B705FC30059E4AE /* SwiftyUserDefaults */; };
+		4F46EFE82B70600E0059E4AE /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFE72B70600E0059E4AE /* Fuzi */; };
+		4F46EFEB2B7060680059E4AE /* FBLPromises in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFEA2B7060680059E4AE /* FBLPromises */; };
+		4F46EFED2B7060680059E4AE /* FBLPromisesTestHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFEC2B7060680059E4AE /* FBLPromisesTestHelpers */; };
+		4F46EFEF2B7060680059E4AE /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFEE2B7060680059E4AE /* Promises */; };
+		4F46EFF12B7060680059E4AE /* PromisesTestHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFF02B7060680059E4AE /* PromisesTestHelpers */; };
+		4F46EFF42B7060950059E4AE /* Queuer in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFF32B7060950059E4AE /* Queuer */; };
+		4F46EFF72B7060FF0059E4AE /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFF62B7060FF0059E4AE /* SwiftyBeaver */; };
+		4F46EFFA2B7061300059E4AE /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFF92B7061300059E4AE /* Zip */; };
+		4F46EFFD2B7062050059E4AE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFFC2B7062050059E4AE /* Realm */; };
+		4F46EFFF2B7062050059E4AE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F46EFFE2B7062050059E4AE /* RealmSwift */; };
 		5108B79E211641190065BA71 /* TSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108B79D211641190065BA71 /* TSVData.swift */; };
 		512175A820A7D28B00772C86 /* WindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512175A720A7D28B00772C86 /* WindowDelegate.swift */; };
 		5139DF87209F6DE9004F65F9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF86209F6DE9004F65F9 /* WindowController.swift */; };
 		5139DF89209FC6C6004F65F9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139DF88209FC6C6004F65F9 /* DetailsViewController.swift */; };
 		515B77B520AF794500C7B07D /* ToolbarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515B77B420AF794500C7B07D /* ToolbarDelegate.swift */; };
 		515F58F522C663D2003370DA /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F58F422C663D2003370DA /* Files.swift */; };
-		515F58F622C66465003370DA /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */; };
-		515F58F722C66465003370DA /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		516019E82131D65300BD7B0C /* DBMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516019E72131D65300BD7B0C /* DBMigration.swift */; };
 		5167430520AFE098003AFC4D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5167430420AFE098003AFC4D /* DownloadManager.swift */; };
 		516A1B7720CAE276004D6AE5 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 516A1B7620CAE275004D6AE5 /* CHANGELOG.md */; };
@@ -53,82 +63,7 @@
 		51EBE8212094E094005D44DC /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EBE8202094E094005D44DC /* DataViewController.swift */; };
 		51EBE8262094E095005D44DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8252094E095005D44DC /* Assets.xcassets */; };
 		51EBE8292094E095005D44DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EBE8272094E095005D44DC /* Main.storyboard */; };
-		737A797421D9BADE00DB22DD /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796821D9BADD00DB22DD /* AlamofireImage.framework */; };
-		737A797521D9BADE00DB22DD /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796821D9BADD00DB22DD /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A797621D9BADE00DB22DD /* Queuer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796921D9BADD00DB22DD /* Queuer.framework */; };
-		737A797721D9BADE00DB22DD /* Queuer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796921D9BADD00DB22DD /* Queuer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A797821D9BADE00DB22DD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796A21D9BADD00DB22DD /* Realm.framework */; };
-		737A797921D9BADE00DB22DD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796A21D9BADD00DB22DD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A797A21D9BADE00DB22DD /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796B21D9BADD00DB22DD /* FBLPromises.framework */; };
-		737A797B21D9BADE00DB22DD /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796B21D9BADD00DB22DD /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A797C21D9BADE00DB22DD /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796C21D9BADD00DB22DD /* RealmSwift.framework */; };
-		737A797D21D9BADE00DB22DD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796C21D9BADD00DB22DD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A797E21D9BADE00DB22DD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796D21D9BADD00DB22DD /* Alamofire.framework */; };
-		737A797F21D9BADE00DB22DD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796D21D9BADD00DB22DD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A798021D9BADE00DB22DD /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796E21D9BADD00DB22DD /* Fuzi.framework */; };
-		737A798121D9BADE00DB22DD /* Fuzi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A796E21D9BADD00DB22DD /* Fuzi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A798621D9BADE00DB22DD /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */; };
-		737A798721D9BADE00DB22DD /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A798821D9BADE00DB22DD /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797221D9BADE00DB22DD /* Zip.framework */; };
-		737A798921D9BADE00DB22DD /* Zip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797221D9BADE00DB22DD /* Zip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A798A21D9BADE00DB22DD /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797321D9BADE00DB22DD /* Promises.framework */; };
-		737A798B21D9BADE00DB22DD /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 737A797321D9BADE00DB22DD /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		737A799921D9BB2F00DB22DD /* RealmSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */; };
-		737A799A21D9BB2F00DB22DD /* Zip.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */; };
-		737A799B21D9BB2F00DB22DD /* Fuzi.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */; };
-		737A799C21D9BB2F00DB22DD /* AlamofireImage.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */; };
-		737A799E21D9BB2F00DB22DD /* Queuer.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */; };
-		737A799F21D9BB2F00DB22DD /* SwiftyUserDefaults.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */; };
-		737A79A021D9BB2F00DB22DD /* Realm.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */; };
-		737A79A121D9BB2F00DB22DD /* Promises.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */; };
-		737A79A221D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */; };
-		737A79A321D9BB2F00DB22DD /* FBLPromises.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */; };
-		737A79A421D9BB2F00DB22DD /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		735C819F21D93730003884A1 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				737A799921D9BB2F00DB22DD /* RealmSwift.framework.dSYM in CopyFiles */,
-				737A799A21D9BB2F00DB22DD /* Zip.framework.dSYM in CopyFiles */,
-				737A799B21D9BB2F00DB22DD /* Fuzi.framework.dSYM in CopyFiles */,
-				737A799C21D9BB2F00DB22DD /* AlamofireImage.framework.dSYM in CopyFiles */,
-				737A799E21D9BB2F00DB22DD /* Queuer.framework.dSYM in CopyFiles */,
-				737A799F21D9BB2F00DB22DD /* SwiftyUserDefaults.framework.dSYM in CopyFiles */,
-				737A79A021D9BB2F00DB22DD /* Realm.framework.dSYM in CopyFiles */,
-				737A79A121D9BB2F00DB22DD /* Promises.framework.dSYM in CopyFiles */,
-				737A79A221D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM in CopyFiles */,
-				737A79A321D9BB2F00DB22DD /* FBLPromises.framework.dSYM in CopyFiles */,
-				737A79A421D9BB2F00DB22DD /* Alamofire.framework.dSYM in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		737A798C21D9BADE00DB22DD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				737A798B21D9BADE00DB22DD /* Promises.framework in Embed Frameworks */,
-				737A797921D9BADE00DB22DD /* Realm.framework in Embed Frameworks */,
-				737A797F21D9BADE00DB22DD /* Alamofire.framework in Embed Frameworks */,
-				737A798121D9BADE00DB22DD /* Fuzi.framework in Embed Frameworks */,
-				737A797D21D9BADE00DB22DD /* RealmSwift.framework in Embed Frameworks */,
-				737A798921D9BADE00DB22DD /* Zip.framework in Embed Frameworks */,
-				737A797521D9BADE00DB22DD /* AlamofireImage.framework in Embed Frameworks */,
-				737A798721D9BADE00DB22DD /* SwiftyBeaver.framework in Embed Frameworks */,
-				515F58F722C66465003370DA /* SwiftyUserDefaults.framework in Embed Frameworks */,
-				737A797721D9BADE00DB22DD /* Queuer.framework in Embed Frameworks */,
-				737A797B21D9BADE00DB22DD /* FBLPromises.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5108B79D211641190065BA71 /* TSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSVData.swift; sourceTree = "<group>"; };
@@ -178,29 +113,6 @@
 		51EBE8252094E095005D44DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51EBE8282094E095005D44DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51EBE82A2094E095005D44DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		737A796821D9BADD00DB22DD /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/Mac/AlamofireImage.framework; sourceTree = "<group>"; };
-		737A796921D9BADD00DB22DD /* Queuer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Queuer.framework; path = Carthage/Build/Mac/Queuer.framework; sourceTree = "<group>"; };
-		737A796A21D9BADD00DB22DD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
-		737A796B21D9BADD00DB22DD /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/Mac/FBLPromises.framework; sourceTree = "<group>"; };
-		737A796C21D9BADD00DB22DD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
-		737A796D21D9BADD00DB22DD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
-		737A796E21D9BADD00DB22DD /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/Mac/Fuzi.framework; sourceTree = "<group>"; };
-		737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/Mac/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
-		737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		737A797221D9BADE00DB22DD /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/Mac/Zip.framework; sourceTree = "<group>"; };
-		737A797321D9BADE00DB22DD /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/Mac/Promises.framework; sourceTree = "<group>"; };
-		737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RealmSwift.framework.dSYM; path = Carthage/Build/Mac/RealmSwift.framework.dSYM; sourceTree = "<group>"; };
-		737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Zip.framework.dSYM; path = Carthage/Build/Mac/Zip.framework.dSYM; sourceTree = "<group>"; };
-		737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Fuzi.framework.dSYM; path = Carthage/Build/Mac/Fuzi.framework.dSYM; sourceTree = "<group>"; };
-		737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlamofireImage.framework.dSYM; path = Carthage/Build/Mac/AlamofireImage.framework.dSYM; sourceTree = "<group>"; };
-		737A799121D9BB2E00DB22DD /* Files.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Files.framework.dSYM; path = Carthage/Build/Mac/Files.framework.dSYM; sourceTree = "<group>"; };
-		737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Queuer.framework.dSYM; path = Carthage/Build/Mac/Queuer.framework.dSYM; sourceTree = "<group>"; };
-		737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyUserDefaults.framework.dSYM; path = Carthage/Build/Mac/SwiftyUserDefaults.framework.dSYM; sourceTree = "<group>"; };
-		737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/Mac/Realm.framework.dSYM; sourceTree = "<group>"; };
-		737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Promises.framework.dSYM; path = Carthage/Build/Mac/Promises.framework.dSYM; sourceTree = "<group>"; };
-		737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
-		737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = FBLPromises.framework.dSYM; path = Carthage/Build/Mac/FBLPromises.framework.dSYM; sourceTree = "<group>"; };
-		737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/Mac/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		96E8D4B622CD0BA000FA4694 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		96E8D4BA22CD0F6900FA4694 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,17 +122,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				737A798A21D9BADE00DB22DD /* Promises.framework in Frameworks */,
-				737A797821D9BADE00DB22DD /* Realm.framework in Frameworks */,
-				737A797E21D9BADE00DB22DD /* Alamofire.framework in Frameworks */,
-				737A798021D9BADE00DB22DD /* Fuzi.framework in Frameworks */,
-				737A797C21D9BADE00DB22DD /* RealmSwift.framework in Frameworks */,
-				737A798821D9BADE00DB22DD /* Zip.framework in Frameworks */,
-				737A797421D9BADE00DB22DD /* AlamofireImage.framework in Frameworks */,
-				737A798621D9BADE00DB22DD /* SwiftyBeaver.framework in Frameworks */,
-				515F58F622C66465003370DA /* SwiftyUserDefaults.framework in Frameworks */,
-				737A797621D9BADE00DB22DD /* Queuer.framework in Frameworks */,
-				737A797A21D9BADE00DB22DD /* FBLPromises.framework in Frameworks */,
+				4F46EFFA2B7061300059E4AE /* Zip in Frameworks */,
+				4F46EFF42B7060950059E4AE /* Queuer in Frameworks */,
+				4F46EFFF2B7062050059E4AE /* RealmSwift in Frameworks */,
+				4F46EFED2B7060680059E4AE /* FBLPromisesTestHelpers in Frameworks */,
+				4F46EFE22B705F730059E4AE /* AlamofireImage in Frameworks */,
+				4F46EFF72B7060FF0059E4AE /* SwiftyBeaver in Frameworks */,
+				4F46EFE52B705FC30059E4AE /* SwiftyUserDefaults in Frameworks */,
+				4F46EFEF2B7060680059E4AE /* Promises in Frameworks */,
+				4F46EFE82B70600E0059E4AE /* Fuzi in Frameworks */,
+				4F46EFF12B7060680059E4AE /* PromisesTestHelpers in Frameworks */,
+				4F46EFFD2B7062050059E4AE /* Realm in Frameworks */,
+				4F46EFEB2B7060680059E4AE /* FBLPromises in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +234,6 @@
 		51EBE8122094E094005D44DC = {
 			isa = PBXGroup;
 			children = (
-				737A796421D9922400DB22DD /* Frameworks */,
 				518A892D213062E800821EE7 /* LICENSE.md */,
 				51843FD020CB9DF2009AE9A4 /* .gitignore */,
 				516A1B7820CAE28A004D6AE5 /* README.md */,
@@ -361,36 +273,6 @@
 			path = "NPS Browser";
 			sourceTree = "<group>";
 		};
-		737A796421D9922400DB22DD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				737A799821D9BB2F00DB22DD /* Alamofire.framework.dSYM */,
-				737A799021D9BB2E00DB22DD /* AlamofireImage.framework.dSYM */,
-				737A799721D9BB2F00DB22DD /* FBLPromises.framework.dSYM */,
-				737A799121D9BB2E00DB22DD /* Files.framework.dSYM */,
-				737A798F21D9BB2E00DB22DD /* Fuzi.framework.dSYM */,
-				737A799521D9BB2F00DB22DD /* Promises.framework.dSYM */,
-				737A799221D9BB2E00DB22DD /* Queuer.framework.dSYM */,
-				737A799421D9BB2F00DB22DD /* Realm.framework.dSYM */,
-				737A798D21D9BB2E00DB22DD /* RealmSwift.framework.dSYM */,
-				737A799621D9BB2F00DB22DD /* SwiftyBeaver.framework.dSYM */,
-				737A799321D9BB2E00DB22DD /* SwiftyUserDefaults.framework.dSYM */,
-				737A798E21D9BB2E00DB22DD /* Zip.framework.dSYM */,
-				737A796D21D9BADD00DB22DD /* Alamofire.framework */,
-				737A796821D9BADD00DB22DD /* AlamofireImage.framework */,
-				737A796B21D9BADD00DB22DD /* FBLPromises.framework */,
-				737A796E21D9BADD00DB22DD /* Fuzi.framework */,
-				737A797321D9BADE00DB22DD /* Promises.framework */,
-				737A796921D9BADD00DB22DD /* Queuer.framework */,
-				737A796A21D9BADD00DB22DD /* Realm.framework */,
-				737A796C21D9BADD00DB22DD /* RealmSwift.framework */,
-				737A797121D9BADD00DB22DD /* SwiftyBeaver.framework */,
-				737A796F21D9BADD00DB22DD /* SwiftyUserDefaults.framework */,
-				737A797221D9BADE00DB22DD /* Zip.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,14 +283,26 @@
 				51EBE8172094E094005D44DC /* Sources */,
 				51EBE8182094E094005D44DC /* Frameworks */,
 				51EBE8192094E094005D44DC /* Resources */,
-				735C819F21D93730003884A1 /* CopyFiles */,
-				737A798C21D9BADE00DB22DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "NPS Browser";
+			packageProductDependencies = (
+				4F46EFE12B705F730059E4AE /* AlamofireImage */,
+				4F46EFE42B705FC30059E4AE /* SwiftyUserDefaults */,
+				4F46EFE72B70600E0059E4AE /* Fuzi */,
+				4F46EFEA2B7060680059E4AE /* FBLPromises */,
+				4F46EFEC2B7060680059E4AE /* FBLPromisesTestHelpers */,
+				4F46EFEE2B7060680059E4AE /* Promises */,
+				4F46EFF02B7060680059E4AE /* PromisesTestHelpers */,
+				4F46EFF32B7060950059E4AE /* Queuer */,
+				4F46EFF62B7060FF0059E4AE /* SwiftyBeaver */,
+				4F46EFF92B7061300059E4AE /* Zip */,
+				4F46EFFC2B7062050059E4AE /* Realm */,
+				4F46EFFE2B7062050059E4AE /* RealmSwift */,
+			);
 			productName = "NPS Browser";
 			productReference = 51EBE81B2094E094005D44DC /* NPS Browser.app */;
 			productType = "com.apple.product-type.application";
@@ -419,9 +313,10 @@
 		51EBE8132094E094005D44DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1510;
 				ORGANIZATIONNAME = JK3Y;
 				TargetAttributes = {
 					51EBE81A2094E094005D44DC = {
@@ -446,6 +341,17 @@
 				"zh-Hans",
 			);
 			mainGroup = 51EBE8122094E094005D44DC;
+			packageReferences = (
+				4F46EFDF2B705EE10059E4AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4F46EFE02B705F730059E4AE /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				4F46EFE32B705FC30059E4AE /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				4F46EFE62B70600E0059E4AE /* XCRemoteSwiftPackageReference "Fuzi" */,
+				4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */,
+				4F46EFF22B7060950059E4AE /* XCRemoteSwiftPackageReference "Queuer" */,
+				4F46EFF52B7060FF0059E4AE /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				4F46EFF82B7061300059E4AE /* XCRemoteSwiftPackageReference "Zip" */,
+				4F46EFFB2B7062050059E4AE /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 51EBE81C2094E094005D44DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -537,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -601,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -663,7 +571,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -676,15 +584,15 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.7;
 				OTHER_SWIFT_FLAGS = "$(inherited)\n$(inherited)\n$(inherited)\n \"-D\"\n \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
@@ -698,7 +606,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 69;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -711,14 +619,14 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.4.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.4.7;
 				OTHER_SWIFT_FLAGS = "$(inherited)\n$(inherited)\n$(inherited)\n \"-D\"\n \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "JK3Y.NPS-Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
@@ -745,6 +653,144 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F46EFDF2B705EE10059E4AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.7.0;
+			};
+		};
+		4F46EFE02B705F730059E4AE /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.1;
+			};
+		};
+		4F46EFE32B705FC30059E4AE /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		4F46EFE62B70600E0059E4AE /* XCRemoteSwiftPackageReference "Fuzi" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cezheng/Fuzi";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+		4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/promises";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+		4F46EFF22B7060950059E4AE /* XCRemoteSwiftPackageReference "Queuer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FabrizioBrancati/Queuer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		4F46EFF52B7060FF0059E4AE /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
+		4F46EFF82B7061300059E4AE /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+		4F46EFFB2B7062050059E4AE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F46EFE12B705F730059E4AE /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE02B705F730059E4AE /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+		4F46EFE42B705FC30059E4AE /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE32B705FC30059E4AE /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+		4F46EFE72B70600E0059E4AE /* Fuzi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE62B70600E0059E4AE /* XCRemoteSwiftPackageReference "Fuzi" */;
+			productName = Fuzi;
+		};
+		4F46EFEA2B7060680059E4AE /* FBLPromises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */;
+			productName = FBLPromises;
+		};
+		4F46EFEC2B7060680059E4AE /* FBLPromisesTestHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */;
+			productName = FBLPromisesTestHelpers;
+		};
+		4F46EFEE2B7060680059E4AE /* Promises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */;
+			productName = Promises;
+		};
+		4F46EFF02B7060680059E4AE /* PromisesTestHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFE92B7060680059E4AE /* XCRemoteSwiftPackageReference "promises" */;
+			productName = PromisesTestHelpers;
+		};
+		4F46EFF32B7060950059E4AE /* Queuer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFF22B7060950059E4AE /* XCRemoteSwiftPackageReference "Queuer" */;
+			productName = Queuer;
+		};
+		4F46EFF62B7060FF0059E4AE /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFF52B7060FF0059E4AE /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
+		};
+		4F46EFF92B7061300059E4AE /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFF82B7061300059E4AE /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+		4F46EFFC2B7062050059E4AE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFFB2B7062050059E4AE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		4F46EFFE2B7062050059E4AE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F46EFFB2B7062050059E4AE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 51EBE8132094E094005D44DC /* Project object */;
 }
