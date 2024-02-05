@@ -21,7 +21,7 @@ class WindowController: NSWindowController, NSToolbarDelegate, WindowDelegate {
     override func windowDidLoad() {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         super.windowDidLoad()
-        let vc: LoadingViewController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "loadingVC")) as! LoadingViewController
+      let vc: LoadingViewController = self.storyboard?.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("loadingVC")) as! LoadingViewController
         loadingViewController = vc
         
         self.delegate = getDataController()

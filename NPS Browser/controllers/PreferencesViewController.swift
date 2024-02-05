@@ -32,6 +32,7 @@ class PreferencesViewController: NSViewController {
     @IBOutlet weak var dlPathField: NSTextField!
     
     // Extraction Methods
+    @IBOutlet var chkXTField: NSTextField!
     @IBOutlet weak var chkExtractPKG: NSButton!
     @IBOutlet weak var chkCreateLicense: NSButton!
     @IBOutlet weak var chkKeepPKG: NSButton!
@@ -44,6 +45,7 @@ class PreferencesViewController: NSViewController {
     
 //    let settings = SettingsManager().getSettings()
     var dlLocation: URL?
+    var xtLocation: URL?
     var update_checked: Date? = nil
     
     override func viewWillAppear() {
@@ -94,6 +96,7 @@ class PreferencesViewController: NSViewController {
     
     func updateTextFields() {
         self.dlLocation = Defaults[.dl_library_location]
+        self.xtLocation = Defaults[.xt_library_location]
 
         psvgField.stringValue                   = Defaults[.src_psv_games]?.absoluteString ?? ""
         psvdlcField.stringValue                 = Defaults[.src_psv_dlcs]?.absoluteString ?? ""
@@ -107,11 +110,12 @@ class PreferencesViewController: NSViewController {
         compatPackField.stringValue             = Defaults[.src_compatPacks]?.absoluteString ?? ""
         compatPatchField.stringValue            = Defaults[.src_compatPatch]?.absoluteString ?? ""
 
-        chkHideInvalidURLItems.state            = Defaults[.dsp_hide_invalid_url_items] ? .on : .off
         ccDLField.integerValue                  = Defaults[.dl_concurrent_downloads]
         dlPathField.stringValue                 = self.dlLocation!.path
 
+        chkXTField.stringValue                  = self.xtLocation!.path
         chkExtractPKG.state                     = Defaults[.xt_extract_after_downloading] ? .on : .off
+        chkHideInvalidURLItems.state            = Defaults[.dsp_hide_invalid_url_items] ? .on : .off
         chkKeepPKG.state                        = Defaults[.xt_keep_pkg] ? .on : .off
         chkSaveZip.state                        = Defaults[.xt_save_as_zip] ? .on : .off
         chkCreateLicense.state                  = Defaults[.xt_create_license] ? .on : .off
@@ -134,11 +138,32 @@ class PreferencesViewController: NSViewController {
         panel.beginSheetModal(for: window) { (result) in
             if result == NSApplication.ModalResponse.OK {
                 self.dlLocation = panel.urls[0]
-                self.dlPathField.stringValue = self.dlLocation!.path
+                self.dlPathField.stringValue = self.dlLocation?.path ?? ""
+                Defaults[.dl_library_location] = self.dlLocation!.absoluteURL
+                Defaults[.dl_library_folder]   = self.dlLocation!.absoluteURL
+                Helpers.setupDownloadsDirectory()
             }
         }
     }
-    
+
+    @IBAction func selectExtractPath(_ sender: Any) {
+        guard let window = view.window else { return }
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.allowsMultipleSelection = false
+
+        panel.beginSheetModal(for: window) { (result) in
+            if result == NSApplication.ModalResponse.OK {
+                self.xtLocation = panel.urls[0]
+                self.chkXTField.stringValue = self.xtLocation?.path ?? ""
+                Defaults[.xt_library_location] = self.xtLocation!.absoluteURL
+                Defaults[.xt_library_folder]   = self.xtLocation!.absoluteURL
+                Helpers.setupDownloadsDirectory()
+            }
+        }
+    }
+
     @IBAction func chooseTSVFile(_ sender: NSButton) {
         let id = sender.identifier!.rawValue
         
@@ -210,8 +235,11 @@ class PreferencesViewController: NSViewController {
             try validateAndStore(urlString: compatPatchField.stringValue, endsWith: "txt", defaultsKey: .src_compatPatch)
 
             Defaults[.dl_library_location]      = self.dlLocation!.absoluteURL
+            Defaults[.dl_library_folder]        = self.dlLocation!.absoluteURL
             Defaults[.dl_concurrent_downloads]  = ccDLField.integerValue
-            
+
+            Defaults[.xt_library_location]          = self.xtLocation!.absoluteURL
+            Defaults[.xt_library_folder]            = self.xtLocation!.absoluteURL
             Defaults[.xt_extract_after_downloading] = chkExtractPKG.state == .on
             Defaults[.xt_keep_pkg]                  = chkKeepPKG.state == .on
             Defaults[.xt_save_as_zip]               = chkSaveZip.state == .on
@@ -221,8 +249,7 @@ class PreferencesViewController: NSViewController {
             
             Defaults[.dsp_hide_invalid_url_items]   = chkHideInvalidURLItems.state == .on
 
-            
-            dismissViewController(self)
+            dismiss(self)
         } catch {
             return
         }

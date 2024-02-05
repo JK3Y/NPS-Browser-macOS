@@ -30,8 +30,8 @@ class LoadingViewController: NSViewController, LoadingViewDelegate {
     }
     
     func closeWindow() {
-        if (self.presenting != nil) {
-            dismissViewController(self)
+        if (self.presentingViewController != nil) {
+            dismiss(self)
         } else {
             return
         }

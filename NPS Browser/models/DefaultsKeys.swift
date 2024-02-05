@@ -5,6 +5,7 @@
 //  Created by JK3Y on 8/17/18.
 //  Copyright © 2018 JK3Y. All rights reserved.
 //
+import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
@@ -21,9 +22,12 @@ extension DefaultsKeys {
     static let src_compatPatch = DefaultsKey<URL?>("src_compatPatch", defaultValue: URL(string:"https://gitlab.com/nopaystation_repos/nps_compati_packs/raw/master/entries_patch.txt")!)
     
     static let dl_library_location        = DefaultsKey<URL?>("dl_library_location", defaultValue: try! NSHomeDirectory().asURL().appendingPathComponent("Downloads"))
-    static let dl_concurrent_downloads    = DefaultsKey<Int>("dl_concurrent_downloads", defaultValue: 3)
     static let dl_library_folder          = DefaultsKey<URL?>("dl_library_folder", defaultValue: try! NSHomeDirectory().asURL().appendingPathComponent("Downloads").appendingPathComponent("NPS Downloads", isDirectory: true))
-    
+    static let dl_concurrent_downloads    = DefaultsKey<Int>("dl_concurrent_downloads", defaultValue: 3)
+
+    static let xt_library_location        = DefaultsKey<URL?>("xt_library_location", defaultValue: try! NSHomeDirectory().asURL().appendingPathComponent("Downloads"))
+    static let xt_library_folder          = DefaultsKey<URL?>("xt_library_folder", defaultValue: try! NSHomeDirectory().asURL().appendingPathComponent("Downloads").appendingPathComponent("NPS Downloads", isDirectory: true))
+
     static let xt_extract_after_downloading   = DefaultsKey<Bool>("xt_extract_after_downloading", defaultValue: true)
     static let xt_keep_pkg                    = DefaultsKey<Bool>("xt_keep_pkg", defaultValue: false)
     static let xt_save_as_zip                 = DefaultsKey<Bool>("xt_save_as_zip", defaultValue: false)

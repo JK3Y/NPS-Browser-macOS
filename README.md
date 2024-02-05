@@ -1,11 +1,12 @@
 # NPS Browser for macOS
 
-A Swift 4 implementation of NPS Browser.\
-**Tested and working on macOS 10.11-10.15**
+A Swift 5 implementation of NPS Browser.\
+**Tested and working on macOS Ventura 13.6.1**
 
 ![](/Screenshots/main.png?raw=true)
 
 ## Features
+* Separate Download and Extraction Folders
 * Localization in Simplified Chinese
 * Bookmarks can be saved by clicking the star icon in the corner of the details panel
 * Downloads can be started from the bookmark list
@@ -28,18 +29,6 @@ rm -r ~/Library/Caches/NPS\ Browser
 defaults delete JK3Y.NPS-Browser
 ```
 
-## Building
-Make sure you have Xcode 10.2 and [Carthage][] installed.
-Open a terminal and install the dependencies:
-```
-carthage bootstrap --platform macOS --no-use-binaries --cache-builds
-```
-Open the .xcodeproj file to open the project.
-
-Build by going to Product > Build.
-
-Export an app bundle by going to Product > Archive > Export.
-
 #### [Changelog][]
 
 ## Thanks
@@ -47,8 +36,8 @@ Export an app bundle by going to Product > Archive > Export.
 * Luro02 for the [pkg2zip][] fork
 * devnoname120 for [vitanpupdatelinks][]
 * L1cardo for Simplified Chinese translation
+* danieltarazona for Swift 5 update and Carthage remove
 
-[Carthage]: https://github.com/Carthage/Carthage
 [Changelog]: https://github.com/JK3Y/NPS-Browser-macOS/blob/master/CHANGELOG.md
 [pkg2zip]: https://github.com/Luro02/pkg2zip
 [vitanpupdatelinks]: https://github.com/devnoname120/vitanpupdatelinks

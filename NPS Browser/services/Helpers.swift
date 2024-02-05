@@ -11,7 +11,26 @@ import Foundation
 import SwiftyUserDefaults
 
 class Helpers {
-    
+
+    static func setupDownloadsDirectory() {
+        var dlFolder: URL? = Defaults[.dl_library_location]
+
+        //        if (try! !dlFolder.checkResourceIsReachable()) {
+        //            dlFolder =
+        //            try! Defaults[.dl_library_location] = dlFolder
+        //        }
+
+        let dlDirName = "NPS Downloads"
+
+        do {
+            try Folder(path: dlFolder!.path).createSubfolderIfNeeded(withName: dlDirName)
+        } catch {
+            dlFolder = try! NSHomeDirectory().asURL().appendingPathComponent("Downloads")
+            Defaults.set(dlFolder!.absoluteURL, forKey: "dl_library_location")
+            try! Folder(path: dlFolder!.path).createSubfolderIfNeeded(withName: dlDirName)
+        }
+    }
+
     func makeAlert(messageText: String = "", informativeText: String = "", alertStyle: NSAlert.Style = .warning) {
         let alert = NSAlert()
         alert.messageText = messageText
@@ -42,7 +61,7 @@ class Helpers {
     }
     
     func showLoadingViewController() {
-        getDataController().presentViewControllerAsSheet(getWindowDelegate().getLoadingViewController())
+        getDataController().presentAsSheet(getWindowDelegate().getLoadingViewController())
     }
     
     func getRowObjectFromTableRowButton(_ sender: NSButton) -> Any? {
@@ -60,7 +79,6 @@ class Helpers {
     
     func makeDLItem(data: Item, downloadUrl: URL, fileType: FileType) -> DLItem {
         let obj = DLItem()
-        let ctype: ConsoleType = ConsoleType.init(rawValue: data.consoleType!)!
 
         obj.titleId        = data.titleId
         obj.name            = "\(fileType.rawValue) - \(data.name!)"
