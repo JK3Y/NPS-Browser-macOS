@@ -1,9 +1,0 @@
-github "Alamofire/Alamofire" ~> 4.7
-github "Alamofire/AlamofireImage" ~> 3.3.1
-github "google/promises" ~> 1.2
-github "FabrizioBrancati/Queuer" ~> 2.0.1
-github "SwiftyBeaver/SwiftyBeaver" ~> 1.6.1
-github "marmelroy/Zip" ~> 1.1
-github "realm/realm-cocoa" ~> 3.13
-github "cezheng/Fuzi" ~> 2.1
-github "radex/SwiftyUserDefaults" "4.0.0"
